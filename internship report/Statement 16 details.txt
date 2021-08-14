@@ -1,0 +1,24 @@
+Statement # 16
+--------------------
+NBA Descriptive: Identification of courses (top / bottom n) based on CO attainment scores at the course level, considering common rubrics (C3.2.2 A)
+
+Details:
+----------
+Selection Criteria
+1. Who are the potential users of this problem statement? Faculty, HOD, Principal
+2. Selection criteria can be: Academic year (Mandatory), Term (Mandatory)
+Data Assimilation & Presentation
+(a) Based on the entered selection criteria select the courses. 
+(b) For each of the courses, display the individual COs along the x-axis of a bar chart with the length of each bar measured along the y-axis representing the value of each such CO.
+(c) Hovering on the cluster of CO bars of a course will display the exact value of attainment of each of the CO.
+(d) Clicking on the cluster of CO bars of a course will display detailed information of each of those COs in the next screen. The list of courses will be displayed in the left margin and the course whose CO cluster was clicked on will get high-lighted, with the details of its COs displayed in the central panel. For each of the CO, the Total Attainment, Direct Attainment and Indirect Attainment scores will be shown using a bar graph.
+(e) Hovering on each bar of each CO will display the exact value of its attainment.
+(f) Clicking on the cluster of bars of a CO will display in multiple tabs and multiple tables, the assessment details of Direct Attainment and Indirect Attainment.
+(g) The Direct Attainment can include 
+    - Multiple Internal Assessments (Total number of students, Total attempted, Total attained, Attainment - out of 3 and out of 100)
+    - University exam (the same details as that of Internal Assessments)
+    - Other Assessment (the same details as that of Internal Assessments)
+(h) The Indirect Attainment can include Feedback scores (the same details as that of Internal Assessments)
+(i) Clicking on the Rubrics button will display the rubrics information related to assessments that are related to both Direct Attainment and Indirect Attainment.
+(j) When the HoD logs in, all the courses conducted by that department that are applicable for the entered selection criteria will be displayed. Ability to sort on the Faculty names (who are responsible for these courses) should be provided.
+(k) For the Principal, the functionality will be similar to that of the HoD. However, an extra field for Department will be provided using which the Principal can view the data belonging to any Department of the institution.

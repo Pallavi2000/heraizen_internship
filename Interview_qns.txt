@@ -1,0 +1,15 @@
+1. What is Python? What are the benfits of the Python?
+2. Explain about PEP8
+3. Explain C Vs Python or Java Vs Python
+4. What is the PATH variable?
+5. Explain about Python comments
+
+1. Write a program to accept two numbers from the user and swap their values. (Example: x=12, y=15; after swapping x=15, y=12)
+
+2. If cost price and selling price of an item is input through the keyboard, write a program to determine whether the seller has made a profit or incurred a     loss. Also determine the quantum of profit or loss. 
+
+3. Write a program to accept 2 different numbers from the user and print the prime numbers between these 2 numbers
+
+4. Write a program to accept a number from the user and check the whether palindrome or not?
+
+5. Input : ["Ailia","RRR","Manoj","Liril","Malayalam","Itali","Noon", "Maham","Ranju", "12321","124321","1345321"] get all the palindrome string from        given input

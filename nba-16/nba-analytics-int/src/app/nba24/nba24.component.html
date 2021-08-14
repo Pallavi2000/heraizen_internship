@@ -1,0 +1,1305 @@
+<!-- Anish -->
+<div class="row">
+  <div class="col-md-11">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a>
+          <i class="fa fa-bar-chart"></i>
+          Analytics
+        </a>
+      </li>
+      <li class="active breadcrumb-item">
+        Statement 24
+      </li>
+    </ol>
+  </div>
+  <div class="col-md-1">
+    <div *ngIf="!visible">
+      <span> <i class="fa fa-chevron-left" (click)="go_back()"></i>Back </span>
+    </div>
+  </div>
+</div>
+
+<!-- Above is for the breadcrumb. You can go back to analytics page by clicking the link. -->
+<!-- top row -->
+<form [formGroup]="searchBar">
+  <div class="row">
+    <div class="col-md-2 col-6">
+      <!-- <mat-label class="text-success">Academic Year<em>*</em></mat-label> -->
+      <mat-label class="text-success"
+        >{{ analytics.academic_year }}<em>*</em></mat-label
+      >
+      <!-- <mat-form-field> -->
+      <mat-select
+        class="inputMaterial"
+        [(ngModel)]="clickedYear"
+        (selectionChange)="useSearchAgain()"
+        placeholder="Enter Academic Year"
+        [disabled]="!seachEnable"
+        formControlName="year"
+      >
+        <mat-option [value]="year" *ngFor="let year of academicYearDrop">{{
+          year
+        }}</mat-option>
+      </mat-select>
+      <!-- </mat-form-field> -->
+    </div>
+
+    <!-- Above is the drop down for Academic Year -->
+    <div class="col-md-2 col-6">
+      <mat-label class="text-success">{{ analytics.term }}<em>*</em></mat-label>
+      <!-- <mat-form-field> -->
+      <mat-select
+        class="inputMaterial"
+        [(ngModel)]="clickedTerm"
+        placeholder="Enter Term(s)"
+        (selectionChange)="useSearchAgain()"
+        [disabled]="!seachEnable"
+        multiple
+        formControlName="term"
+      >
+        <mat-option [value]="term" *ngFor="let term of termDrop">{{
+          term
+        }}</mat-option>
+      </mat-select>
+      <!-- </mat-form-field> -->
+    </div>
+    <div class="col-md-2 m-3">
+      <button
+        type="button"
+        class="other-button border rounded d-none d-md-block"
+        (click)="searchButton()"
+        [disabled]="clicked || (clickedTerm && clickedYear) == null"
+      >
+        <i class="fa fa-search"></i> Search
+      </button>
+    </div>
+  </div>
+</form>
+
+<span class="mandatry-field">
+  <em>*</em>&nbsp;<small>{{ analytics.fields }}</small>
+</span>
+<div class="rwd_search">
+  <button
+    type="button"
+    class="other-button border rounded d-sm-block d-md-none"
+    (click)="searchButton()"
+    [disabled]="clicked || (clickedTerm && clickedYear) == null"
+  >
+    <i class="fa fa-search"></i> {{ analytics.search }}
+  </button>
+</div>
+<hr />
+<div class="col-md-12 col-xs-12">
+  <div class="text-center" *ngIf="search && !error">
+    {{ analytics.default_message }}
+  </div>
+  <div class="text-center" *ngIf="error">
+    {{ analytics.emptyMessage }}
+  </div>
+</div>
+<!-- first chart -->
+<div class="col-md-12" *ngIf="visible && data1 && firstChart">
+  <h6 class="text-center">{{ analytics.chart_1_head }}</h6>
+
+  <div
+    class="d-none d-md-block"
+    (select)="onSelect($event)"
+    google-chart
+    [data]="data1.dataTable"
+    [chartType]="data1.chartType"
+    [options]="data1.options"
+  ></div>
+
+  <mat-card
+    *ngFor="let d of rwd_DataTable; index as i"
+    class="d-sm-block d-md-none chart1"
+  >
+    <div
+      class="chart1"
+      (select)="onSelect($event)"
+      google-chart
+      [data]="rwd_data.dataTable[i]"
+      [chartType]="rwd_data.chartType"
+      [options]="rwd_data.options"
+    ></div>
+  </mat-card>
+</div>
+<!-- rest of all -->
+<div class="row">
+  <!-- Charan, left panel -->
+  <div class="col-lg-3 col-md-2 d-none d-sm-block" *ngIf="!visible">
+    <div class="row ml-2">
+      {{ analytics.course_list }}
+    </div>
+
+    <div class="row num2 pl-2 ml-1 rounded border" id="sort_colour">
+      <p class="col-md-12 mr-2 text-success">{{ analytics.sortHead }}</p>
+      <mat-radio-group>
+        <mat-radio-button class="mat-small" value="1" (click)="avgco_sort()">{{
+          analytics.avCoAtn
+        }}</mat-radio-button
+        ><br />
+        <div>
+          <mat-radio-button
+            class="mat-small"
+            value="2"
+            (click)="coursename_sort()"
+            >{{ analytics.coName }}
+          </mat-radio-button>
+        </div>
+        <div *ngIf="var_hod">
+          <mat-radio-button
+            class="mat-small"
+            value="3"
+            (click)="facultyname_sort()"
+            >{{ analytics.faName }}
+          </mat-radio-button>
+        </div>
+      </mat-radio-group>
+    </div>
+    <div class="row">
+      <div class="col-md-5">
+        <p class="text-success mt-3">
+          {{ analytics.noentry }}
+        </p>
+        <select id="range" name="range">
+          <option value="1-10">{{ analytics.one10 }}</option>
+          <option value="11-20">{{ analytics.ten20 }}</option>
+          <option value="21-30">{{ analytics.twenty30 }}</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <div id="verticleline" class="vl mt-4"></div>
+      </div>
+      <div class="col-md-4 pr-2 mt-4">
+        <mat-radio-group>
+          <mat-radio-button class="mat-small" value="1" (click)="high_lowsort()"
+            >{{ analytics.Desc }} </mat-radio-button
+          ><br />
+          <div>
+            <mat-radio-button
+              class="mat-small pr-2"
+              value="2"
+              (click)="low_highsort()"
+              >{{ analytics.Asc }}
+            </mat-radio-button>
+          </div>
+        </mat-radio-group>
+      </div>
+    </div>
+
+    <!-- <div class="row" *ngIf="var_faculty">
+      <div
+        class="col-md-12 mx-2 mb-2"
+        *ngFor="let cardselect of faculty_data; index as i"
+      >
+        <button
+          class="selectbutton mt-2 border rounded bg-white"
+          type="button"
+          id="{{ i }}"
+          (click)="changeNavbar(cardselect.courseCode)"
+        >
+          {{ cardselect.courseName }} <br />
+          Term-{{ cardselect.termNumber }} sec-{{ cardselect.section }} -{{
+            cardselect.courseCode
+          }}
+        </button>
+      </div>
+    </div> -->
+    <div *ngIf="var_faculty">
+      <div>
+        <mat-button-toggle-group
+          class="px-1 mt-2 fullwidth noborder togglegroup height"
+          vertical
+          [value]="leftNavPush"
+        >
+          <div mb-2 *ngFor="let cardselect of faculty_data; index as i">
+            <mat-button-toggle
+              (click)="changeNavbar(cardselect.courseCode)"
+              class="maintext f14 basicborder pb-5"
+              value="{{ cardselect.courseCode }}"
+            >
+              <p class="mat-small">
+                {{ cardselect.courseName }} <br />
+                Term-{{ cardselect.termNumber }} sec-{{
+                  cardselect.section
+                }}
+                -{{ cardselect.courseCode }}
+              </p>
+            </mat-button-toggle>
+          </div>
+        </mat-button-toggle-group>
+      </div>
+    </div>
+
+    <!-- <div *ngIf= "var_hod">
+    <div>
+        <mat-button-toggle-group class="px-1  mt-2  fullwidth noborder togglegroup height " vertical
+            [value]="leftNavPush">
+            <div mb-2 *ngFor="let cardselect of hod_details; index as i">
+
+                <mat-button-toggle
+                    (click)="changeNavbar(cardselect.courseCode)"
+                    class="maintext f14  basicborder pb-5    "
+                    value="{{cardselect.courseCode}}">
+
+                    <p class="mat-small ">
+                      {{ cardselect.courseName }} <br />
+          Term-{{ cardselect.termNumber }} sec-{{ cardselect.section }} -{{
+            cardselect.courseCode
+          }}
+          {{ cardselect.facultyName }}
+                    </p>
+                </mat-button-toggle>
+            </div>
+        </mat-button-toggle-group>
+    </div>
+</div> -->
+
+    <!-- hod course cards -->
+    <div class="row ml-2" *ngIf="var_hod">
+      <div
+        class="col-md-12 mb-2 selectbutton"
+        class="selectionBar"
+        *ngFor="let cardselect of hod_details"
+      >
+        <button
+          type="button"
+          class="selectbutton mt-2 border rounded bg-white"
+          (click)="changeNavbar(cardselect.courseCode)"
+        >
+          {{ cardselect.courseName }} <br />
+          Term-{{ cardselect.termNumber }} sec-{{ cardselect.section }} -{{
+            cardselect.courseCode
+          }}
+          {{ cardselect.facultyName }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!--left part rwd-->
+  <div class="d-block d-sm-none"  *ngIf="!visible && !tp1">
+    <div class="leftPane divider ml-4" style="padding-right: 0px;">
+      <mat-card 
+        id="sortBox"
+        class="my-12 basicborder "
+        style="padding-left: 4px; padding-right: 30px;"
+      >
+        <div class="mat-body-2" style="margin-left: 16px;">
+          {{ analytics.course_list }}
+        </div>
+        <div>
+          <mat-card id="sortBox" class="my-3 basicborder">
+            <mat-card-title class="mb-0">
+              <div class="mat-caption greentext mb-0">
+                <i>{{ analytics.sortby }}</i>
+              </div>
+            </mat-card-title>
+            <mat-radio-group>
+              <mat-radio-button
+                style="padding-right: 20px;"
+                class="mat-large maintext"
+                value="1"
+                (click)="avgco_sort()"
+              >
+                {{ analytics.avCoAtn }}
+              </mat-radio-button>
+              <mat-radio-button
+                style="margin-left: 0px;"
+                class="mat-large maintext"
+                value="2"
+                (click)="coursename_sort()"
+              >
+                {{ analytics.coName }}
+              </mat-radio-button>
+            </mat-radio-group>
+          </mat-card>
+        </div>
+        <div>
+          <mat-radio-group>
+            <mat-radio-button
+              style="padding-right: 20px; padding-left: 18px;"
+              class="mat-large"
+              value="1"
+              (click)="high_lowsort()"
+              >{{ analytics.Desc }}
+            </mat-radio-button>
+            <mat-radio-button
+              class="mat-large"
+              value="2"
+              (click)="low_highsort()"
+              >{{ analytics.Asc }}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </mat-card>
+
+      <br />
+    </div>
+  </div>
+  <!-- Acoordian rwd -->
+  <div
+    class="row container d-block d-sm-none"
+    style="
+      margin-right: 0px;
+      margin-left: 0px;
+      padding-left: 15px;
+      padding-right: 15px;
+    "
+    *ngIf="!visible && !tp1"
+  >
+    <div class="col-12" *ngFor="let cards of faculty_data; index as j">
+      <p class="col-12" mt-2 id="rwdcards" text-center>
+        {{ cards.courseName }}-{{ cards.courseCode }} ( Term-{{
+          cards.termNumber
+        }}
+        Section-{{ cards.section }})
+      </p>
+      <mat-accordion [multi]="true" *ngIf="!tp1">
+        <mat-expansion-panel
+          *ngFor="
+            let d of rwd_DataTable2;
+            index as i;
+            let title;
+            of: rwd_GraphData
+          "
+          style="padding-left: 0px; padding-right: 0px; padding-bottom: 0px;"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ title.bloomsLevel }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-card class="chart2matcard">
+            <div
+              class="chart2"
+              (select)="onSelect2($event)"
+              google-chart
+              [data]="rwd_data2.dataTable[i]"
+              [chartType]="rwd_data2.chartType"
+              [options]="rwd_data2.options"
+            ></div>
+          </mat-card>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+  <div class="row container d-block d-sm-none" *ngIf="!visible && tp1">
+    <div class="col-12">
+      <h6 class="text-center">
+        CO2 Attainment Details with Co-curricular Activites & Student Feedback
+      </h6>
+      <p class="col-12" mt-2 id="rwdcards" text-center>
+        COMPUTER NETWORKS - 17CS52 (Term-5 Section-A)
+      </p>
+    </div>
+  </div>
+
+  <!-- second chart = Likhith,  tables = Divyansh, popopen =anish -->
+  <div class="col-md-9" *ngIf="!visible">
+    <!-- second-chart -->
+    <div class="fullwidth d-none d-md-block" *ngIf="data2 && secondChart">
+      <h6 class="text-center">
+        {{ analytics.chart_2_header }} {{ htmlcourse }}
+      </h6>
+      <div
+        class="d-none d-md-block"
+        (select)="onSelect2($event)"
+        google-chart
+        [data]="data2.dataTable"
+        [chartType]="'ColumnChart'"
+        [options]="data2.options"
+      ></div>
+    </div>
+    <div class="fullwidth d-none d-md-block" *ngIf="data2 && !secondChart">
+      <h6 class="text-center">
+        {{ analytics.chart_2_header }} {{ htmlcourse }}
+      </h6>
+      <div
+        (select)="onSelect2($event)"
+        google-chart
+        [data]="data2.dataTable"
+        [chartType]="'ColumnChart'"
+        [options]="data2.options"
+      ></div>
+    </div>
+
+    <hr />
+    <!-- table-part -->
+    <div class="row d-none d-sm-block">
+      <mat-card id="card1" *ngIf="!visible && tp1"
+        ><!--Divyansh Singhal -->
+        <p class="mat-body-2 text-center my-0">
+          {{ tablevar }} Attainment & Co-curricular Activities Details
+        </p>
+        <hr class="mt-0 mb-1" />
+
+        <div class="container col-md-12 basicborder">
+          <mat-card-content class="p-1">
+            <p class="mat-body-2 text-center mb-1">
+              Total Attainment [(Out of 3) : 2.241 (Out of 100) : 67.23]
+            </p>
+            <hr class="mt-0 mb-1" />
+
+            <p class="mat-body-2 mb-1">
+              {{ tablevar }} : {{ CO_details[0].coTitle }}
+            </p>
+            <hr class="mt-0 mb-1" />
+
+            <div class="row">
+              <div class="col-md-6">
+                <p class="mat-body-2 text-center">
+                  Direct Attainment [(Out of 3) : 2.241 (Out of 100) : 67.23]
+                </p>
+                <table class="table responsive basicborder" id="table1">
+                  <thead class="back">
+                    <tr class="text-center">
+                      <th>Method Name</th>
+                      <th>Method 1</th>
+                      <th>Method 2</th>
+                      <th>Method 3</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr>
+                      <td>Method Description</td>
+                      <!-- <td *ngFor="let i of [].constructor(3)">---</td> -->
+                      <td *ngFor="let method of methodName">{{ method }}</td>
+                      <td
+                        *ngFor="
+                          let i of [].constructor(calculate_len(methodName))
+                        "
+                      >
+                        ---
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>Attainment</td>
+                      <!-- <td *ngFor="let i of [].constructor(3)">---</td> -->
+                      <td *ngFor="let value of attainment">{{ value }}</td>
+                      <td
+                        *ngFor="
+                          let i of [].constructor(calculate_len(attainment))
+                        "
+                      >
+                        ---
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>Attainment percentage</td>
+                      <!-- <td *ngFor="let i of [].constructor(3)">---</td> -->
+                      <td *ngFor="let value of attainmentPercentage">
+                        {{ value }}
+                      </td>
+                      <td
+                        *ngFor="
+                          let i of [].constructor(
+                            calculate_len(attainmentPercentage)
+                          )
+                        "
+                      >
+                        ---
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>Total Obtained Score</td>
+                      <!-- <td *ngFor="let i of [].constructor(3)">---</td> -->
+                      <td *ngFor="let value of obtainedScore">{{ value }}</td>
+                      <td
+                        *ngFor="
+                          let i of [].constructor(calculate_len(obtainedScore))
+                        "
+                      >
+                        ---
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>Total Max Score</td>
+                      <!-- <td *ngFor="let i of [].constructor(3)">---</td> -->
+                      <td *ngFor="let value of maxScore">{{ value }}</td>
+                      <td
+                        *ngFor="
+                          let i of [].constructor(calculate_len(maxScore))
+                        "
+                      >
+                        ---
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p class="mat-body-2 text-center">
+                  Indirect Attainment [(Out of 3) : 2.241 (Out of 100) : 67.23]
+                </p>
+                <table class="table responsive basicborder" id="table1">
+                  <thead class="back">
+                    <tr>
+                      <th>Method Name</th>
+                      <th>Method 1</th>
+                      <th>Method 2</th>
+                      <th>Method 3</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Method Description</td>
+                      <!-- <td *ngFor="let i of [].constructor(3)">---</td> -->
+                      <td *ngFor="let method of imethodName">{{ method }}</td>
+                      <td
+                        *ngFor="
+                          let i of [].constructor(calculate_len(imethodName))
+                        "
+                      >
+                        ---
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>Attainment</td>
+                      <!-- <td *ngFor="let i of [].constructor(3)">---</td> -->
+                      <td *ngFor="let value of iattainment">{{ value }}</td>
+                      <td
+                        *ngFor="
+                          let i of [].constructor(calculate_len(iattainment))
+                        "
+                      >
+                        ---
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>Attainment percentage</td>
+                      <!-- <td *ngFor="let i of [].constructor(3)">---</td> -->
+                      <td *ngFor="let value of iattainmentPercentage">
+                        {{ value }}
+                      </td>
+
+                      <td
+                        *ngFor="
+                          let i of [].constructor(
+                            calculate_len(iattainmentPercentage)
+                          )
+                        "
+                      >
+                        ---
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>Total Obtained Score</td>
+                      <!-- <td *ngFor="let i of [].constructor(3)">---</td> -->
+                      <td *ngFor="let value of iobtainedScore">{{ value }}</td>
+                      <td
+                        *ngFor="
+                          let i of [].constructor(calculate_len(iobtainedScore))
+                        "
+                      >
+                        ---
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>Total Max Score</td>
+                      <!-- <td *ngFor="let i of [].constructor(3)">---</td> -->
+                      <td *ngFor="let value of imaxScore">{{ value }}</td>
+                      <td
+                        *ngFor="
+                          let i of [].constructor(calculate_len(imaxScore))
+                        "
+                      >
+                        ---
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-6">
+                <mat-card class="pt-0 px-0">
+                  <mat-card-header>
+                    <div class="radioCont">
+                      <span class="nowrap mat-small radioBox text-left">
+                        <span class="mat-body-2 text-left"
+                          >Select one of the following
+                        </span>
+                        <mat-radio-group (change)="onClickActivity($event)">
+                          <mat-radio-button value="0" checked
+                            >Co-Curricular</mat-radio-button
+                          >
+                          <mat-radio-button value="1"
+                            >Student Feedback</mat-radio-button
+                          >
+                        </mat-radio-group>
+                      </span>
+                    </div>
+                  </mat-card-header>
+
+                  <mat-card-content *ngIf="!select_radio_button()">
+                    <mat-card-header class="back2 py-0 fullwidth">
+                      <div class="row col-md-12">
+                        <div class="col-md-6 container">
+                          <p class="white">Co-Curricular Activities</p>
+                          <p></p>
+                        </div>
+
+                        <div class="col-md-6 container">
+                          <mat-select
+                            class="text-white border-bottom border-white"
+                            [(ngModel)]="option_1"
+                            (ngModelChange)="select_radio_option()"
+                          >
+                            <mat-option value="Industrial Initiatives"
+                              >Industrial Initiatives</mat-option
+                            >
+                            <mat-option value="Publications"
+                              >Publications</mat-option
+                            >
+                          </mat-select>
+                        </div>
+                      </div>
+                    </mat-card-header>
+
+                    <mat-card>
+                      <!-- <div class="scrollable"> -->
+                      <mat-card-content>
+                        <div class="row col-md-12 p-0 m-0">
+                          <div
+                            class="col-md-6 my-2"
+                            *ngFor="let CARD of option_3"
+                          >
+                            <mat-card-content>
+                              <mat-card class="shadow mat-small maintext">
+                                <div class="col-md-1 my-0">
+                                  <span class="dot">
+                                    <mat-icon
+                                      style="margin-left: 1px;"
+                                      id="icon1"
+                                      >business_center</mat-icon
+                                    >
+                                  </span>
+                                </div>
+                                <div id="greenBox">{{ CARD.userType }}</div>
+                                <div
+                                  style="margin-top: 18px;"
+                                  class="cardText text-left"
+                                >
+                                  <span class="nowrap siz mat-small"
+                                    ><b>Name</b>: {{ CARD.Name }} <br
+                                  /></span>
+                                  <span class="nowrap siz mat-small"
+                                    ><b>ID:</b>:({{
+                                      CARD.usn || CARD.employee_id
+                                    }})<br
+                                  /></span>
+                                  <span class="nowrap siz mat-small"
+                                    ><b>Role</b>: {{ CARD.role }}<br
+                                  /></span>
+                                  <span class="nowrap siz mat-small"
+                                    ><b>Date</b>: {{ CARD.Date }}<br
+                                  /></span>
+                                  <span class="nowrap siz mat-small"
+                                    ><b>Duration</b>:{{ CARD.DuraHon }}<br
+                                  /></span>
+                                  <span class="nowrap siz mat-small"
+                                    ><b>Activity Type</b>:{{ CARD.Activity_type
+                                    }}<br
+                                  /></span>
+                                </div>
+                              </mat-card>
+                            </mat-card-content>
+                          </div>
+                        </div>
+                      </mat-card-content>
+                    </mat-card>
+                  </mat-card-content>
+                  <mat-card-content *ngIf="select_radio_button()">
+                    <mat-card-header class="back2 py-0 fullwidth">
+                      <div class="row col-md-12">
+                        <div class="col-md-6 container">
+                          <p class="white">Student Feedback</p>
+                          <p></p>
+                        </div>
+
+                        <div class="col-md-6 container">
+                          <mat-select
+                            class="text-white border-bottom border-white"
+                            [(ngModel)]="option_1"
+                            (ngModelChange)="select_radio_option()"
+                          >
+                            <mat-option value="Industrial Initiatives"
+                              >Time-Sense</mat-option
+                            >
+                            <mat-option value="Publications"
+                              >Class Control/Management</mat-option
+                            >
+                          </mat-select>
+                        </div>
+                      </div>
+                    </mat-card-header>
+                    <table class="table responsive basicborder" id="table1">
+                      <thead class="back">
+                        <tr>
+                          <th>Question #</th>
+                          <th>Score</th>
+                          <th>View Student Feedback</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>8</td>
+                          <td>
+                            <div class="custom-class">
+                              <button
+                                mat-button
+                                class="btn btn-light"
+                                (click)="openDialog()"
+                              >
+                                <mat-icon>visibility</mat-icon>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>8</td>
+                          <td>
+                            <div class="custom-class">
+                              <button
+                                mat-button
+                                class="btn btn-light"
+                                (click)="openDialog()"
+                              >
+                                <mat-icon>visibility</mat-icon>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>9</td>
+                          <td>
+                            <div class="custom-class">
+                              <button
+                                mat-button
+                                class="btn btn-light"
+                                (click)="openDialog()"
+                              >
+                                <mat-icon>visibility</mat-icon>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>9</td>
+                          <td>
+                            <div class="custom-class">
+                              <button
+                                mat-button
+                                class="btn btn-light"
+                                (click)="openDialog()"
+                              >
+                                <mat-icon>visibility</mat-icon>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>5</td>
+                          <td>7</td>
+                          <td>
+                            <div class="custom-class">
+                              <button
+                                mat-button
+                                class="btn btn-light"
+                                (click)="openDialog()"
+                              >
+                                <mat-icon>visibility</mat-icon>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>6</td>
+                          <td>8</td>
+                          <td>
+                            <div class="custom-class">
+                              <button
+                                mat-button
+                                class="btn btn-light"
+                                (click)="openDialog()"
+                              >
+                                <mat-icon>visibility</mat-icon>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>7</td>
+                          <td>7</td>
+                          <td>
+                            <div class="custom-class">
+                              <button
+                                mat-button
+                                class="btn btn-light"
+                                (click)="openDialog()"
+                              >
+                                <mat-icon>visibility</mat-icon>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>8</td>
+                          <td>9</td>
+                          <td>
+                            <div class="custom-class">
+                              <button
+                                mat-button
+                                class="btn btn-light"
+                                (click)="openDialog()"
+                              >
+                                <mat-icon>visibility</mat-icon>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+            </div></mat-card-content
+          >
+        </div>
+      </mat-card>
+    </div>
+    <div class="d-block m-2 d-sm-none border rounded" *ngIf="!visible && tp1">
+      <p class="mat-body-2 text-center mb-1">
+        Total Attainment [(Out of 3) : 2.241 (Out of 100) : 67.23]
+      </p>
+      <hr />
+      <p class="mat-body-2 text-center my-0">
+        {{ tablevar }} Attainment & Co-curricular Activities Details
+      </p>
+      <hr />
+      <p class="mat-body-2 text-center">
+        Direct Attainment [(Out of 3) : 2.241 (Out of 100) : 67.23]
+      </p>
+      <table class="table responsive basicborder" id="table1">
+        <thead>
+          <tr>
+            <th></th>
+            <th>SL #</th>
+            <th>Method Name</th>
+          </tr>
+        </thead>
+        <tbody
+          id="accordion"
+          class="scrollit table-data custom-card-group accordian-panel box-borders"
+          *ngFor="let list of Keylist; let i = index"
+        >
+          <tr>
+            <td>
+              <a
+                class="accordion-toggle collapsed p-2"
+                id="accordion"
+                data-toggle="collapse"
+                [attr.data-target]="'#details' + i"
+              ></a>
+            </td>
+            <td>{{ i + 1 }}</td>
+            <td>
+              <b>{{ list }}</b>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <div
+                id="details{{ i }}"
+                data-parent="#accordion"
+                class="collapse"
+              >
+                <div class="row" *ngIf="i == 0">
+                  <div *ngFor="let method of methodName; let k = index">
+                    &nbsp; &nbsp; <b>method &nbsp;{{ k + 1 }}: </b>&nbsp;
+                    {{ method }}
+                  </div>
+                </div>
+                <div class="row" *ngIf="i == 1">
+                  <div *ngFor="let value of attainment; let k = index">
+                    &nbsp; &nbsp; <b>method &nbsp;{{ k + 1 }}: </b>&nbsp;
+                    {{ value }}
+                  </div>
+                </div>
+                <div class="row" *ngIf="i == 2">
+                  <div
+                    *ngFor="let value of attainmentPercentage; let k = index"
+                  >
+                    &nbsp; &nbsp; <b>method &nbsp;{{ k + 1 }}: </b>&nbsp;
+                    {{ value }}
+                  </div>
+                </div>
+                <div class="row" *ngIf="i == 3">
+                  <div *ngFor="let value of obtainedScore; let k = index">
+                    &nbsp; &nbsp; <b>method &nbsp;{{ k + 1 }}: </b>&nbsp;
+                    {{ value }}
+                  </div>
+                </div>
+                <div class="row" *ngIf="i == 4">
+                  <div *ngFor="let value of maxScore; let k = index">
+                    &nbsp; &nbsp; <b>method &nbsp;{{ k + 1 }}: </b>&nbsp;
+                    {{ value }}
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="mat-body-2 text-center">
+        Direct Attainment [(Out of 3) : 2.241 (Out of 100) : 67.23]
+      </p>
+      <table class="table responsive basicborder" id="table1">
+        <thead>
+          <tr>
+            <th></th>
+            <th>SL.#</th>
+            <th>Method Name</th>
+          </tr>
+        </thead>
+        <tbody
+          id="accordion"
+          class="scrollit table-data custom-card-group accordian-panel box-borders"
+          *ngFor="let list of Keylist; let a = index"
+        >
+          <tr>
+            <td>
+              <a
+                class="accordion-toggle collapsed p-2"
+                id="accordion"
+                data-toggle="collapse"
+                [attr.data-target]="'#details' + a"
+              ></a>
+            </td>
+            <td>{{ a + 1 }}</td>
+            <td>
+              <b>{{ list }}</b>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <div
+                id="details{{ a }}"
+                data-parent="#accordion"
+                class="collapse"
+              >
+                <div class="row" *ngIf="a == 0">
+                  <div *ngFor="let method of imethodName; let k = index">
+                    &nbsp; &nbsp; <b>method &nbsp;{{ k + 1 }}: </b>&nbsp;
+                    {{ method }}
+                  </div>
+                </div>
+                <div class="row" *ngIf="a == 1">
+                  <div *ngFor="let value of iattainment; let k = index">
+                    &nbsp; &nbsp; <b>method &nbsp;{{ k + 1 }}: </b>&nbsp;
+                    {{ value }}
+                  </div>
+                </div>
+                <div class="row" *ngIf="a == 2">
+                  <div
+                    *ngFor="let value of iattainmentPercentage; let k = index"
+                  >
+                    &nbsp; &nbsp; <b>method &nbsp;{{ k + 1 }}: </b>&nbsp;
+                    {{ value }}
+                  </div>
+                </div>
+                <div class="row" *ngIf="a == 3">
+                  <div *ngFor="let value of iobtainedScore; let k = index">
+                    &nbsp; &nbsp; <b>method &nbsp;{{ k + 1 }}: </b>&nbsp;
+                    {{ value }}
+                  </div>
+                </div>
+                <div class="row" *ngIf="a == 4">
+                  <div *ngFor="let value of imaxScore; let k = index">
+                    &nbsp; &nbsp; <b>method &nbsp;{{ k + 1 }}: </b>&nbsp;
+                    {{ value }}
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="col-md-6">
+        <mat-card class="pt-0 px-0">
+          <mat-card-header>
+            <span class="radioBox text-left">
+              <p class="mat-body-2 text-left">Select one of the following</p>
+              <mat-radio-group
+                class="example-radio-group"
+                (change)="onClickActivity($event)"
+              >
+                <mat-radio-button
+                  class="example-radio-group"
+                  style="margin-bottom: 0px; margin-top: 0px;"
+                  value="0"
+                  checked
+                  >Co-curricular Activites</mat-radio-button
+                >
+                <mat-radio-button
+                  class="example-radio-group"
+                  style="margin-left: 0px; margin-top: 0px; margin-bottom: 0px;"
+                  value="1"
+                  >Student Feedback</mat-radio-button
+                >
+              </mat-radio-group>
+            </span>
+          </mat-card-header>
+
+          <mat-card-content *ngIf="!select_radio_button()">
+            <mat-card-header class="back2 py-0 fullwidth">
+              <div class="row col-md-12">
+                <div class="col-md-6 container">
+                  <p class="white">Co-Curricular Activities</p>
+                  <p></p>
+                </div>
+
+                <div class="col-md-6 container">
+                  <mat-select
+                    class="text-white border-bottom border-white"
+                    [(ngModel)]="option_1"
+                    (ngModelChange)="select_radio_option()"
+                  >
+                    <mat-option value="Industrial Initiatives"
+                      >Industrial Initiatives</mat-option
+                    >
+                    <mat-option value="Publications">Publications</mat-option>
+                  </mat-select>
+                </div>
+              </div>
+            </mat-card-header>
+
+            <div class="col-md-6 scroll">
+              <mat-card>
+                <!-- <div class="scrollable"> -->
+                <mat-card-content>
+                  <div class="row col-md-12 p-0 m-0">
+                    <div class="col-md-6 my-2" *ngFor="let CARD of option_3">
+                      <mat-card-content>
+                        <mat-card class="shadow mat-small maintext">
+                          <div class="col-md-1 my-0">
+                            <div style="margin-left: 10px;" class="dot1">
+                              <mat-icon id="icon1">business_center</mat-icon>
+                            </div>
+                          </div>
+                          <div style="padding-top: 5px;" class="text-right">
+                            <mark class="text-white">{{ CARD.userType }}</mark>
+                          </div>
+                          <div
+                            style="margin-top: 18px;"
+                            class="cardText text-left"
+                          >
+                            <span class="nowrap siz mat-small"
+                              ><b>Name</b>: {{ CARD.Name }} <br
+                            /></span>
+                            <span class="nowrap siz mat-small"
+                              ><b>ID:</b>:({{
+                                CARD.usn || CARD.employee_id
+                              }})<br
+                            /></span>
+                            <span class="nowrap siz mat-small"
+                              ><b>Role</b>: {{ CARD.role }}<br
+                            /></span>
+                            <span class="nowrap siz mat-small"
+                              ><b>Date</b>: {{ CARD.Date }}<br
+                            /></span>
+                            <span class="nowrap siz mat-small"
+                              ><b>Duration</b>:{{ CARD.DuraHon }}<br
+                            /></span>
+                            <span class="nowrap siz mat-small"
+                              ><b>Activity Type</b>:{{ CARD.Activity_type }}<br
+                            /></span>
+                          </div>
+                        </mat-card>
+                      </mat-card-content>
+                    </div>
+                  </div>
+                </mat-card-content>
+                <!-- </div> -->
+              </mat-card>
+            </div>
+          </mat-card-content>
+          <mat-card-content *ngIf="select_radio_button()">
+            <mat-card-header class="back2 py-0 fullwidth">
+              <div class="row col-md-12">
+                <div class="col-md-6 container">
+                  <p class="white">Student Feedback</p>
+                  <p></p>
+                </div>
+
+                <div class="col-md-6 container">
+                  <mat-select
+                    class="text-white border-bottom border-white"
+                    [(ngModel)]="option_1"
+                    (ngModelChange)="select_radio_option()"
+                  >
+                    <mat-option value="Industrial Initiatives"
+                      >Time-Sense</mat-option
+                    >
+                    <mat-option value="Publications"
+                      >Class Control/Management</mat-option
+                    >
+                  </mat-select>
+                </div>
+              </div>
+            </mat-card-header>
+            <div class="col-md-6 scroll1">
+              <table class="table responsive basicborder" id="table1">
+                <thead class="back">
+                  <tr>
+                    <th>Question #</th>
+                    <th>Score</th>
+                    <th>View Student Feedback</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>8</td>
+                    <td>
+                      <div class="custom-class">
+                        <button
+                          mat-button
+                          class="btn btn-light"
+                          (click)="openDialog()"
+                        >
+                          <mat-icon>visibility</mat-icon>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>8</td>
+                    <td>
+                      <div class="custom-class">
+                        <button
+                          mat-button
+                          class="btn btn-light"
+                          (click)="openDialog()"
+                        >
+                          <mat-icon>visibility</mat-icon>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>9</td>
+                    <td>
+                      <div class="custom-class">
+                        <button
+                          mat-button
+                          class="btn btn-light"
+                          (click)="openDialog()"
+                        >
+                          <mat-icon>visibility</mat-icon>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>9</td>
+                    <td>
+                      <div class="custom-class">
+                        <button
+                          mat-button
+                          class="btn btn-light"
+                          (click)="openDialog()"
+                        >
+                          <mat-icon>visibility</mat-icon>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>7</td>
+                    <td>
+                      <div class="custom-class">
+                        <button
+                          mat-button
+                          class="btn btn-light"
+                          (click)="openDialog()"
+                        >
+                          <mat-icon>visibility</mat-icon>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>8</td>
+                    <td>
+                      <div class="custom-class">
+                        <button
+                          mat-button
+                          class="btn btn-light"
+                          (click)="openDialog()"
+                        >
+                          <mat-icon>visibility</mat-icon>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>
+                      <div class="custom-class">
+                        <button
+                          mat-button
+                          class="btn btn-light"
+                          (click)="openDialog()"
+                        >
+                          <mat-icon>visibility</mat-icon>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>
+                      <div class="custom-class">
+                        <button
+                          mat-button
+                          class="btn btn-light"
+                          (click)="openDialog()"
+                        >
+                          <mat-icon>visibility</mat-icon>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

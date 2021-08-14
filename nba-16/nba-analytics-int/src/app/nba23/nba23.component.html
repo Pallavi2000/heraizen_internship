@@ -1,0 +1,607 @@
+<!-- <p class="mat-body-2  text-center mt-5" *ngIf = "noData">There is no courses available for the selected options</p> -->
+<!-- jagtar -->
+<div class="row">
+  <div class="col-md-11">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="#"><i class="fa fa-bar-chart"></i>Analytics</a>
+      </li>
+      <li class="breadcrumb-item active">
+        Statement 23
+      </li>
+    </ol>
+  </div>
+
+
+
+<div class="col-md-1 mt-1" *ngIf="isClicked">
+  <span (click)="getAvgCoAttainmentGraph()"><i
+      class="fas fa-angle-left"></i> Back</span>
+</div>
+</div>
+
+
+
+<form [formGroup]="searchBar" (ngSubmit)="getAvgCoAttainmentGraph();displayChart=!displayChart">
+  <div class="row">
+    <!--drop down for acad year-->
+    <div  class="col-md-2 col-6">
+      <mat-label class="text-success">{{analytics.academic_year}}<em>*</em></mat-label>
+      <mat-select disableOptionCentering  class="inputMaterial" formControlName="year">
+        <mat-option *ngFor="let year of academic_years" [value]='year'>{{year}}</mat-option>
+      </mat-select>
+    </div>
+
+
+    <!--drop down for semester-->
+    <div class="col-md-2 col-6">
+      <mat-label class="text-success">{{analytics.term}}<em>*</em></mat-label>
+      <mat-select disableOptionCentering  class="inputMaterial" multiple formControlName='term'>
+        <mat-option *ngFor="let term of terms" [value]='term'>{{term}}</mat-option>
+      </mat-select>
+    </div>
+
+
+  
+    <!--drop down for departments if principal logins-->
+    <div class="col-md-2 col-6" *ngIf='role =="PRINCIPAL"'>
+      <mat-label class="text-success">{{analytics.department}}<em>*</em></mat-label>
+      <mat-select disableOptionCentering  class="inputMaterial" formControlName="course">
+        <mat-option *ngFor="let department of departments" [value]='department'>{{department}}
+        </mat-option>
+      </mat-select>
+    </div>
+
+    <!-- <div class=' d-none d-sm-block verticalLine pl-5 ml-4 '></div> -->
+    <!-- <div class='col-md-2 col-sm-6 text-right'>
+      <button type='submit' class='other-button' [disabled]="isDisabled"><i class='fa fa-search'></i>
+        Search</button>
+    </div> -->
+    <!-- for web  -->
+    <div class='col-md-2 d-none d-sm-block '>
+      <button type='submit' class='other-button' [disabled]="isDisabled" *ngIf="!isDisabled"><i class='fa fa-search' ></i>
+        Search</button>
+        <button type='submit'class='btn btn-secondary' [disabled]="isDisabled"  *ngIf="isDisabled"><i class='fa fa-search'></i>
+          Search</button>
+    </div>
+    <!-- for rwd -->
+    <div class='col-md-2 col-sm-6 text-right d-block d-sm-none'>
+      <button type='submit' class='other-button' [disabled]="isDisabled" *ngIf="!isDisabled"><i class='fa fa-search'></i>
+        Search</button>
+        <button type='submit'class='btn btn-secondary' [disabled]="isDisabled"  *ngIf="isDisabled"><i class='fa fa-search'></i>
+          Search</button>
+    </div>
+  </div>
+</form>
+
+
+<h6><em>*</em> Mandatory fields</h6>
+<!--horizonatal line-->
+<hr class=' d-none d-sm-block divider '>
+
+<!--Graph part starts here-->
+
+<p class="mat-body-2 text-center mt-5" *ngIf="this.show_warning">Please select values from dropdowns and click on
+  "Search" button to get data</p>
+<div class="row">
+  <div class="container mat-body-2" *ngIf="noData">
+    <p class="text-center">There is no courses available for the selected options</p>
+  </div>
+  <div class="col-md-12" *ngIf="data1 && show_first_graph && !noData">
+    <div class="row mat-body-2">
+      <div class="col-md-12 text-center">
+        CO Attainment Scores - My Courses
+      </div>
+    </div>
+
+    <div class="row m-3">
+      <div class="col-md-12 d-none d-md-block shadow responsive">
+        <div id="col1" google-chart (select)="courseBarSelect($event)" [data]="data1.dataTable"
+          [chartType]="data1.chartType" [options]="data1.options" *ngIf="!displayChart">
+        </div>
+      </div>
+      <div class="col-md-12 d-none d-md-block shadow responsive">
+        <div id="col1" google-chart (select)="courseBarSelect($event)" [data]="data1.dataTable"
+          [chartType]="data1.chartType" [options]="data1.options" *ngIf="displayChart">
+        </div>
+      </div>
+    </div>
+    <!-- -------------Responsive Graph----------------- -->
+
+    <mat-card *ngFor="let d of responsive_dataTable; index as i" class="d-sm-block d-md-none">
+      <div (select)="courseBarSelect($event)" google-chart [data]="responsiveDataTable.dataTable[i]"
+        [chartType]="responsiveDataTable.chartType" [options]="responsiveDataTable.options" >
+      </div>
+    </mat-card>
+    <!-- -----------------responsive ends here------------------ -->
+  </div>
+</div>
+
+
+
+
+<div class="row" *ngIf="isClicked">
+  <div class="mx-0 col-md-2 leftPane d-none d-sm-block">
+    <div class="mat-body-2">Course List</div>
+    <mat-card id="sortBox" class="my-3 basicborder">
+      <mat-card-title class="mb-0">
+        <div class="mat-caption text-success mb-0"><i>Sort by</i></div>
+      </mat-card-title>
+      <mat-radio-group value="1">
+        <mat-radio-button class="mat-small maintext " name="sorttype" value="1"
+          (click)="this.cname='false';this.average='true';this.fname='false';sortfunc()" [checked]="true">Avg CO Attainment
+        </mat-radio-button><br>
+        <mat-radio-button class="mat-small maintext" name="sorttype" value="2"
+          (click)="this.cname='true';this.average='false';this.fname='false';sortfunc()">Course Name
+        </mat-radio-button>
+        <mat-radio-button class="mat-small maintext " name="sorttype" value="3"
+          (click)="this.cname='false';this.average='false';this.fname='true';sortfunc()"
+          *ngIf="role=='HOD'||role=='PRINCIPAL'">Faculty Name
+        </mat-radio-button>
+      </mat-radio-group>
+    </mat-card>
+    <div class="row mb-3 pl-2 pr-0 col-md-12">
+      <div class="mat-caption col-md-6 text-success pl-2"><i># of Entries
+        </i>
+        <mat-select class="basicborder text-center" value="option1">
+          <mat-option class="mat-small maintext text-center" value="option1">1-10</mat-option>
+          <mat-option class="mat-small maintext text-center" value="option2">11-20</mat-option>
+          <mat-option class="mat-small maintext text-center" value="option3">21-30</mat-option>
+        </mat-select>
+        <mat-divider vertical></mat-divider>
+      </div>
+
+
+      <div class="col-md-5 pl-0">
+        <mat-radio-group value="2">
+          <mat-radio-button class="mat-small" name="sortorder" value="1" (click)="this.reverse='true';sortfunc()">
+            High-Low
+          </mat-radio-button><br>
+          <mat-radio-button class="mat-small" name="sortorder" value="2" (click)="this.reverse='false';sortfunc()"
+            [checked]="true">Low-High
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+
+    <div>
+      <mat-button-toggle-group class="px-1 fullwidth noborder togglegroup" vertical [value]="course_code">
+        <div *ngFor="let sub of faculty;let i = index">
+          <button class="button maintext f14 basicborder mb-1 active"
+            (click)="displayChart=!displayChart;courseSelected(i,sub)" value="{{sub.courseCode}}" *ngIf="!(sub.courseCode==this.course_code)" >        
+
+                <p class="mat-small"> {{sub.courseName}} - {{sub.courseCode}} <br> Semester {{sub.termNumber}} - Section {{sub.section}}
+                <span *ngIf="this.role!=='FACULTY'"><br>{{sub.facultyName}}</span></p>
+            
+        </button>
+        <button class="button maintext f14 checked-button mb-1 active"
+            (click)="displayChart=!displayChart;courseSelected(i,sub)" value="{{sub.courseCode}}" *ngIf="sub.courseCode==this.course_code">        
+
+                <p class="mat-small"> {{sub.courseName}} - {{sub.courseCode}} <br> Semester {{sub.termNumber}} - Section {{sub.section}}
+                  <span *ngIf="this.role!=='FACULTY'"><br>{{sub.facultyName}}</span></p>
+            
+        </button>
+        
+        </div>
+      </mat-button-toggle-group>
+    </div>
+  </div>
+  <!-- mobile version-->
+  <div class="d-block d-md-none container basicborder" *ngIf = "!rwdSelected">
+    <div class="mat-body-2 py-0">Course List</div>
+    <mat-card class="container basicborder py-0">
+      <mat-card-title class="mb-0">
+        <div class="mat-body-1 text-success mb-0"><i>Sort by</i></div>
+      </mat-card-title>
+      <mat-radio-group class="body small" value = "1">
+        <mat-radio-button class="mat-small maintext mr-2" name="sorttype" value="1"
+          (click)="this.cname='false';this.average='true';this.fname='false';sortfunc()" [checked] = "true">Avg CO Attainment
+        </mat-radio-button>
+        <mat-radio-button class="mat-small maintext  " name="sorttype" value="2"
+          (click)="this.cname='true';this.average='false';this.fname='false';sortfunc()">Course Name
+        </mat-radio-button>
+      </mat-radio-group>
+    </mat-card>
+    <br>
+    <div class="container">
+      <mat-radio-group class="mt-5" value = "2">
+        <mat-radio-button class="mat-small mr-2" name="sortorder" value="1" (click)="this.reverse='true';sortfunc()">
+          High-Low
+        </mat-radio-button>
+        <mat-radio-button class="mat-small" name="sortorder" value="2" (click)="this.reverse='false';sortfunc()"
+          [checked] = "true">Low-High
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </div>
+  <!-- Disabled portion -->
+  <div class="d-block d-md-none container basicborder rwd" *ngIf = "rwdSelected">
+    <div class="mat-body-2 py-0">Course List</div>
+    <mat-card class="container basicborder py-0 rwd">
+      <mat-card-title class="mb-0">
+        <div class="mat-body-1 text-success mb-0"><i>Sort by</i></div>
+      </mat-card-title>
+      <mat-radio-group class="body small" value = "1">
+        <mat-radio-button class="mat-small maintext mr-2" name="sorttype" value="1"
+          (click)="this.cname='false';this.average='true';this.fname='false';sortfunc()" [checked] = "false">Avg CO Attainment
+        </mat-radio-button>
+        <mat-radio-button class="mat-small maintext  " name="sorttype" value="2"
+          (click)="this.cname='true';this.average='false';this.fname='false';sortfunc()" [checked] = "false">Course Name
+        </mat-radio-button>
+      </mat-radio-group>
+    </mat-card>
+    <br>
+    <div class="container">
+      <mat-radio-group class="mt-5" value = "2">
+        <mat-radio-button class="mat-small mr-2" name="sortorder" value="1" (click)="this.reverse='true';sortfunc()" [checked] = "false">
+          High-Low
+        </mat-radio-button>
+        <mat-radio-button class="mat-small" name="sortorder" value="2" (click)="this.reverse='false';sortfunc()" [checked] = "false">
+          Low-High
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </div>
+<!-- disabled part over -->
+  <div class="d-block d-md-none" *ngIf="!rwdSelected">
+    <div class="mat-body-2 container col-md-10 text-center">
+      CO Attainment Scores with Blooms Taxonomy <br>
+      Levels & Co-curricular Activities - My Courses
+    </div>
+  </div>
+
+  <div class="card d-block d-md-none" *ngIf="!rwdSelected">
+    <div class="card-body pt-0 px-0" *ngFor="let sub of faculty;let i = index">
+      <div class="card-header back2 text-white" (click)="this.Colevelsfilter()">
+        <i class="fas fa-book"></i>
+        {{sub.courseName}} -
+        {{sub.courseCode}} (Semester {{sub.termNumber}} - Section {{sub.section}})
+        <span *ngIf="this.role!=='FACULTY'"><br>{{sub.facultyName}}</span>
+      </div>
+      <!-- Accordian Starts Here -->
+
+      <mat-accordion>
+        <mat-expansion-panel *ngFor="let d of bloomDetails[i];let j = index" (click)="bloomsLevelgraph(i,j)">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{d}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-card *ngFor="let co of COblooms[i][0][j];let ind = index">
+            <div (click)="this.filteredCOdata = this.table2Data[co['coNumber']];onSelect($event)" google-chart [data]="this.rwd_DataTable[ind]"
+              [chartType]="'ColumnChart'" [options]="rwdData2.options" *ngIf="displayrwd">
+            </div>
+            <div (click)="onSelect($event)" google-chart [data]="this.rwd_DataTable[ind]"
+              [chartType]="'ColumnChart'" [options]="rwdData2.options" *ngIf="!displayrwd">
+            </div>
+          </mat-card>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <!--Accordion Ends Here -->
+    </div>
+  </div>
+
+
+  <div class="container col-md-10 mx-0 px-4 verticalLine" *ngIf="show_second_graph">
+
+    <div class="row d-sm-none d-md-block">
+      <div class="col-md-12 text-center mat-body-2">
+        <div class="d-none d-md-block">
+          CO Attainment Scores with Blooms Taxonomy Levels & Co-curricular Activities in {{coursename.courseName}} -
+          {{coursename.courseCode}} (Semester {{coursename.termNumber}} - Section {{coursename.section}})
+        </div>
+      </div>
+      <div class="col-md-12 mb-2 shadow mat-small maintext" *ngIf="data2 && isClicked && displayChart">
+        <div id="graph2" class="mat-small maintext responsive d-none d-md-block" google-chart
+          (select)="onSelect($event)" [data]="data2.dataTable" [chartType]="data2.chartType" [options]="data2.options">
+        </div>
+      </div>
+      <div class="col-md-12 fullwidth mb-2 shadow px-0 mat-small maintext" *ngIf="data2 && isClicked && !displayChart">
+        <div id="graph2" class="mat-small maintext responsive d-none d-md-block" google-chart
+          (select)="onSelect($event)" [data]="data2.dataTable" [chartType]="data2.chartType" [options]="data2.options">
+        </div>
+      </div>
+      <hr>
+      <div class="fullwidth shadow col-md-12 mb-2 px-0" *ngIf="showCO">
+        <mat-card class="shadow" id="card1">
+          <p class="mat-body-2 text-center my-0">
+            CO{{filteredCOdata.coNumber}} Attainment & Co-curricular Activities Details
+          </p>
+          <hr class="mt-0 mb-1">
+          <div class="d-none d-sm-block">
+            <div class="container col-md-12 basicborder">
+              <mat-card-content class="p-1">
+                <p class="mat-body-2 text-center mb-1">Total Attainment [(Out of 3) : {{filteredCOdata.totalAttainment}}
+                  (Out
+                  of 100) : {{((filteredCOdata.totalAttainment/3)*100).toFixed(2)}}]</p>
+                <hr class="mt-0 mb-1">
+                <p class="mat-body-2 mb-1">CO{{filteredCOdata.coNumber}} : “definition”</p>
+                <hr class="mt-0 mb-1">
+                <div class="row">
+                  <div class="col-md-5 p-0">
+                    <p class="mat-body-2 text-center"> Direct Attainment [(Out of 3) :
+                      {{filteredCOdata.directAttainment}}
+                      (Out of
+                      100) : 67.23]</p>
+                    <table class="table responsive basicborder" id="table1">
+                      <thead class="back">
+                        <tr>
+                          <th>Method Name</th>
+                          <th *ngFor="let method of methodName;let ind = index">Method{{ind+1}}</th>
+                        </tr>
+                      </thead>
+                      <tbody class="mat-small maintext">
+                        <tr class="border">
+                          <td>Method Description </td>
+                          <td *ngFor="let method of methodName"><span>{{method}}</span><span *ngIf="method==null">-</span></td>
+                        </tr>
+                        <tr class="border">
+                          <td>Attainment </td>
+                          <td *ngFor="let method of methodName;let ind = index">{{attainment[ind]}}<span *ngIf="attainment[ind]==null">-</span></td>
+                        </tr>
+                        <tr class="border">
+                          <td>Attainment percentage</td>
+                          <td *ngFor="let method of methodName;let ind = index">{{attainmentPercentage[ind]}}<span *ngIf="attainmentPercentage[ind]==null">-</span></td>
+                        </tr>
+                        <tr class="border">
+                          <td>Total Obtained Score</td>
+                          <td *ngFor="let method of methodName;let ind = index">{{obtainedScore[ind]}}<span *ngIf="obtainedScore[ind]==null">-</span></td>
+                        </tr>
+                        <tr class="border">
+                          <td>Total Max Score</td>
+                          <td *ngFor="let method of methodName;let ind = index">{{maxScore[ind]}}<span *ngIf="maxScore[ind]==null">-</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <!-- <<<<<<< HEAD -->
+                    <p class="mat-body-2 text-center">Indirect Attainment [(Out of 3) :
+                      {{filteredCOdata.indirectAttainment}} (Out of 100) : 67.23]</p>
+                    <table class="table responsive basicborder" id="table2">
+                      <thead class="back">
+                        <tr>
+                          <th>Method Name</th>
+                          <th *ngFor="let method of imethodName;let ind = index">Method{{ind+1}}</th>
+                          
+                        </tr>
+                      </thead>
+                      <tbody class="mat-small maintext">
+                        <tr class="border">
+                          <td>Method Description </td>
+                          <td *ngFor="let method of imethodName"><span>{{method}}</span><span *ngIf="method==null">-</span></td>
+                        </tr>
+                        <tr class="border">
+                          <td>Attainment </td>
+                          <td *ngFor="let method of imethodName;let ind = index">{{iattainment[ind]}}<span *ngIf="iattainment[ind]==null">-</span></td>
+                        </tr>
+                        <tr class="border">
+                          <td>Attainment percentage</td>
+                          <td *ngFor="let method of imethodName;let ind = index">{{iattainmentPercentage[ind]}}<span *ngIf="iattainmentPercentage[ind]==null">-</span></td>
+                        </tr>
+                        <tr class="border">
+                          <td>Total Obtained Score</td>
+                          <td *ngFor="let method of imethodName;let ind = index">{{iobtainedScore[ind]}}<span *ngIf="iobtainedScore[ind]==null">-</span></td>
+                        </tr>
+                        <tr class="border">
+                          <td>Total Max Score</td>
+                          <td *ngFor="let method of imethodName;let ind = index">{{imaxScore[ind]}}<span *ngIf="imaxScore[ind]==null">-</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="col-md-7 px-1 py-0 scroll" id="cardarea">
+                    <mat-card class="pt-0 px-0" id="card">
+                      <mat-card-header class="back2 py-0 fullwidth">
+                        <div class="row col-md-12">
+                          <div class="col-md-6 text-left">
+                            <p class="white"> Co-Curricular Activities
+                            <p>
+                          </div>
+                          <div class="col-md-6 container text-right">
+                            <mat-select class="text-white border-bottom border-white" [(ngModel)]="selectedCoCu"
+                              (ngModelChange)="onCoselection()">
+                              <mat-option value="Industrial Initiatives">Industrial Initiatives</mat-option>
+                              <mat-option value="Publications">Publications</mat-option>
+                            </mat-select>
+                          </div>
+                        </div>
+                        <!--code for dropdown-->
+                      </mat-card-header>
+                      <!--code for dispalying co-curricular activities cards-->
+                      <mat-card-content>
+                        <div class="row col-md-12 p-0 m-0">
+                          <div class="col-md-6 my-2" *ngFor="let card of card_array">
+                            <mat-card class="shadow cardborder mat-small maintext pt-1 pr-0">
+                              <div class="row col-md-12  p-0 mt-0">
+                                <div class="col-md-2 my-0"><i class="fa fa-briefcase my-0" aria-hidden="true"></i></div>
+                                <div class="col-md-6 my-0"></div>
+                                <div class="col-md-4-sm-4 pl-1 my-0">
+                                  <p id="disusertype" class="mat-small maintext ml-6 my-0"> {{card.userType}}</p><br>
+                                </div>
+                              </div>
+                              <div class="row col-md-12 pl-3 my-0">
+                                <div class="col-md-5-sm-5 pl-0"><b> Name</b> <br>
+                                  <b>Role</b> <br>
+                                  <b>Date</b> <br>
+                                  <b>Duration</b><br>
+                                  <b>Activity_type</b><br>
+                                </div>
+                                <div class="col-md-7-sm-7 px-0">: {{card.Name}},<br>
+                                  : {{card.role}},<br>
+                                  : {{card.Date}},<br>
+                                  :{{card.DuraHon}},<br>
+                                  :{{card.Activity_type}}<br>
+                                </div>
+                              </div>
+                            </mat-card>
+                          </div>
+                        </div>
+                      </mat-card-content>
+                    </mat-card>
+                  </div>
+                </div>
+              </mat-card-content>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+      <div class="d-block d-sm-none" *ngIf="rwdSelected">
+        <div><button type="submit" class="right" (click)="bloomsLevelgraph(0,0)"><i
+              class="fas fa-arrow-left right"></i></button></div>
+        <h5 style="text-align:center;"><b>Total Attainment [(Out of 3) : 1.92 (Out of 100) : 67.23]</b></h5>
+        <hr>
+        CO2 : "Definition"
+        <hr>
+        <h6>Direct Attainment [(Out of 3): 1.92 (Out of 100):67.23]</h6>
+        <table class="table  table-bordered">
+          <thead>
+            <tr>
+              <th></th>
+              <th>SL #</th>
+              <th>Method Name</th>
+            </tr>
+          </thead>
+          <tbody id="accordion" class="scrollit table-data custom-card-group accordian-panel box-borders"
+            *ngFor="let list of Keylist; let i=index;">
+            <tr>
+              <td><a class="accordion-toggle collapsed p-2" id="accordion" data-toggle="collapse"
+                  [attr.data-target]="'#details'+i"></a></td>
+              <td>{{i+1}}</td>
+              <td><b>{{list}}</b></td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <div id="details{{i}}" data-parent="#accordion" class="collapse">
+                  <div class="row" *ngIf="i==0">
+                    <div *ngFor="let method of methodName; let k=index;">
+                      &nbsp; &nbsp; <b>method &nbsp;{{k+1}}: </b>&nbsp; {{method}}
+                    </div>
+                  </div>
+                  <div class="row" *ngIf="i==1">
+                    <div *ngFor="let value of attainment; let k=index;">
+                      &nbsp; &nbsp; <b>method &nbsp;{{k+1}}: </b>&nbsp; {{value}}
+                    </div>
+                  </div>
+                  <div class="row" *ngIf="i==2">
+                    <div *ngFor="let value of attainmentPercentage; let k=index;">
+                      &nbsp; &nbsp; <b>method &nbsp;{{k+1}}: </b>&nbsp; {{value}}
+                    </div>
+                  </div>
+                  <div class="row" *ngIf="i==3">
+                    <div *ngFor="let value of obtainedScore; let k=index;">
+                      &nbsp; &nbsp; <b>method &nbsp;{{k+1}}: </b>&nbsp; {{value}}
+                    </div>
+                  </div>
+                  <div class="row" *ngIf="i==4">
+                    <div *ngFor="let value of maxScore; let k=index;">
+                      &nbsp; &nbsp; <b>method &nbsp;{{k+1}}: </b>&nbsp; {{value}}
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h6>Indirect Attainment [(Out of 3): 1.92 (Out of 100):67.23]</h6>
+        <table class="table  table-bordered">
+          <thead>
+            <tr>
+              <th></th>
+              <th>SL #</th>
+              <th>Method Name</th>
+            </tr>
+          </thead>
+          <tbody id="accordion" class="scrollit table-data custom-card-group accordian-panel box-borders"
+            *ngFor="let list of Keylist; let a=index;">
+            <tr>
+              <td><a class="accordion-toggle collapsed p-2" id="accordion" data-toggle="collapse"
+                  [attr.data-target]="'#details1'+a"></a></td>
+              <td>{{a+1}}</td>
+              <td><b>{{list}}</b></td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <div id="details1{{a}}" data-parent="#accordion" class="collapse">
+                  <div class="row" *ngIf="a==0">
+                    <div *ngFor="let method of imethodName; let k=index;">
+                      &nbsp; &nbsp; <b>method &nbsp;{{k+1}}: </b>&nbsp; {{method}}
+                    </div>
+                  </div>
+                  <div class="row" *ngIf="a==1">
+                    <div *ngFor="let value of iattainment; let k=index;">
+                      &nbsp; &nbsp; <b>method &nbsp;{{k+1}}: </b>&nbsp; {{value}}
+                    </div>
+                  </div>
+                  <div class="row" *ngIf="a==2">
+                    <div *ngFor="let value of iattainmentPercentage; let k=index;">
+                      &nbsp; &nbsp; <b>method &nbsp;{{k+1}}: </b>&nbsp; {{value}}
+                    </div>
+                  </div>
+                  <div class="row" *ngIf="a==3">
+                    <div *ngFor="let value of iobtainedScore; let k=index;">
+                      &nbsp; &nbsp; <b>method &nbsp;{{k+1}}: </b>&nbsp; {{value}}
+                    </div>
+                  </div>
+                  <div class="row" *ngIf="a==4">
+                    <div *ngFor="let value of imaxScore; let k=index;">
+                      &nbsp; &nbsp; <b>method &nbsp;{{k+1}}: </b>&nbsp; {{value}}
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="col-md-7 px-1 py-0 scroll" id="cardarea">
+          <mat-card class="pt-0 px-0" id="card">
+            <mat-card-header class="back2 py-0 px-0 fullwidth">
+              <div class="row col-md-12 mx-0">
+                <div class="col-md-6">
+                  <p class="white float-left"> Co-Curricular Activities</p>
+                
+                </div>
+                <div class="col-md-6 ">
+                  <mat-select class="text-white border-bottom border-white" [(ngModel)]="selectedCoCu"
+                    (ngModelChange)="onCoselection()">
+                    <mat-option value="Industrial Initiatives">Industrial Initiatives</mat-option>
+                    <mat-option value="Publications">Publications</mat-option>
+                  </mat-select>
+                </div>
+              </div>
+              <!--code for dropdown-->
+            </mat-card-header>
+            <!--code for dispalying co-curricular activities cards-->
+            <mat-card-content>
+              <div class="row col-md-12 p-0 m-0">
+                <div class="col-md-6 my-2" *ngFor="let card of card_array">
+                  <mat-card class="shadow cardborder mat-small maintext pt-1 pr-0">
+                    <div class="row">
+                      <div class="my-0 ml-3"><i class="float-left fa fa-briefcase my-0" aria-hidden="true"></i></div>
+                      
+                      <div class="my-0 leftmargin">
+                        <p id="disusertype" class="mat-small maintext my-0"> {{card.userType}}</p><br>
+                      </div>
+                    </div>
+                    <div class="row col-md-12 pl-3 my-0">
+                      <div class="col-md-5-sm-5 pl-0"><b> Name</b> <br>
+                        <b>Role</b> <br>
+                        <b>Date</b> <br>
+                        <b>Duration</b><br>
+                        <b>Activity_type</b><br>
+                      </div>
+                      <div class="col-md-7-sm-7 px-0">: {{card.Name}},<br>
+                        : {{card.role}},<br>
+                        : {{card.Date}},<br>
+                        :{{card.DuraHon}},<br>
+                        :{{card.Activity_type}}<br>
+                      </div>
+                    </div>
+                  </mat-card>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+    <!-- Responsive part ends here -->
+  </div>

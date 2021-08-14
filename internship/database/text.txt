@@ -1,0 +1,76 @@
+import dbcontext as db
+
+def create_table():
+    try:
+        with db.DbContext() as conn
+            cursor = conn.cursor()
+            cursor.execute("create table student(usn integer primary key,name text,sem integer,placed integer)")
+    
+    except Exception as e:
+        print(str(e))
+    
+def add_new_student(usn,name,sem,placed):
+    try:
+         with db.DbContext() as conn
+            cursor = conn.cursor()
+            cursor.execute("insert into student(usn,name,sem,placed)values(?,?,?,?)",(usn,name,sem,placed))
+        print(f"New Student is added to the database with usn : {usn}")
+        
+    except Exception as e:
+        print(str(e))
+    
+
+def show_students():
+    try:
+        conn = sqlite3.connect(host_name)
+        cursor = conn.cursor()
+        cursor.execute("select regno,name,sem,placed from student")
+        rows = cursor.fetchall()
+        for row in rows:
+            status = "Placed" if row[3] == 1 else "Not placed"
+            print(f"{row[0]} {row[1]} {row[2]} {status}")
+        
+    except Exception as e:
+        print(str(e))
+    
+    finally:
+        conn.close()
+
+def update_stu_status(regno,placed):
+    try:
+        conn = sqlite3.connect(host_name)
+        cursor = conn.cursor()
+        cursor.execute("update student set placed =? where regno =?",(placed,regno))
+        conn.commit()
+        
+    except Exception as e:
+        print(str(e))
+    
+    finally:
+        conn.close()
+
+def show_students_regno(regno):
+    try:
+        conn = sqlite3.connect(host_name)
+        cursor = conn.cursor()
+        cursor.execute("select regno,name,sem,placed from student where regno = ?",(regno))
+        row = cursor.fetchone()
+        if  row:
+            status = "Placed" if row[3] == 1 else "Not placed"
+            print(f"{row[0]} {row[1]} {row[2]} {status}")
+        else:
+            print
+        
+    except Exception as e:
+        print(str(e))
+    
+    finally:
+        conn.close()
+
+#create_table()
+#add_new_student(16001,"Pallavi",5,0)
+#add_new_student(16002,"Nidhi",5,0)
+#add_new_student(16003,"Megha",5,0)
+#show_students()
+update_stu_status(16001,1)
+show_students()

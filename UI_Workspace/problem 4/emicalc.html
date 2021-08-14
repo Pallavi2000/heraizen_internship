@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EMI Calculator</title> 
+    <link rel = "stylesheet" href="css/main.css">
+    <script type="text/javascript">
+        function showResult(){
+            P = parseFloat(document.getElementById("amount").value)
+            R = parseFloat(document.getElementById("roi").value)
+            N = parseFloat(document.getElementById("Duration").value)
+            document.getElementById("res").innerHTML = "<h4>Not yet implimented please wait.....</h4>"
+            RI = R / 1200
+            EMI = P * RI / (1-(Math.pow(1/(1+RI),N)))
+            res = "Amount: "+P+"<br>ROI: "+R+"<br>Duration: "+N+"<br>EMI:"+EMI
+            document.getElementById("res").innerHTML = res;
+        }
+    </script>
+</head>
+<body>
+    <h3>EMI Calculator Example:</h3>
+    <form>
+        <fieldset>
+            <legend>EMI Calculator</legend>
+            <p>
+                <label>Amount:</label>
+                <input type="text" name="amount" id="amount">
+            </p>
+            <p>
+                <label>Duration:</label>
+                <input type="text" name="Duration" id="Duration">
+            </p>
+            <p>
+                <label>Rate of Interest:</label>
+                <input type="text" name="roi" id="roi">
+            </p>
+            <p>
+                <label>&nbsp</label>
+                <input type="button" value="Calculate" onclick="showResult()">
+            </fieldset>
+        </p>
+    </form>
+    <hr>
+    <div id="res"></div>
+</body>
+</html>

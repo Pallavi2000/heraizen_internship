@@ -1,0 +1,39 @@
+<!-- Anish -->
+<div class=".d-sm-block .d-md-block">
+    <div class="row table-header">
+        <h2 class="title">{{analytics.student_details}}</h2>
+        <div class="cross-main">
+            <div class="cross .d-sm-block .d-md-block" mat-flat-button mat-dialog-close>
+                <mat-icon>close</mat-icon>
+            </div>
+        </div>
+    </div>
+    <h5>{{analytics.category}} : {{category}}</h5>
+    <h5>Question 1 : {{question}}</h5>
+    <!-- <div style="font-style: oblique;">    {{analytics.cumulative_score}}: {{ cumscore }} </div> -->
+    <br>
+    <table class="table">
+        <thead class="table-header">
+            <tr>
+                <td>Student ID/USN</td>
+                <td>Name</td>
+                <td>Marks</td>
+            </tr>
+        </thead>
+        <tbody class="table-data">
+            <tr *ngFor="let temp of temp">
+                <td style="padding: 10px;">
+                    {{temp.usn}}
+                </td>
+                <td style="padding: 10px;">
+                    {{temp.name}}
+                </td>
+                <td style="padding: 10px;">
+                    {{temp.marks_given}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <br>
+</div>

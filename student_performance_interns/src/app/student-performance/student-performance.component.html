@@ -1,0 +1,1789 @@
+<nav class="navbar fixed d-lg-none" *ngIf="second_screen">
+  <div class="nav-item" (click)="show_academics()">Academics</div>
+  <div class="nav-item" (click)="show_co_curricular()">Co-curricular</div>
+  <div class="nav-item" (click)="show_skills()">Skills</div>
+</nav>
+
+<!-- -----------bread-crumb starts here------------- -->
+<div class="row">
+  <div class="col-sm-10">
+    <ul class="breadcrumb">
+      <li class="breadcrumb-item">
+        <i class="fa fa-bar-chart"></i>
+        Student Performance<span *ngIf="second_screen">/Self Score</span>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-2 text-right" *ngIf=" !first_screen">
+    <div mat-button (click)="BackToFirstScreen()"> <i class="fa fa-chevron-left" aria-hidden="true"></i> Back</div>
+  </div>
+</div>
+<!-- -----------bread-crumb ends here------------- -->
+
+<div class="detail row" *ngIf="second_screen">
+  <span>
+    <h6>Academic Year: {{data['year']}}</h6>
+  </span>
+  <div class="row d-lg-none"></div>
+  <span>
+    <h6>Student Name: {{data['name']}}</h6>
+  </span>
+  <span>
+    <h6>USN: {{data['USN']}}</h6>
+  </span>
+</div>
+
+<div class="block " *ngIf="!first_screen">
+  <ul>
+    <li><i class="fa fa-desktop" aria-hidden="true"></i> : <span>System Generated Score</span></li>
+    <li><i class="fa fa-user" aria-hidden="true"></i> : <span>Mentor Score</span></li>
+    <li><i class="fa fa-male" aria-hidden="true"></i> : <span>Self Score</span></li>
+  </ul>
+</div>
+
+
+<!--Start of 2nd Screen-->
+<div class="" *ngIf="first_screen">
+
+  <div class="row">
+    <mat-form-field class="col-md-2">
+      <mat-label class="text-success">Academic Year</mat-label>
+      <mat-select class="inputMateria;" [(ngModel)]="year" name="year">
+        <mat-option *ngFor="let year of academicYear" [value]="year" (click)="academicYearSelected()">
+          {{year}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div *ngIf="!data_not_found">
+    <div class="row student-details">
+      <div class="col-sm-4">
+        <strong>Student Name </strong>
+        <span>: {{this.studentName}}</span>
+        <strong>USN</strong>
+        <span> : {{this.usn}}</span>
+      </div>
+      <div class="col-sm-2"></div>
+      <div class="col-sm-6 icons">
+        <ul>
+          <li><i class="fa fa-desktop" aria-hidden="true"></i> : <span>System Generated Score</span></li>
+          <li><i class="fa fa-user" aria-hidden="true"></i> : <span>Mentor Score</span></li>
+          <li><i class="fa fa-male" aria-hidden="true"></i> : <span>Self Score</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row text-right top_button">
+      <div class="col-md-12 text-right">
+
+        <button class="btn other-button" (click)="goTo_second_screen()"><span> <i class="fa fa-pencil"
+              aria-hidden="true"></i></span> Self Score </button>
+        <button class="btn other-button">
+          <span><i class="fa fa-pencil" aria-hidden="true"> </i></span> Update Current Score </button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-title Course-Result">
+            Course - Result
+          </div>
+          <div class="card-body">
+            <table class="table attendance table-sm">
+              <tr class="table-active">
+                <td> </td>
+                <td> % </td>
+                <td><i class="fa fa-desktop" aria-hidden="true"></i></td>
+                <td> <i class="fa fa-male" aria-hidden="true"></i> </td>
+                <td> <i class="fa fa-user" aria-hidden="true"></i>
+                </td>
+              </tr>
+              <tr *ngFor='let columnName of ["Lab","Theory"]'>
+                <td>{{columnName}}</td>
+                <td>{{dataSource[columnName]["percenatge"]}}</td>
+                <td>{{dataSource[columnName]["system_generated_score"]}}</td>
+                <td>{{dataSource[columnName]["mentor_score"]}}</td>
+                <td>{{dataSource[columnName]["self_score"]}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-title Attendance">
+            Attendance
+          </div>
+          <div class="card-body">
+            <table class="table table-sm attendance">
+              <tr class="table-active">
+                <td> </td>
+                <td>%</td>
+                <td><i class="fa fa-desktop" aria-hidden="true"></i></td>
+                <td> <i class="fa fa-male" aria-hidden="true"></i> </td>
+                <td> <i class="fa fa-user" aria-hidden="true"></i>
+                </td>
+              </tr>
+              <tr *ngFor="let columnName of ['Lab','Theory']">
+                <td>{{columnName}}</td>
+                <td>{{dataSource2[columnName]["percenatge"]}}</td>
+                <td>{{dataSource2[columnName]["system_generated_score"]}}</td>
+                <td>{{dataSource2[columnName]["mentor_score"]}}</td>
+                <td>{{dataSource2[columnName]["self_score"]}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="card" (click)="comitteeDetails()">
+          <div class="card-title Committee">
+            Committee
+          </div>
+          <div class="card-body">
+            <table class="table committee table-sm">
+              <tr class="table-active">
+                <td></td>
+                <th>Count</th>
+                <td><i class="fa fa-desktop" aria-hidden="true"></i></td>
+                <td> <i class="fa fa-male" aria-hidden="true"></i> </td>
+                <td> <i class="fa fa-user" aria-hidden="true"></i>
+                </td>
+              </tr>
+              <tr>
+                <td>Mentor Meeting</td>
+                <td>2</td>
+                <td>5</td>
+                <td>4</td>
+                <td>10</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-title Project">
+            Projects
+          </div>
+          <div class="card-body">
+            <table class="table table-sm">
+              <tr class="table-active">
+                <td> </td>
+                <td>Count</td>
+                <td><i class="fa fa-desktop" aria-hidden="true"></i></td>
+                <td> <i class="fa fa-male" aria-hidden="true"></i> </td>
+                <td> <i class="fa fa-user" aria-hidden="true"></i>
+                </td>
+              </tr>
+              <tr *ngFor="let columnName of ['Mini Project','Major Project']">
+                <td>{{columnName}}</td>
+                <td>{{dataSource4[columnName]["count"]}}</td>
+                <td>{{dataSource4[columnName]["system_generated_score"]}}</td>
+                <td>{{dataSource4[columnName]["mentor_score"]}}</td>
+                <td>{{dataSource4[columnName]["self_score"]}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-title Publication">
+            Publications
+          </div>
+          <div class="card-body">
+            <table class="table  table-sm">
+              <tr class="table-active">
+                <td> </td>
+                <td>Count</td>
+                <td><i class="fa fa-desktop" aria-hidden="true"></i></td>
+                <td> <i class="fa fa-male" aria-hidden="true"></i> </td>
+                <td> <i class="fa fa-user" aria-hidden="true"></i>
+                </td>
+              </tr>
+              <tr *ngFor="let columnName of ['Paper','Article']">
+                <td>{{columnName}}</td>
+                <td>{{dataSource6[columnName]["count"]}}</td>
+                <td>{{dataSource6[columnName]["system_generated_score"]}}</td>
+                <td>{{dataSource6[columnName]["mentor_score"]}}</td>
+                <td>{{dataSource6[columnName]["self_score"]}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-title Internship">
+            Internships
+          </div>
+          <div class="card-body">
+            <table class="table tb-data table-sm">
+              <tr class="table-active">
+                <td> </td>
+                <td>Count</td>
+                <td><i class="fa fa-desktop" aria-hidden="true"></i></td>
+                <td> <i class="fa fa-male" aria-hidden="true"></i> </td>
+                <td> <i class="fa fa-user" aria-hidden="true"></i>
+                </td>
+              </tr>
+              <tr>
+                <td>Internship</td>
+                <td>{{dataSource5["count"]}}</td>
+                <td>{{dataSource5["system_generated_score"]}}</td>
+                <td>{{dataSource5["mentor_score"]}}</td>
+                <td>{{dataSource5["self_score"]}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-title Patent">
+            Patents
+          </div>
+          <div class="card-body">
+            <table class="table tb-data table-sm">
+              <tr class="table-active">
+                <td> </td>
+                <td>Count</td>
+                <td><i class="fa fa-desktop" aria-hidden="true"></i></td>
+                <td> <i class="fa fa-male" aria-hidden="true"></i> </td>
+                <td> <i class="fa fa-user" aria-hidden="true"></i>
+                </td>
+              </tr>
+              <tr>
+                <td>Patents</td>
+                <td>{{dataSource7["count"]}}</td>
+                <td>{{dataSource7["system_generated_score"]}}</td>
+                <td>{{dataSource7["mentor_score"]}}</td>
+                <td>{{dataSource7["self_score"]}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-title Certification">
+            Certifications
+          </div>
+          <div class="card-body">
+            <table class="table tb-data table-sm">
+              <tr class="table-active">
+                <td> </td>
+                <td>Count</td>
+                <td><i class="fa fa-desktop" aria-hidden="true"></i></td>
+                <td><i class="fa fa-male" aria-hidden="true"></i></td>
+                <td><i class="fa fa-user" aria-hidden="true"></i>
+                </td>
+              </tr>
+              <tr>
+                <td>Certificate</td>
+                <td>{{dataSource8["count"]}}</td>
+
+                <td>{{dataSource8["system_generated_score"]}}</td>
+                <td>{{dataSource8["mentor_score"]}}</td>
+                <td>{{dataSource8["self_score"]}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="data_not_found && year != 0" class="alert alert-danger">
+    Data not found...
+  </div>
+
+</div>
+<!--End of 2nd Screen-->
+
+
+<div class="Second-screen d-none d-lg-block" *ngIf="second_screen">
+
+  <div class="row md-2">
+    <button class="semi-card d-none d-sm-block" [ngClass]="{'white' : academic_toggle}"
+      (click)="show_academics()">Academic</button>
+    <button class="semi-card d-none d-sm-block" [ngClass]="{'white' : cocurricular_toggle}"
+      (click)="show_co_curricular()">Co-Curricular</button>
+    <button class="semi-card d-none d-sm-block" [ngClass]="{'white' : skills_toggle}"
+      (click)="show_skills()">Skills</button>
+    <div class="col md-offset-6"></div>
+  </div>
+</div>
+
+<div class="d-lg-none row rwd-header" *ngIf="second_screen && academic_toggle">
+  <i class="fa fa-book"></i>
+  <h6>Academic-Results</h6>
+</div>
+
+<mat-card class="example-card d-lg-none" *ngIf="second_screen && academic_toggle">
+  <mat-card-content>
+    <button class="button_collapse collapsed" type="button" data-toggle="collapse" data-target="#collapseOne"
+      aria-expanded="false" aria-controls="collapseOne">Course-Result</button>
+
+    <div class="collapse multi-collapse" id="collapseOne">
+
+      <mat-card class="example-card">
+        <mat-card-content>
+
+          <div class="block  bg-wrapper">
+            <div class="row">
+              <h6><strong>Lab</strong></h6>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-12">
+                <p><strong>Internal</strong></p>
+              </div>
+              <div class="row"></div>
+              <div class="col-xs-6">
+                <i class="fa fa-desktop" aria-hidden="true"></i> : <span>6</span>
+              </div>
+              <div class="col-xs-6">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span>0</span>
+              </div>
+              <div class="row"></div>
+              <div class="col-xs-6">
+                <i class="fa fa-male " aria-hidden="true"></i> : <span><input type="text" placeholder="0">/10</span>
+              </div>
+              <div class="col-xs-6">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span>No Comments</span>
+              </div>
+              <div class="col-xs-9">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span><input type="text"
+                    placeholder="Enter comment"></span>
+              </div>
+            </div>
+
+            <div class="row"></div>
+
+            <div class="row">
+              <div class="col-xs-12">
+                <p><strong>External</strong></p>
+              </div>
+              <div class="row"></div>
+              <div class="col-xs-6">
+                <i class="fa fa-desktop" aria-hidden="true"></i> : <span>6</span>
+              </div>
+              <div class="col-xs-6">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span>0</span>
+              </div>
+              <div class="row"></div>
+              <div class="col-xs-6">
+                <i class="fa fa-male " aria-hidden="true"></i> : <span><input type="text" placeholder="0">/10</span>
+              </div>
+              <div class="col-xs-6">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span>No Comments</span>
+              </div>
+              <div class="row"></div>
+              <div class="col-xs-9">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span><input type="text"
+                    placeholder="Enter comment"></span>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <div class="row"></div>
+
+      <mat-card class="example-card">
+        <mat-card-content>
+
+          <div class="block  bg-wrapper">
+            <div class="row">
+              <h6><strong>Theory</strong></h6>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-12">
+                <p><strong>Internal</strong></p>
+              </div>
+              <div class="row"></div>
+              <div class="col-xs-6">
+                <i class="fa fa-desktop" aria-hidden="true"></i> : <span>6</span>
+              </div>
+              <div class="col-xs-6">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span>0</span>
+              </div>
+              <div class="row"></div>
+              <div class="col-xs-6">
+                <i class="fa fa-male " aria-hidden="true"></i> : <span><input type="text" placeholder="0">/10</span>
+              </div>
+              <div class="col-xs-6">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span>No Comments</span>
+              </div>
+              <div class="col-xs-9">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span><input type="text"
+                    placeholder="Enter comment"></span>
+              </div>
+            </div>
+
+            <div class="row"></div>
+
+            <div class="row">
+              <div class="col-xs-12">
+                <p><strong>External</strong></p>
+              </div>
+              <div class="row"></div>
+              <div class="col-xs-6">
+                <i class="fa fa-desktop" aria-hidden="true"></i> : <span>6</span>
+              </div>
+              <div class="col-xs-6">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span>0</span>
+              </div>
+              <div class="row"></div>
+              <div class="col-xs-6">
+                <i class="fa fa-male " aria-hidden="true"></i> : <span><input type="text" placeholder="0">/10</span>
+              </div>
+              <div class="col-xs-6">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span>No Comments</span>
+              </div>
+              <div class="row"></div>
+              <div class="col-xs-9">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span><input type="text"
+                    placeholder="Enter comment"></span>
+              </div>
+            </div>
+          </div>
+
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+
+    <div class="row"></div>
+
+    <button class="button_collapse collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
+      aria-expanded="false" aria-controls="collapseTwo">Attendance</button>
+
+    <div class="row collapse multi-collapse" id="collapseTwo">
+      <mat-card class="example-card">
+        <mat-card-content>
+          <div class="block  bg-wrapper">
+            <div class="row">
+              <h6><strong>Lab</strong></h6>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                <i class="fa fa-desktop" aria-hidden="true"></i> : <span>6</span>
+              </div>
+              <div class="col-xs-6">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span>0</span>
+              </div>
+              <div class="row"></div>
+              <div class="col-xs-6">
+                <i class="fa fa-male " aria-hidden="true"></i> : <span><input type="text" placeholder="0">/10</span>
+              </div>
+              <div class="col-xs-6">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span>No Comments</span>
+              </div>
+              <div class="row"></div>
+              <div class="col-xs-9">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span><input type="text"
+                    placeholder="Enter comment"></span>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <div class="row"></div>
+
+      <mat-card class="example-card">
+        <mat-card-content>
+
+          <div class="block  bg-wrapper">
+            <div class="row">
+              <h6><strong>Theory</strong></h6>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                <i class="fa fa-desktop" aria-hidden="true"></i> : <span>6</span>
+              </div>
+              <div class="col-xs-6">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span>0</span>
+              </div>
+              <div class="row"></div>
+              <div class="col-xs-6">
+                <i class="fa fa-male " aria-hidden="true"></i> : <span><input type="text" placeholder="0">/10</span>
+              </div>
+              <div class="col-xs-6">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span>No Comments</span>
+              </div>
+              <div class="row"></div>
+              <div class="col-xs-9">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span><input type="text"
+                    placeholder="Enter comment"></span>
+              </div>
+            </div>
+          </div>
+
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+    <div class="row d-lg-none"></div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="example-card d-none d-lg-block" *ngIf="academic_toggle && second_screen">
+  <mat-card-content>
+    <mat-tab-group dynamicHeight>
+      <mat-tab label="Course-Result">
+
+        <div class="block  bg-wrapper">
+          <div class="row">
+            <h6><strong>Lab</strong></h6>
+          </div>
+
+          <div class="row">
+            <p>Internal</p>
+            <div class="col-md-1">
+              <i class="fa fa-desktop" aria-hidden="true"></i> : <span>6</span>
+            </div>
+            <div class="col-md-1">
+              <i class="fa fa-user" aria-hidden="true"></i> : <span>0</span>
+            </div>
+            <div class="col-md-3">
+              <i class="fa fa-male " aria-hidden="true"></i> : <span><input type="text" placeholder="0">/10</span>
+            </div>
+            <div class="col-md-2">
+              <i class="fa fa-user" aria-hidden="true"></i> : <span>No Comments</span>
+            </div>
+            <div class="col-md-3">
+              <i class="fa fa-user" aria-hidden="true"></i> : <span><input type="text"
+                  placeholder="Enter comment"></span>
+            </div>
+          </div>
+
+          <div class="row">
+            <p>Internal</p>
+            <div class="col-md-1">
+              <i class="fa fa-desktop" aria-hidden="true"></i> : <span>6</span>
+            </div>
+            <div class="col-md-1">
+              <i class="fa fa-user" aria-hidden="true"></i> : <span>0</span>
+            </div>
+            <div class="col-md-3">
+              <i class="fa fa-male " aria-hidden="true"></i> : <span><input type="text" placeholder="0">/10</span>
+            </div>
+            <div class="col-md-2">
+              <i class="fa fa-user" aria-hidden="true"></i> : <span>No Comments</span>
+            </div>
+            <div class="col-md-3">
+              <i class="fa fa-user" aria-hidden="true"></i> : <span><input type="text"
+                  placeholder="Enter comment"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="block  bg-wrapper">
+          <div class="row">
+            <h6><strong>Theory</strong></h6>
+          </div>
+
+          <div class="row">
+            <p>Internal</p>
+            <div class="col-md-1">
+              <i class="fa fa-desktop" aria-hidden="true"></i> : <span>6</span>
+            </div>
+            <div class="col-md-1">
+              <i class="fa fa-user" aria-hidden="true"></i> : <span>0</span>
+            </div>
+            <div class="col-md-3">
+              <i class="fa fa-male " aria-hidden="true"></i> : <span><input type="text" placeholder="0">/10</span>
+            </div>
+            <div class="col-md-2">
+              <i class="fa fa-user" aria-hidden="true"></i> : <span>No Comments</span>
+            </div>
+            <div class="col-md-3">
+              <i class="fa fa-user" aria-hidden="true"></i> : <span><input type="text"
+                  placeholder="Enter comment"></span>
+            </div>
+          </div>
+          <div class="row">
+            <p>Internal</p>
+            <div class="col-md-1">
+              <i class="fa fa-desktop" aria-hidden="true"></i> : <span>6</span>
+            </div>
+            <div class="col-md-1">
+              <i class="fa fa-user" aria-hidden="true"></i> : <span>0</span>
+            </div>
+            <div class="col-md-3">
+              <i class="fa fa-male " aria-hidden="true"></i> : <span><input type="text" placeholder="0">/10</span>
+            </div>
+            <div class="col-md-2">
+              <i class="fa fa-user" aria-hidden="true"></i> : <span>No Comments</span>
+            </div>
+            <div class="col-md-3">
+              <i class="fa fa-user" aria-hidden="true"></i> : <span><input type="text"
+                  placeholder="Enter comment"></span>
+            </div>
+          </div>
+        </div>
+
+      </mat-tab>
+      <mat-tab label="Attendence">
+        <div class="block  bg-wrapper">
+          <div class="row">
+            <h6><strong>Lab</strong></h6>
+          </div>
+
+          <div class="row">
+            <div class="col-md-2">
+              <i class="fa fa-desktop" aria-hidden="true"></i> : <span>6</span>
+            </div>
+            <div class="col-md-2">
+              <i class="fa fa-user" aria-hidden="true"></i> : <span>0</span>
+            </div>
+            <div class="col-md-3">
+              <i class="fa fa-male " aria-hidden="true"></i> : <span><input type="text" placeholder="0">/10</span>
+            </div>
+            <div class="col-md-2">
+              <i class="fa fa-user" aria-hidden="true"></i> : <span>No Comments</span>
+            </div>
+            <div class="col-md-3">
+              <i class="fa fa-user" aria-hidden="true"></i> : <span><input type="text"
+                  placeholder="Enter comment"></span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="block  bg-wrapper">
+          <div class="row">
+            <h6><strong>Theory</strong></h6>
+          </div>
+
+          <div class="row">
+            <div class="col-md-2">
+              <i class="fa fa-desktop" aria-hidden="true"></i> : <span>6</span>
+            </div>
+            <div class="col-md-2">
+              <i class="fa fa-user" aria-hidden="true"></i> : <span>0</span>
+            </div>
+            <div class="col-md-3">
+              <i class="fa fa-male " aria-hidden="true"></i> : <span><input type="text" placeholder="0">/10</span>
+            </div>
+            <div class="col-md-2">
+              <i class="fa fa-user" aria-hidden="true"></i> : <span>No Comments</span>
+            </div>
+            <div class="col-md-3">
+              <i class="fa fa-user" aria-hidden="true"></i> : <span><input type="text"
+                  placeholder="Enter comment"></span>
+            </div>
+          </div>
+
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>
+
+<div class="d-lg-none row rwd-header" *ngIf="second_screen && cocurricular_toggle">
+  <i class="fa fa-desktop"></i>
+  <h6>Corparate Life & Management</h6>
+</div>
+
+
+
+<mat-card class="example-card d-lg-none" *ngIf="second_screen && cocurricular_toggle">
+  <mat-card-content>
+
+    <button class="button_collapse collapsed" type="button" data-toggle="collapse" data-target="#collapseThree"
+      aria-expanded="false" aria-controls="collapseThree">Commitee</button>
+
+
+    <div class="collapse multi-collapse" id="collapseThree">
+
+      <mat-card class="example-card">
+        <mat-card-content>
+
+          <div class="block  bg-wrapper">
+            <div class="row">
+              <h6><strong>Commitee</strong></h6>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-6">
+                <i class="fa fa-desktop" aria-hidden="true"></i> : <span>6</span>
+              </div>
+              <div class="col-xs-6">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span>0</span>
+              </div>
+              <div class="row"></div>
+              <div class="col-xs-6">
+                <i class="fa fa-male " aria-hidden="true"></i> : <span><input type="text" placeholder="0">/10</span>
+              </div>
+              <div class="col-xs-6">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span>No Comments</span>
+              </div>
+              <div class="row"></div>
+              <div class="col-xs-9">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span><input type="text"
+                    placeholder="Enter comment"></span>
+              </div>
+            </div>
+
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="row d-lg-none"></div>
+  </mat-card-content>
+</mat-card>
+
+<div class="row d-lg-none"></div>
+
+<div class="d-lg-none row rwd-header" *ngIf="second_screen && cocurricular_toggle">
+  <i class="fa fa-desktop"></i>
+  <h6>Professional Development & Activity</h6>
+</div>
+
+<mat-card class="example-card d-lg-none" *ngIf="second_screen && cocurricular_toggle">
+  <mat-card-content>
+
+    <button class="button_collapse collapsed" type="button" data-toggle="collapse" data-target="#collapseFour"
+      aria-expanded="false" aria-controls="collapseFour">Project</button>
+    <div class="row collapse multi-collapse" id="collapseFour">
+
+      <mat-card class="example-card">
+        <mat-card-content>
+          <div class="block  bg-wrapper">
+            <div class="row">
+              <h6><strong>Mini Project</strong></h6>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-6">
+                <i class="fa fa-desktop" aria-hidden="true"></i> : <span>6</span>
+              </div>
+              <div class="col-xs-6">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span>0</span>
+              </div>
+              <div class="row"></div>
+              <div class="col-xs-6">
+                <i class="fa fa-male " aria-hidden="true"></i> : <span><input type="text" placeholder="0">/10</span>
+              </div>
+              <div class="col-xs-6">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span>No Comments</span>
+              </div>
+              <div class="row"></div>
+              <div class="col-xs-9">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span><input type="text"
+                    placeholder="Enter comment"></span>
+              </div>
+            </div>
+
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <div class="row"></div>
+
+      <mat-card class="example-card">
+        <mat-card-content>
+          <div class="block  bg-wrapper">
+            <div class="row">
+              <h6><strong>Major Project</strong></h6>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-6">
+                <i class="fa fa-desktop" aria-hidden="true"></i> : <span>6</span>
+              </div>
+              <div class="col-xs-6">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span>0</span>
+              </div>
+              <div class="row"></div>
+              <div class="col-xs-6">
+                <i class="fa fa-male " aria-hidden="true"></i> : <span><input type="text" placeholder="0">/10</span>
+              </div>
+              <div class="col-xs-6">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span>No Comments</span>
+              </div>
+              <div class="row"></div>
+              <div class="col-xs-9">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span><input type="text"
+                    placeholder="Enter comment"></span>
+              </div>
+            </div>
+
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="row"></div>
+
+    <button class="button_collapse collapsed" type="button" data-toggle="collapse" data-target="#collapseFive"
+      aria-expanded="false" aria-controls="collapseFive">Internship</button>
+    <div class="row collapse multi-collapse" id="collapseFive">
+
+      <mat-card class="example-card">
+        <mat-card-content>
+          <div class="block  bg-wrapper">
+            <div class="row">
+              <h6><strong>Internship</strong></h6>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-6">
+                <i class="fa fa-desktop" aria-hidden="true"></i> : <span>6</span>
+              </div>
+              <div class="col-xs-6">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span>0</span>
+              </div>
+              <div class="row"></div>
+              <div class="col-xs-6">
+                <i class="fa fa-male " aria-hidden="true"></i> : <span><input type="text" placeholder="0">/10</span>
+              </div>
+              <div class="col-xs-6">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span>No Comments</span>
+              </div>
+              <div class="row"></div>
+              <div class="col-xs-9">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span><input type="text"
+                    placeholder="Enter comment"></span>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="row"></div>
+
+    <button class="button_collapse collapsed" type="button" data-toggle="collapse" data-target="#collapseSix"
+      aria-expanded="false" aria-controls="collapseSix">Publication</button>
+    <div class="row collapse multi-collapse" id="collapseSix">
+
+      <mat-card class="example-card">
+        <mat-card-content>
+          <div class="block  bg-wrapper">
+            <div class="row">
+              <h6><strong>Paper</strong></h6>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-6">
+                <i class="fa fa-desktop" aria-hidden="true"></i> : <span>6</span>
+              </div>
+              <div class="col-xs-6">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span>0</span>
+              </div>
+              <div class="row"></div>
+              <div class="col-xs-6">
+                <i class="fa fa-male " aria-hidden="true"></i> : <span><input type="text" placeholder="0">/10</span>
+              </div>
+              <div class="col-xs-6">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span>No Comments</span>
+              </div>
+              <div class="row"></div>
+              <div class="col-xs-9">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span><input type="text"
+                    placeholder="Enter comment"></span>
+              </div>
+            </div>
+
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <div class="row"></div>
+
+      <mat-card class="example-card">
+        <mat-card-content>
+          <div class="block  bg-wrapper">
+            <div class="row">
+              <h6><strong>Article</strong></h6>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-6">
+                <i class="fa fa-desktop" aria-hidden="true"></i> : <span>6</span>
+              </div>
+              <div class="col-xs-6">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span>0</span>
+              </div>
+              <div class="row"></div>
+              <div class="col-xs-6">
+                <i class="fa fa-male " aria-hidden="true"></i> : <span><input type="text" placeholder="0">/10</span>
+              </div>
+              <div class="col-xs-6">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span>No Comments</span>
+              </div>
+              <div class="row"></div>
+              <div class="col-xs-9">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span><input type="text"
+                    placeholder="Enter comment"></span>
+              </div>
+            </div>
+
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="row"></div>
+
+    <button class="button_collapse collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven"
+      aria-expanded="false" aria-controls="collapseSeven">Certification</button>
+    <div class="row collapse multi-collapse" id="collapseSeven">
+
+      <mat-card class="example-card">
+        <mat-card-content>
+          <div class="block  bg-wrapper">
+            <div class="row">
+              <h6><strong>Certification</strong></h6>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-6">
+                <i class="fa fa-desktop" aria-hidden="true"></i> : <span>6</span>
+              </div>
+              <div class="col-xs-6">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span>0</span>
+              </div>
+              <div class="row"></div>
+              <div class="col-xs-6">
+                <i class="fa fa-male " aria-hidden="true"></i> : <span><input type="text" placeholder="0">/10</span>
+              </div>
+              <div class="col-xs-6">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span>No Comments</span>
+              </div>
+              <div class="row"></div>
+              <div class="col-xs-9">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span><input type="text"
+                    placeholder="Enter comment"></span>
+              </div>
+            </div>
+
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+
+    <div class="row"></div>
+
+    <button class="button_collapse collapsed" type="button" data-toggle="collapse" data-target="#collapseEight"
+      aria-expanded="false" aria-controls="collapseEight">Patents</button>
+    <div class="row collapse multi-collapse" id="collapseEight">
+
+      <mat-card class="example-card">
+        <mat-card-content>
+          <div class="block  bg-wrapper">
+            <div class="row">
+              <h6><strong>Patent</strong></h6>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-6">
+                <i class="fa fa-desktop" aria-hidden="true"></i> : <span>6</span>
+              </div>
+              <div class="col-xs-6">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span>0</span>
+              </div>
+              <div class="row"></div>
+              <div class="col-xs-6">
+                <i class="fa fa-male " aria-hidden="true"></i> : <span><input type="text" placeholder="0">/10</span>
+              </div>
+              <div class="col-xs-6">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span>No Comments</span>
+              </div>
+              <div class="row"></div>
+              <div class="col-xs-9">
+                <i class="fa fa-user" aria-hidden="true"></i> : <span><input type="text"
+                    placeholder="Enter comment"></span>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="row"></div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="example-card d-none d-lg-block" *ngIf="cocurricular_toggle">
+  <mat-card-content>
+    <div class="row design">
+      <div class="col md-11">
+        <h6>Corporate Life & Management</h6>
+      </div>
+      <div class="col md-1">
+        <button class="btn_style" (click)="show_corporate_life()">{{corporate_indication}}</button>
+      </div>
+    </div>
+
+    <div *ngIf="corporate_indication == '-'">
+      <mat-card class="example-card card-design">
+        <mat-card-content>
+
+          <mat-tab-group dynamicHeight>
+            <mat-tab label="Commitee">
+              <div class="block  bg-wrapper">
+                <div class="row">
+                  <h6><strong>Commitee</strong></h6>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-2">
+                    <i class="fa fa-desktop" aria-hidden="true"></i> : <span>6</span>
+                  </div>
+                  <div class="col-md-2">
+                    <i class="fa fa-user" aria-hidden="true"></i> : <span>0</span>
+                  </div>
+                  <div class="col-md-3">
+                    <i class="fa fa-male " aria-hidden="true"></i> : <span><input type="text" placeholder="0">/10</span>
+                  </div>
+                  <div class="col-md-2">
+                    <i class="fa fa-user" aria-hidden="true"></i> : <span>No Comments</span>
+                  </div>
+                  <div class="col-md-3">
+                    <i class="fa fa-user" aria-hidden="true"></i> : <span><input type="text"
+                        placeholder="Enter comment"></span>
+                  </div>
+                </div>
+
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="row design">
+      <div class="col md-11">
+        <h6>Professional Development & Activity</h6>
+      </div>
+      <div class="col md-1">
+        <button class="btn_style" (click)="show_professional_development()">{{professional_indication}}</button>
+      </div>
+    </div>
+
+    <div *ngIf="professional_indication == '-'">
+      <mat-card class="example-card card-design">
+        <mat-card-content>
+
+          <mat-tab-group dynamicHeight>
+            <mat-tab label="Project">
+              <div class="block  bg-wrapper">
+                <div class="row">
+                  <h6><strong>Mini Project</strong></h6>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-2">
+                    <i class="fa fa-desktop" aria-hidden="true"></i> : <span>6</span>
+                  </div>
+                  <div class="col-md-2">
+                    <i class="fa fa-user" aria-hidden="true"></i> : <span>0</span>
+                  </div>
+                  <div class="col-md-3">
+                    <i class="fa fa-male " aria-hidden="true"></i> : <span><input type="text" placeholder="0">/10</span>
+                  </div>
+                  <div class="col-md-2">
+                    <i class="fa fa-user" aria-hidden="true"></i> : <span>No Comments</span>
+                  </div>
+                  <div class="col-md-3">
+                    <i class="fa fa-user" aria-hidden="true"></i> : <span><input type="text"
+                        placeholder="Enter comment"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="block bg-wrapper">
+                <div class="row">
+                  <h6><strong>Major Project</strong></h6>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-2">
+                    <i class="fa fa-desktop" aria-hidden="true"></i> : <span>6</span>
+                  </div>
+                  <div class="col-md-2">
+                    <i class="fa fa-user" aria-hidden="true"></i> : <span>0</span>
+                  </div>
+                  <div class="col-md-3">
+                    <i class="fa fa-male " aria-hidden="true"></i> : <span><input type="text" placeholder="0">/10</span>
+                  </div>
+                  <div class="col-md-2">
+                    <i class="fa fa-user" aria-hidden="true"></i> : <span>No Comments</span>
+                  </div>
+                  <div class="col-md-3">
+                    <i class="fa fa-user" aria-hidden="true"></i> : <span><input type="text"
+                        placeholder="Enter comment"></span>
+                  </div>
+                </div>
+              </div>
+            </mat-tab>
+
+            <mat-tab label="Internship">
+              <div class="block  bg-wrapper">
+                <div class="row">
+                  <h6><strong>Internship</strong></h6>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-2">
+                    <i class="fa fa-desktop" aria-hidden="true"></i> : <span>6</span>
+                  </div>
+                  <div class="col-md-2">
+                    <i class="fa fa-user" aria-hidden="true"></i> : <span>0</span>
+                  </div>
+                  <div class="col-md-3">
+                    <i class="fa fa-male " aria-hidden="true"></i> : <span><input type="text" placeholder="0">/10</span>
+                  </div>
+                  <div class="col-md-2">
+                    <i class="fa fa-user" aria-hidden="true"></i> : <span>No Comments</span>
+                  </div>
+                  <div class="col-md-3">
+                    <i class="fa fa-user" aria-hidden="true"></i> : <span><input type="text"
+                        placeholder="Enter comment"></span>
+                  </div>
+                </div>
+              </div>
+            </mat-tab>
+
+            <mat-tab label="Publication">
+              <div class="block  bg-wrapper">
+                <div class="row">
+                  <h6><strong>Paper</strong></h6>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-2">
+                    <i class="fa fa-desktop" aria-hidden="true"></i> : <span>6</span>
+                  </div>
+                  <div class="col-md-2">
+                    <i class="fa fa-user" aria-hidden="true"></i> : <span>0</span>
+                  </div>
+                  <div class="col-md-3">
+                    <i class="fa fa-male " aria-hidden="true"></i> : <span><input type="text" placeholder="0">/10</span>
+                  </div>
+                  <div class="col-md-2">
+                    <i class="fa fa-user" aria-hidden="true"></i> : <span>No Comments</span>
+                  </div>
+                  <div class="col-md-3">
+                    <i class="fa fa-user" aria-hidden="true"></i> : <span><input type="text"
+                        placeholder="Enter comment"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="block bg-wrapper">
+                <div class="row">
+                  <h6><strong>Article</strong></h6>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-2">
+                    <i class="fa fa-desktop" aria-hidden="true"></i> : <span>6</span>
+                  </div>
+                  <div class="col-md-2">
+                    <i class="fa fa-user" aria-hidden="true"></i> : <span>0</span>
+                  </div>
+                  <div class="col-md-3">
+                    <i class="fa fa-male " aria-hidden="true"></i> : <span><input type="text" placeholder="0">/10</span>
+                  </div>
+                  <div class="col-md-2">
+                    <i class="fa fa-user" aria-hidden="true"></i> : <span>No Comments</span>
+                  </div>
+                  <div class="col-md-3">
+                    <i class="fa fa-user" aria-hidden="true"></i> : <span><input type="text"
+                        placeholder="Enter comment"></span>
+                  </div>
+                </div>
+              </div>
+            </mat-tab>
+
+            <mat-tab label="Certification">
+              <div class="block  bg-wrapper">
+                <div class="row">
+                  <h6><strong>Certification</strong></h6>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-2">
+                    <i class="fa fa-desktop" aria-hidden="true"></i> : <span>6</span>
+                  </div>
+                  <div class="col-md-2">
+                    <i class="fa fa-user" aria-hidden="true"></i> : <span>0</span>
+                  </div>
+                  <div class="col-md-3">
+                    <i class="fa fa-male " aria-hidden="true"></i> : <span><input type="text" placeholder="0">/10</span>
+                  </div>
+                  <div class="col-md-2">
+                    <i class="fa fa-user" aria-hidden="true"></i> : <span>No Comments</span>
+                  </div>
+                  <div class="col-md-3">
+                    <i class="fa fa-user" aria-hidden="true"></i> : <span><input type="text"
+                        placeholder="Enter comment"></span>
+                  </div>
+                </div>
+              </div>
+            </mat-tab>
+
+            <mat-tab label="Patents">
+              <div class="block  bg-wrapper">
+                <div class="row">
+                  <h6><strong>Patent</strong></h6>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-2">
+                    <i class="fa fa-desktop" aria-hidden="true"></i> : <span>6</span>
+                  </div>
+                  <div class="col-md-2">
+                    <i class="fa fa-user" aria-hidden="true"></i> : <span>0</span>
+                  </div>
+                  <div class="col-md-3">
+                    <i class="fa fa-male " aria-hidden="true"></i> : <span><input type="text" placeholder="0">/10</span>
+                  </div>
+                  <div class="col-md-2">
+                    <i class="fa fa-user" aria-hidden="true"></i> : <span>No Comments</span>
+                  </div>
+                  <div class="col-md-3">
+                    <i class="fa fa-user" aria-hidden="true"></i> : <span><input type="text"
+                        placeholder="Enter comment"></span>
+                  </div>
+                </div>
+              </div>
+            </mat-tab>
+
+          </mat-tab-group>
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="example-card d-none d-lg-block" *ngIf="skills_toggle && second_screen">
+  <mat-card-content>
+    <mat-tab-group mat-stretch-tabs dynamicHeight>
+      <mat-tab label="Proficiency in English Language">
+        <div class="  bg-wrapper">
+          <div class="row">
+            <h6> <strong> Proficiency in English Language</strong></h6>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+              <i class="fa fa-desktop"> :</i> Intermediate
+            </div>
+            <div class="col-md-2">
+              <i class="fa fa-user"> :</i> Intermediate
+            </div>
+            <div class="col-md-offset-1">
+              <div class="rating-skills-self"> <i class="fa fa-male"> :</i> </div>
+            </div>
+            <div class="col-md-7">
+              <div class="rating">
+                <table class="table table-sm table-borderless">
+                  <thead>
+                    <td>Beginner</td>
+                    <td>Elementary</td>
+                    <td>Intermediate</td>
+                    <td>Upper Intermediate</td>
+                    <td>Advanced</td>
+                    <td>Proficient</td>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td> <input name="user_language_rating" type="radio" class="rating-button"> </td>
+                      <td> <input name="user_language_rating" type="radio" class="rating-button"> </td>
+                      <td> <input name="user_language_rating" type="radio" class="rating-button"> </td>
+                      <td> <input name="user_language_rating" type="radio" class="rating-button"> </td>
+                      <td> <input name="user_language_rating" type="radio" class="rating-button"> </td>
+                      <td> <input name="user_language_rating" type="radio" class="rating-button"> </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-2">
+              <i class="fa fa-user"> : </i> No Comments
+            </div>
+            <div class="col-md-offset-1">
+              <div class="rating-skills-self"><i class="fa fa-male"> : </i></div>
+            </div>
+            <div class="col-md-7">
+              <input type="text" class="aptitude" placeholder="Enter Comments">
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Aptitude">
+        <div class="bg-wrapper">
+          <div class="row">
+            <h6> <strong>Components</strong> </h6>
+          </div>
+
+          <div class="row aptitude">
+            <div class="col-md-4">
+              <div class="row">
+                <div class="col-md-6">Verbal Ability</div>
+                <div class="col-md-3"><i class="fa fa-desktop"> :</i> 3</div>
+                <div class="col-md-3"> <i class="fa fa-user"> :</i> 3 </div>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="row">
+                <div class="col-md-offset-2"> <i class="fa fa-male"> :</i> </div>
+                <div class="col-md-4">
+                  <span>Rate on scale of 1-5 </span>
+                  <div class="verbal-rating">
+                    <div class="verbal_rate">
+                      <span class="fa fa-circle-o" (click)="checkRating('.verbal_rate',0)"></span>
+                      <span class="fa fa-circle-o" (click)="checkRating('.verbal_rate',1)"></span>
+                      <span class="fa fa-circle-o" (click)="checkRating('.verbal_rate',2)"></span>
+                      <span class="fa fa-circle-o" (click)="checkRating('.verbal_rate',3)"></span>
+                      <span class="fa fa-circle-o" (click)="checkRating('.verbal_rate',4)"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3"> <i class="fa fa-user"> :</i> No Comments</div>
+                <div class="col-md-3"> <i class="fa fa-male"> :</i> <input type="text" placeholder="Enter Comments">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row aptitude">
+            <div class="col-md-4">
+              <div class="row">
+                <div class="col-md-6">Quantitative</div>
+                <div class="col-md-3"> <i class="fa fa-desktop"> :</i> 3 </div>
+                <div class="col-md-3"> <i class="fa fa-user"> :</i> 3 </div>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="row">
+                <div class="col-md-offset-2"> <i class="fa fa-male"> :</i> </div>
+                <div class="col-md-4">
+                  <div class="quantitative-rating">
+                    <span>Rate on scale of 1-5</span>
+                    <div class="quantitative_rate">
+                      <span class="fa fa-circle-o" (click)="checkRating('.quantitative_rate',0)"></span>
+                      <span class="fa fa-circle-o" (click)="checkRating('.quantitative_rate',1)"></span>
+                      <span class="fa fa-circle-o" (click)="checkRating('.quantitative_rate',2)"></span>
+                      <span class="fa fa-circle-o" (click)="checkRating('.quantitative_rate',3)"></span>
+                      <span class="fa fa-circle-o" (click)="checkRating('.quantitative_rate',4)"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3"> <i class="fa fa-user"> :</i> No Comments</div>
+                <div class="col-md-3"> <i class="fa fa-male"> :</i> <input type="text" placeholder="Enter Comments">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row aptitude">
+            <div class="col-md-4">
+              <div class="row">
+                <div class="col-md-6">Logical Reasoning</div>
+                <div class="col-md-3"><i class="fa fa-desktop"> :</i> 2</div>
+                <div class="col-md-3"> <i class="fa fa-user"> :</i> 2 </div>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="row">
+                <div class="col-md-offset-2"> <i class="fa fa-male"> :</i> </div>
+                <div class="col-md-4">
+                  <span>Rate on scale of 1-5</span>
+                  <div class="reasoning_rate">
+                    <span class="fa fa-circle-o" (click)="checkRating('.reasoning_rate',0)"></span>
+                    <span class="fa fa-circle-o" (click)="checkRating('.reasoning_rate',1)"></span>
+                    <span class="fa fa-circle-o" (click)="checkRating('.reasoning_rate',2)"></span>
+                    <span class="fa fa-circle-o" (click)="checkRating('.reasoning_rate',3)"></span>
+                    <span class="fa fa-circle-o" (click)="checkRating('.reasoning_rate',4)"></span>
+                  </div>
+                </div>
+                <div class="col-md-3"> <i class="fa fa-user"> :</i> No Comments</div>
+                <div class="col-md-3"> <i class="fa fa-male"> :</i> <input type="text" placeholder="Enter Comments">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Soft Skills">
+        <div class="bg-wrapper">
+          <div class="row">
+            <h6><strong>Components </strong></h6>
+          </div>
+          <div class="row aptitude">
+            <div class="col-md-4">
+              <div class="row">
+                <div class="col-md-6">Presentation Skills</div>
+                <div class="col-md-3"><i class="fa fa-desktop"> :</i> 2</div>
+                <div class="col-md-3"> <i class="fa fa-user"> :</i> 2 </div>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="row">
+                <div class="col-md-offset-2"> <i class="fa fa-male"> :</i> </div>
+                <div class="col-md-4">
+                  <span>Rate on scale of 1-5 </span>
+                  <div class="presentation-rating">
+                    <div class="presentation_rate">
+                      <span class="fa fa-circle-o" (click)="checkRating('.presentation_rate',0)"></span>
+                      <span class="fa fa-circle-o" (click)="checkRating('.presentation_rate',1)"></span>
+                      <span class="fa fa-circle-o" (click)="checkRating('.presentation_rate',2)"></span>
+                      <span class="fa fa-circle-o" (click)="checkRating('.presentation_rate',3)"></span>
+                      <span class="fa fa-circle-o" (click)="checkRating('.presentation_rate',4)"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3"> <i class="fa fa-user"> :</i> No Comments</div>
+                <div class="col-md-3"> <i class="fa fa-male"> :</i> <input type="text" placeholder="Enter Comments">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row aptitude">
+            <div class="col-md-4">
+              <div class="row">
+                <div class="col-md-6">Group Discussions</div>
+                <div class="col-md-3"> <i class="fa fa-desktop"> :</i> 2 </div>
+                <div class="col-md-3"> <i class="fa fa-user"> :</i> 2 </div>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="row">
+                <div class="col-md-offset-2"> <i class="fa fa-male"> :</i> </div>
+                <div class="col-md-4">
+                  <span>Rate on scale of 1-5 </span>
+                  <div class="discussion-rating">
+                    <div class="discussion_rate">
+                      <span class="fa fa-circle-o" (click)="checkRating('.discussion_rate',0)"></span>
+                      <span class="fa fa-circle-o" (click)="checkRating('.discussion_rate',1)"></span>
+                      <span class="fa fa-circle-o" (click)="checkRating('.discussion_rate',2)"></span>
+                      <span class="fa fa-circle-o" (click)="checkRating('.discussion_rate',3)"></span>
+                      <span class="fa fa-circle-o" (click)="checkRating('.discussion_rate',4)"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3"> <i class="fa fa-user"> :</i> No Comments</div>
+                <div class="col-md-3"> <i class="fa fa-male"> :</i> <input type="text" placeholder="Enter Comments">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row aptitude">
+            <div class="col-md-4">
+              <div class="row">
+                <div class="col-md-6">Business Etiquette</div>
+                <div class="col-md-3"><i class="fa fa-desktop"> :</i> 2</div>
+                <div class="col-md-3"> <i class="fa fa-user"> :</i> 2 </div>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="row">
+                <div class="col-md-offset-2"> <i class="fa fa-male"> :</i> </div>
+                <div class="col-md-4">
+                  <span>Rate on scale of 1-5 </span>
+                  <div class="etiquette-rating">
+                    <div class="etiquette_rate">
+                      <span class="fa fa-circle-o" (click)="checkRating('.etiquette_rate',0)"></span>
+                      <span class="fa fa-circle-o" (click)="checkRating('.etiquette_rate',1)"></span>
+                      <span class="fa fa-circle-o" (click)="checkRating('.etiquette_rate',2)"></span>
+                      <span class="fa fa-circle-o" (click)="checkRating('.etiquette_rate',3)"></span>
+                      <span class="fa fa-circle-o" (click)="checkRating('.etiquette_rate',4)"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3"> <i class="fa fa-user"> :</i> No Comments</div>
+                <div class="col-md-3"> <i class="fa fa-male"> :</i> <input type="text" placeholder="Enter Comments">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+    <div class="row"></div>
+  </mat-card-content>
+</mat-card>
+
+<div class="d-lg-none row rwd-header" *ngIf="skills_toggle && second_screen">
+  <i class="fa fa-laptop" aria-hidden="true"></i>
+  <h6>Skills</h6>
+</div>
+<mat-card class="example-card d-lg-none skills_rwd" *ngIf="skills_toggle && second_screen">
+  <mat-card-content>
+
+    <button class="button_collapse collapsed" type="button" data-toggle="collapse" data-target="#collapseNine"
+      aria-expanded="false" aria-controls="collapseNine">Proficiency in English Language</button>
+    <div class="row collapse multi-collapse" id="collapseNine">
+      <mat-card>
+        <mat-card-content>
+          <div class="block  bg-wrapper">
+            <div class="row">
+              <h6><strong>Language Proficiency Levels</strong></h6>
+            </div>
+
+            <div class="row Language_rwd">
+              <div> <i class="fa fa-desktop"><span> : Intermediate</span></i> </div>
+              <div> <i class="fa fa-user"><span> : Intermediate</span></i> </div>
+            </div>
+            <div class="Language_rating_row_rwd">
+              <div class="row">
+                <div class="col-xs-4">
+                  <i class="fa fa-male"> :&nbsp; </i>
+                </div>
+                <div class="col-xs-2"></div>
+                <div class="col-xs-6">
+                  <input type="radio" name="user_language_rating" class="rating_language_rwd"><span> : Beginner
+                  </span><br>
+                  <input type="radio" name="user_language_rating" class="rating_language_rwd"><span> :
+                    Elementary</span><br>
+                  <input type="radio" name="user_language_rating" class="rating_language_rwd"><span> :
+                    Intermediate</span><br>
+                  <input type="radio" name="user_language_rating" class="rating_language_rwd"><span> : Upper
+                    Intermediate</span><br>
+                  <input type="radio" name="user_language_rating" class="rating_language_rwd"><span> : Advanced
+                  </span><br>
+                  <input type="radio" name="user_language_rating" class="rating_language_rwd"><span> :
+                    Proficient</span><br>
+                </div>
+              </div>
+            </div>
+            <div class="row Language_rwd">
+              <div> <i class="fa fa-user"><span> : No Comments</span></i> </div>
+              <div> <i class="fa fa-male"> : <input type="text" placeholder="Enter Comments"> </i> </div>
+            </div>
+          </div>
+
+          <div class="row"></div>
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+
+    <div class="row"></div>
+
+    <button class="button_collapse collapsed" type="button" data-toggle="collapse" data-target="#collapseTen"
+      aria-expanded="false" aria-controls="collapseTen">Aptitude</button>
+    <div class="row collapse multi-collapse" id="collapseTen">
+      <mat-card>
+        <mat-card-content>
+          <div class="block  bg-wrapper">
+            <h6> <strong>Verbal Ability</strong> </h6>
+            <div class="row">
+              <div> <i class="fa fa-desktop"> : 3</i> </div>
+              <div> <i class="fa fa-user"> : 3</i> </div>
+            </div>
+            <i class="fa fa-male"> : </i> <span> Rate on a scale of 1-5</span> <br>
+            <div class="verbal_rate_rwd">
+              <span class="fa fa-circle-o" (click)="checkRating('.verbal_rate_rwd',0)"></span>
+              <span class="fa fa-circle-o" (click)="checkRating('.verbal_rate_rwd',1)"></span>
+              <span class="fa fa-circle-o" (click)="checkRating('.verbal_rate_rwd',2)"></span>
+              <span class="fa fa-circle-o" (click)="checkRating('.verbal_rate_rwd',3)"></span>
+              <span class="fa fa-circle-o" (click)="checkRating('.verbal_rate_rwd',4)"></span>
+            </div>
+            <div class="row">
+              <div> <i class="fa fa-user"> <span>: No Comments</span></i> </div>
+              <div> <i class="fa fa-male"> : </i> <input type="text" placeholder="Enter Comments"> </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      <mat-card>
+        <mat-card-content>
+          <div class="block bg-wrapper">
+            <h6> <strong>Quantitative</strong> </h6>
+            <div class="row">
+              <div> <i class="fa fa-desktop"> : 3</i> </div>
+              <div> <i class="fa fa-user"> : 3</i> </div>
+            </div>
+            <i class="fa fa-male"> : </i> <span> Rate on a scale of 1-5</span> <br>
+            <div class="quantitative_rate_rwd">
+              <span class="fa fa-circle-o" (click)="checkRating('.quantitative_rate_rwd',0)"></span>
+              <span class="fa fa-circle-o" (click)="checkRating('.quantitative_rate_rwd',1)"></span>
+              <span class="fa fa-circle-o" (click)="checkRating('.quantitative_rate_rwd',2)"></span>
+              <span class="fa fa-circle-o" (click)="checkRating('.quantitative_rate_rwd',3)"></span>
+              <span class="fa fa-circle-o" (click)="checkRating('.quantitative_rate_rwd',4)"></span>
+            </div>
+            <div class="row">
+              <div> <i class="fa fa-user"><span> : No Comments </span></i> </div>
+              <div> <i class="fa fa-male"> : </i> <input type="text" placeholder="Enter Comments"> </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      <mat-card>
+        <mat-card-content>
+          <div class="block bg-wrapper">
+            <h6> <strong>Logical Reasoning</strong> </h6>
+            <div class="row">
+              <div> <i class="fa fa-desktop"> : 3</i> </div>
+              <div> <i class="fa fa-user"> : 3</i> </div>
+            </div>
+            <i class="fa fa-male"> : </i><span> Rate on a scale of 1-5 </span><br>
+            <div class="reason_rate_rwd">
+              <span class="fa fa-circle-o" (click)="checkRating('.reason_rate_rwd',0)"></span>
+              <span class="fa fa-circle-o" (click)="checkRating('.reason_rate_rwd',1)"></span>
+              <span class="fa fa-circle-o" (click)="checkRating('.reason_rate_rwd',2)"></span>
+              <span class="fa fa-circle-o" (click)="checkRating('.reason_rate_rwd',3)"></span>
+              <span class="fa fa-circle-o" (click)="checkRating('.reason_rate_rwd',4)"></span>
+            </div>
+            <div class="row">
+              <div> <i class="fa fa-user"><span> : No Comments</span></i> </div>
+              <div> <i class="fa fa-male"> : </i> <input type="text" placeholder="Enter Comments"> </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="row"></div>
+
+    <button class="button_collapse collapsed" type="button" data-toggle="collapse" data-target="#collapseEleven"
+      aria-expanded="false" aria-controls="collapseEleven">Soft Skills</button>
+    <div class="row collapse multi-collapse" id="collapseEleven">
+      <mat-card class="skills_cards">
+        <mat-card-content>
+          <div class="block  bg-wrapper">
+            <h6> <strong>Presentation Skills</strong> </h6>
+            <div class="row">
+              <div> <i class="fa fa-desktop"> : 3</i> </div>
+              <div> <i class="fa fa-user"> : 3</i> </div>
+            </div>
+            <i class="fa fa-male"> : </i> <span> Rate on a scale of 1-5</span> <br>
+            <div class="presentation_rate">
+              <span class="fa fa-circle-o" (click)="checkRating('.presentation_rate',0)"></span>
+              <span class="fa fa-circle-o" (click)="checkRating('.presentation_rate',1)"></span>
+              <span class="fa fa-circle-o" (click)="checkRating('.presentation_rate',2)"></span>
+              <span class="fa fa-circle-o" (click)="checkRating('.presentation_rate',3)"></span>
+              <span class="fa fa-circle-o" (click)="checkRating('.presentation_rate',4)"></span>
+            </div>
+            <div class="row">
+              <div> <i class="fa fa-user"> <span>: No Comments</span></i> </div>
+              <div> <i class="fa fa-male"> : </i> <input type="text" placeholder="Enter Comments"> </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="skill_cards">
+        <mat-card-content>
+          <div class="block  bg-wrapper">
+            <h6> <strong>Group Discussions</strong> </h6>
+            <div class="row">
+              <div> <i class="fa fa-desktop"> : 3</i> </div>
+              <div> <i class="fa fa-user"> : 3</i> </div>
+            </div>
+            <i class="fa fa-male"> : </i> <span> Rate on a scale of 1-5</span> <br>
+            <div class="discussion_rate">
+              <span class="fa fa-circle-o" (click)="checkRating('.discussion_rate',0)"></span>
+              <span class="fa fa-circle-o" (click)="checkRating('.discussion_rate',1)"></span>
+              <span class="fa fa-circle-o" (click)="checkRating('.discussion_rate',2)"></span>
+              <span class="fa fa-circle-o" (click)="checkRating('.discussion_rate',3)"></span>
+              <span class="fa fa-circle-o" (click)="checkRating('.discussion_rate',4)"></span>
+            </div>
+            <div class="row">
+              <div> <i class="fa fa-user"> <span>: No Comments</span></i> </div>
+              <div> <i class="fa fa-male"> : </i> <input type="text" placeholder="Enter Comments"> </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="skills_cards">
+        <mat-card-content>
+          <div class="block  bg-wrapper">
+            <h6> <strong>Business Etiquette</strong> </h6>
+            <div class="row">
+              <div> <i class="fa fa-desktop"> : 3</i> </div>
+              <div> <i class="fa fa-user"> : 3</i> </div>
+            </div>
+            <i class="fa fa-male"> : </i> <span> Rate on a scale of 1-5</span> <br>
+            <div class="etiquette_rate">
+              <span class="fa fa-circle-o" (click)="checkRating('.etiquette_rate',0)"></span>
+              <span class="fa fa-circle-o" (click)="checkRating('.etiquette_rate',1)"></span>
+              <span class="fa fa-circle-o" (click)="checkRating('.etiquette_rate',2)"></span>
+              <span class="fa fa-circle-o" (click)="checkRating('.etiquette_rate',3)"></span>
+              <span class="fa fa-circle-o" (click)="checkRating('.etiquette_rate',4)"></span>
+            </div>
+            <div class="row">
+              <div> <i class="fa fa-user"> <span>: No Comments</span></i> </div>
+              <div> <i class="fa fa-male"> : </i> <input type="text" placeholder="Enter Comments"> </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+  </mat-card-content>
+</mat-card>
+
+
+
+<div class="row calculation" *ngIf="second_screen">
+  <span>Total: </span>
+  <ul>
+    <li><i class="fa fa-desktop" aria-hidden="true"></i> : <span>21.1/24</span></li>
+    <li><i class="fa fa-user" aria-hidden="true"></i> : <span>22/25</span></li>
+    <li><i class="fa fa-male" aria-hidden="true"></i> : <span>23/25</span></li>
+  </ul>
+</div>
+
+<div class="row" *ngIf="second_screen">
+  <div class="offset-md-10 col-md-2 offset-sm-8 col-sm-4 text-right">
+    <button type="submit" class="btn submit-button">
+      <span><i class="fa fa-check" aria-hidden="true"> </i></span> Submit</button>
+  </div>
+</div>
+
+<!-- comitteeDetails -->
+<div class="comitteePage" *ngIf="comitteePage">
+  <div class="row justify-content-end"> <span>Comittee Points : 20</span> </div>
+  <table class="table">
+    <thead>
+      <tr class="table-active">
+        <th>SL#</th>
+        <th>Comittee Name</th>
+        <th>Status</th>
+        <th>From Date</th>
+        <th>To Date</th>
+        <th>Reason</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let content of comitteeContent index as index">
+      <td>{{index+1}}</td>
+      <td>{{content["committee_name"]}}</td>
+      <td>{{content["status"]}}</td>
+      <td>{{content['from_date']}}</td>
+      <td> - </td>
+      <td>{{content['reason']}}</td>
+    </tr>
+  </table>
+</div>

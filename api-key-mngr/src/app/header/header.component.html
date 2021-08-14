@@ -1,0 +1,16 @@
+<mat-toolbar class="navbar">
+    <span>DHI API Key Manager</span>
+
+    <div class="space">
+        <a mat-Button routerLink="/home" routerLinkActive="active">Home</a>
+        <a mat-Button routerLink="/service" routerLinkActive="active">Service</a>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="space">
+        <span>Hi {{username}}</span>
+        <button mat-flat-button (click)="logout()">Logout</button>
+    </div>
+
+</mat-toolbar>

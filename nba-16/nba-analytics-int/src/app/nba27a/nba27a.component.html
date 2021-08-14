@@ -1,0 +1,776 @@
+<!-----------------------------------------Screen 1 [starts here]------------------------------------------------->
+<!--Breadcrumbs[starts here]-->
+<div class="row">
+  <div class="col-md-11">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="#"><i class="fa fa-bar-chart"></i>Analytics</a>
+      </li>
+      <li class="breadcrumb-item active">
+        Statement 27(A)
+      </li>
+    </ol>
+  </div>
+  <div class="col-md-1" *ngIf='data2 && !visible && (secondChart || BTClicked) && clicked'>
+    <a (click)="onBack()" class="backButton"><i class="fas fa-chevron-left"></i>Back</a>
+  </div>
+</div>
+<!--Breadcrumbs[ends here]-->
+
+<!--Faculty-Student Radio Buttons[starts here]-->
+<div class="offset-md-5">
+  <div class="col-md-2 border">
+    <mat-radio-group [(ngModel)]='fac_stu_val'>
+      <mat-radio-button id="facStuRadio1" [checked]="Fac==true" [value]='0' (click)='onRadioChange()'>Faculty
+      </mat-radio-button>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <mat-radio-button id="facStuRadio2" [checked]="Stud==true" [value]='1' (change)='onRadioChange()'>Student
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+</div>
+<!--Faculty-Student Radio Buttons[ends here]-->
+
+<!----form[starts here]-->
+<hr />
+<form [formGroup]="searchBar" (submit)="searchClick()">
+  <div class="row">
+    <!--drop down for acad year-->
+    <div class="col-md-2">
+      <mat-label class="AcademivYear_label text-success">{{analyticsObj.academic_year}}</mat-label>
+      <mat-select disableOptionCentering (selectionChange)="filter1($event); clicked = false"
+        [(ngModel)]="current_AcadYear" class="inputMaterial" formControlName="year">
+        <mat-option *ngFor="let year of acadYears" [value]="year">
+          {{year}}
+        </mat-option>
+      </mat-select>
+    </div>
+    <!--drop down for departments if principal logins-->
+    <div class="col-md-2">
+      <mat-label class="department_label text-success">{{analyticsObj.department}}</mat-label>
+      <mat-select disableOptionCentering (selectionChange)="filter3($event); 
+      clicked = false" class="inputMaterial" formControlName="course">
+        <mat-option *ngFor="let dept of departments" [value]="dept">
+          {{dept}}
+        </mat-option>
+      </mat-select>
+    </div>
+    <!--drop down for semester-->
+    <div class="col-2" *ngIf="Fac">
+      <mat-label class="Term_label text-success">{{analyticsObj.term}}</mat-label>
+      <mat-select disableOptionCentering [formControl]="termsList" (selectionChange)="filter2($event); clicked = false"
+        class="inputMaterial" multiple formControlName='term'>
+        <mat-option *ngFor="let term of terms" [value]='term'>{{term}}</mat-option>
+      </mat-select>
+    </div>
+    <!--Search button for large as well as small screens-->
+    <div class="col-md-2 verticalLine pl-5 ml-4 d-none d-md-block">
+      <button class="other-button" (click)="averageCo = true" [disabled]="clicked">
+        <i class='fa fa-search'></i>Search</button>
+    </div>
+    <div class="col-md-2 verticalLine pl-5 ml-4 d-md-none d-sm-block">
+      <button class="other-button" (click)="averageCoCourseWise = true" [disabled]="clicked">
+        <i class='fa fa-search'></i>Search</button>
+    </div>
+  </div>
+</form>
+<hr />
+<!---- form[ends here]-->
+
+<div class="row">
+  <div class="col-md-4">
+    <!--Sort by radio buttons graph1[starts here]-->
+    <div id="hilo1Container" *ngIf='data1 && visible && firstChart && clicked && Fac'>
+      <p id="text-sort-by">Sort by(Blooms Level):</p>
+      <div class="form-check" id="hilo1Box0">
+        <input class="form-check-input" type="radio" name="hilo1Button" id="hilo1-radio0" [value]='0'
+          [(ngModel)]='hilo1_val' (change)='onHilo1RadioChange()'>
+        <label class="form-check-label" for="hilo1-radio0">
+          High-Low
+        </label>
+      </div>
+      <div class="form-check" id="hilo1Box1">
+        <input class="form-check-input" type="radio" name="hilo1Button" id="hilo1-radio1" [value]='1'
+          [(ngModel)]='hilo1_val' (change)='onHilo1RadioChange()'>
+        <label class="form-check-label" for="hilo1-radio1">
+          Low-High
+        </label>
+      </div>
+    </div>
+    <!--Sort by radio buttons graph1[ends here]-->
+
+    <!--Sort by radio buttons graph2[starts here]-->
+    <div id="graph2Radio" *ngIf="!visible && !table1 && clicked && Fac">
+      <div id="sortByContainer">
+        <p id="text-sort-by">Sort by:</p>
+        <div class="form-check" id="sort1Box0">
+          <input class="form-check-input" type="radio" name="sort1Button" id="sort1-radio0" [value]='0'
+            [(ngModel)]='sort1_val' (change)='onSort1RadioChange()'>
+          <label class="form-check-label" for="sort1-radio0">
+            Blooms Level
+          </label>
+        </div>
+        <div class="form-check" id="sort1Box1">
+          <input class="form-check-input" type="radio" name="sort1Button" id="sort1-radio1" [value]='1'
+            [(ngModel)]='sort1_val' (change)='onSort1RadioChange()'>
+          <label class="form-check-label" for="sort1-radio1">
+            Course Name
+          </label>
+        </div>
+      </div>
+      <div id="hilo2Container">
+        <p id="text-sort-by">Order by:</p>
+        <div class="form-check" id="hilo2Box0">
+          <input class="form-check-input" type="radio" name="hilo2Button" id="hilo2-radio0" [value]='0'
+            [(ngModel)]='hilo2_val' (change)='onHilo2RadioChange()'>
+          <label class="form-check-label" for="hilo2-radio0">
+            High-Low
+          </label>
+        </div>
+        <div class="form-check" id="hilo2Box1">
+          <input class="form-check-input" type="radio" name="hilo2Button" id="hilo2-radio1" [value]='1'
+            [(ngModel)]='hilo2_val' (change)='onHilo2RadioChange()'>
+          <label class="form-check-label" for="hilo1-radio1">
+            Low-High
+          </label>
+        </div>
+      </div>
+    </div>
+    <!--Sort by radio buttons graph2[ends here]-->
+  </div>
+
+  <div class="offset-md-1 col-md-3 AlignTop">
+    <!--PO header starts-->
+    <div *ngIf='!table1 && data2  && !visible && clicked && Fac'>
+      <strong>{{PONum}}</strong>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div id="hzLine"></div>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <strong> Blooms Level</strong>: {{POLevel}}
+    </div>
+    <!--PO header ends-->
+  </div>
+
+  <div class="offset-md-3 col-md-1 AlignTop">
+    <!--View topic wise CO BT button[starts here]-->
+    <div id="COBTButton" *ngIf='!table1 && data2 && !BTClicked && !visible && secondChart && clicked && Fac'
+      (click)="COBTClick()" class="pointer">
+      <mat-icon id="COBTIcon">visibility</mat-icon>
+      <p id="COBTText">View Topic-wise CO-BT Mapping</p>
+    </div>
+    <!--View topic wise CO BT button[ends here]-->
+  </div>
+</div>
+
+<!--PO attainment graph[starts here]-->
+<div class="row">
+  <div class="col-md-12 col-xs-12">
+    <div *ngIf='data1 && visible && firstChart && clicked && Fac'>
+      <div class="shadow responsive" (select)="onSelect($event)" google-chart [data]="data1.dataTable"
+        [chartType]="data1.chartType" [options]="data1.options">
+      </div>
+    </div>
+  </div>
+</div>
+<!--PO attainment graph[ends here]-->
+
+<!--CO attainment graph[starts here]-->
+<div class="row">
+  <div class="col-md-12 col-xs-12" *ngIf='!table1 && data2 && !BTClicked && !visible && secondChart && clicked && Fac'>
+    <div class="shadow responsive" (select)="onSelect2($event)" google-chart [data]="data2.dataTable"
+      [chartType]="'ColumnChart'" [options]="data2.options">
+    </div>
+    <div class="Htitle">Blooms Levels with Mapped CO's</div>
+  </div>
+</div>
+<!--CO attainment graph[ends here]-->
+
+<!--COBT graph[starts here]-->
+<div class="row">
+  <div class="col-md-12 col-xs-12" *ngIf='!table1 && data2 && !visible  && !secondChart && clicked && Fac && BTClicked'>
+    <div class="shadow responsive" google-chart [data]="data3.dataTable" [chartType]="'ColumnChart'"
+      [options]="data3.options">
+    </div>
+    <div class="Htitle">Blooms Levels with Mapped CO's</div>
+  </div>
+</div>
+<!--COBT graph[ends here]-->
+<!-------------------------------------------Screen1[ends here]------------------------------------------------>
+
+<!--------------------------------------------Screen2[starts here]---------------------------------------------->
+
+<!--CO definition[starts here]-->
+<div id="CODef" *ngIf="table1  && clicked && Fac">
+  <hr />
+  <div id="defLine1">
+    <strong>{{CONum}} : "<p class="italics">Definition</p>"</strong>
+  </div>
+  <div id="defLine2">
+    <strong>Blooms Level:</strong> {{COLevel}}
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <div id="hzLine"></div>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <strong>Course:</strong> {{COCourse}}
+  </div>
+  <hr />
+</div>
+<!--CO definition[ends here]-->
+
+<div class="row">
+  <div class="col-md-7">
+    <div class="row">
+      <div class="col-md-12">
+        <!--Direct Attainment table[starts here]-->
+        <div *ngIf="table1  && clicked && Fac">
+          <p id="dirTabText">Direct Attainment [(Out of 3):1.92 (Out of 100):67.23]</p>
+          <div id="dirTableBox">
+            <table class="table table-sm table-bordered" id="dirTable">
+              <thead id="dirHead">
+                <th>SI.#</th>
+                <th>Student Name</th>
+                <th>USN/Candidate Id</th>
+                <th>Attainment (Out of 3)</th>
+                <th>Attainment (Out of 100)</th>
+                <th>View Details</th>
+              </thead>
+              <tbody id="dirTableBody">
+                <tr *ngFor=" let element of student_detailsArray;let i=index" id="row">
+                  <td>
+                    {{i+1}}
+                  </td>
+                  <td>
+                    {{element.name}}
+                  </td>
+                  <td>
+                    {{element.usn}}
+                  </td>
+                  <td>
+                    {{element["direct_attainment"][1]}}
+                  </td>
+                  <td>
+                    {{element["direct_attainment"][0]}}
+                  </td>
+                  <td>
+                    <mat-icon class="pointer" (click)="eyeDirClickedFunc(element.name,element.usn)">visibility
+                    </mat-icon>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!--Direct Attainment table[ends here]-->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <!--indirect Attainment table[starts here]-->
+        <div *ngIf="table1  && clicked && Fac">
+          <p id="indirTabText">Indirect Attainment [(Out of 3):1.92 (Out of 100):67.23]</p>
+          <div id="indirTableBox">
+            <table class="table table-sm table-bordered" id="indirTable">
+              <thead id="indirHead">
+                <th>SI.#</th>
+                <th>Student Name</th>
+                <th>USN/Candidate Id</th>
+                <th>Attainment (Out of 3)</th>
+                <th>Attainment (Out of 100)</th>
+                <th>View Details</th>
+              </thead>
+              <tbody id="indirTableBody">
+                <tr *ngFor=" let element of student_detailsArray;let i=index" id="row">
+                  <td>
+                    {{i+1}}
+                  </td>
+                  <td>
+                    {{element.name}}
+                  </td>
+                  <td>
+                    {{element.usn}}
+                  </td>
+                  <td>
+                    {{element["indirect_attainment"][1]}}
+                  </td>
+                  <td>
+                    {{element["indirect_attainment"][0]}}
+                  </td>
+                  <td>
+                    <mat-icon class="pointer" (click)="eyeIndirClickedFunc(element.name,element.usn)">visibility
+                    </mat-icon>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!--indirect Attainment table[ends here]-->
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-5 alignProp">
+    <mat-divider class="vertical__divider" vertical></mat-divider>
+    <!--Student attainment detail table[starts here]-->
+    <div *ngIf="table1  && clicked && eyeDirClicked && Fac">
+      <p id="stuWiseTabText"> Attainment details - {{stuSelObj.name}}({{stuSelObj.usn}})</p>
+      <div id="stuWiseTableBox">
+        <table class="table table-sm table-bordered" id="stuWiseTable">
+          <thead id="stuWiseHead">
+            <th>Method Name</th>
+            <th>{{stuSelObj.direct_methodName[0]}}</th>
+            <th>{{stuSelObj.direct_methodName[1]}}</th>
+            <th>{{stuSelObj.direct_methodName[2]}}</th>
+          </thead>
+          <tbody id="stuWiseTableBody">
+            <tr id="row">
+              <td>Method Description</td>
+              <td>{{stuSelObj.direct_methodDescription[0]}}</td>
+              <td>{{stuSelObj.direct_methodDescription[1]}}</td>
+              <td>{{stuSelObj.direct_methodDescription[2]}}</td>
+            </tr>
+            <tr id="row">
+              <td>Attainment</td>
+              <td>{{stuSelObj.direct_attainment[0]}}</td>
+              <td>{{stuSelObj.direct_attainment[1]}}</td>
+              <td>{{stuSelObj.direct_attainment[2]}}</td>
+            </tr>
+            <tr id="row">
+              <td>Attainment Percentage</td>
+              <td>{{stuSelObj.direct_attainmentPercentage[0]}}</td>
+              <td>{{stuSelObj.direct_attainmentPercentage[1]}}</td>
+              <td>{{stuSelObj.direct_attainmentPercentage[2]}}</td>
+            </tr>
+            <tr id="row">
+              <td>Total Obtained Score</td>
+              <td>{{stuSelObj.direct_total_obtained_score[0]}}</td>
+              <td>{{stuSelObj.direct_total_obtained_score[1]}}</td>
+              <td>{{stuSelObj.direct_total_obtained_score[2]}}</td>
+            </tr>
+            <tr id="row">
+              <td>Total Max. Score</td>
+              <td>{{stuSelObj.direct_total_max_score[0]}}</td>
+              <td>{{stuSelObj.direct_total_max_score[1]}}</td>
+              <td>{{stuSelObj.direct_total_max_score[2]}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div *ngIf="table1  && clicked && eyeIndirClicked && Fac">
+      <p id="stuWiseTabText"> Attainment details - {{stuSelObj.name}}({{stuSelObj.usn}})</p>
+      <div id="stuWiseTableBox">
+        <table class="table table-sm table-bordered" id="stuWiseTable">
+          <thead id="stuWiseHead">
+            <th>Method Name</th>
+            <th>{{stuSelObj.indirect_methodName[0]}}</th>
+            <th>{{stuSelObj.indirect_methodName[1]}}</th>
+            <th>{{stuSelObj.indirect_methodName[2]}}</th>
+          </thead>
+          <tbody id="stuWiseTableBody">
+            <tr id="row">
+              <td>Method Description</td>
+              <td>{{stuSelObj.indirect_methodDescription[0]}}</td>
+              <td>{{stuSelObj.indirect_methodDescription[1]}}</td>
+              <td>{{stuSelObj.indirect_methodDescription[2]}}</td>
+            </tr>
+            <tr id="row">
+              <td>Attainment</td>
+              <td>{{stuSelObj.indirect_attainment[0]}}</td>
+              <td>{{stuSelObj.indirect_attainment[1]}}</td>
+              <td>{{stuSelObj.indirect_attainment[2]}}</td>
+            </tr>
+            <tr id="row">
+              <td>Attainment Percentage</td>
+              <td>{{stuSelObj.indirect_attainmentPercentage[0]}}</td>
+              <td>{{stuSelObj.indirect_attainmentPercentage[1]}}</td>
+              <td>{{stuSelObj.indirect_attainmentPercentage[2]}}</td>
+            </tr>
+            <tr id="row">
+              <td>Total Obtained Score</td>
+              <td>{{stuSelObj.indirect_total_obtained_score[0]}}</td>
+              <td>{{stuSelObj.indirect_total_obtained_score[1]}}</td>
+              <td>{{stuSelObj.indirect_total_obtained_score[2]}}</td>
+            </tr>
+            <tr id="row">
+              <td>Total Max. Score</td>
+              <td>{{stuSelObj.indirect_total_max_score[0]}}</td>
+              <td>{{stuSelObj.indirect_total_max_score[1]}}</td>
+              <td>{{stuSelObj.indirect_total_max_score[2]}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!--Student attainment detail table[ends here]-->
+  </div>
+</div>
+
+<!----------------------------------------------Screen2[ends here]----------------------------------------------->
+
+<!-------------------------------------Screen3(students table)[starts here]-------------------------------------->
+<!--Student table[starts here]-->
+<br />
+<div class="row">
+  <div class="col-md-12">
+    <div *ngIf="Stud && !eyeClicked && clicked && globalFlag">
+      <div id="stuOverflowCont">
+        <table class="table table-sm table-bordered container-fluid" id="stuTable">
+          <thead id="stuHead">
+            <th>SI.#</th>
+            <th>Student Name</th>
+            <th>USN/Candidate Id</th>
+            <th>Average CO Attainment Score</th>
+            <th>View Details</th>
+          </thead>
+          <tbody id="stuTableBody">
+            <tr *ngFor=" let element of stuTableArray;let i=index" id="row">
+              <td>
+                {{i+1}}
+              </td>
+              <td>
+                {{element.name}}
+              </td>
+              <td>
+                {{element.usn}}
+              </td>
+              <td>
+                {{element.avg_co}}
+              </td>
+              <td>
+                <mat-icon class="pointer" (click)="eyeStuClicked(element.name,element.usn)">visibility</mat-icon>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Student table[ends here]-->
+
+<div *ngIf="Stud && eyeClicked && clicked">
+  <div id="stuHeader">
+    <strong>Student Name:</strong> {{stuName}}
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <div id="hzLine"></div>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <strong>USN/Candidate Id</strong>: {{stuUSN}}
+  </div>
+
+  <div id="hilo3Container">
+    <p id="text-sort-by">Sort by</p>
+    <div class="form-check" id="hilo3Box0">
+      <input class="form-check-input" type="radio" name="hilo1Button" id="hilo3-radio0" [value]='0'
+        [(ngModel)]='hilo3_val' (change)='onHilo3RadioChange()'>
+      <label class="form-check-label" for="hilo1-radio0">
+        High-Low
+      </label>
+    </div>
+    <div class="form-check" id="hilo3Box1">
+      <input class="form-check-input" type="radio" name="hilo3Button" id="hilo3-radio1" [value]='1'
+        [(ngModel)]='hilo3_val' (change)='onHilo3RadioChange()'>
+      <label class="form-check-label" for="hilo3-radio1">
+        Low-High
+      </label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="offset-md-2 col-md-6">
+      <!--Bloom Course centric radio buttons[starts here]-->
+      <div id="BCRadioBox">
+        <div id="radioCont2">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="BCRadio1" id="BCRadio1" [value]='0' [(ngModel)]='BC_val'
+              (change)='onBCRadioChange()'>
+            <label class="form-check-label" for="BCRadio1" id="BCRadio1Text">Blooms-centric CO attainment
+              scores</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="BCRadio2" id="BCRadio2" value="option2" [value]='1'
+              [(ngModel)]='BC_val' (change)='onBCRadioChange()'>
+            <label class="form-check-label" for="BCRadio2" id="BCRadio2Text">Course-centric CO attainment
+              scores</label>
+          </div>
+        </div>
+      </div>
+      <!--Bloom Course centric radio buttons[ends here]-->
+    </div>
+  </div>
+
+  <div *ngIf="!CourseCentric">
+    <br />
+  </div>
+
+  <!--PO attainment graph[starts here]-->
+  <div class="row">
+    <div class="col-md-12 col-xs-12">
+      <div *ngIf='data1 && visible && firstChart && clicked && !CourseCentric'>
+        <div class="shadow responsive" (select)="onSelect($event)" google-chart [data]="data1.dataTable"
+          [chartType]="data1.chartType" [options]="data1.options">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--PO attainment graph[ends here]-->
+
+  <!--CO attainment graph[starts here]-->
+  <div class="row">
+    <div class="col-md-12 col-xs-12" *ngIf='!CourseCentric && data2 && !visible && secondChart && clicked'>
+      <div class="shadow responsive" (select)="onSelect2($event)" google-chart [data]="data2.dataTable"
+        [chartType]="'ColumnChart'" [options]="data2.options">
+      </div>
+    </div>
+  </div>
+  <!--CO attainment graph[ends here]-->
+</div>
+
+<br />
+<br />
+
+<!--CO definition[starts here]-->
+<div class="row" *ngIf="eyeClicked && Stud && !CourseCentric && data2 && !visible && secondChart && clicked">
+  <div class="col-md-12">
+    <mat-divider class="horizontal_divider"></mat-divider>
+    <span>CO{{downTableCo}} : "Definition"</span>
+    <mat-divider class="horizontal_divider"></mat-divider>
+  </div>
+</div>
+<br />
+<!--CO definition[ends here]-->
+
+<!--Two tables under CO graph[starts here]-->
+<div class="row" id="tableRow"
+  *ngIf="eyeClicked && Stud && !CourseCentric && data2 && !visible && secondChart && clicked">
+  <div id="stuWiseTableContainer2" class="col-md-6 ">
+    <div id="stuWiseTableBox">
+      <table class="table table-sm table-bordered" id="stuWiseTable">
+        <thead id="stuWiseHead">
+          <th>Method Name</th>
+          <th>{{stuSelObj2.direct_methodName[0]}}</th>
+          <th>{{stuSelObj2.direct_methodName[1]}}</th>
+          <th>{{stuSelObj2.direct_methodName[2]}}</th>
+        </thead>
+        <tbody id="stuWiseTableBody">
+          <tr id="row">
+            <td>Method Description</td>
+            <td>{{stuSelObj2.direct_methodDescription[0]}}</td>
+            <td>{{stuSelObj2.direct_methodDescription[1]}}</td>
+            <td>{{stuSelObj2.direct_methodDescription[2]}}</td>
+          </tr>
+          <tr id="row">
+            <td>Attainment</td>
+            <td>{{stuSelObj2.direct_attainment[0]}}</td>
+            <td>{{stuSelObj2.direct_attainment[1]}}</td>
+            <td>{{stuSelObj2.direct_attainment[2]}}</td>
+          </tr>
+          <tr id="row">
+            <td>Attainment Percentage</td>
+            <td>{{stuSelObj2.direct_attainmentPercentage[0]}}</td>
+            <td>{{stuSelObj2.direct_attainmentPercentage[1]}}</td>
+            <td>{{stuSelObj2.direct_attainmentPercentage[2]}}</td>
+          </tr>
+          <tr id="row">
+            <td>Total Obtained Score</td>
+            <td>{{stuSelObj2.direct_total_obtained_score[0]}}</td>
+            <td>{{stuSelObj2.direct_total_obtained_score[1]}}</td>
+            <td>{{stuSelObj2.direct_total_obtained_score[2]}}</td>
+          </tr>
+          <tr id="row">
+            <td>Total Max. Score</td>
+            <td>{{stuSelObj2.direct_total_max_score[0]}}</td>
+            <td>{{stuSelObj2.direct_total_max_score[1]}}</td>
+            <td>{{stuSelObj2.direct_total_max_score[2]}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div id="stuWiseTableContainer2" class="col-md-6">
+    <div id="stuWiseTableBox">
+      <table class="table table-sm table-bordered" id="stuWiseTable">
+        <thead id="stuWiseHead">
+          <th>Method Name</th>
+          <th>{{stuSelObj2.indirect_methodName[0]}}</th>
+          <th>{{stuSelObj2.indirect_methodName[1]}}</th>
+          <th>{{stuSelObj2.indirect_methodName[2]}}</th>
+        </thead>
+        <tbody id="stuWiseTableBody">
+          <tr id="row">
+            <td>Method Description</td>
+            <td>{{stuSelObj2.indirect_methodDescription[0]}}</td>
+            <td>{{stuSelObj2.indirect_methodDescription[1]}}</td>
+            <td>{{stuSelObj2.indirect_methodDescription[2]}}</td>
+          </tr>
+          <tr id="row">
+            <td>Attainment</td>
+            <td>{{stuSelObj2.indirect_attainment[0]}}</td>
+            <td>{{stuSelObj2.indirect_attainment[1]}}</td>
+            <td>{{stuSelObj2.indirect_attainment[2]}}</td>
+          </tr>
+          <tr id="row">
+            <td>Attainment Percentage</td>
+            <td>{{stuSelObj2.indirect_attainmentPercentage[0]}}</td>
+            <td>{{stuSelObj2.indirect_attainmentPercentage[1]}}</td>
+            <td>{{stuSelObj2.indirect_attainmentPercentage[2]}}</td>
+          </tr>
+          <tr id="row">
+            <td>Total Obtained Score</td>
+            <td>{{stuSelObj2.indirect_total_obtained_score[0]}}</td>
+            <td>{{stuSelObj2.indirect_total_obtained_score[1]}}</td>
+            <td>{{stuSelObj2.indirect_total_obtained_score[2]}}</td>
+          </tr>
+          <tr id="row">
+            <td>Total Max. Score</td>
+            <td>{{stuSelObj2.indirect_total_max_score[0]}}</td>
+            <td>{{stuSelObj2.indirect_total_max_score[1]}}</td>
+            <td>{{stuSelObj2.indirect_total_max_score[2]}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<br />
+<!--Two tables under CO graph[ends here]-->
+
+<!-----------------------------------------------Screen3 [ends here]---------------------------------------------->
+
+<!-----------------------------------------------Screen4[starts here]--------------------------------------------->
+<div class="row container-fluid rightAlign" *ngIf="Stud && CourseCentric && eyeClicked && clicked">
+  <div class="mycol">
+    <!-- first column-->
+    <!--drop down for semester-->
+    <div>
+      <mat-label class="Term_label text-success">{{analyticsObj.term}}</mat-label>
+      <mat-select disableOptionCentering [formControl]="termsList" (selectionChange)="filter4($event)"
+        class="inputMaterial" multiple>
+        <mat-option *ngFor="let term of terms" [value]='term'>{{term}}</mat-option>
+      </mat-select>
+    </div>
+    <br />
+    <div class="course__list">Course List</div>
+    <!--coursecard starts here -->
+    <!--Container for the cards section-->
+    <div id="cardContainer" class="container">
+      <div id="cardBox" class="container" *ngFor="let obj of subjects;index as i">
+        <mat-card class="card-width card-padding pointer" id="{{'card'+i}}">
+          <mat-card-content id="{{i}}" (click)="cardClicked(obj,i)" *ngIf="checkAddActive(obj,i)">
+            {{obj}}
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <!--coursecard endas here -->
+  </div>
+  <mat-divider class="vertical__divider" vertical></mat-divider>
+  <div class="col-md-9">
+    <br />
+    <div class="row">
+      <div class="col-md-5 finalChart">
+        <!--Course Centric Concentric Donut Chart starts here-->
+        <div class="Htitle1">{{subSelected}}</div>
+        <app-nba27a-donutchart></app-nba27a-donutchart>
+        <!--Course Centric Concentric Donut Chart ends here-->
+      </div>
+      <mat-divider class="vertical__divider" vertical></mat-divider>
+      <div class="col-md-7 finalTable">
+        <!--Direct Indirect Attainment Table for Course Centric CO scores starts here -->
+        <div id="stuWiseTableContainer2">
+          <p id="dirTabText">Direct Attainment [(Out of 3):1.92 (Out of 100):67.23]</p>
+          <div id="stuWiseTableBox">
+            <table class="table table-sm table-bordered" id="stuWiseTable">
+              <thead id="stuWiseHead">
+                <th>Method Name</th>
+                <th>{{stuSelObj2.direct_methodName[0]}}</th>
+                <th>{{stuSelObj2.direct_methodName[1]}}</th>
+                <th>{{stuSelObj2.direct_methodName[2]}}</th>
+              </thead>
+              <tbody id="stuWiseTableBody">
+                <tr id="row">
+                  <td>Method Description</td>
+                  <td>{{stuSelObj2.direct_methodDescription[0]}}</td>
+                  <td>{{stuSelObj2.direct_methodDescription[1]}}</td>
+                  <td>{{stuSelObj2.direct_methodDescription[2]}}</td>
+                </tr>
+                <tr id="row">
+                  <td>Attainment</td>
+                  <td>{{stuSelObj2.direct_attainment[0]}}</td>
+                  <td>{{stuSelObj2.direct_attainment[1]}}</td>
+                  <td>{{stuSelObj2.direct_attainment[2]}}</td>
+                </tr>
+                <tr id="row">
+                  <td>Attainment Percentage</td>
+                  <td>{{stuSelObj2.direct_attainmentPercentage[0]}}</td>
+                  <td>{{stuSelObj2.direct_attainmentPercentage[1]}}</td>
+                  <td>{{stuSelObj2.direct_attainmentPercentage[2]}}</td>
+                </tr>
+                <tr id="row">
+                  <td>Total Obtained Score</td>
+                  <td>{{stuSelObj2.direct_total_obtained_score[0]}}</td>
+                  <td>{{stuSelObj2.direct_total_obtained_score[1]}}</td>
+                  <td>{{stuSelObj2.direct_total_obtained_score[2]}}</td>
+                </tr>
+                <tr id="row">
+                  <td>Total Max. Score</td>
+                  <td>{{stuSelObj2.direct_total_max_score[0]}}</td>
+                  <td>{{stuSelObj2.direct_total_max_score[1]}}</td>
+                  <td>{{stuSelObj2.direct_total_max_score[2]}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div id="stuWiseTableContainer2">
+          <p id="indirTabText">Indirect Attainment [(Out of 3):1.92 (Out of 100):67.23]</p>
+          <div id="stuWiseTableBox">
+            <table class="table table-sm table-bordered" id="stuWiseTable">
+              <thead id="stuWiseHead">
+                <th>Method Name</th>
+                <th>{{stuSelObj2.indirect_methodName[0]}}</th>
+                <th>{{stuSelObj2.indirect_methodName[1]}}</th>
+                <th>{{stuSelObj2.indirect_methodName[2]}}</th>
+              </thead>
+              <tbody id="stuWiseTableBody">
+                <tr id="row">
+                  <td>Method Description</td>
+                  <td>{{stuSelObj2.indirect_methodDescription[0]}}</td>
+                  <td>{{stuSelObj2.indirect_methodDescription[1]}}</td>
+                  <td>{{stuSelObj2.indirect_methodDescription[2]}}</td>
+                </tr>
+                <tr id="row">
+                  <td>Attainment</td>
+                  <td>{{stuSelObj2.indirect_attainment[0]}}</td>
+                  <td>{{stuSelObj2.indirect_attainment[1]}}</td>
+                  <td>{{stuSelObj2.indirect_attainment[2]}}</td>
+                </tr>
+                <tr id="row">
+                  <td>Attainment Percentage</td>
+                  <td>{{stuSelObj2.indirect_attainmentPercentage[0]}}</td>
+                  <td>{{stuSelObj2.indirect_attainmentPercentage[1]}}</td>
+                  <td>{{stuSelObj2.indirect_attainmentPercentage[2]}}</td>
+                </tr>
+                <tr id="row">
+                  <td>Total Obtained Score</td>
+                  <td>{{stuSelObj2.indirect_total_obtained_score[0]}}</td>
+                  <td>{{stuSelObj2.indirect_total_obtained_score[1]}}</td>
+                  <td>{{stuSelObj2.indirect_total_obtained_score[2]}}</td>
+                </tr>
+                <tr id="row">
+                  <td>Total Max. Score</td>
+                  <td>{{stuSelObj2.indirect_total_max_score[0]}}</td>
+                  <td>{{stuSelObj2.indirect_total_max_score[1]}}</td>
+                  <td>{{stuSelObj2.indirect_total_max_score[2]}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!--Direct Indirect Attainment Table for Course Centric CO scores ends here -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-------------------------------------------Screen4[ends here]--------------------------------------------------->

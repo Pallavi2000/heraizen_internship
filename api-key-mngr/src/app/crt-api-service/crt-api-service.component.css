@@ -1,0 +1,12 @@
+mat-list-item,.example-form,button{
+    margin-top: 40px;
+}
+
+p{
+    margin-top: 2px;
+    font-size: small;
+}
+
+.btn button{
+    margin-left: 20px;
+}

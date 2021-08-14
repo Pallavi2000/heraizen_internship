@@ -1,0 +1,123 @@
+/* Likhith's css below */
+ol.breadcrumb li + li:before {
+  padding-right: 0px;
+}
+ol.breadcrumb li a:hover {
+  color: #b29689;
+  text-decoration: underline;
+}
+.breadcrumb-item a{
+  padding-left: 4px; 
+  padding-right: 4px;
+}
+#breadcrumb-item2{
+ padding-left: 0px;
+}
+
+.backButton {
+  padding-left: 3px;
+  padding: 7.6px;
+}
+.backButton:hover {
+  text-decoration: underline;
+}
+.selLabel {
+  font-size: 85%;
+  font-weight: 600;
+  color: rgb(37, 119, 73);
+}
+.under_line {
+  border-bottom: 1.5px solid #ccccd4;
+}
+.vertical_line {
+  margin-left: 15px;
+  border-right: 1.5px solid  #00000073;
+}
+button {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  font-size: 14px !important;
+}
+button:disabled {
+  background-color: #ccccd4 !important;
+  color: gray !important;
+}
+.searchButton {
+  padding-left: 30px;
+  padding-top: 7px;
+}
+.searchButton .other-button1{
+  background-color: #7a9d96;
+  color : white;
+}
+.mandatory {
+  margin-top: 10px;
+  margin-left: 0px;
+  font-size: x-small;
+  font-weight: 600;
+}
+.hor_line {
+  border-top: 2px solid #ccccd4;
+  margin-top: 10px;
+  margin-right: 0px;
+  margin-left: 0px;
+  margin-bottom: 20px;
+}
+/* Likhith's css above */
+
+/*  Apoorv's CSS below */
+
+/*  Apoorv's CSS above */
+/*chaitanya's css below*/
+.fullwidth{
+  width: 100%;
+}
+.noborder{
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+-moz-box-shadow: none !important;
+
+border: none !important;
+
+}
+.button{
+  background-color: white;
+}
+
+.button .active{
+  border: 1px solid #6098d0;
+  color: #6098d0;
+} 
+
+.maintext{
+  color: #00303f;
+  line-height: normal;
+  text-align: left;
+  width : 100%;
+  border-color: #6098d0 }
+
+.f14{
+  font-size: 14;
+  text-align: left;
+}
+.basicborder{
+
+  border: 2px solid #979797;
+  border-radius: 5px;
+
+}
+
+#graphChart{
+  box-shadow: 0px 5px 10px #888888;
+}
+.other-button1:after{
+  background-color:  #7a9d96;
+  color : white;
+}
+.mat-dialog-title .heading{
+  background-color: #babdc6;
+}
+
+.scroll{
+  height : 500px;
+}

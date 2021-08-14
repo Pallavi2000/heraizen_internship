@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-11">
+            <h4>Counselling details</h4>
+        </div>
+        <div class="col-sm-1">
+            <button class="buttonClose" mat-dialog-close>
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+    </div>
+    <h5>Department : {{department}}</h5>
+    <h5>Semester : {{semester}}</h5>
+    <h5>Section : {{section}}</h5>
+    <mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="{{column.id}}" *ngFor="let column of columnNames">
+            <mat-header-cell *matHeaderCellDef><span>{{column.value}}</span></mat-header-cell>
+            <mat-cell *matCellDef="let element"><span> {{element[column.id]}}</span></mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <div class="row">
+        <button class="ok-button" color="primary" mat-flat-button mat-dialog-close>
+            <mat-icon>thumb_up</mat-icon>Ok
+        </button>
+    </div>
+    <br />
+    <br />
+</div>

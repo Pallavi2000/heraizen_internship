@@ -1,0 +1,11 @@
+
+    table{
+        width : 60%;
+        margin: auto;           
+    }
+    table#ws{
+        border:1px solid brown
+    }
+    table.sd {
+        background-color: turquoise
+    }

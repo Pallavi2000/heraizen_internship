@@ -1,0 +1,343 @@
+body{
+  font-size:14px !important;
+}
+.other-button:disabled{
+    background-color: #ccccd4 !important;
+    color: gray !important;
+}
+.greybackg {
+    background-color: #d8d8d8;
+    vertical-align: bottom !important;
+  }
+
+  .basicborder{
+    border: 1px solid #979797;
+    border-radius: 5px;
+  }
+
+  .border1{
+    border: 1px solid #979797;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+  }
+
+  .data-table {
+    width:940px !important;
+  }
+
+  .maintext{
+    color: #00303f; 
+    font-weight: 500;
+    line-height: normal;
+    text-align: left;
+}
+
+.direct , .indirect {
+  font-size: small !important;
+  text-align: center;
+  width:100% !important;
+}
+
+.noborder{
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  border: none !important;
+  }
+
+  .mat-expansion-panel-header.mat-expanded,
+  .mat-expansion-panel-header.mat-expanded:hover,
+  .mat-expansion-panel-header.mat-expanded:focus {
+    background-color: #d8d8d8 !important;
+  }
+
+ 
+  .button{
+    background-color: white;
+  }
+
+  .f14{
+    font-size: 14;
+    text-align: left;
+  }
+
+  #sortBox{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;   
+    border-radius: 5px !important;
+  }
+
+  .mat-caption{
+    text-align: left;
+    font-size: xx-small;
+  }
+
+  .fullwidth{
+    width: 100%;
+    margin-bottom: 20px !important;
+  }
+
+  .checked-button {
+    border: 2px solid blue;
+    color: blue;
+    border-radius: 5px !important;
+    box-shadow: 3px 3px 3px #888888;
+  }
+  .rubric-button{
+    background-color: #f3fbfd;
+    border: 1px solid #4a8bca;
+    border-radius: 2px;
+    font-size: small;
+    color: #4a8bca;
+  }
+
+  .scroll{
+    overflow-x: auto; 
+    overflow-y: hidden;
+    white-space: nowrap;      
+  }
+
+  .table-scroll {
+    height: 400px !important ;
+    overflow-y: auto !important;
+  }
+
+  .accordian-sub-table{
+      margin-left:10px !important;
+      font-style: xx-small !important;
+  }
+
+  rwd-text-center{
+    margin-left: 35px !important;
+  }
+
+  .flex-space{
+    margin-left:25px;
+    margin-top:-10px;
+    color: black;
+  }
+
+  .shadow{
+    border: 1px;
+    padding: 3px;
+    border-radius: none;
+    box-shadow: 0px 1px 1px 1px #888888;
+  }
+
+  .disabled{
+    opacity: 0.4;
+  }
+ 
+  .right{
+    float: right !important;
+  }
+
+  .inline{
+    display: inline-block; 
+    float: none; 
+  }
+  
+  .width{
+    width: fit-content;
+  }
+
+  .verticalLine {
+    border-left: 1px solid #00000073 ;
+    border-width:1px;
+  }
+
+  .vertical {
+    border-top: 1.5px solid #ccccd4 !important;
+  }
+
+  table{
+      font-size:xx-small !important;
+      margin-right:10px;
+  }
+
+  .button{
+    background-color: white;
+  }
+  
+  .button .active{
+    border: 1px solid #6098d0;
+    color: #6098d0;
+  } 
+  
+  .accordian-table{
+      font-size:14px !important;
+  }
+
+  #col1
+{
+  width: 10000;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+  .faculty_cards{
+    height: 450px !important;
+    overflow-y: auto !important;
+  }
+
+  .page-title{
+    margin-left: 190px !important;
+    font-size:15px !important;
+  }
+
+  .co-details{
+    font-size: small !important;
+  }
+  @media (max-width:375px) {
+    mat-select{
+      width:90% !important;
+    }
+  }
+
+  @media (max-width:500px) {
+    body{
+      font-size: 13 !important;
+    }
+    .other-button{
+     float:right !important;
+    }
+    .div-button{
+      margin-top: -15px !important;
+    }
+  }
+
+  .course-list-header{
+    color:#00303f !important;
+  }
+
+  .rwd_course_box{
+    margin-left:10px !important;
+    border:2px solid #00000073;
+    padding:10px !important;
+    width:95%;
+    
+  }
+  .rwd_row{
+    margin-left:5px !important;
+  }
+
+  .rwd_row mat-radio-button{
+    margin-right:45px !important;
+  }
+
+  .high-low{
+    margin-left: 20px !important;
+  }
+
+  .rwd-Header{
+    height:35px !important;
+    margin-left:0px !important;
+    margin-right:2px !important;
+    color:white;
+    background-color: #79b99e;
+    border-radius: 5px;
+    margin-top:10px !important;
+    padding:7px !important;
+}
+
+.rwd-Header p,.rwd-Header i{
+  margin-left:2px !important;
+  padding:2px !important;
+  margin-bottom: 0px !important;
+  font-size: 13px !important;
+}
+
+.faculty-panel .mat-expansion-panel-header.mat-expanded,
+.faculty-panel .mat-expansion-panel-header.mat-expanded:hover,
+.faculty-panel .mat-expansion-panel-header.mat-expanded:focus {
+  background-color: white !important;
+
+}
+
+.font-correct{
+  font-size:13px !important;
+}
+
+.rwd-heading{
+  margin-left: -20px !important;
+  text-align:center !important;
+}
+  /* RWD Data table CSS */
+
+.rwd-header{
+  width:105%;
+  height:40px;
+  color:white;
+  background-color: gray;
+  border-radius: 5px;
+  margin-left: 4px !important
+}
+
+.rwd-header i{
+  color: white !important;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.rwd-header p{
+  margin-top:10px !important;
+  font-size:13px !important;
+}
+
+.example-card{
+  width:105%;
+  margin-right: 8px !important;
+}
+
+.button_collapse{
+  color:black;
+  outline:none;
+  background-color: white;
+  border-color: transparent;
+  display: flex;
+  width: 90%;
+  font-size: 14px !important;
+}
+
+.button_collapse::before,
+.button_collapse::after {
+  content: '';
+  border-top: 2px solid;
+  margin: 0 20px 0 0;
+  margin-top: 10px;
+  flex: 1 0 20px;
+}
+
+.button_collapse::after {
+  margin: 0 0 0 20px;
+  margin-top: 10px;
+}
+
+.attainment {
+  margin-left: 16px;
+}
+
+.card-title {
+  font-size: 14px !important;
+}
+
+.rwd-table th, .rwd-table td {
+  font-size: 14px !important;
+  text-align :left;
+} 
+
+.coList{
+  font-size:14px !important;
+}
+
+.rwd-data-head{
+  margin-left:80px !important;
+}
+
+.rwd-rubrics {
+  margin-left: 200px !important 
+}

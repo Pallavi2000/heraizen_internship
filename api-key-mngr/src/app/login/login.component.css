@@ -1,0 +1,23 @@
+.example-card{
+    width:30%;
+    height:50%;
+    margin-top: 150px;
+    margin-left:37%;
+}
+
+.header{
+    margin-left: 160px;
+    font-size: 55px;
+}
+
+.example-container{
+    margin-left: 75px;
+    margin-top: 50px;
+}
+input{
+    width:300%;
+}
+
+.btn{
+    margin-left:150px !important;
+}

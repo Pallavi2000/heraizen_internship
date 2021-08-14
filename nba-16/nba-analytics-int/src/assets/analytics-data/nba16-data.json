@@ -1,0 +1,4535 @@
+{
+    "faculty_data": [
+        {
+            "average_attainment": 7.38,
+            "academicYear": "2018-19",
+            "courseCode": "17CS52",
+            "courseName": "COMPUTER NETWORKS",
+            "deptId": "CS",
+            "facultyId": "462",
+            "section": "A",
+            "termNumber": "5",
+            "Co_details": [
+                {
+                    "coNumber": 1,
+                    "bloomsLevel": "Analyse",
+                    "directAttainment": 3.89,
+                    "directAttainmentWeightage": 30,
+                    "indirectAttainment": 1.0,
+                    "totalAttainment": 3.11,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "rubrics_details": {
+                        "method_title": [
+                           { "method_name" : "Internal Assessment",
+                             "method_type" :   "Direct",
+                             "target"      :   "30",
+                             "rules1"       :  "L1: 60% of students who have achieved target",
+                             "rules2"       :   "L2: 70% of students who have achieved target",
+                             "rules3"       :    " L3: 80% of students who have achieved target"
+                           },
+
+                           { "method_name" : "University Exam",
+                             "method_type" :   "Direct",
+                             "target"      :   "40",
+                             "rules1"       :  "L1: 20% of students who have achieved target",
+                             "rules2"       :   "L2: 40% of students who have achieved target",
+                             "rules3"       :    " L3: 50% of students who have achieved target"
+                           },
+
+                           { "method_name" : "Other Assessment",
+                             "method_type" :   "Direct",
+                             "target"      :   "50",
+                             "rules1"       :  "L1: 60% of students who have achieved target",
+                             "rules2"       :   "L2: 70% of students who have achieved target",
+                             "rules3"       :    " L3: 80% of students who have achieved target"
+                           },
+                            
+                            { "method_name" :  "Feedback",
+                             "method_type" :   "Indirect",
+                             "target"      :   "60",
+                             "rules1"       :  "L1: 30% of students who have achieved target",
+                             "rules2"       :   "L2: 40% of students who have achieved target",
+                             "rules3"       :    " L3: 50% of students who have achieved target"
+                           }
+                            
+                        ]
+                    },
+                    "direct_attainment_details": [
+                        {
+                            "attainment": 2.3,
+                            "weightage": 40,
+                            "description": "University Exam",
+                            "method_details": [
+                                {
+                                    "assessment_num": 1,
+                                    "attainment_prcnt": 10,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3,
+                                        4,
+                                        5
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54,
+                                        60,
+                                        45
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40,
+                                        40,
+                                        35
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3,
+                                        2.4,
+                                        2.5
+                                    ]
+                                },
+                                {
+                                    "assessment_num": 2,
+                                    "attainment_prcnt": 15,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3,
+                                        4,
+                                        5
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54,
+                                        60,
+                                        45
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40,
+                                        40,
+                                        35
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3,
+                                        2.4,
+                                        2.5
+                                    ]
+                                },
+                                {
+                                    "assessment_num": 3,
+                                    "attainment_prcnt": 20,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3,
+                                        4,
+                                        5
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54,
+                                        60,
+                                        45
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40,
+                                        40,
+                                        35
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3,
+                                        2.4,
+                                        2.5
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "attainment": 2.2,
+                            "weightage": 10,
+                            "description": "Internal Assessment",
+                            "method_details": [{
+                                "method_name": "Assignment",
+                                "quation_number": [1],
+                                "total_students": [60],
+                                "attainment_prcnt": 10,
+                                "attemepted_students": [58],
+                                "attained_students": [57],
+                                "attainment": [2.3]
+                            }]
+                        },
+                        {
+                            "attainment": 2.4,
+                            "weightage": 30,
+                            "description": "Other Assessment",
+                            "method_details": [
+                                {
+                                    "method_name": "Assignment",
+                                    "attainment_prcnt": 10,
+                                    "total_student": 60,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3
+                                    ]
+                                },
+                                {
+                                    "method_name": "Unit Test",
+                                    "attainment_prcnt": 15,
+                                    "total_student": 60,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "indirect_attainment_details": [
+                        {
+                            "attainment": 2.2,
+                            "weightage": 10,
+                            "description": "Feedback",
+                            "method_details": {
+                                "total_students": 60,
+                                "num_students_given_feedback": 58,
+                                "prcnt_students_feedback": 97,
+                                "attainment": 2.3
+                            }
+                        }
+                    ]
+                },
+                {
+                    "coNumber": 2,
+                    "bloomsLevel": "Understand",
+                    "directAttainment": 20.27,
+                    "directAttainmentWeightage": 30,
+                    "indirectAttainment": 2.0,
+                    "totalAttainment": 16.22,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "rubrics_details": {
+                        "method_title": [
+                           { "method_name" : "Internal Assessment",
+                             "method_type" :   "Direct",
+                             "target"      :   "30"
+                           },
+
+                           { "method_name" : "University Exam",
+                             "method_type" :   "Direct",
+                             "target"      :   "40"
+                           },
+
+                           { "method_name" : "Other Assessment",
+                             "method_type" :   "Direct",
+                             "target"      :   "50"
+                           },
+                            
+                            { "method_name" :  "Feedback",
+                             "method_type" :   "Indirect",
+                             "target"      :   "60"
+                           }
+                            
+                        ]
+                    },
+                    "direct_attainment_details": [
+                        {
+                            "attainment": 2.3,
+                            "weightage": 40,
+                            "description": "University Exam",
+                            "method_details": [
+                                {
+                                    "assessment_num": 1,
+                                    "attainment_prcnt": 10,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3,
+                                        4,
+                                        5
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54,
+                                        60,
+                                        45
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40,
+                                        40,
+                                        35
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3,
+                                        2.4,
+                                        2.5
+                                    ]
+                                },
+                                {
+                                    "assessment_num": 2,
+                                    "attainment_prcnt": 15,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3,
+                                        4,
+                                        5
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54,
+                                        60,
+                                        45
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40,
+                                        40,
+                                        35
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3,
+                                        2.4,
+                                        2.5
+                                    ]
+                                },
+                                {
+                                    "assessment_num": 3,
+                                    "attainment_prcnt": 20,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3,
+                                        4,
+                                        5
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54,
+                                        60,
+                                        45
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40,
+                                        40,
+                                        35
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3,
+                                        2.4,
+                                        2.5
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "attainment": 2.2,
+                            "weightage": 10,
+                            "description": "Internal Assessment",
+                            "method_details": {
+                                "total_students": 60,
+                                "attemepted_students": 58,
+                                "attained_students": 57,
+                                "attainment": 2.3
+                            }
+                        },
+                        {
+                            "attainment": 2.4,
+                            "weightage": 30,
+                            "description": "Other Assessment",
+                            "method_details": [
+                                {
+                                    "method_name": "Assignment",
+                                    "attainment_prcnt": 10,
+                                    "total_student": 60,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3
+                                    ]
+                                },
+                                {
+                                    "method_name": "Unit Test",
+                                    "attainment_prcnt": 15,
+                                    "total_student": 60,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "indirect_attainment_details": [
+                        {
+                            "attainment": 2.2,
+                            "weightage": 10,
+                            "description": "Feedback",
+                            "method_details": {
+                                "total_students": 60,
+                                "num_students_given_feedback": 58,
+                                "prcnt_students_feedback": 97,
+                                "attainment": 2.3
+                            }
+                        }
+                    ]
+                },
+                {
+                    "coNumber": 3,
+                    "bloomsLevel": "Analyse",
+                    "directAttainment": 21.95,
+                    "directAttainmentWeightage": 30,
+                    "indirectAttainment": 3.0,
+                    "totalAttainment": 17.56,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "rubrics_details": {
+                        "method_title": [
+                           { "method_name" : "Internal Assessment",
+                             "method_type" :   "Direct",
+                             "target"      :   "30"
+                           },
+
+                           { "method_name" : "University Exam",
+                             "method_type" :   "Direct",
+                             "target"      :   "40"
+                           },
+
+                           { "method_name" : "Other Assessment",
+                             "method_type" :   "Direct",
+                             "target"      :   "50"
+                           },
+                            
+                            { "method_name" :  "Feedback",
+                             "method_type" :   "Indirect",
+                             "target"      :   "60"
+                           }
+                            
+                        ]
+                    },
+                    "direct_attainment_details": [
+                        {
+                            "attainment": 2.3,
+                            "weightage": 40,
+                            "description": "University Exam",
+                            "method_details": [
+                                {
+                                    "assessment_num": 1,
+                                    "attainment_prcnt": 10,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3,
+                                        4,
+                                        5
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54,
+                                        60,
+                                        45
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40,
+                                        40,
+                                        35
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3,
+                                        2.4,
+                                        2.5
+                                    ]
+                                },
+                                {
+                                    "assessment_num": 2,
+                                    "attainment_prcnt": 15,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3,
+                                        4,
+                                        5
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54,
+                                        60,
+                                        45
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40,
+                                        40,
+                                        35
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3,
+                                        2.4,
+                                        2.5
+                                    ]
+                                },
+                                {
+                                    "assessment_num": 3,
+                                    "attainment_prcnt": 20,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3,
+                                        4,
+                                        5
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54,
+                                        60,
+                                        45
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40,
+                                        40,
+                                        35
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3,
+                                        2.4,
+                                        2.5
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "attainment": 2.2,
+                            "weightage": 10,
+                            "description": "Internal Assessment",
+                            "method_details": {
+                                "total_students": 60,
+                                "attemepted_students": 58,
+                                "attained_students": 57,
+                                "attainment": 2.3
+                            }
+                        },
+                        {
+                            "attainment": 2.4,
+                            "weightage": 30,
+                            "description": "Other Assessment",
+                            "method_details": [
+                                {
+                                    "method_name": "Assignment",
+                                    "attainment_prcnt": 10,
+                                    "total_student": 60,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3
+                                    ]
+                                },
+                                {
+                                    "method_name": "Unit Test",
+                                    "attainment_prcnt": 15,
+                                    "total_student": 60,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "indirect_attainment_details": [
+                        {
+                            "attainment": 2.2,
+                            "weightage": 10,
+                            "description": "Feedback",
+                            "method_details": {
+                                "total_students": 60,
+                                "num_students_given_feedback": 58,
+                                "prcnt_students_feedback": 97,
+                                "attainment": 2.3
+                            }
+                        }
+                    ]
+                },
+                {
+                    "coNumber": 4,
+                    "bloomsLevel": "Remember",
+                    "directAttainment": 0.0,
+                    "directAttainmentWeightage": 30,
+                    "indirectAttainment": 4.0,
+                    "totalAttainment": 0.0,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "rubrics_details": {
+                        "method_title": [
+                           { "method_name" : "Internal Assessment",
+                             "method_type" :   "Direct",
+                             "target"      :   "30"
+                           },
+
+                           { "method_name" : "University Exam",
+                             "method_type" :   "Direct",
+                             "target"      :   "40"
+                           },
+
+                           { "method_name" : "Other Assessment",
+                             "method_type" :   "Direct",
+                             "target"      :   "50"
+                           },
+                            
+                            { "method_name" :  "Feedback",
+                             "method_type" :   "Indirect",
+                             "target"      :   "60"
+                           }
+                            
+                        ]
+                    },
+                    "direct_attainment_details": [
+                        {
+                            "attainment": 2.3,
+                            "weightage": 40,
+                            "description": "University Exam",
+                            "method_details": [
+                                {
+                                    "assessment_num": 1,
+                                    "attainment_prcnt": 10,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3,
+                                        4,
+                                        5
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54,
+                                        60,
+                                        45
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40,
+                                        40,
+                                        35
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3,
+                                        2.4,
+                                        2.5
+                                    ]
+                                },
+                                {
+                                    "assessment_num": 2,
+                                    "attainment_prcnt": 15,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3,
+                                        4,
+                                        5
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54,
+                                        60,
+                                        45
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40,
+                                        40,
+                                        35
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3,
+                                        2.4,
+                                        2.5
+                                    ]
+                                },
+                                {
+                                    "assessment_num": 3,
+                                    "attainment_prcnt": 20,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3,
+                                        4,
+                                        5
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54,
+                                        60,
+                                        45
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40,
+                                        40,
+                                        35
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3,
+                                        2.4,
+                                        2.5
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "attainment": 2.2,
+                            "weightage": 10,
+                            "description": "Internal Assessment",
+                            "method_details": {
+                                "total_students": 60,
+                                "attemepted_students": 58,
+                                "attained_students": 57,
+                                "attainment": 2.3
+                            }
+                        },
+                        {
+                            "attainment": 2.4,
+                            "weightage": 30,
+                            "description": "Other Assessment",
+                            "method_details": [
+                                {
+                                    "method_name": "Assignment",
+                                    "attainment_prcnt": 10,
+                                    "total_student": 60,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3
+                                    ]
+                                },
+                                {
+                                    "method_name": "Unit Test",
+                                    "attainment_prcnt": 15,
+                                    "total_student": 60,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "indirect_attainment_details": [
+                        {
+                            "attainment": 2.2,
+                            "weightage": 10,
+                            "description": "Feedback",
+                            "method_details": {
+                                "total_students": 60,
+                                "num_students_given_feedback": 58,
+                                "prcnt_students_feedback": 97,
+                                "attainment": 2.3
+                            }
+                        }
+                    ]
+                },
+                {
+                    "coNumber": 5,
+                    "bloomsLevel": "Create",
+                    "directAttainment": 0.0,
+                    "directAttainmentWeightage": 30,
+                    "indirectAttainment": 1.0,
+                    "totalAttainment": 0.0,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "rubrics_details": {
+                        "method_title": [
+                           { "method_name" : "Internal Assessment",
+                             "method_type" :   "Direct",
+                             "target"      :   "30"
+                           },
+
+                           { "method_name" : "University Exam",
+                             "method_type" :   "Direct",
+                             "target"      :   "40"
+                           },
+
+                           { "method_name" : "Other Assessment",
+                             "method_type" :   "Direct",
+                             "target"      :   "50"
+                           },
+                            
+                            { "method_name" :  "Feedback",
+                             "method_type" :   "Indirect",
+                             "target"      :   "60"
+                           }
+                            
+                        ]
+                    },
+                    "direct_attainment_details": [
+                        {
+                            "attainment": 2.3,
+                            "weightage": 40,
+                            "description": "University Exam",
+                            "method_details": [
+                                {
+                                    "assessment_num": 1,
+                                    "attainment_prcnt": 10,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3,
+                                        4,
+                                        5
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54,
+                                        60,
+                                        45
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40,
+                                        40,
+                                        35
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3,
+                                        2.4,
+                                        2.5
+                                    ]
+                                },
+                                {
+                                    "assessment_num": 2,
+                                    "attainment_prcnt": 15,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3,
+                                        4,
+                                        5
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54,
+                                        60,
+                                        45
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40,
+                                        40,
+                                        35
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3,
+                                        2.4,
+                                        2.5
+                                    ]
+                                },
+                                {
+                                    "assessment_num": 3,
+                                    "attainment_prcnt": 20,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3,
+                                        4,
+                                        5
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54,
+                                        60,
+                                        45
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40,
+                                        40,
+                                        35
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3,
+                                        2.4,
+                                        2.5
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "attainment": 2.2,
+                            "weightage": 10,
+                            "description": "Internal Assessment",
+                            "method_details": {
+                                "total_students": 60,
+                                "attemepted_students": 58,
+                                "attained_students": 57,
+                                "attainment": 2.3
+                            }
+                        },
+                        {
+                            "attainment": 2.4,
+                            "weightage": 30,
+                            "description": "Other Assessment",
+                            "method_details": [
+                                {
+                                    "method_name": "Assignment",
+                                    "attainment_prcnt": 10,
+                                    "total_student": 60,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3
+                                    ]
+                                },
+                                {
+                                    "method_name": "Unit Test",
+                                    "attainment_prcnt": 15,
+                                    "total_student": 60,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "indirect_attainment_details": [
+                        {
+                            "attainment": 2.2,
+                            "weightage": 10,
+                            "description": "Feedback",
+                            "method_details": {
+                                "total_students": 60,
+                                "num_students_given_feedback": 58,
+                                "prcnt_students_feedback": 97,
+                                "attainment": 2.3
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "average_attainment": 13.83,
+            "courseCode": "17CS55",
+            "academicYear": "2018-19",
+            "courseName": "CELL BIOLOGY AND GENETICS",
+            "deptId": "CS",
+            "facultyId": "462",
+            "section": "B",
+            "termNumber": "5",
+            "Co_details": [
+                {
+                    "coNumber": 1,
+                    "bloomsLevel": "Create",
+                    "directAttainment": 26.15,
+                    "directAttainmentWeightage": 30,
+                    "indirectAttainment": 2.0,
+                    "totalAttainment": 20.92,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "rubrics_details": {
+                        "method_title": [
+                           { "method_name" : "Internal Assessment",
+                             "method_type" :   "Direct",
+                             "target"      :   "30"
+                           },
+
+                           { "method_name" : "University Exam",
+                             "method_type" :   "Direct",
+                             "target"      :   "40"
+                           },
+
+                           { "method_name" : "Other Assessment",
+                             "method_type" :   "Direct",
+                             "target"      :   "50"
+                           },
+                            
+                            { "method_name" :  "Feedback",
+                             "method_type" :   "Indirect",
+                             "target"      :   "60"
+                           }
+                            
+                        ]
+                    },
+                    "direct_attainment_details": [
+                        {
+                            "attainment": 2.3,
+                            "weightage": 40,
+                            "description": "University Exam",
+                            "method_details": [
+                                {
+                                    "assessment_num": 1,
+                                    "attainment_prcnt": 10,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3,
+                                        4,
+                                        5
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54,
+                                        60,
+                                        45
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40,
+                                        40,
+                                        35
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3,
+                                        2.4,
+                                        2.5
+                                    ]
+                                },
+                                {
+                                    "assessment_num": 2,
+                                    "attainment_prcnt": 15,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3,
+                                        4,
+                                        5
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54,
+                                        60,
+                                        45
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40,
+                                        40,
+                                        35
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3,
+                                        2.4,
+                                        2.5
+                                    ]
+                                },
+                                {
+                                    "assessment_num": 3,
+                                    "attainment_prcnt": 20,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3,
+                                        4,
+                                        5
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54,
+                                        60,
+                                        45
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40,
+                                        40,
+                                        35
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3,
+                                        2.4,
+                                        2.5
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "attainment": 2.2,
+                            "weightage": 10,
+                            "description": "Internal Assessment",
+                            "method_details": {
+                                "total_students": 60,
+                                "attemepted_students": 58,
+                                "attained_students": 57,
+                                "attainment": 2.3
+                            }
+                        },
+                        {
+                            "attainment": 2.4,
+                            "weightage": 30,
+                            "description": "Other Assessment",
+                            "method_details": [
+                                {
+                                    "method_name": "Assignment",
+                                    "attainment_prcnt": 10,
+                                    "total_student": 60,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3
+                                    ]
+                                },
+                                {
+                                    "method_name": "Unit Test",
+                                    "attainment_prcnt": 15,
+                                    "total_student": 60,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "indirect_attainment_details": [
+                        {
+                            "attainment": 2.2,
+                            "weightage": 10,
+                            "description": "Feedback",
+                            "method_details": {
+                                "total_students": 60,
+                                "num_students_given_feedback": 58,
+                                "prcnt_students_feedback": 97,
+                                "attainment": 2.3
+                            }
+                        }
+                    ]
+                },
+                {
+                    "coNumber": 2,
+                    "bloomsLevel": "Analyse",
+                    "directAttainment": 30.3,
+                    "directAttainmentWeightage": 30,
+                    "indirectAttainment": 2.0,
+                    "totalAttainment": 24.24,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "rubrics_details": {
+                        "method_title": [
+                           { "method_name" : "Internal Assessment",
+                             "method_type" :   "Direct",
+                             "target"      :   "30"
+                           },
+
+                           { "method_name" : "University Exam",
+                             "method_type" :   "Direct",
+                             "target"      :   "40"
+                           },
+
+                           { "method_name" : "Other Assessment",
+                             "method_type" :   "Direct",
+                             "target"      :   "50"
+                           },
+                            
+                            { "method_name" :  "Feedback",
+                             "method_type" :   "Indirect",
+                             "target"      :   "60"
+                           }
+                            
+                        ]
+                    },
+                    "direct_attainment_details": [
+                        {
+                            "attainment": 2.3,
+                            "weightage": 40,
+                            "description": "University Exam",
+                            "method_details": [
+                                {
+                                    "assessment_num": 1,
+                                    "attainment_prcnt": 10,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3,
+                                        4,
+                                        5
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54,
+                                        60,
+                                        45
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40,
+                                        40,
+                                        35
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3,
+                                        2.4,
+                                        2.5
+                                    ]
+                                },
+                                {
+                                    "assessment_num": 2,
+                                    "attainment_prcnt": 15,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3,
+                                        4,
+                                        5
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54,
+                                        60,
+                                        45
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40,
+                                        40,
+                                        35
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3,
+                                        2.4,
+                                        2.5
+                                    ]
+                                },
+                                {
+                                    "assessment_num": 3,
+                                    "attainment_prcnt": 20,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3,
+                                        4,
+                                        5
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54,
+                                        60,
+                                        45
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40,
+                                        40,
+                                        35
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3,
+                                        2.4,
+                                        2.5
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "attainment": 2.2,
+                            "weightage": 10,
+                            "description": "Internal Assessment",
+                            "method_details": {
+                                "total_students": 60,
+                                "attemepted_students": 58,
+                                "attained_students": 57,
+                                "attainment": 2.3
+                            }
+                        },
+                        {
+                            "attainment": 2.4,
+                            "weightage": 30,
+                            "description": "Other Assessment",
+                            "method_details": [
+                                {
+                                    "method_name": "Assignment",
+                                    "attainment_prcnt": 10,
+                                    "total_student": 60,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3
+                                    ]
+                                },
+                                {
+                                    "method_name": "Unit Test",
+                                    "attainment_prcnt": 15,
+                                    "total_student": 60,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "indirect_attainment_details": [
+                        {
+                            "attainment": 2.2,
+                            "weightage": 10,
+                            "description": "Feedback",
+                            "method_details": {
+                                "total_students": 60,
+                                "num_students_given_feedback": 58,
+                                "prcnt_students_feedback": 97,
+                                "attainment": 2.3
+                            }
+                        }
+                    ]
+                },
+                {
+                    "coNumber": 3,
+                    "bloomsLevel": "Evaluate",
+                    "directAttainment": 29.97,
+                    "directAttainmentWeightage": 30,
+                    "indirectAttainment": 3.0,
+                    "totalAttainment": 23.97,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "rubrics_details": {
+                        "method_title": [
+                           { "method_name" : "Internal Assessment",
+                             "method_type" :   "Direct",
+                             "target"      :   "30"
+                           },
+
+                           { "method_name" : "University Exam",
+                             "method_type" :   "Direct",
+                             "target"      :   "40"
+                           },
+
+                           { "method_name" : "Other Assessment",
+                             "method_type" :   "Direct",
+                             "target"      :   "50"
+                           },
+                            
+                            { "method_name" :  "Feedback",
+                             "method_type" :   "Indirect",
+                             "target"      :   "60"
+                           }
+                            
+                        ]
+                    },
+                    "direct_attainment_details": [
+                        {
+                            "attainment": 2.3,
+                            "weightage": 40,
+                            "description": "University Exam",
+                            "method_details": [
+                                {
+                                    "assessment_num": 1,
+                                    "attainment_prcnt": 10,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3,
+                                        4,
+                                        5
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54,
+                                        60,
+                                        45
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40,
+                                        40,
+                                        35
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3,
+                                        2.4,
+                                        2.5
+                                    ]
+                                },
+                                {
+                                    "assessment_num": 2,
+                                    "attainment_prcnt": 15,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3,
+                                        4,
+                                        5
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54,
+                                        60,
+                                        45
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40,
+                                        40,
+                                        35
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3,
+                                        2.4,
+                                        2.5
+                                    ]
+                                },
+                                {
+                                    "assessment_num": 3,
+                                    "attainment_prcnt": 20,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3,
+                                        4,
+                                        5
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54,
+                                        60,
+                                        45
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40,
+                                        40,
+                                        35
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3,
+                                        2.4,
+                                        2.5
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "attainment": 2.2,
+                            "weightage": 10,
+                            "description": "Internal Assessment",
+                            "method_details": {
+                                "total_students": 60,
+                                "attemepted_students": 58,
+                                "attained_students": 57,
+                                "attainment": 2.3
+                            }
+                        },
+                        {
+                            "attainment": 2.4,
+                            "weightage": 30,
+                            "description": "Other Assessment",
+                            "method_details": [
+                                {
+                                    "method_name": "Assignment",
+                                    "attainment_prcnt": 10,
+                                    "total_student": 60,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3
+                                    ]
+                                },
+                                {
+                                    "method_name": "Unit Test",
+                                    "attainment_prcnt": 15,
+                                    "total_student": 60,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "indirect_attainment_details": [
+                        {
+                            "attainment": 2.2,
+                            "weightage": 10,
+                            "description": "Feedback",
+                            "method_details": {
+                                "total_students": 60,
+                                "num_students_given_feedback": 58,
+                                "prcnt_students_feedback": 97,
+                                "attainment": 2.3
+                            }
+                        }
+                    ]
+                },
+                {
+                    "coNumber": 4,
+                    "bloomsLevel": "Evaluate",
+                    "directAttainment": 0.0,
+                    "directAttainmentWeightage": 35,
+                    "indirectAttainment": 4.0,
+                    "totalAttainment": 0.0,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "direct_methodWeightage": [
+                        20,
+                        40,
+                        30
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 5,
+                    "bloomsLevel": "Remember",
+                    "directAttainment": 0.0,
+                    "directAttainmentWeightage": 40,
+                    "indirectAttainment": 1.0,
+                    "totalAttainment": 0.0,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "direct_methodWeightage": [
+                        20,
+                        40,
+                        30
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                }
+            ]
+        },
+        {
+            "average_attainment": 7.38,
+            "academicYear": "2019-20",
+            "courseCode": "15BT62",
+            "courseName": "COMPUTER NETWORKS",
+            "deptId": "CS",
+            "facultyId": "462",
+            "section": "A",
+            "termNumber": "6",
+            "Co_details": [
+                {
+                    "coNumber": 1,
+                    "bloomsLevel": "Analyse",
+                    "directAttainment": 3.89,
+                    "directAttainmentWeightage": 30,
+                    "indirectAttainment": 2.0,
+                    "totalAttainment": 3.11,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "rubrics_details": {
+                        "method_title": [
+                           { "method_name" : "Internal Assessment",
+                             "method_type" :   "Direct",
+                             "target"      :   "30"
+                           },
+
+                           { "method_name" : "University Exam",
+                             "method_type" :   "Direct",
+                             "target"      :   "40"
+                           },
+
+                           { "method_name" : "Other Assessment",
+                             "method_type" :   "Direct",
+                             "target"      :   "50"
+                           },
+                            
+                            { "method_name" :  "Feedback",
+                             "method_type" :   "Indirect",
+                             "target"      :   "60"
+                           }
+                            
+                        ]
+                    },
+
+                    "direct_attainment_details": [
+                        {
+                            "attainment": 2.3,
+                            "weightage": 40,
+                            "description": "University Exam",
+                            "method_details": [
+                                {
+                                    "assessment_num": 1,
+                                    "attainment_prcnt": 10,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3,
+                                        4,
+                                        5
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54,
+                                        60,
+                                        45
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40,
+                                        40,
+                                        35
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3,
+                                        2.4,
+                                        2.5
+                                    ]
+                                },
+                                {
+                                    "assessment_num": 2,
+                                    "attainment_prcnt": 15,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3,
+                                        4,
+                                        5
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54,
+                                        60,
+                                        45
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40,
+                                        40,
+                                        35
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3,
+                                        2.4,
+                                        2.5
+                                    ]
+                                },
+                                {
+                                    "assessment_num": 3,
+                                    "attainment_prcnt": 20,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3,
+                                        4,
+                                        5
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54,
+                                        60,
+                                        45
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40,
+                                        40,
+                                        35
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3,
+                                        2.4,
+                                        2.5
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "attainment": 2.2,
+                            "weightage": 10,
+                            "description": "Internal Assessment",
+                            "method_details": {
+                                "total_students": 60,
+                                "attemepted_students": 58,
+                                "attained_students": 57,
+                                "attainment": 2.3
+                            }
+                        },
+                        {
+                            "attainment": 2.4,
+                            "weightage": 30,
+                            "description": "Other Assessment",
+                            "method_details": [
+                                {
+                                    "method_name": "Assignment",
+                                    "attainment_prcnt": 10,
+                                    "total_student": 60,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40,
+                                        40
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3
+                                    ]
+                                },
+                                {
+                                    "method_name": "Unit Test",
+                                    "attainment_prcnt": 15,
+                                    "total_student": 60,
+                                    "quation_number": [
+                                        1,
+                                        2,
+                                        3
+                                    ],
+                                    "total_students": [
+                                        60,
+                                        60,
+                                        60
+                                    ],
+                                    "attemepted_students": [
+                                        56,
+                                        50,
+                                        54
+                                    ],
+                                    "attained_students": [
+                                        40,
+                                        45,
+                                        40
+                                    ],
+                                    "attainment": [
+                                        2.1,
+                                        2.2,
+                                        2.3
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "indirect_attainment_details": [
+                        {
+                            "attainment": 2.2,
+                            "weightage": 10,
+                            "description": "Feedback",
+                            "method_details": {
+                                "total_students": 60,
+                                "num_students_given_feedback": 58,
+                                "prcnt_students_feedback": 97,
+                                "attainment": 2.3
+                            }
+                        }
+                    ]
+                },
+                {
+                    "coNumber": 2,
+                    "bloomsLevel": "Understand",
+                    "directAttainment": 20.27,
+                    "directAttainmentWeightage": 30,
+                    "indirectAttainment": 3.0,
+                    "totalAttainment": 16.22,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        67.57,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "direct_methodWeightage": [
+                        20,
+                        40,
+                        30
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 3,
+                    "bloomsLevel": "Analyse",
+                    "directAttainment": 21.95,
+                    "directAttainmentWeightage": 30,
+                    "indirectAttainment": 4.0,
+                    "totalAttainment": 17.56,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        73.18,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "direct_methodWeightage": [
+                        20,
+                        40,
+                        30
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 4,
+                    "bloomsLevel": "Remember",
+                    "directAttainment": 0.0,
+                    "directAttainmentWeightage": 30,
+                    "indirectAttainment": 1.0,
+                    "totalAttainment": 0.0,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "direct_methodWeightage": [
+                        20,
+                        40,
+                        30
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 5,
+                    "bloomsLevel": "Create",
+                    "directAttainment": 0.0,
+                    "directAttainmentWeightage": 30,
+                    "indirectAttainment": 2.0,
+                    "totalAttainment": 0.0,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "direct_methodWeightage": [
+                        20,
+                        40,
+                        30
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                }
+            ]
+        },
+        {
+            "average_attainment": 7.38,
+            "academicYear": "2019-20",
+            "courseCode": "15BT64",
+            "courseName": "COMPUTER NETWORKS",
+            "deptId": "CS",
+            "facultyId": "462",
+            "section": "B",
+            "termNumber": "6",
+            "Co_details": [
+                {
+                    "coNumber": 1,
+                    "bloomsLevel": "Analyse",
+                    "directAttainment": 3.89,
+                    "directAttainmentWeightage": 30,
+                    "indirectAttainment": 3.0,
+                    "totalAttainment": 3.11,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        0.0,
+                        0.0,
+                        38.89
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "direct_methodWeightage": [
+                        20,
+                        40,
+                        30
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 2,
+                    "bloomsLevel": "Understand",
+                    "directAttainment": 20.27,
+                    "directAttainmentWeightage": 30,
+                    "indirectAttainment": 4.0,
+                    "totalAttainment": 16.22,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        67.57,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "direct_methodWeightage": [
+                        20,
+                        40,
+                        30
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 3,
+                    "bloomsLevel": "Analyse",
+                    "directAttainment": 21.95,
+                    "directAttainmentWeightage": 30,
+                    "indirectAttainment": 1.0,
+                    "totalAttainment": 17.56,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        73.18,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "direct_methodWeightage": [
+                        20,
+                        40,
+                        30
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 4,
+                    "bloomsLevel": "Remember",
+                    "directAttainment": 0.0,
+                    "indirectAttainment": 3.0,
+                    "totalAttainment": 0.0,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "direct_methodWeightage": [
+                        20,
+                        40,
+                        30
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 5,
+                    "bloomsLevel": "Create",
+                    "directAttainment": 0.0,
+                    "indirectAttainment": 2.0,
+                    "totalAttainment": 0.0,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "direct_methodWeightage": [
+                        20,
+                        40,
+                        30
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                }
+            ]
+        }
+    ],
+    "academicYear": [
+        "2017-18",
+        "2018-19",
+        "2019-20"
+    ],
+    "terms": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+    ],
+    "departments": [
+        "CS",
+        "IS",
+        "EC",
+        "EE",
+        "BT"
+    ],
+    "hod_details": [
+        {
+            "facultyName": "NIMISH",
+            "average_attainment": 7.38,
+            "academicYear": "2018-19",
+            "courseCode": "17CS52",
+            "courseName": "COMPUTER NETWORKS",
+            "deptId": "CS",
+            "facultyId": "462",
+            "section": "A",
+            "termNumber": "5",
+            "Co_details": [
+                {
+                    "coNumber": 1,
+                    "bloomsLevel": "Analyse",
+                    "directAttainment": 3.89,
+                    "indirectAttainment": 3.0,
+                    "totalAttainment": 3.11,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        0.0,
+                        0.0,
+                        38.89
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 2,
+                    "bloomsLevel": "Understand",
+                    "directAttainment": 20.27,
+                    "indirectAttainment": 3.0,
+                    "totalAttainment": 16.22,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        67.57,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 3,
+                    "bloomsLevel": "Analyse",
+                    "directAttainment": 21.95,
+                    "indirectAttainment": 4.0,
+                    "totalAttainment": 17.56,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        73.18,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 4,
+                    "bloomsLevel": "Remember",
+                    "directAttainment": 0.0,
+                    "indirectAttainment": 1.0,
+                    "totalAttainment": 0.0,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 5,
+                    "bloomsLevel": "Create",
+                    "directAttainment": 0.0,
+                    "indirectAttainment": 0.0,
+                    "totalAttainment": 0.0,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                }
+            ]
+        },
+        {
+            "facultyId": "783",
+            "facultyName": "DARSHAN",
+            "termNumber": "4",
+            "average_attainment": 7.38,
+            "academicYear": "2018-19",
+            "courseCode": "17CS52",
+            "courseName": "COMPUTER NETWORKS",
+            "deptId": "CS",
+            "section": "A",
+            "Co_details": [
+                {
+                    "coNumber": 1,
+                    "bloomsLevel": "Analyse",
+                    "directAttainment": 3.89,
+                    "indirectAttainment": 1.0,
+                    "totalAttainment": 3.11,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        0.0,
+                        0.0,
+                        38.89
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 2,
+                    "bloomsLevel": "Understand",
+                    "directAttainment": 20.27,
+                    "indirectAttainment": 2.0,
+                    "totalAttainment": 16.22,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        67.57,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 3,
+                    "bloomsLevel": "Analyse",
+                    "directAttainment": 21.95,
+                    "indirectAttainment": 3.0,
+                    "totalAttainment": 17.56,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        73.18,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 4,
+                    "bloomsLevel": "Remember",
+                    "directAttainment": 0.0,
+                    "indirectAttainment": 4.0,
+                    "totalAttainment": 0.0,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 5,
+                    "bloomsLevel": "Create",
+                    "directAttainment": 0.0,
+                    "indirectAttainment": 1.0,
+                    "totalAttainment": 0.0,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                }
+            ]
+        },
+        {
+            "facultyId": "462",
+            "facultyName": "Dr Ravikiran A .Mundewadi",
+            "termNumber": "5",
+            "average_attainment": 7.38,
+            "academicYear": "2018-19",
+            "courseCode": "17CS52",
+            "courseName": "COMPUTER NETWORKS",
+            "deptId": "CS",
+            "section": "A",
+            "Co_details": [
+                {
+                    "coNumber": 1,
+                    "bloomsLevel": "Analyse",
+                    "directAttainment": 3.89,
+                    "indirectAttainment": 2.0,
+                    "totalAttainment": 3.11,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        0.0,
+                        0.0,
+                        38.89
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 2,
+                    "bloomsLevel": "Understand",
+                    "directAttainment": 20.27,
+                    "indirectAttainment": 3.0,
+                    "totalAttainment": 16.22,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        67.57,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 3,
+                    "bloomsLevel": "Analyse",
+                    "directAttainment": 21.95,
+                    "indirectAttainment": 4.0,
+                    "totalAttainment": 17.56,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        73.18,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 4,
+                    "bloomsLevel": "Remember",
+                    "directAttainment": 0.0,
+                    "indirectAttainment": 0.0,
+                    "totalAttainment": 0.0,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 5,
+                    "bloomsLevel": "Create",
+                    "directAttainment": 0.0,
+                    "indirectAttainment": 5.0,
+                    "totalAttainment": 0.0,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                }
+            ]
+        },
+        {
+            "facultyId": "425",
+            "facultyName": "Dr Khalid Parwez ",
+            "termNumber": "3",
+            "average_attainment": 7.38,
+            "academicYear": "2018-19",
+            "courseCode": "17CS32",
+            "courseName": "COMPUTER NETWORKS",
+            "deptId": "CS",
+            "section": "A",
+            "Co_details": [
+                {
+                    "coNumber": 1,
+                    "bloomsLevel": "Analyse",
+                    "directAttainment": 3.89,
+                    "indirectAttainment": 3.0,
+                    "totalAttainment": 3.11,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        0.0,
+                        0.0,
+                        38.89
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 2,
+                    "bloomsLevel": "Understand",
+                    "directAttainment": 20.27,
+                    "indirectAttainment": 2.0,
+                    "totalAttainment": 16.22,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        67.57,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 3,
+                    "bloomsLevel": "Analyse",
+                    "directAttainment": 21.95,
+                    "indirectAttainment": 4.0,
+                    "totalAttainment": 17.56,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        73.18,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 4,
+                    "bloomsLevel": "Remember",
+                    "directAttainment": 0.0,
+                    "indirectAttainment": 0.0,
+                    "totalAttainment": 0.0,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 5,
+                    "bloomsLevel": "Create",
+                    "directAttainment": 0.0,
+                    "indirectAttainment": 1.0,
+                    "totalAttainment": 0.0,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                }
+            ]
+        },
+        {
+            "facultyId": "462",
+            "facultyName": "Dr Ravikiran A .Mundewadi",
+            "termNumber": "6",
+            "average_attainment": 7.38,
+            "academicYear": "2019-20",
+            "courseCode": "17CS61",
+            "courseName": "COMPUTER NETWORKS",
+            "deptId": "CS",
+            "section": "A",
+            "Co_details": [
+                {
+                    "coNumber": 1,
+                    "bloomsLevel": "Analyse",
+                    "directAttainment": 3.89,
+                    "indirectAttainment": 0.0,
+                    "totalAttainment": 3.11,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        0.0,
+                        0.0,
+                        38.89
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 2,
+                    "bloomsLevel": "Understand",
+                    "directAttainment": 20.27,
+                    "indirectAttainment": 0.0,
+                    "totalAttainment": 16.22,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        67.57,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 3,
+                    "bloomsLevel": "Analyse",
+                    "directAttainment": 21.95,
+                    "indirectAttainment": 0.0,
+                    "totalAttainment": 17.56,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        73.18,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 4,
+                    "bloomsLevel": "Remember",
+                    "directAttainment": 0.0,
+                    "indirectAttainment": 0.0,
+                    "totalAttainment": 0.0,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 5,
+                    "bloomsLevel": "Create",
+                    "directAttainment": 0.0,
+                    "indirectAttainment": 0.0,
+                    "totalAttainment": 0.0,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                }
+            ]
+        },
+        {
+            "facultyId": "354",
+            "facultyName": "Dr Krishna Prasad Nooralabettu",
+            "termNumber": "5",
+            "average_attainment": 7.38,
+            "academicYear": "2018-19",
+            "courseCode": "17CS32",
+            "courseName": "COMPUTER NETWORKS",
+            "deptId": "CS",
+            "section": "B",
+            "Co_details": [
+                {
+                    "coNumber": 1,
+                    "bloomsLevel": "Analyse",
+                    "directAttainment": 3.89,
+                    "indirectAttainment": 0.0,
+                    "totalAttainment": 3.11,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        0.0,
+                        0.0,
+                        38.89
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 2,
+                    "bloomsLevel": "Understand",
+                    "directAttainment": 20.27,
+                    "indirectAttainment": 0.0,
+                    "totalAttainment": 16.22,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        67.57,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 3,
+                    "bloomsLevel": "Analyse",
+                    "directAttainment": 21.95,
+                    "indirectAttainment": 0.0,
+                    "totalAttainment": 17.56,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        73.18,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 4,
+                    "bloomsLevel": "Remember",
+                    "directAttainment": 0.0,
+                    "indirectAttainment": 0.0,
+                    "totalAttainment": 0.0,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 5,
+                    "bloomsLevel": "Create",
+                    "directAttainment": 0.0,
+                    "indirectAttainment": 0.0,
+                    "totalAttainment": 0.0,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                }
+            ]
+        },
+        {
+            "facultyId": "462",
+            "facultyName": "Dr Ravikiran A .Mundewadi",
+            "termNumber": "6",
+            "average_attainment": 7.38,
+            "academicYear": "2019-20",
+            "courseCode": "17CS61",
+            "courseName": "COMPUTER NETWORKS",
+            "deptId": "CS",
+            "section": "A",
+            "Co_details": [
+                {
+                    "coNumber": 1,
+                    "bloomsLevel": "Analyse",
+                    "directAttainment": 3.89,
+                    "indirectAttainment": 0.0,
+                    "totalAttainment": 3.11,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        0.0,
+                        0.0,
+                        38.89
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 2,
+                    "bloomsLevel": "Understand",
+                    "directAttainment": 20.27,
+                    "indirectAttainment": 0.0,
+                    "totalAttainment": 16.22,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        67.57,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 3,
+                    "bloomsLevel": "Analyse",
+                    "directAttainment": 21.95,
+                    "indirectAttainment": 0.0,
+                    "totalAttainment": 17.56,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        73.18,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 4,
+                    "bloomsLevel": "Remember",
+                    "directAttainment": 0.0,
+                    "indirectAttainment": 0.0,
+                    "totalAttainment": 0.0,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 5,
+                    "bloomsLevel": "Create",
+                    "directAttainment": 0.0,
+                    "indirectAttainment": 0.0,
+                    "totalAttainment": 0.0,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                }
+            ]
+        },
+        {
+            "facultyId": "5c4ffaded3dee6289563560c",
+            "facultyName": "Dr Rizwana Abid",
+            "termNumber": "4",
+            "average_attainment": 7.38,
+            "academicYear": "2018-19",
+            "courseCode": "17CS42",
+            "courseName": "COMPUTER NETWORKS",
+            "deptId": "CS",
+            "section": "B",
+            "Co_details": [
+                {
+                    "coNumber": 1,
+                    "bloomsLevel": "Analyse",
+                    "directAttainment": 3.89,
+                    "indirectAttainment": 0.0,
+                    "totalAttainment": 3.11,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        0.0,
+                        0.0,
+                        38.89
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 2,
+                    "bloomsLevel": "Understand",
+                    "directAttainment": 20.27,
+                    "indirectAttainment": 0.0,
+                    "totalAttainment": 16.22,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        67.57,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 3,
+                    "bloomsLevel": "Analyse",
+                    "directAttainment": 21.95,
+                    "indirectAttainment": 0.0,
+                    "totalAttainment": 17.56,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        73.18,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 4,
+                    "bloomsLevel": "Remember",
+                    "directAttainment": 0.0,
+                    "indirectAttainment": 0.0,
+                    "totalAttainment": 0.0,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                },
+                {
+                    "coNumber": 5,
+                    "bloomsLevel": "Create",
+                    "directAttainment": 0.0,
+                    "indirectAttainment": 0.0,
+                    "totalAttainment": 0.0,
+                    "coTitle": "Explain principles of application layer protocols\n",
+                    "direct_attainment": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_attainmentPercentage": [
+                        0.0,
+                        0.0,
+                        0.0
+                    ],
+                    "direct_methodDescription": [
+                        "Internal Assessment",
+                        ""
+                    ],
+                    "direct_methodName": [
+                        "IA",
+                        "UE",
+                        "Other Assessment"
+                    ],
+                    "indirect_attainment": [
+                        0.0
+                    ],
+                    "indirect_attainmentPercentage": [
+                        0.0
+                    ],
+                    "indirect_methodDescription": [
+                        "CES"
+                    ],
+                    "indirect_methodName": [
+                        "Feedback"
+                    ]
+                }
+            ]
+        }
+    ]
+}

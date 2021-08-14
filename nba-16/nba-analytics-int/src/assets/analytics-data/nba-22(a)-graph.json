@@ -1,0 +1,1072 @@
+[
+    {
+        "faculty_id": 101,
+        "faculty_name": "Krishna Moorthy",
+        "academic_year":"2018-19",
+        "dept_id":"CS",
+        "semester":5,
+        "designation":"Professor",
+        "blooms_wise_data": [
+            {
+                "Remember": [
+                        {
+                            "course_code": "15CSML01",
+                            "course_num" : 1,
+                            "course_name": "Machine Learning",
+                            "co_data": [
+                                {
+                                    "co_number": 3,
+                                    "total_attainment": 1.5
+                                }
+                            ]
+                        },
+                        {   
+                            "course_code": "15CSCG02",
+                            "course_num" : 2,
+                            "course_name": "Computer Graphics",
+                            "co_data": [        
+                                {
+                                    "co_number": 2,
+                                    "total_attainment": 1.5
+                                }
+                            ]
+                        },
+                        {   
+                            "course_code": "15CSFS01",
+                            "course_num" : 3,
+                            "course_name": "File Structure",
+                            "co_data": [        
+                                {
+                                    "co_number": 3,
+                                    "total_attainment": 2.5
+                                }
+                            ]
+                        },
+                        {   
+                            "course_code": "15CSCN01",
+                            "course_num" : 4,
+                            "course_name": "Computer Network",
+                            "co_data": [        
+                                {
+                                    "co_number": 3,
+                                    "total_attainment": 1.5
+                                }
+                            ]
+                        },
+                        {   
+                            "course_code": "15CSAE01",
+                            "course_num" : 5,
+                            "course_name": "Design Algorithm",
+                            "co_data": [        
+                                {
+                                    "co_number": 3,
+                                    "total_attainment": 1.5
+                                }
+                            ]
+                        },
+                        {   
+                            "course_code": "15CSML01",
+                            "course_num" : 6,
+                            "course_name": "Machine Learning",
+                            "co_data": [        
+                                {
+                                    "co_number": 3,
+                                    "total_attainment": 1.5
+                                }
+                            ]
+                        },
+                        {   
+                            "course_code": "15CSDS01",
+                            "course_num" : 7,
+                            "course_name": "Data Structure",
+                            "co_data": [        
+                                {
+                                    "co_number": 3,
+                                    "total_attainment": 1.5
+                                }
+                            ]
+                        }
+                ],    
+                "Understand": [
+                        {
+                            "course_code": "15CSML01",
+                            "course_num" : 1,
+                            "course_name": "Machine Learning",
+                            "co_data": [
+                                {
+                                    "co_number": 2,
+                                    "total_attainment": 2.9
+                                },
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.0
+                                },
+                                {
+                                    "co_number": 3,
+                                    "total_attainment": 0.5
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSCG02",
+                            "course_num" : 2,
+                            "course_name": "Computer Graphics",
+                            "co_data": [ 
+                                {
+                                    "co_number": 6,
+                                    "total_attainment": 2.9
+                                },
+                                {
+                                    "co_number": 2,
+                                    "total_attainment": 1.0
+                                },
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 0.5
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSFS01",
+                            "course_num" : 3,
+                            "course_name": "File Structure",
+                            "co_data": [ 
+                                {
+                                    "co_number": 2,
+                                    "total_attainment": 1.9
+                                },
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.5
+                                },
+                                {
+                                    "co_number": 3,
+                                    "total_attainment": 0.5
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSCN01",
+                            "course_num" : 4,
+                            "course_name": "Computer Networks",
+                            "co_data": [ 
+                                {
+                                    "co_number": 2,
+                                    "total_attainment": 2.9
+                                },
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.0
+                                },
+                                {
+                                    "co_number": 3,
+                                    "total_attainment": 0.5
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSAE01",
+                            "course_num" : 5,
+                            "course_name": "Design Algorithm",
+                            "co_data": [ 
+                                {
+                                    "co_number": 2,
+                                    "total_attainment": 2.9
+                                },
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.0
+                                },
+                                {
+                                    "co_number": 3,
+                                    "total_attainment": 0.5
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSML01",
+                            "course_num" : 6,
+                            "course_name": "Machine Learning",
+                            "co_data": [ 
+                                {
+                                    "co_number": 2,
+                                    "total_attainment": 2.9
+                                },
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.0
+                                },
+                                {
+                                    "co_number": 3,
+                                    "total_attainment": 0.5
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSDS01",
+                            "course_num" : 7,
+                            "course_name": "Data Structure",
+                            "co_data": [ 
+                                {
+                                    "co_number": 2,
+                                    "total_attainment": 2.9
+                                },
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.0
+                                },
+                                {
+                                    "co_number": 3,
+                                    "total_attainment": 0.5
+                                }
+                            ]
+                        }
+                ],
+                "Apply": [
+                        {
+                            "course_code": "15CSML01",
+                            "course_num" : 1,
+                            "course_name": "Machine Learning",
+                            "co_data": [
+                                {
+                                    "co_number": 2,
+                                    "total_attainment": 1.9
+                                },
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.2
+                                },
+                                {
+                                    "co_number": 3,
+                                    "total_attainment": 0.8
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSCG02",
+                            "course_num" : 2,
+                            "course_name": "Computer Graphics",
+                            "co_data": [
+                                {
+                                    "co_number": 5,
+                                    "total_attainment": 1.9
+                                },
+                                {
+                                    "co_number": 2,
+                                    "total_attainment": 1.2
+                                },
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 0.8
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSFS01",
+                            "course_num" : 3,
+                            "course_name": "File Structure",
+                            "co_data": [
+                                {
+                                    "co_number": 2,
+                                    "total_attainment": 1.9
+                                },
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.2
+                                },
+                                {
+                                    "co_number": 4,
+                                    "total_attainment": 0.8
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSCN01",
+                            "course_num" : 4,
+                            "course_name": "Computer Network",
+                            "co_data": [
+                                {
+                                    "co_number": 2,
+                                    "total_attainment": 1.9
+                                },
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.2
+                                },
+                                {
+                                    "co_number": 3,
+                                    "total_attainment": 0.8
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSAE01",
+                            "course_num" : 5,
+                            "course_name": "Design Algorithm",
+                            "co_data": [
+                                {
+                                    "co_number": 2,
+                                    "total_attainment": 1.9
+                                },
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.2
+                                },
+                                {
+                                    "co_number": 3,
+                                    "total_attainment": 0.8
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSML01",
+                            "course_num" : 6,
+                            "course_name": "Machine Learning",
+                            "co_data": [
+                                {
+                                    "co_number": 2,
+                                    "total_attainment": 1.9
+                                },
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.2
+                                },
+                                {
+                                    "co_number": 3,
+                                    "total_attainment": 0.8
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSDS01",
+                            "course_num" : 7,
+                            "course_name": "Data Structure",
+                            "co_data": [
+                                {
+                                    "co_number": 2,
+                                    "total_attainment": 1.9
+                                },
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.2
+                                },
+                                {
+                                    "co_number": 3,
+                                    "total_attainment": 0.8
+                                }
+                            ]
+                        }
+                ],
+                "Analyze": [
+                        {
+                            "course_code": "15CSML01",
+                            "course_num" : 1,
+                            "course_name": "Machine Learning",
+                            "co_data": [
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 2
+                                },
+                                {
+                                    "co_number": 2,
+                                    "total_attainment": 1.4
+                                },
+                                {
+                                    "co_number": 4,
+                                    "total_attainment": 0.8
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSCG02",
+                            "course_num" : 2,
+                            "course_name": "Computer Graphics",
+                            "co_data": [
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 2
+                                },
+                                {
+                                    "co_number": 3,
+                                    "total_attainment": 1.4
+                                },
+                                {
+                                    "co_number": 6,
+                                    "total_attainment": 0.8
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSFS01",
+                            "course_num" : 3,
+                            "course_name": "File Structure",
+                            "co_data": [
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 2
+                                },
+                                {
+                                    "co_number": 2,
+                                    "total_attainment": 1.4
+                                },
+                                {
+                                    "co_number": 4,
+                                    "total_attainment": 0.9
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSCN01",
+                            "course_num" : 4,
+                            "course_name": "Computer Networks",
+                            "co_data": [
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 2
+                                },
+                                {
+                                    "co_number": 2,
+                                    "total_attainment": 1.4
+                                },
+                                {
+                                    "co_number": 4,
+                                    "total_attainment": 0.9
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSAE01",
+                            "course_num" : 5,
+                            "course_name": "Design Algorithm",
+                            "co_data": [
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 2
+                                },
+                                {
+                                    "co_number": 2,
+                                    "total_attainment": 1.4
+                                },
+                                {
+                                    "co_number": 4,
+                                    "total_attainment": 0.8
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSML01",
+                            "course_num" : 6,
+                            "course_name": "Machine Learning",
+                            "co_data": [
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 2
+                                },
+                                {
+                                    "co_number": 2,
+                                    "total_attainment": 1.4
+                                },
+                                {
+                                    "co_number": 4,
+                                    "total_attainment": 0.8
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSDS01",
+                            "course_num" : 7,
+                            "course_name": "Data Structure",
+                            "co_data": [
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 2
+                                },
+                                {
+                                    "co_number": 2,
+                                    "total_attainment": 1.4
+                                },
+                                {
+                                    "co_number": 4,
+                                    "total_attainment": 0.8
+                                }
+                            ]
+                        }
+                        
+                ],
+                "Evaluate": [
+                        {
+                            "course_code": "15CSML01",
+                            "course_num" : 1,
+                            "course_name": "Machine Learning",
+                            "co_data": [
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.9
+                                },
+                                {
+                                    "co_number": 6,
+                                    "total_attainment": 1.9
+                                },
+                                {
+                                    "co_number": 5,
+                                    "total_attainment": 0.2
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSCG02",
+                            "course_num" : 2,
+                            "course_name": "Computer Graphics",
+                            "co_data": [
+                                {
+                                    "co_number": 3,
+                                    "total_attainment": 2.9
+                                },
+                                {
+                                    "co_number": 2,
+                                    "total_attainment": 1.9
+                                },
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 0.2
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSFS01",
+                            "course_num" : 3,
+                            "course_name": "File Structure",
+                            "co_data": [
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 2.9
+                                },
+                                {
+                                    "co_number": 6,
+                                    "total_attainment": 1.9
+                                },
+                                {
+                                    "co_number": 5,
+                                    "total_attainment": 0.2
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSCN01",
+                            "course_num" : 4,
+                            "course_name": "Computer Network",
+                            "co_data": [
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.9
+                                },
+                                {
+                                    "co_number": 6,
+                                    "total_attainment": 1.9
+                                },
+                                {
+                                    "co_number": 5,
+                                    "total_attainment": 0.2
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSAE01",
+                            "course_num" : 5,
+                            "course_name": "Design Algorithm",
+                            "co_data": [
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.9
+                                },
+                                {
+                                    "co_number": 6,
+                                    "total_attainment": 1.9
+                                },
+                                {
+                                    "co_number": 5,
+                                    "total_attainment": 0.2
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSML01",
+                            "course_num" : 6,
+                            "course_name": "Machine Learning",
+                            "co_data": [
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.9
+                                },
+                                {
+                                    "co_number": 6,
+                                    "total_attainment": 1.9
+                                },
+                                {
+                                    "co_number": 5,
+                                    "total_attainment": 0.2
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSDS01",
+                            "course_num" : 7,
+                            "course_name": "Data Structure",
+                            "co_data": [
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.9
+                                },
+                                {
+                                    "co_number": 6,
+                                    "total_attainment": 1.9
+                                },
+                                {
+                                    "co_number": 2,
+                                    "total_attainment": 0.2
+                                }
+                            ]
+                        }
+                ],
+                "Create": [
+                        {
+                            "course_code": "15CSML01",
+                            "course_num" : 1,
+                            "course_name": "Machine Learning",
+                            "co_data": [
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.2
+                                },
+                                {
+                                    "co_number": 5,
+                                    "total_attainment": 0.8
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSCG02",
+                            "course_num" : 2,
+                            "course_name": "Computer Graphics",
+                            "co_data": [
+                                {
+                                    "co_number": 3,
+                                    "total_attainment": 1.8
+                                },
+                                {
+                                    "co_number": 4,
+                                    "total_attainment": 0.8
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSFS01",
+                            "course_num" : 3,
+                            "course_name": "File Structure",
+                            "co_data": [
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.2
+                                },
+                                {
+                                    "co_number": 5,
+                                    "total_attainment": 0.8
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSCN01",
+                            "course_num" : 4,
+                            "course_name": "Computer Network",
+                            "co_data": [
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.2
+                                },
+                                {
+                                    "co_number": 5,
+                                    "total_attainment": 0.8
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSAE01",
+                            "course_num" : 5,
+                            "course_name": "Design Algorithm",
+                            "co_data": [
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.2
+                                },
+                                {
+                                    "co_number": 5,
+                                    "total_attainment": 0.8
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSML01",
+                            "course_num" : 6,
+                            "course_name": "Machine Learning",
+                            "co_data": [
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.2
+                                },
+                                {
+                                    "co_number": 5,
+                                    "total_attainment": 0.8
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSDS01",
+                            "course_num" : 7,
+                            "course_name": "Data Structure",
+                            "co_data": [
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.2
+                                },
+                                {
+                                    "co_number": 6,
+                                    "total_attainment": 0.8
+                                }
+                            ]
+                        }
+                ]
+            }
+        ]
+    },
+    {
+        "faculty_id": 102,
+        "faculty_name": "Sneha K M",
+        "academic_year":"2018-19",
+        "dept_id":"CS",
+        "semester":5,
+        "designation":"Professor",
+        "blooms_wise_data": [
+            {
+                "Remember": [
+                        {
+                            "course_code": "15CSDS01",
+                            "course_num" : 1,
+                            "course_name": "Data Structure",
+                            "co_data": [
+                                {
+                                    "co_number": 3,
+                                    "total_attainment": 1.5
+                                }
+                            ]
+                        },
+                        {   
+                            "course_code": "15CSML01",
+                            "course_num" : 2,
+                            "course_name": "Machine Learning",
+                            "co_data": [        
+                                {
+                                    "co_number": 3,
+                                    "total_attainment": 1.5
+                                }
+                            ]
+                        },
+                        {   
+                            "course_code": "15CSFS01",
+                            "course_num" : 3,
+                            "course_name": "File Structure",
+                            "co_data": [        
+                                {
+                                    "co_number": 3,
+                                    "total_attainment": 1.5
+                                }
+                            ]
+                        }
+                ],    
+                "Understand": [
+                        {
+                            "course_code": "15CSDS01",
+                            "course_num" : 1,
+                            "course_name": "Data Structure",
+                            "co_data": [
+                                {
+                                    "co_number": 5,
+                                    "total_attainment": 2.9
+                                },
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.0
+                                },
+                                {
+                                    "co_number": 3,
+                                    "total_attainment": 0.5
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSML01",
+                            "course_num" : 2,
+                            "course_name": "Machine Learning",
+                            "co_data": [ 
+                                {
+                                    "co_number": 2,
+                                    "total_attainment": 2.9
+                                },
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.0
+                                },
+                                {
+                                    "co_number": 3,
+                                    "total_attainment": 0.5
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSFS01",
+                            "course_num" : 3,
+                            "course_name": "File Structure",
+                            "co_data": [ 
+                                {
+                                    "co_number": 2,
+                                    "total_attainment": 2.9
+                                },
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.0
+                                },
+                                {
+                                    "co_number": 3,
+                                    "total_attainment": 0.5
+                                }
+                            ]
+                        }
+                ],
+                "Apply": [
+                        {
+                            "course_code": "15CSDS01",
+                            "course_num" : 1,
+                            "course_name": "Data Structure",
+                            "co_data": [
+                                {
+                                    "co_number": 5,
+                                    "total_attainment": 1.9
+                                },
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.2
+                                },
+                                {
+                                    "co_number": 3,
+                                    "total_attainment": 0.8
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSML01",
+                            "course_num" : 2,
+                            "course_name": "Machine Learning",
+                            "co_data": [
+                                {
+                                    "co_number": 2,
+                                    "total_attainment": 1.9
+                                },
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.2
+                                },
+                                {
+                                    "co_number": 3,
+                                    "total_attainment": 0.8
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSFS01",
+                            "course_num" : 3,
+                            "course_name": "File Structure",
+                            "co_data": [
+                                {
+                                    "co_number": 2,
+                                    "total_attainment": 1.9
+                                },
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.2
+                                },
+                                {
+                                    "co_number": 3,
+                                    "total_attainment": 0.8
+                                }
+                            ]
+                        }
+                ],
+                "Analyze": [
+                        {
+                            "course_code": "15CSDS01",
+                            "course_num" : 1,
+                            "course_name": "Data Structure",
+                            "co_data": [
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 2
+                                },
+                                {
+                                    "co_number": 6,
+                                    "total_attainment": 1.4
+                                },
+                                {
+                                    "co_number": 4,
+                                    "total_attainment": 0.8
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSML01",
+                            "course_num" : 2,
+                            "course_name": "Machine Learning",
+                            "co_data": [
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 2
+                                },
+                                {
+                                    "co_number": 2,
+                                    "total_attainment": 1.4
+                                },
+                                {
+                                    "co_number": 4,
+                                    "total_attainment": 0.8
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSFS01",
+                            "course_num" : 3,
+                            "course_name": "File Structure",
+                            "co_data": [
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 2
+                                },
+                                {
+                                    "co_number": 2,
+                                    "total_attainment": 1.4
+                                },
+                                {
+                                    "co_number": 4,
+                                    "total_attainment": 0.8
+                                }
+                            ]
+                        }
+                        
+                ],
+                "Evaluate": [
+                        {
+                            "course_code": "15CSDS01",
+                            "course_num" : 1,
+                            "course_name": "Data Structure",
+                            "co_data": [
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.9
+                                },
+                                {
+                                    "co_number": 2,
+                                    "total_attainment": 1.9
+                                },
+                                {
+                                    "co_number": 5,
+                                    "total_attainment": 0.2
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSML01",
+                            "course_num" : 2,
+                            "course_name": "Machine Learning",
+                            "co_data": [
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.9
+                                },
+                                {
+                                    "co_number": 6,
+                                    "total_attainment": 1.9
+                                },
+                                {
+                                    "co_number": 5,
+                                    "total_attainment": 0.2
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSFS01",
+                            "course_num" : 3,
+                            "course_name": "File Structure",
+                            "co_data": [
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.9
+                                },
+                                {
+                                    "co_number": 6,
+                                    "total_attainment": 1.9
+                                },
+                                {
+                                    "co_number": 5,
+                                    "total_attainment": 0.2
+                                }
+                            ]
+                        }
+                ],
+                "Create": [
+                        {
+                            "course_code": "15CSDS01",
+                            "course_num" : 1,
+                            "course_name": "Data Structure",
+                            "co_data": [
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.2
+                                },
+                                {
+                                    "co_number": 5,
+                                    "total_attainment": 0.8
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSML01",
+                            "course_num" : 2,
+                            "course_name": "Machine Learning",
+                            "co_data": [
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.2
+                                },
+                                {
+                                    "co_number": 5,
+                                    "total_attainment": 0.8
+                                }
+                            ]
+                        },
+                        {
+                            "course_code": "15CSFS01",
+                            "course_num" : 3,
+                            "course_name": "File Structure",
+                            "co_data": [
+                                {
+                                    "co_number": 1,
+                                    "total_attainment": 1.2
+                                },
+                                {
+                                    "co_number": 5,
+                                    "total_attainment": 0.8
+                                }
+                            ]
+                        }
+                ]
+            }
+        ]
+    }
+]

@@ -1,0 +1,135 @@
+<div class="row" *ngIf="error">
+   <div class="col-md-12 col-xs-12">
+      <p>{{analyticsObj.emptyMessage}}</p>
+   </div>
+</div>
+<div class="row">
+   <div class="col-md-12 col-xs-12">
+      <div *ngIf='data1 && visible && firstChart'>
+         <h6 class="mb-2 mat-body-2">CO Attainment Scores - My Courses</h6>
+         <div 
+         class="d-none d-md-block shadow responsive" 
+         (select)="onSelect($event)" 
+         google-chart
+         [data]="data1.dataTable" 
+         [chartType]="data1.chartType" 
+         [options]="data1.options"
+         >
+         </div>
+         <mat-card *ngFor='let d of responsiveDataTable;index as i' class="d-sm-block d-md-none">
+            <div 
+            class="shadow responsive" 
+            (select)="onSelect($event)" 
+            google-chart
+            [data]="responsive_data.dataTable[i]" 
+            [chartType]="responsive_data.chartType"
+            [options]="responsive_data.options"
+            >
+            </div>
+         </mat-card>
+      </div>
+   </div>
+</div>
+
+<div class="row" *ngIf="!visible">
+   <div class="col-md-3 col-xs-3 col-sm-3">
+      <app-sidecards 
+         [subSelected]="subSelected" 
+         [secSelected]="secSelected" 
+         [terms]="current_terms"
+         [acadYear]="current_AcadYear" 
+         (changed_card)="onChangeCard($event)"
+         (changed_radio)="onChangeRadio($event)"
+         >
+      </app-sidecards>
+   </div>
+
+   <div class="col-md-9 col-xs-9 col-sm-9">
+   <!-- Acoordian rwd -->
+  <div class="row container d-block d-sm-none">
+    <div class="col-12" *ngFor="let cards of dataIntoRwd; index as j">
+      <p class="col-12" mt-2 id="rwdcards" text-center>
+        {{ cards.courseName }}-{{cards.courseCode}} ( Term-{{cards.termNumber}} Section-{{cards.section}})
+      </p>
+      <mat-accordion [multi]="true">
+        <mat-expansion-panel
+          *ngFor="
+            let d of rwd_DataTable2;
+            index as i;
+            let title;
+            of: rwd_GraphData"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title> {{ title.bloomsLevel }} </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-card>
+            <div
+              (select)="onSelect2($event)"
+              google-chart
+              [data]="rwd_data2.dataTable[i]"
+              [chartType]="rwd_data2.chartType"
+              [options]="rwd_data2.options"
+            ></div>
+          </mat-card>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+
+  
+      <div class="row d-none d-md-block" id="graphBox">
+         <h6>CO Attainment Scores with Blooms Taxonomy Levels, Co-curricular Activites & Student Feedback</h6>
+         <div 
+         *ngIf="!new_visible" 
+         class="d-none d-md-block shadow responsive" 
+         (select)="onSelect2($event)" 
+         google-chart
+         [data]="data2.dataTable" 
+         [chartType]="'ColumnChart'" 
+         [options]="data2.options"
+         >
+         </div>
+         <div 
+         *ngIf="new_visible" 
+         class="shadow responsive" 
+         (select)="onSelect2($event)" 
+         google-chart
+         [data]="data3.dataTable" 
+         [chartType]="'ColumnChart'" 
+         [options]="data3.options"
+         >
+         </div>
+      </div>
+
+
+
+
+
+
+
+
+
+      <br />
+      <hr id="line" />
+      <div class="row" *ngIf="showTable">
+         <app-nba25-table 
+         [CO_DETAILS]="CO_details1" 
+         [subSelected]="subSelected" 
+         [secSelected]="secSelected"
+         [current_terms]="current_terms" 
+         [current_AcadYear]="current_AcadYear"
+         >
+         </app-nba25-table>
+      </div>
+      <div class="row" *ngIf="!showTable && SHOW__MAX">
+         <app-nba25-table 
+         [CO_DETAILS]="CO_details2" 
+         [subSelected]="subSelected" 
+         [secSelected]="secSelected"
+         [current_terms]="current_terms" 
+         [current_AcadYear]="current_AcadYear"
+         >
+         </app-nba25-table>
+      </div>
+
+   </div>

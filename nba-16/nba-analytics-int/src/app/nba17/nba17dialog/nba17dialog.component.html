@@ -1,0 +1,76 @@
+<div class="md-dialog-container">
+    <h2 mat-dialog-title class="heading">
+    {{labels.dialog_heading}} of {{dialogData["course_code"]}}<i mat-dialog-close  class="fa fa-close close"></i>
+    </h2>
+
+    <mat-dialog-content>  
+        
+        <div class="row">
+            <div class="col-5 container-1">
+                <div class="heading-1">
+                    <b>{{labels.course_level_info}}</b>
+                </div>
+                <div style = "padding-inline-start: 0.5rem;">
+                    <b>{{labels.total_no_lessons}} {{dialogData["total_lessons_course"]}}</b>
+                    <br>
+                    <b>{{labels.course_diff_level}} {{dialogData["course_diff"]}}</b>
+                </div>
+            </div>
+
+            <div class="col-5 container-2">
+                <div class="heading-1">
+                    <b>{{labels.co_specific_info}}</b>
+                </div>
+                <div style = "padding-inline-start: 0.5rem;">
+                    <b>{{labels.co_num}} {{dialogData["co_num"]}}</b>
+                    <br>
+                    <b>{{labels.num_co_mapped_lessons}} {{dialogData["total_lessons_co"]}}</b>
+                    <br>
+                    <b>{{labels.co_diff_level}} {{dialogData["co_diff"]}}</b>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-5 container-3">
+                <div class="heading-2">
+                    <b>{{labels.num_of_lessons_bloom}}</b>
+                </div>
+                <div  *ngFor="let bloom of dialogData.levels;index as i">
+                    <div class="row" style = "padding-inline-start: 1.5rem;">    
+                        <p><b> {{bloom}}</b></p>   :&emsp;{{dialogData.course_bloom[i*2+1]}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-5 container-4">
+                <div class="heading-2">
+                   <b> {{labels.num_of_lessons_bloom}}</b>
+                </div>
+                <div  *ngFor="let bloom of dialogData.levels;index as i">
+                    <div class="row" style = "padding-inline-start: 1.5rem;">    
+                        <p><b>{{bloom}}</b></p>   :&emsp;{{dialogData.co_bloom[i*2+1]}}
+                    </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="row ">
+            <div class="container-5 col-10">
+                <div class=" col-6 heading-3">
+                    <b> {{labels.bloom_weightage_heading}}</b>
+                </div>
+                <div class="row">
+
+                    <div class="col-4" *ngFor="let bloom of dialogData.levels;index as i">
+                        <p><b>{{bloom}}</b></p> : &emsp;{{i + 1}}
+                        </div>
+                    </div>
+            </div>  
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close class="btn btn-primary close_btn"><i class="fa fa-thumbs-up fa-fw" aria-hidden="true"> </i>
+        OK</button>
+    </mat-dialog-actions>
+</div>

@@ -1,0 +1,32 @@
+.navbar, button{
+    background-color: blueviolet;
+    border-color: blueviolet;
+    color:gainsboro;
+    box-shadow: none;
+}
+.active{
+    background: rgba(30, 3, 104, 0.932) !important;
+    
+}
+button{
+    margin-left: 5px;
+    font-size: large;
+}
+
+.space a{
+    margin-left: 10px;
+    padding:10px;
+    text-decoration: none;
+    color: gainsboro;
+}
+
+.spacer{
+    flex: 1 1 auto;
+}
+
+a{
+    padding: 2 rem;
+}
+
+
+

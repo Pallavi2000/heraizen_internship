@@ -1,0 +1,23 @@
+<html>
+    <div class="login-container">
+        <div class="col-md-3 offset-3"></div>
+        <div class="col-md-6 offset-3">
+
+            <div class="login-form">
+                <form>
+
+                    <div class="container form-group">
+                        <h5>Login</h5>
+                        <label for="email"><b>Email</b></label>
+                        <input type="text" placeholder="Enter Email" [(ngModel)]="username" name="username" required>
+                        <label for="password"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" [(ngModel)]="password" name="password" required>
+
+                        <button type="submit" (click)="login_validate()">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-3 offset-3"></div>
+    </div>
+</html>

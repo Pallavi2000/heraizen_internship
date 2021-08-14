@@ -1,0 +1,282 @@
+{
+  "faculty_data": {
+    "academic_year":["2017-18","2018-19","2019-20"],
+    "semesters":["1","2","3","4","5","6","7","8"],
+    "total_attainmnet_data": [
+      {
+        "po_average_attainment": 73.8,
+        "courseCode": "17CS52",
+        "courseName": "Computer Network",
+        "deptId": "CS",
+        "facultyId": "462",
+	"facultyName": "Dr Ravikiran A .Mundewadi",
+        "academic_year":"2018-19",
+        "section": "A",
+        "termNumber": "5",
+        "po_wise_attainment":
+        [
+          {
+            "poNumber": 1,
+            "po_attainment": 20,
+            "co_details": [
+              {
+                "coNumber": 1,
+                "total_attainment_value": 0.5,
+                "mapping_level": "High",
+                "score": 0.2
+              },
+              {
+                "coNumber": 2,
+                "total_attainment_value": 0.3,
+                "mapping_level": "Moderate",
+                "score": 0.3
+              },
+              {
+                "coNumber": 3,
+                "total_attainment_value": 0.2,
+                "mapping_level": "Slight",
+                "score": 0.4
+              }
+            ]
+          },
+          {
+            "poNumber": 2,
+            "po_attainment": 14,
+            "co_details": [
+              {
+                "coNumber": 1,
+                "total_attainment_value": 0.2,
+                "mapping_level": "High",
+                "score": 0.3
+              },
+              {
+                "coNumber": 2,
+                "total_attainment_value": 0.5,
+                "mapping_level": "Moderate",
+                "score": 0.4
+              },
+              {
+                "coNumber": 3,
+                "total_attainment_value": 0.5,
+                "mapping_level": "Slight",
+                "score": 0.2
+              }
+            ]
+          },
+          {
+            "poNumber": 3,
+            "po_attainment": 15,
+            "co_details": [
+              {
+                "coNumber": 1,
+                "total_attainment_value": 0.1,
+                "mapping_level": "High",
+                "score": 0.6
+              },
+              {
+                "coNumber": 2,
+                "total_attainment_value": 0.5,
+                "mapping_level": "Moderate",
+                "score": 0.4
+              },
+              {
+                "coNumber": 3,
+                "total_attainment_value": 0.3,
+                "mapping_level": "Slight",
+                "score": 0.2
+              },
+              {
+                "coNumber": 4,
+                "total_attainment_value": 0.2,
+                "mapping_level": "No Mapping",
+                "score": 0.3
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "po_average_attainment": 63.8,
+        "courseCode": "17BT35",
+        "courseName": "Cell Biology and Genetics",
+        "deptId": "CS",
+        "facultyId": "462",
+	"facultyName": "Dr Ravikiran A .Mundewadi",
+        "academic_year":"2018-19",
+        "section": "A",
+        "termNumber": "5",
+        "po_wise_attainment": [
+          {
+            "poNumber": 1,
+            "po_attainment": 15,
+            "co_details": [
+              {
+                "coNumber": 1,
+                "total_attainment_value": 0.3,
+                "mapping_level": "High",
+                "score": 0.3
+              },
+              {
+                "coNumber": 2,
+                "total_attainment_value": 0.2,
+                "mapping_level": "Moderate",
+                "score": 0.1
+              },
+              {
+                "coNumber": 3,
+                "total_attainment_value": 0.2,
+                "mapping_level": "Slight",
+                "score": 0.3
+              }
+            ]
+          },
+          {
+            "poNumber": 2,
+            "po_attainment": 15,
+            "co_details": [
+              {
+                "coNumber": 1,
+                "total_attainment_value": 0.3,
+                "mapping_level": "Moderate",
+                "score": 0.3
+              },
+              {
+                "coNumber": 2,
+                "total_attainment_value": 0.5,
+                "mapping_level": "High",
+                "score": 0.4
+              },
+              {
+                "coNumber": 3,
+                "total_attainment_value": 0.5,
+                "mapping_level": "Slight",
+                "score": 0.2
+              }
+            ]
+          },
+          {
+            "poNumber": 3,
+            "po_attainment": 12,
+            "co_details": [
+              {
+                "coNumber": 1,
+                "total_attainment_value": 0.1,
+                "mapping_level": "High",
+                "score": 0.6
+              },
+              {
+                "coNumber": 2,
+                "total_attainment_value": 0.2,
+                "mapping_level": "Moderate",
+                "score": 0.4
+              },
+              {
+                "coNumber": 3,
+                "total_attainment_value": 0.3,
+                "mapping_level": "Slight",
+                "score": 0.2
+              },
+              {
+                "coNumber": 4,
+                "total_attainment_value": 0.2,
+                "mapping_level": "No Mapping",
+                "score": 0.3
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "po_average_attainment": 53.8,
+        "courseCode": "15BT52",
+        "courseName": "ImmunoTechnology",
+        "deptId": "CS",
+        "facultyId": "462",
+	"facultyName": "Dr Ravikiran A .Mundewadi",
+        "academic_year":"2019-20",
+        "section": "B",
+        "termNumber": "6",
+        "po_wise_attainment": [
+          {
+            "poNumber": 1,
+            "po_attainment": 15,
+            "co_details": [
+              {
+                "coNumber": 1,
+                "total_attainment_value": 0.3,
+                "mapping_level": "High",
+                "score": 0.3
+              },
+              {
+                "coNumber": 2,
+                "total_attainment_value": 0.2,
+                "mapping_level": "Moderate",
+                "score": 0.1
+              },
+              {
+                "coNumber": 3,
+                "total_attainment_value": 0.2,
+                "mapping_level": "Slight",
+                "score": 0.3
+              }
+            ]
+          },
+          {
+            "poNumber": 2,
+            "po_attainment": 15,
+            "co_details": [
+              {
+                "coNumber": 1,
+                "total_attainment_value": 0.3,
+                "mapping_level": "Moderate",
+                "score": 0.3
+              },
+              {
+                "coNumber": 2,
+                "total_attainment_value": 0.5,
+                "mapping_level": "High",
+                "score": 0.4
+              },
+              {
+                "coNumber": 3,
+                "total_attainment_value": 0.5,
+                "mapping_level": "Slight",
+                "score": 0.2
+              }
+            ]
+          },
+          {
+            "poNumber": 3,
+            "po_attainment": 12,
+            "co_details": [
+              {
+                "coNumber": 1,
+                "total_attainment_value": 0.1,
+                "mapping_level": "High",
+                "score": 0.6
+              },
+              {
+                "coNumber": 2,
+                "total_attainment_value": 0.2,
+                "mapping_level": "Moderate",
+                "score": 0.4
+              },
+              {
+                "coNumber": 3,
+                "total_attainment_value": 0.3,
+                "mapping_level": "Slight",
+                "score": 0.2
+              },
+              {
+                "coNumber": 4,
+                "total_attainment_value": 0.2,
+                "mapping_level": "No Mapping",
+                "score": 0.3
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

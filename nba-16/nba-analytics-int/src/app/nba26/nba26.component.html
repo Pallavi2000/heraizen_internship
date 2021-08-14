@@ -1,0 +1,540 @@
+<div class="row">
+    <div class="col-md-10">
+        <ul class="breadcrumb">
+            <li><a href="index.html"><i class="fa fa-bar-chart"></i> {{label.analytics}}</a> /</li>
+            <li class="active">{{label.nba26}}</li>
+        </ul>
+    </div>
+    <div class="col-md-2 d-none d-md-block text-right" *ngIf='bool'>
+
+        <button class="back-button" (click)="display()" id="go_back"><i class="fa fa-chevron-left"></i>
+            {{label.lowerbackbtn}}</button>
+
+    </div>
+</div>
+
+<div class="ml-0 col-md-9 d-none d-md-block">
+    <div class="row">
+        <div class="col-md-3">
+            <mat-form-field>
+                <mat-label class="greentext"> {{label.academic_year}}</mat-label>
+                <mat-select disableOptionCentering [(ngModel)]="selected_year" (selectionChange)='changeSearch()'
+                    [disabled]="bool">
+                    <mat-option id="acad_year" [value]="year" *ngFor="let year of academic_year">
+                        {{year}}
+                    </mat-option>
+                </mat-select>
+                <mat-divider></mat-divider>
+            </mat-form-field>
+        </div>
+        <div *ngIf='user ==2' class="col-md-3">
+            <mat-form-field>
+                <mat-label class="greentext">{{label.department}}</mat-label>
+                <mat-select disableOptionCentering [(ngModel)]="selected_branch" (selectionChange)='changeSearch()'
+                    [disabled]="bool">
+                    <mat-option id="acad_year" [value]="branch" *ngFor="let branch of branches">
+                        {{branch}}
+                    </mat-option>
+                </mat-select>
+                <mat-divider></mat-divider>
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-3 d-none d-md-block" style="border-right:1px solid #000;height:50px;">
+            <mat-form-field>
+                <mat-label class="greentext">{{label.term}}</mat-label>
+                <mat-select disableOptionCentering multiple [(ngModel)]="selected_term"
+                    (selectionChange)='changeSearch()' [disabled]="bool">
+                    <mat-option id="semester" [value]="term" *ngFor="let term of terms">
+                        {{label.semester}} {{term}}
+                    </mat-option>
+                </mat-select>
+                <mat-divider></mat-divider>
+            </mat-form-field>
+        </div>
+        <div class="col-md-3 d-none d-md-block" (keyup.enter)="drawChart()">
+            <button class="other-button" (click)="average_po()" [disabled]="clicked"><i class='fa fa-search'></i>
+                {{label.search}}</button>
+        </div>
+    </div>
+</div>
+
+
+
+<!--Responsive Search Bar-->
+<div class="container ml-0 col-md-9 d-md-none">
+    <div *ngIf="user==2">
+        <div class="row">
+            <div class="col-6">
+                <mat-form-field>
+                    <mat-label class="greentext">{{label.academic_year}}<em>*</em></mat-label>
+                    <mat-select disableOptionCentering [(ngModel)]="selected_year" (selectionChange)='changeSearch()'
+                        [disabled]="bool">
+                        <mat-option id="acad_year" [value]="year" *ngFor="let year of academic_year">
+                            {{year}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-divider></mat-divider>
+                </mat-form-field>
+            </div>
+            <div class="col-6">
+                <mat-form-field>
+                    <mat-label class="greentext">{{label.department}}<em>*</em></mat-label>
+                    <mat-select disableOptionCentering [(ngModel)]="selected_branch" (selectionChange)='changeSearch()'
+                        [disabled]="bool">
+                        <mat-option id="acad_year" [value]="branch" *ngFor="let branch of branches">
+                            {{branch}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-divider></mat-divider>
+                </mat-form-field>
+            </div>
+            <div class="col-12">
+                <mat-form-field>
+                    <mat-label class="greentext">{{label.term}}<em>*</em></mat-label>
+                    <mat-select disableOptionCentering multiple [(ngModel)]="selected_term"
+                        (selectionChange)='changeSearch()' [disabled]="bool">
+                        <mat-option id="semester" [value]="term" *ngFor="let term of terms">
+                            {{label.semester}} {{term}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-divider></mat-divider>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="user!=2">
+        <div class="row">
+            <div class="col-6">
+                <mat-form-field>
+                    <mat-label class="greentext">{{label.academic_year}}<em>*</em></mat-label>
+                    <mat-select disableOptionCentering [(ngModel)]="selected_year" (selectionChange)='changeSearch()'
+                        [disabled]="bool">
+                        <mat-option id="acad_year" [value]="year" *ngFor="let year of academic_year">
+                            {{year}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-divider></mat-divider>
+                </mat-form-field>
+            </div>
+            <div class="col-6">
+                <mat-form-field>
+                    <mat-label class="greentext">{{label.term}}<em>*</em></mat-label>
+                    <mat-select disableOptionCentering multiple [(ngModel)]="selected_term"
+                        (selectionChange)='changeSearch()' [disabled]="bool">
+                        <mat-option id="semester" [value]="term" *ngFor="let term of terms">
+                            {{label.semester}} {{term}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-divider></mat-divider>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <p><em>*</em> {{label.fields}}</p>
+        </div>
+        <div class="col-6 d-sm-block d-md-none mb-1 mt-0" (keyup.enter)="drawChart()" style="text-align: right;">
+            <button class="other-button" (click)="average_po_course_wise()" [disabled]="clicked"><i
+                    class='fa fa-search'></i> {{label.search}}</button>
+        </div>
+    </div>
+</div>
+<!--End-->
+
+<hr class="mt-0 d-none d-md-block" style="color: black; background-color: black;">
+
+
+
+<!--Full alignment-->
+<div class="container px-1 col-md-12">
+    <div class="row">
+        <!--First Chart-->
+        <div class="col-md-12 ">
+            <div *ngIf='!bool && data && !error && first_chart_view'>
+                <h6 *ngIf='user ==0' class="mb-2 mat-body-2" style="text-align: center;"> {{label.poMyCourses}}</h6>
+                <h6 *ngIf='user == 1 || user == 2' class="mb-2 mat-body-2" style="text-align: center;">
+                    {{label.poAllCourses}}</h6>
+                <div class=" d-none d-md-block shadow responsive" id="col1" (select)="onSelect($event,'','',0)"
+                    google-chart [data]="data.dataTable" [chartType]="data.chartType" [options]="data.options"></div>
+                <div *ngFor='let d of responsiveDatatable;index as i' class="d-sm-block mt-4 d-md-none">
+                    <div class="shadow responsive" id="col1" (select)="onSelect($event,'','',0)" google-chart
+                        [data]="responsive_data.dataTable[i]" [chartType]="responsive_data.chartType"
+                        [options]="responsive_data.options"></div>
+                </div>
+            </div>
+        </div>
+        <!--Left Pane-->
+        <div class="col-md-2 px-1 d-none d-sm-block">
+            <div class="container px-0 col-md-12 ">
+                <div class="leftPane divider" style="border-right:1px solid #000;height:480px; padding-right: 20px;"
+                    *ngIf='bool'>
+                    <div class="mat-body-2">{{ label.course_list }}</div>
+
+                    <div *ngIf='user==0'>
+                        <mat-card id="sortBox" class="my-3 basicborder">
+                            <mat-card-title class="mb-0">
+                                <div class="mat-caption greentext mb-0"><i>{{label.sortby}}</i></div>
+                            </mat-card-title>
+                            <mat-radio-group>
+                                <mat-radio-button class="mat-small maintext" value="1"
+                                    (click)="this.property_button1='true';sort()">
+                                    {{label.poAtn}}
+                                </mat-radio-button><br>
+                                <mat-radio-button class="mat-small maintext" value="2"
+                                    (click)="this.property_button1='false';sort()" [checked]="true" >
+                                    {{label.coName}}
+                                </mat-radio-button>
+                            </mat-radio-group>
+                        </mat-card>
+                    </div>
+                    <div *ngIf='user==1||user==2'>
+                        <mat-card id="sortBox" class="my-3 basicborder">
+                            <mat-card-title class="mb-0">
+                                <div class="mat-caption greentext mb-0"><i>{{label.sortby}}</i></div>
+                            </mat-card-title>
+                            <mat-radio-group>
+                                <mat-radio-button class="mat-small maintext" value="1"
+                                    (click)="this.property_button1='true';sort()">
+                                    {{label.poAtn}}
+                                </mat-radio-button><br>
+                                <mat-radio-button class="mat-small maintext" value="2"
+                                    (click)="this.property_button1='false';sort()" [checked]="true">
+                                    {{label.coName}}
+                                </mat-radio-button>
+                                <mat-radio-button class="mat-small maintext" value="3">
+                                    {{label.faName}}
+                                </mat-radio-button>
+                            </mat-radio-group>
+                        </mat-card>
+                    </div>
+
+                    <div class="row mb-3 pl-2 pr-0 col-md-12">
+                        <div class="mat-caption col-md-6 pl-2" id="example33"><i>{{label.noentry}}
+                            </i>
+                            <mat-select class="basicborder text-center" [(value)]='no_of_entries[0]'>
+                                <mat-option *ngFor='let entries of no_of_entries' [value]='entries'>{{entries}}
+                                </mat-option>
+                            </mat-select>
+                            <!-- <mat-select  class="basicborder text-center">
+                            <mat-option class="mat-small maintext text-center" value="option1" selected="true">1-10</mat-option>
+                            <mat-option class="mat-small maintext text-center" value="option2">11-20</mat-option>
+                            <mat-option class="mat-small maintext text-center" value="option3">21-30</mat-option>
+                        </mat-select> -->
+                            <mat-divider vertical></mat-divider>
+                        </div>
+
+
+                        <div class="col-md-5 pl-0">
+                            <mat-radio-group>
+                                <mat-radio-button class="mat-small" value="1"
+                                    (click)="this.property_button2='true';sort()"[checked]="true" >
+                                    {{label.Desc}}
+                                </mat-radio-button><br>
+                                <mat-radio-button class="mat-small" value="2"
+                                    (click)="this.property_button2='false';sort()">
+                                    {{label.Asc}}
+                                </mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                    </div>
+
+                    <div *ngIf='user==0' id="example33">
+                        <div>
+                            <mat-button-toggle-group class="pl-0 pr-2  fullwidth noborder togglegroup" vertical
+                                [value]="course_code">
+                                <div *ngFor="let data of cart_data;index as i">
+
+                                    <mat-button-toggle
+                                        (click)="display_chart = !display_chart;onSelect(null,data.courseName,data.section,0)"
+                                        class="maintext_data mat-caption basicborder  fullwidth"
+                                        value="{{data.courseCode}}" >
+
+                                        <p class="maintext_data ">
+                                            {{data.courseName}} <br>CousrCode - {{data.courseCode}} <br> Semester {{data.termNumber}} -
+                                            Section
+                                            {{data.section}}
+                                        </p>
+                                    </mat-button-toggle>
+                                </div>
+                            </mat-button-toggle-group>
+                        </div>
+                    </div>
+
+                    <div *ngIf='user==1||user==2' id="example33">
+                        <div>
+                            <mat-button-toggle-group class="pl-0 pr-2 fullwidth noborder" vertical
+                                [value]="course_code">
+                                <div *ngFor="let data of cart_data">
+
+                                    <mat-button-toggle
+                                        (click)="display_chart = !display_chart;onSelect(null,data.courseName,data.section,0)"
+                                        class="maintext mat-caption basicborder pl-0 pr-1 pb-4 mb-2 fullwidth"
+                                        value="{{data.courseCode}}">
+
+                                        <p class="maintext ">
+                                            {{data.courseName}} -{{data.courseCode}} <br> Semester {{data.termNumber}} -
+                                            Section
+                                            {{data.section}}<br>{{data.facultyName}}
+                                        </p>
+                                    </mat-button-toggle>
+                                </div>
+                            </mat-button-toggle-group>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!--left part rwd-->
+        <div class="d-block d-sm-none ml-3 " *ngIf='bool && notshowcourselist'>
+
+            <div class="leftPane divider" style="padding-right:2px;" *ngIf='bool'>
+ 
+                <mat-card id="sortBox" class="my-12 basicborder " style="padding-left:4px; padding-right:70px;">
+                    <div class="mat-body-2" style="padding-left:15px;">{{label.colist}}</div>
+                    <div>
+                        <mat-card id="sortBox" class="my-3 basicborder">
+                            <mat-card-title class="mb-0">
+                                <div class="mat-caption greentext mb-0"><i>Sort by</i></div>
+                            </mat-card-title>
+                            <mat-radio-group>
+                                <mat-radio-button style="padding-right:30px;" class="mat-large maintext" value="1"
+                                    (click)="this.property_button1='true';sort1()">
+                                    {{label.poAtn}}
+                                </mat-radio-button>
+                                <mat-radio-button style="padding-right:25px;"  class="mat-large maintext" value="2"
+                                    (click)="this.property_button1='false';sort1()" [checked]="true">
+                                    {{label.coName}}
+                                </mat-radio-button>
+                            </mat-radio-group>
+                        </mat-card>
+                    </div>
+                    <div>
+                        <mat-radio-group>
+                            <mat-radio-button style="padding-right:40px; padding-left:18px; " class="mat-large"
+                                value="1" (click)="this.property_button2='true';sort1()" [checked]="true"> {{label.Desc}}
+                            </mat-radio-button>
+                            <mat-radio-button class="mat-large" value="2"
+                                (click)="this.property_button2='false';sort1()" >{{label.Asc}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </mat-card>
+
+                <br>
+            </div>
+        </div>
+
+        <div class="d-block d-sm-none not-active ml-3" *ngIf='bool && show_table'>
+
+            <div class="leftPane divider" style="padding-right:2px;" *ngIf='bool'>
+ 
+                <mat-card id="sortBox" class="my-12 basicborder " style="padding-left:4px; padding-right:70px;">
+                    <div class="mat-body-2" style="padding-left:15px;">{{label.colist}}</div>
+                    <div>
+                        <mat-card id="sortBox" class="my-3 basicborder">
+                            <mat-card-title class="mb-0">
+                                <div class="mat-caption greentext mb-0"><i>Sort by</i></div>
+                            </mat-card-title>
+                            <mat-radio-group>
+                                <mat-radio-button style="padding-right:30px;" class="mat-large maintext" value="1"
+                                    (click)="this.property_button1='true';sort1()">
+                                    {{label.poAtn}}
+                                </mat-radio-button>
+                                <mat-radio-button style="padding-left:25px;" class="mat-large maintext" value="2"
+                                    (click)="this.property_button1='false';sort1()">
+                                    {{label.coName}}
+                                </mat-radio-button>
+                            </mat-radio-group>
+                        </mat-card>
+                    </div>
+                    <div>
+                        <mat-radio-group>
+                            <mat-radio-button style="padding-right:40px; padding-left:18px; " class="mat-large"
+                                value="1" (click)="this.property_button2='true';sort1()"> {{label.Desc}}
+                            </mat-radio-button>
+                            <mat-radio-button class="mat-large" value="2"
+                                (click)="this.property_button2='false';sort1()">{{label.Asc}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </mat-card>
+
+                <br>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-md-6 col-sm-6  d-none d-sm-block">
+            <div *ngIf='bool && individual_po_chart_data && display_chart' class="divider">
+                <!--Second Chart-->
+                <div style="border-right:1px solid #000;height:400px; padding-right: 40px;" *ngIf='bool'>
+                    <h6 class="mb-2 mat-body-2" style="text-align: center;">{{label.poScoresIn}} {{course_details}}
+                    </h6>
+                    <div class="shadow responsive" id="col2" (select)="getTable($event)" google-chart
+                        [data]="individual_po_chart_data.dataTable" [chartType]="individual_po_chart_data.chartType"
+                        [options]="individual_po_chart_data.options">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf='bool && individual_po_chart_data && !display_chart'
+                style="border-right:1px solid #000;height:400px; padding-right: 40px;">
+                <!--Third dummy Chart-->
+                <h6 class="mb-2 mat-body-2" style="text-align: center;">{{label.poScoresIn}} {{course_details}}</h6>
+                <div class="shadow responsive" id="col3" (select)="getTable($event)" google-chart
+                    [data]="individual_po_chart_data.dataTable" [chartType]="individual_po_chart_data.chartType"
+                    [options]="individual_po_chart_data.options">
+                </div>
+            </div>
+        </div>
+
+        <!--Charts rwd-->
+        <div class="col-md-6 col-sm-6  d-block d-sm-none">
+            <div *ngIf='bool && individual_po_chart_data && !display_chart&&!show_table'>
+                <h6 *ngIf='user ==0' class="mb-2 mat-body-2" style="text-align: center;"> {{label.poMyCourses}}</h6>
+                <h6 *ngIf='user == 1 || user == 2' class="mb-2 mat-body-2" style="text-align: center;">
+                    {{label.poAllCourses}}</h6>
+                <div *ngFor='let course of cart_data; index as i' class='mt-4'>
+                    <table class="shadow responsive">
+                        <thead>
+                            <th style="text-align: center !important; width:80% ; height: 20px; background-color: #99a8aa; padding: 5px;border-top-left-radius: 6px;
+                                   border-top-right-radius: 6px;">
+                                {{course.courseName}} - {{course.courseCode}} ({{label.semester}} {{course.termNumber}}
+                                - {{label.section}} {{course.section}})
+                            </th>
+                        </thead>
+                    </table>
+                    <!--accordion body-->
+
+                    <mat-accordion [multi]="true" class="shadow responsive">
+                        <div *ngFor='let po of po_details[i]; index as j'>
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        -- {{label.po}}{{po.poNumber}}
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <div class="col-md-12 ">
+                                    <div *ngIf='!(!bool && data && !error && first_chart_view)'>
+                                        <div class="d-sm-block  d-md-none">
+                                            <div class="shadow responsive" id="col1" (select)="onSelect($event,'','',0)"
+                                                google-chart
+                                                [data]="responsive_data_accordion_chart.dataTable[freq[i]*i + j]"
+                                                [chartType]="responsive_data_accordion_chart.chartType"
+                                                [options]="responsive_data_accordion_chart.options"
+                                                (select)="getTablerwd($event,i)"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </mat-expansion-panel>
+                        </div>
+                    </mat-accordion>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class=" d-none d-sm-block" *ngIf='bool'>
+                <!--Right Pane-->
+                <div class="mt-4">
+                    <table>
+                        <thead>
+                            <th class="tableheading">
+                                {{po_number}} {{label.details}}
+                            </th>
+                        </thead>
+                    </table>
+                    <table class="table mb-4">
+                        <thead class="accordiantab">
+                            <tr>
+                                <th>{{label.CO_plural}}</th>
+                                <th>{{label.toAtnVal}}</th>
+                                <th>{{label.map}}</th>
+                                <th>{{label.score}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor='let row of co_details'>
+                                <td>
+                                    {{label.CO}}{{row.coNumber}}
+                                </td>
+                                <td>
+                                    {{row.total_attainment_value}}
+                                </td>
+                                <td>
+                                    {{row.mapping_level}}
+                                </td>
+                                <td>
+                                    {{row.score}}
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+            <!--table rwd-->
+            <div class=" d-block d-sm-none" *ngIf='show_table'>
+                <!--Right Pane-->
+                <div>
+                    <table>
+                        <thead>
+                            <th class="tablehead">
+                                {{cart_data[course_number].courseName}} - {{cart_data[course_number].courseCode}} <br>
+                                ({{label.semester}} {{cart_data[course_number].termNumber}} - {{label.section}}
+                                {{cart_data[course_number].section}})
+
+                            </th>
+                        </thead>
+                    </table>
+                    <mat-card>
+                        <table>
+                            <thead>
+                                <th class="tableheading">
+                                    {{po_number}} {{label.details}}
+                                </th>
+                            </thead>
+                        </table>
+                        <table class="table mb-4">
+                            <thead class="accordiantab">
+                                <tr>
+                                    <th>{{label.CO_plural}}</th>
+                                    <th>{{label.toAtnVal}}</th>
+                                    <th>{{label.map}}</th>
+                                    <th>{{label.score}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor='let row of co_details'>
+                                    <td>
+                                        {{label.CO}}{{row.coNumber}}
+                                    </td>
+                                    <td>
+                                        {{row.total_attainment_value}}
+                                    </td>
+                                    <td>
+                                        {{row.mapping_level}}
+                                    </td>
+                                    <td>
+                                        {{row.score}}
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<h6 *ngIf='!error && !data' style="text-align: center;" class="mt-5">{{label.default_message}}</h6>
+<h6 *ngIf='error' style="text-align: center;" class="mt-5">{{label.emptyMessage}}
+</h6>

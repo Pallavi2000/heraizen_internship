@@ -1,0 +1,31 @@
+<form  #myForm="ngForm">
+    <mat-list>
+            <h3>New API Service</h3>
+    
+        <mat-list-item>
+          <form class="example-form">
+            <mat-form-field style="width:300px !important;" class="example-full-width">
+              <mat-label>Service Name</mat-label>
+              <input matInput [(ngModel)]="service_name" name="service_name" required>
+            </mat-form-field>
+          </form>
+
+    
+        </mat-list-item>
+    
+          <mat-list-item>
+            <form class="example-form">
+            <mat-form-field style="width:300px !important;" class="example-full-width">
+              <mat-label>Description</mat-label>
+              <textarea matInput [(ngModel)]="description" name="description" required></textarea>
+            </mat-form-field>
+          </form>
+          </mat-list-item>
+      
+        <mat-list-item class="btn">
+                <button mat-raised-button type="submit" (click)="create_service()"color= "primary">Create</button>
+                <button mat-raised-button type="submit" (click)="cancel()">Cancel</button>
+        </mat-list-item>
+      
+      </mat-list>
+    </form>

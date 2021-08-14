@@ -1,0 +1,279 @@
+.bg-card{
+
+    width: 1000px;
+    background: white;
+    border-radius: 0px;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.15);
+
+} 
+
+.coList {
+    margin-top: 2rem; 
+    font-weight: bold;
+}
+
+.container{
+    width: 50rem ;
+    text-align: center;
+}
+
+.container-chart-1{
+  text-align: center;
+  width: 90;  
+}
+
+
+
+.container-chart-2{
+    text-align: center;
+    width: 100%;
+    padding:10px;
+    margin-left: 30px; 
+    margin-right: 20px;
+}
+
+
+.leftPane{
+    padding-right: 10px;
+    
+}
+.card{
+    border-radius: 7px; 
+    border-width: 2px;
+    }
+
+.sortby{
+   font-style: italic; 
+   color: darkgreen;
+}
+
+.darkGreen {
+    color: darkgreen;
+}
+   
+.greenBg{
+    background-color: darkgreen;
+    color: #ffffff;
+}
+
+.sortOption{
+    margin: 2px 0 2px 5px;
+}
+#rightalg
+{
+    float: right;
+    align-self: right;
+}
+#selector{
+    width: 16rem;
+    margin-top: 7px;
+}
+
+.body-small{
+    font-size: small;
+    
+}
+
+.body-md{
+    font-size: medium;
+    
+}
+
+
+.body-xsmall{
+    font-size: x-small;
+    
+}
+
+.textLeft{
+    text-align: left;
+}
+
+
+
+.btn,.btn-search{
+    margin-top: 0.7rem;
+    color: white;
+    background-color: #789d96;
+    border: solid;
+    min-height: 25px;
+    border-width: 2px;
+    border-radius: 0.3rem;
+    padding: 0.2rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    float: right
+}
+
+.btn:hover{
+    color: #0275d8 ;
+}
+
+.custom-select{
+    margin-top: 5px;
+}
+
+.br-solid{
+    border-right: solid;
+    border-width: 2px;
+}
+
+.border{
+    border-style: solid;
+}
+
+.transparent{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.vl {
+    border-left: 1.5px solid #000;
+    height: auto;
+  }
+
+.vl_s {
+    margin-left: 2rem;
+    border-left: 1.5px solid #789d96;
+    height: 50px;
+  }
+
+  /*.chart_wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: 500px;
+  }*/
+
+mat-button-toggle{
+    max-height: 100px;
+    overflow-x: hidden !important;
+}
+.table{
+padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #ffffff;
+  color: black;
+}
+
+
+.d-block{
+    display: inline-block;
+}
+.rwd{
+    border-width: thin;
+    border-spacing: 2px;
+    border-style: none;
+    border-color: black;
+}
+.card{
+   
+    margin-left: 50px;
+}
+
+.container{
+    text-align: center;
+}
+.d-block{
+    display: inline-block;
+}
+.rwd{
+    border-width: thin;
+    border-spacing: 2px;
+    border-style: none;
+    border-color: black;
+}
+
+.table{
+    font-size: 12px;
+    text-align: center;
+}
+/* .border{
+    border: 2px solid #000 !important;
+} */
+
+.col-md-6{
+    margin-top: 30px;
+}
+
+.table-active{
+    border: 2px solid #000 !important;
+}
+
+.container{
+    text-align: center;
+}
+.d-block{
+    display: inline-block;
+}
+.rwd{
+    border-width: thin;
+    border-spacing: 2px;
+    border-style: none;
+    border-color: black;
+}
+
+.btnBorder{
+    border-color: dimgray;
+    border-style: solid;
+    border-radius: 4px;
+}
+
+.width85{
+    width: 85%;
+}
+
+.width80{
+    width: 80%;
+}
+
+.width15{
+    width: 15%;
+}
+
+.width75{
+    width: 75%;
+}
+
+em {
+    color: red;
+  }
+
+.blackBorder{
+   border-style: solid;
+   border-color: black;
+}
+
+
+.table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td {
+    border: 1px solid black;
+}
+
+.courseBtnRWD{
+    text-align: center !important; 
+    height: auto; 
+    background-color: #99a8aa; 
+    padding: 5px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+#coAttain{
+    border-top-left-radius: 0%;
+    border-top-right-radius: 0%;
+}
+
+.accordion{
+    width: 80%;
+}
+
+.RWDcoursehead{
+    text-align: center !important;
+    height: auto; 
+    background-color: #789d96; 
+    padding: 5px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    color: #ffffff;
+    font-size: medium;
+}

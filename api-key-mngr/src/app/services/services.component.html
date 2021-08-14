@@ -1,0 +1,56 @@
+<app-header></app-header>
+
+<mat-list>
+  <mat-list-item class="container1">
+    <button mat-raised-button color="primary" (click)="service_click()">Create New API Service</button>
+  </mat-list-item>
+    
+    <mat-list-item class="container2">
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Search</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </form>
+    
+    <button mat-raised-button type="submit" color="primary" (click)="search()">Search</button>
+  </mat-list-item>
+
+
+</mat-list>
+
+
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="index">
+      <th mat-header-cell *matHeaderCellDef>#</th>
+      <td mat-cell *matCellDef="let row; let i = dataIndex;"> {{i}} </td>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Service Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef> Delete </th>
+      <td mat-cell *matCellDef="let element" (click)="onClicked(element)"><button mat-flat-button class="btn">Delete</button></td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[4, 5, 10,20]" showFirstLastButtons></mat-paginator>
+</div>

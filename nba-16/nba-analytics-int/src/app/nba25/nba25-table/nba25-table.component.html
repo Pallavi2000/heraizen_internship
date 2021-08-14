@@ -1,0 +1,336 @@
+<div id="outerBox">
+  <h6 id="coSelHead" class="bold">CO{{clickedCO}} Attainment & Co-curricular Activities Details</h6>
+  <hr id="hzLine1">
+  <div id="innerBox">
+    <h6 id="coDetails" class="bold">{{analyticsObj.totalAtt}}</h6>
+    <h6 id="coDetailsRWD" class="bold">Total Attainment<br><br> [(Out of 3) : 1.92 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (Out
+      of 100) : 67.23]</h6>
+    <hr id="hzLine2">
+    <h6 id="coDef" class="bold">CO{{clickedCO}}: <span id="definition">"Definition"</span></h6>
+    <hr id="hzLine3">
+    <div id="coTable">
+      <h6 id="dirHead" class="bold">{{analyticsObj.direct}}</h6>
+      <h6 id="dirHeadRWD" class="bold">Direct Attainment<br><br> [(Out of 3) : 1.92 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (Out
+        of 100) : 67.23]</h6>
+      <div id="coDirect">
+        <table mat-table id="firstTable" [dataSource]="dataSource1">
+          <ng-container matColumnDef="mName">
+            <th mat-header-cell *matHeaderCellDef> {{analyticsObj.name}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.mName}} </td>
+          </ng-container>
+          <ng-container matColumnDef="m1">
+            <th mat-header-cell *matHeaderCellDef> {{CO_DETAILS["direct_methodName"][0]}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.m1}} </td>
+          </ng-container>
+          <ng-container matColumnDef="m2">
+            <th mat-header-cell *matHeaderCellDef> {{CO_DETAILS["direct_methodName"][1]}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.m2}} </td>
+          </ng-container>
+          <ng-container matColumnDef="m3">
+            <th mat-header-cell *matHeaderCellDef> {{CO_DETAILS["direct_methodName"][2]}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.m3}} </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns" id="table1header" class="table-row bold"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="table-row"></tr>
+        </table>
+      </div>
+      <div id="coDirectRWD">
+        <table class="table">
+          <thead id="headerRWD">
+            <tr>
+              <th></th>
+              <th>{{analyticsObj.SL}}</th>
+              <th>{{analyticsObj.name}}</th>
+            </tr>
+          </thead>
+          <tbody id="accordion" class="scrollit table-data custom-card-group accordian-panel box-borders"
+            *ngFor="let list of keyList; let i=index;">
+            <tr>
+              <td><a class="accordion-toggle collapsed p-2" id="accordion" data-toggle="collapse"
+                  [attr.data-target]="'#details'+i"></a></td>
+              <td>{{i+1}}</td>
+              <td><b>{{list}}</b></td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <div id="details{{i}}" data-parent="#accordion" class="collapse">
+                  <ng-container class="row" *ngIf="i==0">
+                    <ng-container class="accordionData" *ngFor="let ele of dirMethDescObj;let x=index">
+                      <strong>Method {{x+1}} </strong>: {{ele}}
+                      <br>
+                    </ng-container>
+                  </ng-container>
+                  <ng-container class="row" *ngIf="i==1">
+                    <ng-container class="accordionData" *ngFor="let ele of dirAttObj;let x=index">
+                      <strong>Method {{x+1}} </strong> : {{ele}}
+                      <br>
+                    </ng-container>
+                  </ng-container>
+                  <ng-container class="row" *ngIf="i==2">
+                    <ng-container class="accordionData" *ngFor="let ele of dirAttPerObj;let x=index">
+                      <strong>Method {{x+1}} </strong> : {{ele}}
+                      <br>
+                    </ng-container>
+                  </ng-container>
+                  <ng-container class="row" *ngIf="i==3">
+                    <ng-container class="accordionData" *ngFor="let ele of dirAttObj;let x=index">
+                      <strong>Method {{x+1}} </strong> : {{ele}}
+                      <br>
+                    </ng-container>
+                  </ng-container>
+                  <ng-container class="row" *ngIf="i==4">
+                    <ng-container class="accordionData" *ngFor="let ele of dirTotMaxObj;let x=index">
+                      <strong>Method {{x+1}} </strong> : {{ele}}
+                      <br>
+                    </ng-container>
+                  </ng-container>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h6 id="indirHead" class="bold">{{analyticsObj.indirect}}</h6>
+      <h6 id="indirHeadRWD" class="bold">Indirect Attainment<br><br> [(Out of 3) : 1.92
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Out of 100) : 67.23]</h6>
+      <div id="coIndirect">
+        <table mat-table id="secondTable" [dataSource]="dataSource2">
+          <ng-container matColumnDef="mName">
+            <th mat-header-cell *matHeaderCellDef> {{analyticsObj.name}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.mName}} </td>
+          </ng-container>
+          <ng-container matColumnDef="m1">
+            <th mat-header-cell *matHeaderCellDef> {{CO_DETAILS["indirect_methodName"][0]}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.m1}} </td>
+          </ng-container>
+          <ng-container matColumnDef="m2">
+            <th mat-header-cell *matHeaderCellDef> {{CO_DETAILS["indirect_methodName"][1]}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.m2}} </td>
+          </ng-container>
+          <ng-container matColumnDef="m3">
+            <th mat-header-cell *matHeaderCellDef> {{CO_DETAILS["indirect_methodName"][2]}} </th>
+            <td mat-cell *matCellDef="let element"> {{element.m3}} </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns" id="table1header" class="table-row bold"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="table-row"></tr>
+        </table>
+      </div>
+
+      <div id="coIndirectRWD">
+        <table class="table">
+          <thead id="headerRWD">
+            <tr>
+              <th></th>
+              <th>{{analyticsObj.SL}}</th>
+              <th>{{analyticsObj.name}}</th>
+            </tr>
+          </thead>
+          <tbody id="accordion" class="scrollit table-data custom-card-group accordian-panel box-borders"
+            *ngFor="let list of keyList; let j=index;">
+            <tr>
+              <td><a class="accordion-toggle collapsed p-2" id="accordion" data-toggle="collapse"
+                  [attr.data-target]="'#details2'+j"></a></td>
+              <td>{{j+1}}</td>
+              <td><b>{{list}}</b></td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <div id="details2{{j}}" data-parent="#accordion" class="collapse">
+                  <ng-container class="row" *ngIf="j==0">
+                    <ng-container class="accordionData" *ngFor="let ele of indirMethDescObj;let x=index">
+                      <strong>Method {{x+1}} </strong> : {{ele}}
+                      <br>
+                    </ng-container>
+                  </ng-container>
+                  <ng-container class="row" *ngIf="j==1">
+                    <ng-container class="accordionData" *ngFor="let ele of indirAttObj;let x=index">
+                      <strong>Method {{x+1}} </strong> : {{ele}}
+                      <br>
+                    </ng-container>
+                  </ng-container>
+                  <ng-container class="row" *ngIf="j==2">
+                    <ng-container class="accordionData" *ngFor="let ele of indirAttPerObj;let x=index">
+                      <strong>Method {{x+1}} </strong> : {{ele}}
+                      <br>
+                    </ng-container>
+                  </ng-container>
+                  <ng-container class="row" *ngIf="j==3">
+                    <ng-container class="accordionData" *ngFor="let ele of indirAttObj;let x=index">
+                      <strong>Method {{x+1}} </strong> : {{ele}}
+                      <br>
+                    </ng-container>
+                  </ng-container>
+                  <ng-container class="row" *ngIf="j==4">
+                    <ng-container class="accordionData" *ngFor="let ele of indirTotMaxObj;let x=index">
+                      <strong>Method {{x+1}} </strong> : {{ele}}
+                      <br>
+                    </ng-container>
+                  </ng-container>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="extrainfo">
+      <div id="radioBox">
+        <p id="selectOne">Select one of the following:</p>
+        <div id="radioCont">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" [value]='0'
+              [(ngModel)]='extra_val' (change)='onRadioChange(0)'>
+            <label class="form-check-label" for="inlineRadio1" id="inlineRadio1Text">Co-curricular Activities</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"
+              [value]='1' [(ngModel)]='extra_val' (change)='onRadioChange(1)'>
+            <label class="form-check-label" for="inlineRadio2" id="inlineRadio2Text">Student Feedback</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"
+              [value]='2' [(ngModel)]='extra_val' (change)='onRadioChange(2)'>
+            <label class="form-check-label" for="inlineRadio3" id="inlineRadio3Text">Counselling</label>
+          </div>
+        </div>
+      </div>
+
+      <div id="threeCont">
+        <div id="coCurrBox">
+          <div id="currTop">
+            <div id="spacing1"></div>
+            <p id="currText" class="bold">Co-curricular Activities</p>
+            <mat-form-field id="currSelect">
+              <mat-select [(ngModel)]="currSelOption" disableOptionCentering>
+                <mat-option *ngFor="let type of types" [value]='type'>
+                  {{type}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <i id="arrow" class="fa fa-2x fa-arrow-circle-right" aria-hidden="true" (click)='currSelChange()'></i>
+          </div>
+          <div id="overflowCont1">
+            <div id="cardContainer2" *ngFor="let obj of currCards">
+              <mat-card id="tableCard">
+                <mat-card-content id="cardStuff">
+                  <span class="dot">
+                    <mat-icon id="icon1">business_center</mat-icon>
+                  </span>
+                  <div id="greenBox" *ngIf="obj.userType==='FACULTY'">
+                    &nbsp;&nbsp;{{obj.userType}}
+                  </div>
+                  <div id="greenBox" *ngIf="obj.userType==='STUDENT'">
+                    &nbsp;{{obj.userType}}
+                  </div>
+                  <div id="cardText">
+                    <span id="cardLabel">Name :&nbsp;</span>{{obj.Name}}
+                    <span *ngIf="hasProp(obj, 'usn')">({{obj.usn}})</span>
+                    <span *ngIf="hasProp(obj, 'employee_id')">({{obj.employee_id}})</span>
+                    <br>
+                    <span id="cardLabel">Role&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</span>{{obj.role}}
+                    <br>
+                    <span id="cardLabel">Date&nbsp;&nbsp;&nbsp;:&nbsp;</span>{{obj.Date}}
+                    <br>
+                    <span id="cardLabel">Duration &nbsp; :&nbsp;</span>{{obj.DuraHon}}
+                    <br>
+                    <span id="cardLabel">Activity Type :&nbsp;</span>{{obj.Activity_type}}
+                  </div>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </div>
+        </div>
+
+        <div id="feedBox">
+          <div id="feedTop">
+            <div id="spacing2"></div>
+            <p id="feedText" class="bold">Student Feedback</p>
+            <mat-form-field id="feedSelect">
+              <mat-select [(ngModel)]="feedSelOption" disableOptionCentering>
+                <mat-option *ngFor="let que of ques" [value]='que'>
+                  {{que}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div id="vertLine1"></div>
+            <p id="feedCumScoreText" class="bold">Cumulative Score:{{feedCumScore}}</p>
+            <i id="arrow2" class="fa fa-2x fa-arrow-circle-right" aria-hidden="true" (click)='feedSelChange()'></i>
+          </div>
+          <div id="overflowCont2">
+            <div id="feedTableContainer">
+              <table class="table table-sm" id="feedTable">
+                <thead id="feedHead">
+                  <th id="feedCol1">Question #</th>
+                  <th id="feedCol2">Score</th>
+                  <th id="feedCol3">View Student Details</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor=" let element of objFeedTable;let i=index" id="row">
+                    <td>
+                      {{element.QN}}
+                    </td>
+                    <td>
+                      {{element.score}}
+                    </td>
+                    <td>
+                      <div>
+                        <app-nba25-modal [md]="md" [selectedOption]="feedSelOption"></app-nba25-modal>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div id="counsBox">
+          <div id="counsTop">
+            <div id="spacing1"></div>
+            <p id="counsText" class="bold">Counselling Details</p>
+            <mat-form-field id="counsSelect">
+              <mat-select disableOptionCentering id="activeSel" [(ngModel)]="counsSelOption">
+                <mat-option *ngFor="let coun of couns" [value]='coun'>
+                  {{coun}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <i id="arrow3" class="fa fa-2x fa-arrow-circle-right" aria-hidden="true" (click)='counsSelChange()'></i>
+          </div>
+          <div id="overflowCont3">
+            <div id="counsTableContainer">
+              <table class="table table-sm" id="counsTable">
+                <thead id="counsHead">
+                  <th id="counsCol1">SI.#</th>
+                  <th id="counsCol2">Topic</th>
+                  <th id="counsCol3">Date</th>
+                  <th id="counsCol4">View Details</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor=" let element of objCounsTable;let i=index" id="row">
+                    <td>
+                      {{element.SI}}
+                    </td>
+                    <td>
+                      {{element.label}}
+                    </td>
+                    <td>
+                      {{element.date}}
+                    </td>
+                    <td>
+                      <div>
+                        <app-nba25-modal [md]="!md"></app-nba25-modal>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

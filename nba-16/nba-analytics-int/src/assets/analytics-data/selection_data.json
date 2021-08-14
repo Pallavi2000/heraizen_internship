@@ -1,0 +1,60 @@
+{
+    "faculty_data": [
+        {
+            "faculty_id": "101",
+            "faculty_name": "Krishna Moorthy",
+            "academic_year": "2018-19",
+            "dept_id": "CS",
+            "semester": 5,
+            "designation": "Professor"
+        },
+        {
+            "faculty_id": "462",
+            "faculty_name": "Dr Ravikiran A .Mundewadi",
+            "academic_year": "2018-19",
+            "dept_id": "CS",
+            "semester": 5,
+            "designation": "Professor"
+        },
+        {
+            "faculty_id": "425",
+            "faculty_name": "Dr Khalid Parwez ",
+            "academic_year": "2018-19",
+            "dept_id": "CS",
+            "semester": 5,
+            "designation": "Professor"
+        },
+        {
+            "faculty_id": "102",
+            "faculty_name": "Sneha K M",
+            "academic_year": "2018-19",
+            "dept_id": "CS",
+            "semester": 5,
+            "designation": "Professor"
+        }
+    ],
+    "academic_year": [
+        "2017-18",
+        "2018-19",
+        "2019-20"
+    ],
+    "semester": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "dept_id": [
+        "CS",
+        "ISE",
+        "EC",
+        "EE"
+    ],
+    "designatin": [
+        "Professor"
+    ]
+}

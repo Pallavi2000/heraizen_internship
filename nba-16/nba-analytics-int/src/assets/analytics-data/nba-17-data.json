@@ -1,0 +1,484 @@
+{
+  "academicYear": ["2017-18", "2018-19", "2019-20"],
+  "terms": ["1", "2", "3", "4", "5", "6", "7", "8"],
+  "departments": ["CS", "IS", "EC", "EE", "BT"],
+  "faculty_data": [
+    {
+      "academicYear": "2018-19",
+      "courseCode": "17CS52",
+      "courseName": "COMPUTER NETWORKS",
+      "deptId": "CS",
+      "facultyId": "462",
+      "section": "A",
+      "termNumber": "5",
+      "course_difficultyLevel_per": 60,
+      "total_attainment": 82,
+      "courseLevel_blooms_details": [
+        {
+          "Remember": 5,
+          "Understand": 6,
+          "Apply": 4,
+          "Analyze": 3,
+          "Evaluate": 2,
+          "Create": 1
+        }
+      ],
+      "Co_details": [
+        {
+          "coNumber": 1,
+          "directAttainment": 60,
+          "indirectAttainment": 40,
+          "totalAttainment": 80,
+          "co_difficultyLevel": 75,
+          "num_of_lesson_mapped": 3,
+          "blooms_details": [
+            {
+              "Remember": 4,
+              "Understand": 3,
+              "Apply": 2,
+              "Analyze": 3,
+              "Evaluate": 2,
+              "Create": 1
+            }
+          ]
+        },
+        {
+          "coNumber": 2,
+          "directAttainment": 50,
+          "indirectAttainment": 35,
+          "totalAttainment": 40,
+          "co_difficultyLevel": 55,
+          "num_of_lesson_mapped": 2,
+          "blooms_details": [
+            {
+              "Remember": 2,
+              "Understand": 2,
+              "Apply": 1,
+              "Analyze": 1,
+              "Evaluate": 1,
+              "Create": 1
+            }
+          ]
+        },
+        {
+          "coNumber": 3,
+          "directAttainment": 40,
+          "indirectAttainment": 25,
+          "totalAttainment": 50,
+          "co_difficultyLevel": 65,
+          "num_of_lesson_mapped": 4,
+          "blooms_details": [
+            {
+              "Remember": 5,
+              "Understand": 3,
+              "Apply": 3,
+              "Analyze": 2,
+              "Evaluate": 2,
+              "Create": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "academicYear": "2018-19",
+      "courseCode": "17CS54",
+      "courseName": "CELL BIOLOGY AND GENETICS",
+      "deptId": "CS",
+      "facultyId": "462",
+      "section": "B",
+      "termNumber": "5",
+      "course_difficultyLevel_per": 75,
+      "total_attainment": 80,
+      "courseLevel_blooms_details": [
+        {
+          "Remember": 7,
+          "Understand": 8,
+          "Apply": 6,
+          "Analyze": 4,
+          "Evaluate": 2,
+          "Create": 1
+        }
+      ],
+      "Co_details": [
+        {
+          "coNumber": 1,
+          "directAttainment": 60,
+          "indirectAttainment": 50,
+          "totalAttainment": 70,
+          "co_difficultyLevel": 55,
+          "num_of_lesson_mapped": 2,
+          "blooms_details": [
+            {
+              "Remember": 5,
+              "Understand": 3,
+              "Apply": 2,
+              "Analyze": 3,
+              "Evaluate": 2,
+              "Create": 1
+            }
+          ]
+        },
+        {
+          "coNumber": 2,
+          "directAttainment": 40,
+          "indirectAttainment": 55,
+          "totalAttainment": 30,
+          "co_difficultyLevel": 57,
+          "num_of_lesson_mapped": 3,
+          "blooms_details": [
+            {
+              "Remember": 4,
+              "Understand": 3,
+              "Apply": 2,
+              "Analyze": 2,
+              "Evaluate": 2,
+              "Create": 1
+            }
+          ]
+        },
+        {
+          "coNumber": 3,
+          "directAttainment": 50,
+          "indirectAttainment": 45,
+          "totalAttainment": 56,
+          "co_difficultyLevel": 20,
+          "num_of_lesson_mapped": 3,
+          "blooms_details": [
+            {
+              "Remember": 6,
+              "Understand": 4,
+              "Apply": 4,
+              "Analyze": 2,
+              "Evaluate": 2,
+              "Create": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "academicYear": "2018-19",
+      "courseCode": "17CS50",
+      "courseName": "ADA",
+      "deptId": "CS",
+      "facultyId": "462",
+      "section": "D",
+      "termNumber": "3",
+      "course_difficultyLevel_per": 75,
+      "total_attainment": 80,
+      "courseLevel_blooms_details": [
+        {
+          "Remember": 7,
+          "Understand": 8,
+          "Apply": 6,
+          "Analyze": 4,
+          "Evaluate": 2,
+          "Create": 1
+        }
+      ],
+      "Co_details": [
+        {
+          "coNumber": 1,
+          "directAttainment": 60,
+          "indirectAttainment": 50,
+          "totalAttainment": 70,
+          "co_difficultyLevel": 55,
+          "num_of_lesson_mapped": 2,
+          "blooms_details": [
+            {
+              "Remember": 5,
+              "Understand": 3,
+              "Apply": 2,
+              "Analyze": 3,
+              "Evaluate": 2,
+              "Create": 1
+            }
+          ]
+        },
+        {
+          "coNumber": 2,
+          "directAttainment": 40,
+          "indirectAttainment": 55,
+          "totalAttainment": 30,
+          "co_difficultyLevel": 57,
+          "num_of_lesson_mapped": 3,
+          "blooms_details": [
+            {
+              "Remember": 4,
+              "Understand": 3,
+              "Apply": 2,
+              "Analyze": 2,
+              "Evaluate": 2,
+              "Create": 1
+            }
+          ]
+        },
+        {
+          "coNumber": 3,
+          "directAttainment": 50,
+          "indirectAttainment": 45,
+          "totalAttainment": 56,
+          "co_difficultyLevel": 20,
+          "num_of_lesson_mapped": 3,
+          "blooms_details": [
+            {
+              "Remember": 6,
+              "Understand": 4,
+              "Apply": 4,
+              "Analyze": 2,
+              "Evaluate": 2,
+              "Create": 1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "hod_data": [
+    {
+      "academicYear": "2018-19",
+      "courseCode": "17CS52",
+      "courseName": "COMPUTER NETWORKS",
+      "deptId": "CS",
+      "facultyId": "462",
+      "facultyName": "Dr Rizwana Abid",
+      "section": "A",
+      "termNumber": "5",
+      "course_difficultyLevel_per": 60,
+      "total_attainment": 82,
+      "courseLevel_blooms_details": [
+        {
+          "Remember": 5,
+          "Understand": 6,
+          "Apply": 4,
+          "Analyze": 3,
+          "Evaluate": 2,
+          "Create": 1
+        }
+      ],
+      "Co_details": [
+        {
+          "coNumber": 1,
+          "directAttainment": 60,
+          "indirectAttainment": 40,
+          "totalAttainment": 80,
+          "co_difficultyLevel": 75,
+          "num_of_lesson_mapped": 3,
+          "blooms_details": [
+            {
+              "Remember": 4,
+              "Understand": 3,
+              "Apply": 2,
+              "Analyze": 3,
+              "Evaluate": 2,
+              "Create": 1
+            }
+          ]
+        },
+        {
+          "coNumber": 2,
+          "directAttainment": 50,
+          "indirectAttainment": 35,
+          "totalAttainment": 40,
+          "co_difficultyLevel": 55,
+          "num_of_lesson_mapped": 2,
+          "blooms_details": [
+            {
+              "Remember": 2,
+              "Understand": 2,
+              "Apply": 1,
+              "Analyze": 1,
+              "Evaluate": 1,
+              "Create": 1
+            }
+          ]
+        },
+        {
+          "coNumber": 3,
+          "directAttainment": 40,
+          "indirectAttainment": 25,
+          "totalAttainment": 50,
+          "co_difficultyLevel": 65,
+          "num_of_lesson_mapped": 4,
+          "blooms_details": [
+            {
+              "Remember": 5,
+              "Understand": 3,
+              "Apply": 3,
+              "Analyze": 2,
+              "Evaluate": 2,
+              "Create": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "academicYear": "2018-19",
+      "courseCode": "17CS34",
+      "courseName": "CELL BIOLOGY AND GENETICS",
+      "deptId": "CS",
+      "facultyId": "459",
+      "facultyName": "Rizwana Abid",
+      "section": "B",
+      "termNumber": "4",
+      "course_difficultyLevel_per": 75,
+      "total_attainment": 80,
+      "courseLevel_blooms_details": [
+        {
+          "Remember": 7,
+          "Understand": 8,
+          "Apply": 6,
+          "Analyze": 4,
+          "Evaluate": 2,
+          "Create": 1
+        }
+      ],
+      "Co_details": [
+        {
+          "coNumber": 1,
+          "directAttainment": 60,
+          "indirectAttainment": 50,
+          "totalAttainment": 70,
+          "co_difficultyLevel": 55,
+          "num_of_lesson_mapped": 2,
+          "blooms_details": [
+            {
+              "Remember": 5,
+              "Understand": 3,
+              "Apply": 2,
+              "Analyze": 3,
+              "Evaluate": 2,
+              "Create": 1
+            }
+          ]
+        },
+        {
+          "coNumber": 2,
+          "directAttainment": 40,
+          "indirectAttainment": 55,
+          "totalAttainment": 30,
+          "co_difficultyLevel": 57,
+          "num_of_lesson_mapped": 3,
+          "blooms_details": [
+            {
+              "Remember": 4,
+              "Understand": 3,
+              "Apply": 2,
+              "Analyze": 2,
+              "Evaluate": 2,
+              "Create": 1
+            }
+          ]
+        },
+        {
+          "coNumber": 3,
+          "directAttainment": 50,
+          "indirectAttainment": 45,
+          "totalAttainment": 56,
+          "co_difficultyLevel": 20,
+          "num_of_lesson_mapped": 3,
+          "blooms_details": [
+            {
+              "Remember": 6,
+              "Understand": 4,
+              "Apply": 4,
+              "Analyze": 2,
+              "Evaluate": 2,
+              "Create": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "academicYear": "2018-19",
+      "courseCode": "17CS44",
+      "courseName": "DSA",
+      "deptId": "CS",
+      "facultyId": "460",
+      "facultyName": "Aizwana Abid",
+      "section": "A",
+      "termNumber": "3",
+      "course_difficultyLevel_per": 75,
+      "total_attainment": 80,
+      "courseLevel_blooms_details": [
+        {
+          "Remember": 7,
+          "Understand": 8,
+          "Apply": 6,
+          "Analyze": 4,
+          "Evaluate": 2,
+          "Create": 1
+        }
+      ],
+      "Co_details": [
+        {
+          "coNumber": 1,
+          "directAttainment": 50,
+          "indirectAttainment": 30,
+          "totalAttainment": 55,
+          "co_difficultyLevel": 45,
+          "num_of_lesson_mapped": 2,
+          "blooms_details": [
+            {
+              "Remember": 5,
+              "Understand": 3,
+              "Apply": 2,
+              "Analyze": 3,
+              "Evaluate": 2,
+              "Create": 1
+            }
+          ]
+        },
+        {
+          "coNumber": 2,
+          "directAttainment": 40,
+          "indirectAttainment": 55,
+          "totalAttainment": 30,
+          "co_difficultyLevel": 57,
+          "num_of_lesson_mapped": 3,
+          "blooms_details": [
+            {
+              "Remember": 4,
+              "Understand": 3,
+              "Apply": 2,
+              "Analyze": 2,
+              "Evaluate": 2,
+              "Create": 1
+            }
+          ]
+        },
+        {
+          "coNumber": 3,
+          "directAttainment": 50,
+          "indirectAttainment": 45,
+          "totalAttainment": 56,
+          "co_difficultyLevel": 20,
+          "num_of_lesson_mapped": 3,
+          "blooms_details": [
+            {
+              "Remember": 6,
+              "Understand": 4,
+              "Apply": 4,
+              "Analyze": 2,
+              "Evaluate": 2,
+              "Create": 1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "blooms_Weightage": [
+    {
+      "Remember": 1,
+      "Understand": 2,
+      "Apply": 3,
+      "Analyze": 4,
+      "Evaluate": 5,
+      "Create": 6
+    }
+  ]
+}

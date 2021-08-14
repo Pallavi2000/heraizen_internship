@@ -1,0 +1,16 @@
+<table>
+    <tr>
+        <td>
+            <div *ngIf="md">
+                <button class="disp" (click)='openDialog("Nba25Modal1")'>
+                    <mat-icon>visibility</mat-icon>
+                </button>
+            </div>
+            <div *ngIf="!md">
+                <button class="disp" (click)='openDialog("Nba25Modal2")'>
+                    <mat-icon>visibility</mat-icon>
+                </button>
+            </div>
+        </td>
+    </tr>
+</table>

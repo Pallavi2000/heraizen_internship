@@ -1,0 +1,687 @@
+<!--Breadcrumb Starts Here-->
+<div class="row">
+  <div class="col-md-11 col-xs-6">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a>
+          <i class="fa fa-bar-chart"></i>
+          {{labels.analytics}}
+        </a>
+      </li>
+      <li class="active breadcrumb-item">
+        {{labels.statement_16}}
+      </li>
+    </ol>
+  </div>
+
+  <div class="col-md-1 col-xs-2 mt-1 right" *ngIf="show_second_graph && !show_first_graph">
+    <span (click)="drawChart()">
+      <i class="fas fa-angle-left"> </i> {{labels.backbtn}}
+    </span>
+  </div>
+
+  <div class="col-md-1 col-xs-2 mt-1 right" *ngIf="showAccordion">
+    <span (click)="courseBarSelect($event);rwd_courseBarSelect($event);">
+      <i class="fas fa-angle-left"> </i> {{labels.backbtn}}
+    </span>
+  </div>
+
+</div>
+<!--Breadcrumb Ends Here-->
+
+<!-- Search Bar Starts Here--->
+<form [formGroup]="searchBar" (ngSubmit)="drawChart();showChart = !showChart">
+  <div class="row">
+    <div class="col-md-2 col-6 col-xs-6 col-sm-6" *ngIf='role == "PRINCIPAL"'>
+      <mat-form-field>
+        <mat-label class="text-success">{{ labels.department }}<em>*</em></mat-label>
+        <mat-select disableOptionCentering class="inputMaterial" formControlName="dept"
+          (selectionChange)="useSearchAgain()" [disabled]="!seachEnable">
+          <mat-option [value]="dept" *ngFor="let dept of departments">
+            {{dept}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-2 col-6 col-xs-6 col-sm-6">
+      <mat-form-field>
+        <mat-label class="text-success">{{ labels.academic_year }}<em>*</em></mat-label>
+        <mat-select disableOptionCentering class="inputMaterial" formControlName="year"
+          (selectionChange)="useSearchAgain()" [disabled]="!seachEnable">
+          <mat-option [value]="year" *ngFor="let year of academic_year">
+            {{year}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-2 col-6 col-xs-6 col-sm-6">
+      <mat-form-field>
+        <mat-label class="text-success">{{ labels.term }}<em>*</em></mat-label>
+        <mat-select disableOptionCentering class="inputMaterial" multiple formControlName="term"
+          (selectionChange)="useSearchAgain()" [disabled]="!seachEnable">
+          <mat-option [value]="term" *ngFor="let term of terms">
+            Semester {{term}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="verticalLine ml-5 d-none d-lg-block"></div>
+    <div class="col-md-2 m-3 div-button">
+      <button type="submit" class="other-button border rounded" (click)="drawChart()" [disabled]="selected">
+        <i class="fa fa-search"></i> {{labels.search}}
+      </button>
+    </div>
+  </div>
+</form>
+<hr class="vertical d-none d-lg-block" />
+<!--Search Bar Ends Here-->
+
+<!--First Graph Starts Here-->
+<span class = "d-none d-lg-block" *ngIf="show_first_graph && !show_second_graph && !error">
+  <div class="row px-0">
+    <div class="col-md-10" *ngIf="this.role == 'FACULTY'">
+      <p class="text-center page-title"><b>{{labels.chart1_head}}</b></p>
+    </div>
+    <div class="col-md-10" *ngIf="this.role != 'FACULTY'">
+      <p class="text-center page-title"><b>CO Attainment - All Courses</b></p>
+    </div>
+  </div>
+</span>
+
+<span class = "d-lg-none rwd-heading" *ngIf="show_first_graph && !show_second_graph && !error">
+    <div *ngIf="this.role == 'FACULTY'">
+      <p><b>{{labels.chart1_head}}</b></p>
+    </div>
+    <div *ngIf="this.role != 'FACULTY'">
+      <p><b>CO Attainment - All Courses</b></p>
+    </div>
+</span>
+
+<mat-card class="shadow fullwidth d-none d-lg-block"
+  *ngIf="show_first_graph && !show_second_graph && !error && !wait_to_show_first_graph && this.co_details.length < 4">
+  <div google-chart (select)="courseBarSelect($event);" [data]="first_chartdata.dataTable"
+    [chartType]="first_chartdata.chartType" [options]="first_chartdata.options" *ngIf="!showChart && first_chartdata">
+  </div>
+</mat-card>
+
+<mat-card class="shadow fullwidth d-none d-lg-block"
+  *ngIf="show_first_graph && !show_second_graph && !error && !wait_to_show_first_graph && this.co_details.length >= 4">
+  <div id="col1" google-chart (select)="courseBarSelect($event);" [data]="first_chartdata.dataTable"
+    [chartType]="first_chartdata.chartType" [options]="first_chartdata.options" *ngIf="!showChart && first_chartdata">
+  </div>
+</mat-card>
+
+
+<div class="col-md-12 col-xs-12">
+  <div class="text-center page-title" *ngIf="error && selected">
+    {{ labels.emptyMessage }}
+  </div>
+</div>
+
+<!--RWD First Graph Starts Here-->
+<div class="d-lg-none"
+  *ngIf="show_first_graph && !show_second_graph && !error && !wait_to_show_rwd_first_graph && rwd_first_chartdata">
+  <mat-card class="shadow fullwidth" *ngFor="let pointer of this.indices">
+    <div id="col1 d-lg-none" google-chart (select)="rwd_courseBarSelect($event);"
+      [data]="rwd_first_chartdata.dataTable[pointer]" [chartType]="rwd_first_chartdata.chartType"
+      [options]="rwd_first_chartdata.options">
+    </div>
+  </mat-card>
+</div>
+<!--RWD First Graph Ends Here-->
+<!--First Graph Ends Here-->
+
+<!--Left Course List-->
+<div class="row" *ngIf="(show_second_graph || showAccordion) && !show_first_graph">
+  <div class="mx-0 col-md-2 leftPane d-none d-md-block d-lg-block">
+    <div class="mat-body-2">{{labels.course_list}}</div>
+    <mat-card id="sortBox" class="my-3 basicborder">
+      <mat-card-title class="mb-0">
+        <div class="mat-caption text-success mb-0"><i>{{labels.sortby}}</i></div>
+      </mat-card-title>
+      <mat-radio-group value="1">
+        <mat-radio-button class="mat-small maintext " name="sorttype" value="1" [disabled]="isDisabled"
+          (click)="this.cname='false';this.avg='true';this.fname='false';sortfunc()" [checked]="true">{{labels.avCoAtn}}
+        </mat-radio-button><br>
+        <mat-radio-button class="mat-small maintext" name="sorttype" value="2" [disabled]="isDisabled"
+          (click)="this.cname='true';this.avg='false';this.fname='false';sortfunc()">{{labels.courseCode}}
+        </mat-radio-button>
+        <mat-radio-button class="mat-small maintext " name="sorttype" value="3" [disabled]="isDisabled"
+          (click)="this.cname='false';this.avg='false';this.fname='true';sortfunc()"
+          *ngIf="role=='HOD'||role=='PRINCIPAL'">{{labels.faName}}
+        </mat-radio-button>
+      </mat-radio-group>
+    </mat-card>
+    <div class="row mb-3 pl-2 pr-0 col-md-12">
+      <div class="mat-caption col-md-6 text-success pl-2">
+        <i>{{labels.noentry}}</i>
+        <mat-select class="basicborder text-center" value="1" [disabled]="isDisabled">
+          <mat-option class="mat-small maintext text-center" value="1">{{labels.one10}}</mat-option>
+          <mat-option class="mat-small maintext text-center" value="2">{{labels.ten20}}</mat-option>
+          <mat-option class="mat-small maintext text-center" value="3">{{labels.twenty30}}</mat-option>
+        </mat-select>
+        <mat-divider vertical></mat-divider>
+      </div>
+
+      <div class="col-md-5 pl-0">
+        <mat-radio-group value="1">
+          <mat-radio-button role="button" class="mat-small" name="sortorder" value="1" [disabled]="isDisabled"
+            (click)="this.reverse='true';sortfunc()" [checked]="true">
+            {{labels.Desc}}
+          </mat-radio-button><br>
+          <mat-radio-button class="mat-small" role="button" name="sortorder" value="2" [disabled]="isDisabled"
+            (click)="this.reverse='false';sortfunc()">
+            {{labels.Asc}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+
+    <div class="faculty_cards">
+      <mat-button-toggle-group class="px-1 fullwidth noborder togglegroup" vertical>
+        <div *ngFor="let sub of test_co_details;let i = index">
+          <button class="button maintext f14 basicborder mb-1 active"
+            *ngIf="!(sub.courseCode==this.courseCode && sub.section == this.SelectedSection)"
+            (click)="displayChart=!displayChart;courseSelect(i,sub)" [disabled]="isDisabled">
+            <p class="mat-small"> {{sub.courseName|titlecase}} ({{sub.courseCode}})<br> Semester {{sub.termNumber}} -
+              Section
+              {{sub.section}}
+              <span *ngIf="this.role!=='FACULTY'"><br>{{sub.facultyName|titlecase}}</span></p>
+          </button>
+          <button class="button maintext f14 checked-button mb-1 active"
+            *ngIf="sub.courseCode==this.courseCode && sub.section == this.SelectedSection"
+            (click)="displayChart=!displayChart;courseSelect(i,sub);" [disabled]="isDisabled">
+            <p class="mat-small"> {{sub.courseName|titlecase}} ({{sub.courseCode}})<br> Semester {{sub.termNumber}} -
+              Section
+              {{sub.section}}
+              <span *ngIf="this.role!=='FACULTY'"><br>{{sub.facultyName|titlecase}}</span></p>
+          </button>
+        </div>
+      </mat-button-toggle-group>
+    </div>
+  </div>
+
+  <!--Left Course List Ends Here  -->
+
+  <!--second graph starts here-->
+  <div class="col-md-10 pl-2 pr-0 verticalLine d-none d-md-block d-lg-block" *ngIf="show_second_graph">
+
+    <span>
+      <div class="row px-0">
+        <div class="col-md-10">
+          <p class="text-center maintext page-title"><b>{{labels.chart2_head}} {{this.selected_courseName|titlecase}} -
+              {{this.courseCode}}</b>
+            <span *ngIf="this.role !=='FACULTY'"><b> | {{labels.faculty}}: {{this.faculty_name|titlecase}},
+                {{labels.empId}}: {{this.facultyId}}</b></span></p>
+
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-2 shadow mat-small maintext" *ngIf="data2 && isClicked && displayChart">
+        <div id="graph2" class="mat-small maintext responsive d-none d-md-block" google-chart
+          (select)="onSelect($event)" [data]="data2.dataTable" [chartType]="data2.chartType" [options]="data2.options">
+        </div>
+      </div>
+      <div class="col-md-12 fullwidth mb-2 shadow px-0 mat-small maintext" *ngIf="data2 && isClicked && !displayChart">
+        <div id="graph2" class="mat-small maintext responsive d-none d-md-block" google-chart
+          (select)="onSelect($event)" [data]="data2.dataTable" [chartType]="data2.chartType" [options]="data2.options">
+        </div>
+      </div>
+
+      <div class="col-md-12 px-0">
+        <mat-card class="shadow fullwidth">
+          <div class="maintext col-md-12 mb-2 py-1 co-details" *ngFor="let CO of this.selected_coDetails">
+            <span *ngIf="!(CO.coNumber == null)"><b>CO{{CO.coNumber}} : </b>{{CO.coTitle}}</span></div>
+        </mat-card>
+      </div>
+    </span>
+  </div>
+
+  <!--second graph ends here-->
+
+  <!--Accordian table-->
+
+  <div class="col-md-10 accordian-table verticalLine d-none d-lg-block">
+
+    <span *ngIf="showAccordion && data_table ">
+      <div class="row px-0 mb-3">
+        <div class="col-md-10 ">
+          <p class="text-center maintext page-title"><b>{{labels.chart2_head}} {{this.selected_courseName | titlecase}}
+              -
+              {{this.courseCode}} <br> ( Semester {{this.termNumber}} - Section
+              {{this.SelectedSection}})</b>
+            <span *ngIf="this.role !=='FACULTY'"><b> | Faculty : {{this.faculty_name|titlecase}},
+                Employee Id : {{this.facultyId}}</b></span>
+          </p>
+        </div>
+
+        <div class="col-md-2">
+          <button class="rubric-button" (click)="rubricsPopup()"><i class="far fa-eye"></i> View Rubrics</button>
+        </div>
+      </div>
+      <div class="table-scroll">
+        <mat-expansion-panel class="border1 px-0">
+          <mat-expansion-panel-header class=" py-0 greybackg border-bottom border-dark accordian-table"
+            [collapsedHeight]="'40px'" [expandedHeight]="'40px'">
+            <mat-panel-title class="col-md-11 maintext noborder">
+              Direct Attainment - Weightage ({{this.data_table['directAttainmentWeightage']}}%) :
+              {{this.data_table['directAttainment'].toFixed(2)}} &nbsp;&nbsp;|&nbsp;&nbsp; Attainment (out of 3) :
+              {{(this.data_table['directAttainment']*(0.6)).toFixed(2)}} &nbsp;&nbsp;|&nbsp;&nbsp; Attainment (out
+              of 100) :
+              {{(this.data_table['directAttainment']*20).toFixed(2)}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div class="p-0">
+            <mat-expansion-panel class="border1 mt-2 noborder "
+              *ngFor="let method of this.data_table['direct_attainment_details'];let i = index">
+              <mat-expansion-panel-header class="py-0 greybackg border-bottom border-dark accordian-table"
+                [collapsedHeight]="'40px'" [expandedHeight]="'40px'">
+                <mat-panel-title class="col-md-11 maintext">
+                  Method {{i+1}} Weightage ({{method['weightage']}}%) :
+                  {{method['attainment'].toFixed(2)}}&nbsp;&nbsp;
+                  |&nbsp;&nbsp;
+                  Description :
+                  {{method['methodName']}}&nbsp;&nbsp;| &nbsp;&nbsp;Attainment (out of 3) :
+                  {{method['attainment'].toFixed(2)}}
+                  &nbsp;&nbsp;|&nbsp;&nbsp; Attainment (out of 100) :
+                  {{(method['attainment']*(100/3)).toFixed(2)}}
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+
+              <div class="row px-0 mt-2 ">
+                <div class="col-md-12 mt-1 mx-0 border1"
+                  *ngFor="let details of method['method_details'] ; let ind = index">
+                  <div class="row fullwidth px-0 col-md-12 py-1">
+                    <div class="col-md-6 border-right border-dark py-1"><span class="float-right"
+                        *ngIf="details['methodName']!=null">{{method['methodName']}}</span><span class="float-right"
+                        *ngIf="details['methodName']==null">Internal# : {{ind+1}}</span> </div>
+                    <div class="col-md-6 py-1">Attainment % : {{(details['attainment']*(100/3)).toFixed(2)}}</div>
+                  </div>
+                  <hr class="p-0 my-0 fullwidth">
+                  <table class="table border1 data-table direct">
+                    <thead class="greybackg">
+                      <tr>
+                        <th scope="col">{{labels.method_col1}}</th>
+                        <th scope="col">{{labels.method_col2}}</th>
+                        <th scope="col">{{labels.method_col3}}</th>
+                        <th scope="col">{{labels.method_col4}}</th>
+                        <th scope="col">{{labels.method_col5_1}}<br>{{labels.method_col5_2}}</th>
+                        <th scope="col">{{labels.method_col5_1}}<br>{{labels.method_col6}}</th>
+                      </tr>
+                    </thead>
+                    <tbody *ngIf="details['questionLevelAttainment'] != null">
+                      <tr *ngFor="let q of details['questionLevelAttainment'];">
+                        <td>{{q['questionNumber']}}</td>
+                        <td>{{totalNumberOfStudents}}</td>
+                        <td>{{q['numberOfStudentsParticipated']}}</td>
+                        <td>{{q['numberOfTargetAttainedStudents']}}</td>
+                        <td>{{q['attainment'].toFixed(2)}}</td>
+                        <td>{{(q['attainment']*(100/3)).toFixed(2)}}</td>
+                      </tr>
+                    </tbody>
+                    <tbody *ngIf="details['questionLevelAttainment'] == null">
+                      <tr *ngFor="let details of method['method_details'];let i=index">
+                        <td>{{i+1}}</td>
+                        <td>{{totalNumberOfStudents}}</td>
+                        <td>{{details['numberOfStudentsParticipated']}}</td>
+                        <td>{{details['numberOfTargetAttainedStudents']}}</td>
+                        <td>{{details['attainment'].toFixed(2)}}</td>
+                        <td>{{(details['attainment']*(100/3)).toFixed(2)}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </mat-expansion-panel>
+          </div>
+        </mat-expansion-panel>
+
+        <div class="my-4"></div>
+
+        <mat-accordion class="px-0 mt-2">
+          <mat-expansion-panel class="border1 px-0 accordian-table">
+            <mat-expansion-panel-header class=" py-0 greybackg border-bottom border-dark accordian-table"
+              [collapsedHeight]="'40px'" [expandedHeight]="'40px'">
+              <mat-panel-title class="col-md-11 maintext">
+                Indirect Attainment - Weightage ({{this.data_table['indirectAttainmentWeightage']}}%) :
+                {{this.data_table['indirectAttainment'].toFixed(2)}} &nbsp;&nbsp;|&nbsp;&nbsp; Attainment (out of 3) :
+                {{(this.data_table['indirectAttainment']*(0.6)).toFixed(2)}} &nbsp;&nbsp;|&nbsp;&nbsp; Attainment
+                (out of 100) :
+                {{(this.data_table['indirectAttainment']*20).toFixed(2)}}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="p-0">
+              <mat-expansion-panel class="border1 mt-2 accordian-table"
+                *ngFor="let method of this.data_table['indirect_attainment_details'];let i = index">
+                <mat-expansion-panel-header class="py-0 greybackg border-bottom border-dark accordian-table"
+                  [collapsedHeight]="'40px'" [expandedHeight]="'40px'">
+                  <mat-panel-title class="col-md-11 maintext">
+                    Method {{i+1}} Weightage ({{method['weightage']}}%) :
+                    {{method['attainment'].toFixed(2)}}&nbsp;&nbsp;
+                    |&nbsp;&nbsp;
+                    Description :
+                    {{method['methodName']}}&nbsp;&nbsp;| &nbsp;&nbsp;Attainment (out of 3) :
+                    {{method['attainment'].toFixed(2)}}
+                    &nbsp;&nbsp;|&nbsp;&nbsp; Attainment (out of 100) :
+                    {{(method['attainment']*(100/3)).toFixed(2)}}
+                  </mat-panel-title>
+
+                </mat-expansion-panel-header>
+
+                <div class="py-2">
+                  <table class="table border1 indirect">
+                    <thead class="greybackg">
+                      <tr>
+                        <th scope="col">{{labels.method_col2}}</th>
+                        <th scope="col">{{labels.method_col7}}</th>
+                        <th scope="col">{{labels.method_col8}}</th>
+                        <th scope="col">{{labels.method_col5_1}}<br>{{labels.method_col5_2}}</th>
+                        <th scope="col">{{labels.method_col5_1}}<br>{{labels.method_col6}}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let method of this.data_table['indirect_attainment_details']">
+                        <td>{{totalNumberOfStudents}}</td>
+                        <td>{{method['noOfStudentsGivenFeedback']}}</td>
+                        <td>{{method['percentageOfFeedback']}}</td>
+                        <td>{{method['attainment']}}</td>
+                        <td>{{method['attainmentPercentage']}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </mat-expansion-panel>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </span>
+  </div>
+</div>
+<!--Accordian table ends here-->
+
+<!--RWD Course List Starts here-->
+<div class="row d-lg-none" *ngIf="(show_second_graph || showAccordion) && !show_first_graph">
+  <div class="rwd_course_box">
+    <h6 class="course-list-header">{{labels.course_list}}</h6>
+    <mat-card id="sortBox" class="my-3 basicborder">
+      <mat-card-title class="mb-0">
+        <div class="mat-caption text-success mb-0"><i>{{labels.sortby}}</i></div>
+      </mat-card-title>
+      <mat-radio-group class="row rwd_row" value="1">
+        <mat-radio-button class="mat-small maintext " name="sorttype" value="1" [disabled]="isDisabled"
+          (click)="this.cname='false';this.avg='true';this.fname='false';sortfunc()" [checked]="true">{{labels.avCoAtn}}
+        </mat-radio-button><br>
+        <mat-radio-button class="mat-small maintext " name="sorttype" value="2" [disabled]="isDisabled"
+          (click)="this.cname='true';this.avg='false';this.fname='false';sortfunc()">{{labels.courseCode}}
+        </mat-radio-button>
+        <mat-radio-button class="mat-small maintext " name="sorttype" value="3" [disabled]="isDisabled"
+          (click)="this.cname='false';this.avg='false';this.fname='true';sortfunc()"
+          *ngIf="role=='HOD'||role=='PRINCIPAL'">{{labels.faName}}
+        </mat-radio-button>
+      </mat-radio-group>
+
+    </mat-card>
+
+    <mat-radio-group class="row rwd_row high-low" value="1">
+      <mat-radio-button role="button" class="mat-small col-xs-6" name="sortorder" value="1" [disabled]="isDisabled"
+        (click)="this.reverse='true';sortfunc()" [checked]="true">
+        {{labels.Desc}}
+      </mat-radio-button><br>
+      <mat-radio-button class="mat-small col-xs-6" role="button" name="sortorder" value="2" [disabled]="isDisabled"
+        (click)="this.reverse='false';sortfunc()">
+        {{labels.Asc}}
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+</div>
+<!--RWD Course List Ends here-->
+
+<!--RWD Graph with Faculty cards starts here-->
+<div class="faculty-panel d-lg-none" *ngIf="show_second_graph && !show_first_graph">
+  <div *ngFor="let subject of this.test_co_details;let i = index">
+    <div class="d-lg-none row rwd-Header" *ngIf="show_second_graph && !show_first_graph">
+      <i class="fa fa-book"></i>
+      <p>{{subject.courseName | titlecase}}</p><br>
+      <p>{{subject.courseCode}}</p>
+    </div>
+    <mat-card>
+      <mat-card-content>
+        <p class="maintext" *ngIf="this.role != 'FACULTY'">Faculty & Employee Id : {{subject.facultyName | titlecase}}
+          (subject.facultyId)</p>
+        <div *ngFor="let co of subject['co_details'];">
+          <mat-expansion-panel
+            *ngIf="co.coNumber != null && this.courseCode != subject['courseCode'] && this.SelectedSection != subject['section']">
+            <mat-expansion-panel-header>
+              <mat-panel-title class="font-correct">
+                CO{{co.coNumber}}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <div *ngIf="co.coNumber != null && rwd_second_chartdata">
+              <mat-card class="shadow fullwidth">
+                <div id="col1" google-chart (select)="onSelect_rwd($event,subject);"
+                  [data]="rwd_second_chartdata.dataTable[i][co['coNumber']-1]"
+                  [chartType]="rwd_second_chartdata.chartType" [options]="rwd_second_chartdata.options">
+                </div>
+              </mat-card>
+
+              <mat-card class="shadow fullwidth">
+                <div class="maintext col-md-12 mb-2 py-1 co-details">
+                  <span><b>CO{{co.coNumber}} : </b>{{co.coTitle}}</span></div>
+              </mat-card>
+            </div>
+
+
+          </mat-expansion-panel>
+
+          <mat-expansion-panel
+            *ngIf="co.coNumber != null && this.courseCode == subject['courseCode'] && this.SelectedSection == subject['section']"
+            [expanded]="isExpanded && co.coNumber == this.selectedCO">
+            <mat-expansion-panel-header>
+              <mat-panel-title class="font-correct">
+                CO{{co.coNumber}}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <div *ngIf="co.coNumber != null && rwd_second_chartdata">
+              <mat-card class="shadow fullwidth">
+                <div id="col1" google-chart (select)="onSelect_rwd($event,subject);"
+                  [data]="rwd_second_chartdata.dataTable[i][co['coNumber']-1]"
+                  [chartType]="rwd_second_chartdata.chartType" [options]="rwd_second_chartdata.options">
+                </div>
+              </mat-card>
+
+              <mat-card class="shadow fullwidth">
+                <div class="maintext col-md-12 mb-2 py-1 co-details">
+                  <span><b>CO{{co.coNumber}} : </b>{{co.coTitle}}</span></div>
+              </mat-card>
+            </div>
+
+
+          </mat-expansion-panel>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+<!--RWD Graph with Faculty cards ends here-->
+
+<!-- RWD data table -->
+<br>
+
+<div class="d-lg-none rwd-data-head" *ngIf ="showAccordion" >
+  <span>
+    <p><b>CO{{this.selectedCO}} Attainment Details</b></p>
+  </span>
+</div> 
+
+<div class="greybackg d-lg-none row rwd-header" *ngIf="showAccordion">
+  <i class="fa fa-book"></i>
+  <p>{{this.selected_courseName | titlecase}}
+    <!--(Semester {{this.termNumber}} - Section
+    {{this.SelectedSection}})-->
+  </p>
+</div>
+
+<mat-card class="example-card d-lg-none" *ngIf="showAccordion">
+  <mat-card-content>
+    <div class="rwd-rubrics">
+      <button class="rubric-button" (click)="rwdRubricsPopup()"><i class="far fa-eye"></i> View Rubrics</button>
+    </div>
+    <div class="row">
+      <button class="button_collapse collapsed coList" type="button" data-toggle="collapse" data-target="#collapseOne"
+        aria-expanded="false" aria-controls="collapseOne"><b>Direct Attainment <br>Weightage
+        ({{this.data_table['directAttainmentWeightage']}}%) :
+        {{this.data_table['directAttainment'].toFixed(2)}}</b></button>
+    </div>
+
+    <div class="collapse multi-collapse" id="collapseOne">
+      <p class="attainment"><b>Attainment (out of 3) :
+        </b>{{(this.data_table['directAttainment']*(0.6)).toFixed(2)}}<br>
+        <b>Attainment (out of 100) : </b>{{(this.data_table['directAttainment']*20).toFixed(2)}}</p>
+      <mat-card>
+        <div *ngFor="let method of this.data_table['direct_attainment_details'];let i = index">
+
+          <mat-card-title class="card-title">
+            <b>Method {{i+1}} Weightage ({{method['weightage']}}%) :</b> {{method['attainment'].toFixed(2)}}<br>
+            <b>Description :</b> {{method['methodName']}}<br>
+            <b>Attainment (out of 3) :</b> {{method['attainment'].toFixed(2)}}<br><b>Attainment (out of 100) :</b>
+            {{(method['attainment']*(100/3)).toFixed(2)}}
+          </mat-card-title>
+          <hr>
+          <mat-card-content *ngFor="let details of method['method_details'] ; let ind = index">
+            <div class="table-responsive">
+              <table class="table border1 rwd-table">
+                <thead class="greybackg">
+                  <tr>
+                    <th colspan="3">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <span *ngIf="details['methodName']!=null">{{method['methodName']}}</span>
+                      <span *ngIf="details['methodName']==null">Internal# : {{ind+1}}</span>&nbsp; | &nbsp;
+                      <span>Attainment % : {{(details['attainment']*(100/3)).toFixed(2)}}</span>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th scope="col">{{labels.method_col1}}</th>
+                    <th scope="col">{{labels.method_col5_1}}<br>{{labels.method_col5_2}}</th>
+                    <th scope="col">{{labels.method_col5_1}}<br>{{labels.method_col6}}</th>
+                  </tr>
+                </thead>
+                <ng-template #IA>
+                  <tbody *ngFor="let q of details['questionLevelAttainment'];let ilg = index">
+                    <tr>
+                      <td>
+                        <a class="accordian-toggle collapsed p-2" id="accordian1{{ilg}}" data-toggle="collapse"
+                          [attr.data-target]="'#details1'+ilg">{{ilg+1}}
+                        </a>
+                      </td>
+                      <td>{{q['attainment'].toFixed(2)}}</td>
+                      <td>{{(q['attainment']*(100/3)).toFixed(2)}}</td>
+                    </tr>
+                    <tr class="hiddenRow" id="tr1{{ilg}}">
+                      <td colspan="6">
+                        <div id="details1{{ilg}}" class="collapse">
+                          <b>{{labels.method_col2}} : </b><span>{{totalNumberOfStudents}}</span><br>
+                          <b>{{labels.method_col3}} : </b><span>{{q['numberOfStudentsParticipated']}}</span><br>
+                          <b>{{labels.method_col4}} : </b><span>{{q['numberOfTargetAttainedStudents']}}</span>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </ng-template>
+                <tbody *ngIf="details['questionLevelAttainment'] == null; else IA"></tbody>
+
+                <ng-template #other>
+                  <tbody *ngFor="let details of method['method_details'];let ilg = index">
+                    <tr>
+                      <td>
+                        <a class="accordian-toggle collapsed p-2" id="accordian2{{ilg}}{{i}}" data-toggle="collapse"
+                          [attr.data-target]="'#details2'+ilg+i">{{ilg+1}}
+                        </a>
+                      </td>
+                      <td>{{details['attainment'].toFixed(2)}}</td>
+                      <td>{{(details['attainment']*(100/3)).toFixed(2)}}</td>
+                    </tr>
+                    <tr class="hiddenRow" id="tr2{{ilg}}{{i}}">
+                      <td colspan="6">
+                        <div id="details2{{ilg}}{{i}}" class="collapse">
+                          <b>{{labels.method_col2}} : </b><span>{{totalNumberOfStudents}}</span><br>
+                          <b>{{labels.method_col3}} : </b><span>{{details['numberOfStudentsParticipated']}}</span><br>
+                          <b>{{labels.method_col4}} : </b><span>{{details['numberOfTargetAttainedStudents']}}</span>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </ng-template>
+                <tbody *ngIf="details['questionLevelAttainment'] != null; else other"></tbody>
+              </table>
+            </div>
+          </mat-card-content>
+          <hr>
+        </div>
+      </mat-card>
+    </div>
+  </mat-card-content>
+
+  <mat-card-content>
+    <div class="row">
+      <button class="button_collapse collapsed coList" type="button" data-toggle="collapse" data-target="#collapseTwo"
+        aria-expanded="false" aria-controls="collapseTwo"><b>Inirect Attainment <br>Weightage
+        ({{this.data_table['indirectAttainmentWeightage']}}%) :
+        {{this.data_table['indirectAttainment'].toFixed(2)}}</b></button>
+    </div>
+
+    <div class="collapse multi-collapse" id="collapseTwo">
+      <p class="attainment"><b>Attainment (out of 3) :
+        </b>{{(this.data_table['indirectAttainment']*(0.6)).toFixed(2)}}<br>
+        <b>Attainment (out of 100) : </b>{{(this.data_table['indirectAttainment']*20).toFixed(2)}}</p>
+
+      <mat-card>
+        <div *ngFor="let method of this.data_table['indirect_attainment_details'];let i = index">
+          <mat-card-title class="card-title">
+            <b>Method {{i+1}} Weightage ({{method['weightage']}}%) :</b> {{method['attainment'].toFixed(2)}}<br>
+            <b>Description :</b> {{method['methodName']}}<br>
+            <b>Attainment (out of 3) :</b> {{method['attainment'].toFixed(2)}}<br><b>Attainment (out of 100) :</b>
+            {{(method['attainment']*(100/3)).toFixed(2)}}
+          </mat-card-title>
+          <hr>
+          <mat-card-content>
+            <table class="table border1 rwd-table">
+              <thead class="greybackg indirect">
+                <tr>
+                  <th scope="col">{{labels.method_col2}}</th>
+                  <th scope="col">{{labels.method_col5_1}}<br>{{labels.method_col5_2}}</th>
+                  <th scope="col">{{labels.method_col5_1}}<br>{{labels.method_col6}}</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let method of this.data_table['indirect_attainment_details']">
+                <tr>
+                  <td>
+                    <a class="accordian-toggle collapsed p-2" id="accordian{{i}}" data-toggle="collapse"
+                      [attr.data-target]="'#details'+i">{{totalNumberOfStudents}}
+                    </a>
+                  </td>
+                  <td>{{method['attainment']}}</td>
+                  <td>{{method['attainmentPercentage']}}</td>
+                </tr>
+                <tr class="hiddenRow" id="tr{{i}}">
+                  <td colspan="6">
+                    <div id="details{{i}}" class="collapse">
+                      <b>{{labels.method_col7}} : </b><span>{{method['noOfStudentsGivenFeedback']}}</span><br>
+                      <b>{{labels.method_col8}} : </b><span>{{method['percentageOfFeedback']}}</span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </mat-card-content>
+        </div>
+      </mat-card>
+    </div>
+  </mat-card-content>
+
+</mat-card>
+
+<!-- RWD data table ends here -->

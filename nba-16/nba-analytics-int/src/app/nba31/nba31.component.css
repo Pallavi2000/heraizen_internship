@@ -1,0 +1,317 @@
+ol.breadcrumb li + li:before {
+    padding-right: 0px;
+  }
+  ol.breadcrumb li a:hover {
+    color: #b29689;
+    text-decoration: underline;
+  }
+  .selection_label {
+    font-size: 85%;
+    font-weight: 600;
+    color: rgb(37, 119, 73);
+  }
+  .under_line {
+    border-bottom: 1.5px solid #ccccd4;
+  }
+  .vertical_line {
+    margin-left: 15px;
+    border-right: 1.5px solid #ccccd4;
+  }
+  button {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    font-size: 14px !important;
+  }
+  button:disabled {
+      opacity: 0.5;
+  }
+  .search_button {
+    padding-left: 30px;
+    padding-top: 7px;
+  }
+  .mandatory {
+    margin-top: 10px;
+    margin-left: 0px;
+    font-size: x-small;
+    font-weight: 600;
+  }
+  .horzline {
+    border-top: 2px solid lightgray;
+    margin-top: 10px;
+    margin-right: 1px;
+    margin-left: 1px;
+    margin-bottom: 20px;
+  }
+
+.example-card{
+    width:250px;
+    height:85px;
+    margin-left: 10px;
+
+}
+.col-lg-6{
+    background-color: black;
+}
+th,
+td {
+  border: 2px solid lightgray;
+  font-family: Lato !important;
+}
+#table1 th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  font-family: Lato !important;
+  background-color: lightgray;
+  color: #00303f;
+}
+
+.table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > td,
+.table-bordered > tfoot > tr > td {
+  border: 1px solid gray;
+}
+.responsive {
+    width: 100%;
+  }
+  .basicborder {
+    border: 2px solid #979797;
+    border-radius: 5px;
+    border-bottom: 1px solid black;
+  }
+  .nowrap {
+    white-space: nowrap;
+    /* font-size: 14px; */
+    font-family: Lato !important;
+  }
+.div1{
+    width: 80px;
+    height: 82px;
+    border: 1px #08899e;
+    margin-bottom: 0px;
+    bottom: 0px;
+    position: absolute;
+    left: 0px;
+    background: #08899e;
+
+
+}
+
+.div2{
+    width: 80px;
+    height: 82px;
+    border: 1px #c19f81;
+    margin-bottom: 0px;
+    bottom: 0px;
+    position: absolute;
+    left: 0px;
+    background: #c19f81;
+
+}
+
+.div3{
+    width: 80px;
+    height: 82px;
+    border: 1px #6c648b;
+    margin-bottom: 0px;
+    bottom: 0px;
+    position: absolute;
+    left: 0px;
+    background: #6c648b;
+
+}
+
+
+.div4{
+    width: 80px;
+    height: 82px;
+    border: 1px #3d9970;
+    margin-bottom: 0px;
+    bottom: 0px;
+    position: absolute;
+    left: 0px;
+    background: #3d9970;
+
+}
+
+
+.div5{
+    width: 80px;
+    height: 82px;
+    border: 1px #af473c;
+    margin-bottom: 0px;
+    bottom: 0px;
+    position: absolute;
+    left: 0px;
+    background: #af473c;
+
+}
+
+
+
+.div22{
+    position: absolute;
+    left: 28px;
+    top: 28px;
+    
+
+}
+
+.div11{
+    position: absolute;
+    left: 28px;
+    top: 28px;
+    
+
+}
+
+.container{
+    margin-left: 70px;
+    margin-top: 2px;
+    font-size: 11px;
+    text-align: center;
+}
+
+.left-card1{
+    /* width: 320px;
+    height: 180px;
+    margin-left: 0px; */
+    background: #eee2e6;
+}
+
+.left-card2{
+    width: 320px;
+    height: 70px;
+    margin-left: 0px;
+    background: #e8e4de;
+    margin-top: 10px;
+}
+
+.left-card3{
+    width: 320px;
+    height: 70px;
+    margin-left: 0px;
+    background: #b8d4d7;
+    margin-top: 10px;
+}
+
+
+.left-card4{
+    width: 320px;
+    height: 70px;
+    margin-left: 0px;
+    background: #bedfe5;
+    margin-top: 10px;
+}
+
+.left-card5{
+    width: 320px;
+    height: 70px;
+    margin-left: 0px;
+    background: #eee2e6;
+    margin-top: 10px;
+}
+
+.col-sm-4{
+    margin-left: 0px;
+    position: absolute;
+    left: 230px;
+}
+
+.dot {
+    height: 40px;
+    width: 40px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    box-shadow: 0 0 9 5px #000000;
+      }
+
+.text{
+    position: absolute;
+    left: 14px;
+    bottom: 9px;
+}
+
+.cardTxt{
+
+    position: absolute;
+    left: 60px;
+    font-size: 12px;
+}
+
+.cardTxtC{
+    position: absolute;
+    left: 60px;
+    font-size: 12px;
+    top: 25px;
+}
+
+.col-md-12{
+    left: 70px;
+    top: 0px;
+    font-size: 11px;
+}
+
+
+
+.icon{
+    font-size: 20px;
+    margin: 65% 0%;
+    
+}
+
+.card{
+    height: 82px;
+}
+
+.lead{
+    position: absolute;
+    left: 100px;
+    top: 10px;
+}
+
+.lead1{
+    position: absolute;
+    left: 100px;
+    bottom: 0px;
+    top: 10px;
+}
+
+.lead2{
+    position: absolute;
+    left: 100px;
+    bottom: 5px;
+    top: -7px;
+}
+
+
+
+
+mat-card{
+    box-shadow: none !important;
+}
+.mat-card-subtitle{
+    text-align: center;
+    font-size: 1.5em !important;
+    font-family: Lato !important;
+    font-weight: 550 !important;
+}
+
+.chartdiv{
+    display: block !important;
+    visibility: visible !important;
+}
+
+.D{
+    position: absolute;
+    left:260px;
+    top: 0px;
+}
+
+

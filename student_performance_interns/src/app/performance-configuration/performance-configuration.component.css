@@ -1,0 +1,136 @@
+body{
+  overflow: hidden;
+}
+
+
+.container .col-sm-3{
+  width: 270px;
+  height: 200px;
+  float:left;
+  background-color: white;
+  margin:3px;  
+  box-shadow:0px 0px 10px rgba(0,0,0,0.3);
+  border: 1px;
+
+}
+p{
+    text-align: center;
+    font-size: 13px;
+}
+#large{
+    text-align:centre;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    color: blue;
+}
+
+#icon{
+  text-align: right;
+}
+
+.academic{
+  background-color: white;
+}
+
+.skills{
+  background-color: white;
+}
+
+#inner{
+  color: maroon;
+}
+
+.innerTabs .lab{
+  background-color: #F0FFF0	;
+  overflow: hidden;
+  margin:20px;
+  border:1px;
+  border-radius: 2px;
+}
+
+.innerTabs .theory{
+  background-color: #F0FFF0	;
+  overflow: hidden;
+  margin:20px;
+  border:1px;
+  border-radius: 2px;
+}
+
+#total{
+  text-align: right;
+}
+
+.semi-card{
+  height:35px;
+  width:20%;
+  border-top-left-radius: 30px;
+  border-top-right-radius:30px;
+  text-align: center;
+  border-color: black;
+  outline:none;
+}
+
+.academic .corporate .button{
+  float:right;
+  border: none;
+}
+
+.btn_click{
+  border-collapse: collapse;
+  border-color: transparent;
+  color:black;
+  size:40px;
+  background-color: lightgray;
+  outline: none;
+  float: right;
+}
+
+.color{
+  background-color: rgb(253, 253, 253);
+  border: 1px solid rgb(116, 114, 114);
+  color:black;
+}
+
+input[type="text"]{
+  width: 60px;
+  height:17px;
+  background-color:#F0FFF0 ;
+  border:1px solid;
+}
+
+.button{
+  float: right;
+  background-color: blueviolet;
+}
+
+.col-sm-8 input[type="text"]{
+  width: 300px;
+  height:17px;
+  background-color:#F0FFF0 ;
+  border:1px solid;
+}
+
+.col-sm-5 input[type="text"]{
+  width: 200px;
+  height:17px;
+  background-color:#F0FFF0 ;
+  border:1px solid;
+}
+
+.academic .corporate{
+  background-color:lightgray;
+  margin:20px;
+  height: 30px;
+}
+
+.academic .committe{
+  margin: 20px;
+}
+.fa-arrow-down{
+  float: right;
+  margin-top: 6px;
+}
+
+.submit-button{
+  float: right; 
+}

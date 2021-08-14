@@ -1,0 +1,99 @@
+<div class="d-none d-lg-block">
+    <h2 mat-dialog-title class="heading">
+        Rubrics<i class="fa fa-close close" mat-dialog-close></i>
+    </h2>
+    <p class="maintext"><b>{{data.comp.courseName | titlecase}} - {{data.comp.courseCode}}</b></p>
+    <div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>SI.#</th>
+                    <th class="mr-30">Method Name</th>
+                    <th>Method Type</th>
+                    <th>Target</th>
+                    <th>Rubrics</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let method of all_methods;let i = index;">
+                    <td>
+                        {{i+1}}
+                    </td>
+                    <td>
+                        {{method.methodName}}
+                    </td>
+                    <td>
+                        {{method.methodType}}
+                    </td>
+                    <td>
+                        {{method.target}}
+                    </td>
+                    <td *ngIf="method['methodRules']">
+                <tr>
+                    {{method['methodRules'].rules1}}
+                </tr>
+                <tr>
+                    {{method['methodRules'].rules2}}
+                </tr>
+                <tr>
+                    {{method['methodRules'].rules3}}
+                </tr>
+                </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <button class="ok-button" color="primary" (click)="close_popOut()" mat-flat-button mat-dialog-close>
+        <mat-icon>thumb_up</mat-icon>Ok
+    </button>
+</div>
+
+<div class="d-lg-none">
+    <h2 mat-dialog-title class="rwd-heading">
+        Rubrics<i class="fa fa-close close" mat-dialog-close></i>
+    </h2>
+    <p class="maintext"><b>{{data.comp.courseName | titlecase}}</b></p>
+    <p class = "maintext"><b>{{data.comp.courseCode}}</b></p>
+    <div>
+        <table class="table-responsive table-bordered">
+            <thead>
+                <tr>
+                    <th>SI.#</th>
+                    <th class="mr-30">Method Name</th>
+                    <th>Method Type</th>
+                    <th>Target</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let method of all_methods;let i = index;">
+                <tr>
+                    <td>
+                        <a class="accordian-toggle collapsed p-2" id="accordian{{i}}" data-toggle="collapse"
+                            [attr.data-target]="'#details'+i">{{i+1}}
+                        </a>
+                    </td>
+                    <td>
+                        {{method.methodName}}
+                    </td>
+                    <td>
+                        {{method.methodType}}
+                    </td>
+                    <td>
+                        {{method.target}}
+                    </td>
+                </tr>
+                <tr class="hiddenRow" id="tr{{i}}">
+                    <td colspan="8">
+                        <div id="details{{i}}" class="collapse">
+                            <span>{{method['methodRules'].rules1}}</span><br>
+                            <span>{{method['methodRules'].rules2}}</span><br>
+                            <span>{{method['methodRules'].rules3}}</span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <button class="rwd_ok-button" color="primary" (click)="close_popOut()" mat-flat-button mat-dialog-close>
+        <mat-icon>thumb_up</mat-icon>Ok
+    </button>
+</div>

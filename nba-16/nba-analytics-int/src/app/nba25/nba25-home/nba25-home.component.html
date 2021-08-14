@@ -1,0 +1,73 @@
+<form [formGroup]="searchBar" (submit)="searchClick()">
+    <div class="row">
+        <!--drop down for acad year-->
+        <div class="displayOnShrink col-md-2">
+            <mat-label class="AcademivYear_label text-success">{{analyticsObj.academic_year}}</mat-label>
+            <mat-select            
+                disableOptionCentering 
+                (selectionChange)="filter1($event); clicked = false"
+                [(ngModel)]="current_AcadYear" 
+                class="inputMaterial" 
+                formControlName="year">
+                <mat-option *ngFor="let year of acadYears" [value]="year">
+                    {{year}}
+                </mat-option>
+            </mat-select>
+        </div>
+
+        <!--drop down for semester-->
+        <div class="displayOnShrink col-md-2">
+            <mat-label class="Term_label text-success">{{analyticsObj.term}}</mat-label>
+            <mat-select 
+            disableOptionCentering 
+            [formControl]="termsList" 
+            (selectionChange)="filter2($event); clicked = false" 
+            class="inputMaterial" 
+            multiple 
+            formControlName='term'>
+                <mat-option *ngFor="let term of terms" [value]='term'>{{term}}</mat-option>
+            </mat-select>
+        </div>
+
+        <!--drop down for departments if principal logins-->
+        <div class="col-md-2  displayOnShrink" *ngIf="isPrincipal" >
+            <mat-label class="text-success">{{analyticsObj.department}}</mat-label>
+            <mat-select 
+            disableOptionCentering 
+            (selectionChange)="filter3($event); clicked = false"
+            class="inputMaterial" 
+            formControlName="course">
+                <mat-option *ngFor="let dept of departments" [value]="dept">
+                    {{dept}}
+                </mat-option>
+            </mat-select>
+        </div>
+
+        <!--Searcyh button for large as well as small screens-->
+        <div class="col-md-2 verticalLine pl-5 ml-4 d-none d-md-block">
+            <button class="displayOnShrinkButton other-button" (click)="averageCo = true" [disabled]="clicked">
+                <i class='fa fa-search'></i>Search</button>
+        </div>
+        <div class="col-md-2 verticalLine pl-5 ml-4 d-md-none d-sm-block">
+            <button class="displayOnShrinkButton other-button" (click)="averageCoCourseWise = true" [disabled]="clicked">
+                <i class='fa fa-search'></i>Search</button>
+        </div>
+    </div>
+</form>
+
+<!--horizonatal line-->
+<hr class="displayOnShrinkLine" />
+
+<div [ngClass]="{'hideText' : clicked}" class="text-center displayOnShrinkText mat-body-2 mt-5">
+    <div class="text-center"> Please select values from dropdowns and click on "Search" button to get data</div>
+</div>
+
+<ng-container *ngIf="clicked">
+    <app-nba25-graph 
+    [averageCo] = averageCo
+    [current_AcadYear]="current_AcadYear" 
+    [current_terms]="current_terms"
+    [current_department]="current_department"
+    >
+    </app-nba25-graph>
+</ng-container>

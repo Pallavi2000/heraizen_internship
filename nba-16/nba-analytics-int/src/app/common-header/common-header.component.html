@@ -1,0 +1,58 @@
+<div>
+    <header class="main-header">
+            <a >
+            <img src="assets/images/heraizen_logo.png" class="logo" />
+        </a>
+        <!-- Logo -->
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-fixed-top" style="height:50px !important;">
+            <a href="#" class="sidebar-toggle" data-toggle="control-sidebar" role="button" (click)="resize()">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            <div class="navbar-custom-menu" class=" float:left"  >
+                    <ul id="sidebar-list" class="nav navbar-nav">
+            <!-- <ul class="nav navbar-nav pull-right"> -->
+                <!-- <li>
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle align-btn-css" type="button"
+                            data-toggle="dropdown">
+                            <span *ngIf="currentRole === 'FACULTY'">Faculty</span>
+                        </button>
+                        <ul class="dropdown-menu align-ul-css">
+                            <li *ngFor="let role of roles;let i =index" class="css-roles">
+                                <button class="
+                                btn btn-primary role-switch-btn align-btn" [ngClass]="{'role-switch-btn-select':
+                                  role.roleName === currentRole}" (click)="changeRole(role.roleName)">
+                                    <span *ngIf="role.roleName === 'FACULTY'">Faculty</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </li> -->
+            </ul>
+            <!-- <div class="navbar-custom-menu" style="height:50px !important">
+                <ul id="sidebar-list" class="nav navbar-nav ">
+                    <li class="dropdown messages-menu">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-gears"></i>
+                        </a>
+                        <ul class="dropdown-menu" style="width: 140px;">
+                            <li>
+                                <ul class="menu logout-cursor">
+                                    <li>
+                                        <a data-target="#changepasswordModal" data-toggle="modal"
+                                            class="change-password logout-font"><i class="fa fa-lock"
+                                                aria-hidden="true"></i> Change Password </a>
+                                    </li>
+                                    <li (click)="logout()">
+                                        <a class="logout-font"> <i class="fa fa-sign-out"></i> Logout
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul> -->
+            </div> 
+        </nav>
+    </header>
+</div>

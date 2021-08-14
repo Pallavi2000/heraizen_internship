@@ -1,0 +1,396 @@
+<!-- Divyansh's Part -->
+<div>
+    <div class="row">
+        <div class="col-md-11">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                    <a href="#" style="padding-left: 4px; padding-right: 4px;">{{obj.analytics}}</a>
+                </li>
+                <li class="active breadcrumb-item" style="padding-left: 0px;">{{obj.nba31}}
+                </li>
+            </ol>
+        </div>
+        <div class="col-md-1" *ngIf="show_bar_graph && is_data_available">
+            <span (click)="backfunction()">
+                <i class="fa fa-chevron-left"> </i>
+                Back
+              </span>
+        </div>
+    </div>
+    <form [formGroup]="sel_data" (ngSubmit)="Click_on_search()">
+        <div class="row">
+            <div class="col-2">
+                <mat-label class="selection_label">{{ obj.academic_year }}<em>*</em></mat-label>
+                <mat-select class="under_line" (selectionChange)="useSearchAgain()" [disabled]="show_bar_graph && is_data_available" disableOptionCentering formControlName="year">
+                    <mat-option *ngFor="let year of academic_year_array" [value]="year">{{ year }}</mat-option>
+                </mat-select>
+            </div>
+            <div class="col-2">
+                <mat-label class="selection_label">{{ obj.department }}<em>*</em></mat-label>
+                <mat-select class="under_line" (selectionChange)="useSearchAgain()" [disabled]="show_bar_graph && is_data_available" disableOptionCentering formControlName="dept">
+                    <mat-option *ngFor="let dept of department_array" [value]="dept">{{ dept }}</mat-option>
+                </mat-select>
+            </div>
+
+            <div class="vertical_line"></div>
+
+            <div class="col-2 search_button">
+                <button type="submit" class="other-button" [disabled]="clicked">
+                    <i class="fa fa-search"></i> {{ obj.search }}
+                </button>
+            </div>
+        </div>
+    </form>
+    <div class="row mandatory"><em>*</em>{{ obj.fields }}</div>
+    <div class="row horzline"></div>
+
+    <div class="text-center mt-5" *ngIf="!clicked && no_data_available && !show_bar_graph">{{ obj.default_message }}</div>
+    
+    <div class="text-center mt-5" *ngIf="!no_data_available">{{ obj.emptyMessage }}</div>
+</div>
+<!-- Divyansh's Part -->
+
+<mat-card *ngIf='show_bar_graph && is_data_available && key!=3 && option=="organizer"'>
+    <table style="font-size: 14px;;" class="table responsive basicborder" id="table1">
+        <thead class="back">
+            <tr class="text-center">
+            <th scope="col"><span class="nowrap">SI.#</span></th>
+            <th scope="col"><span class="nowrap">Name</span></th>
+            <th scope="col"><span class="nowrap">ID #</span></th>
+            <th scope="col"><span class="nowrap">Membership</span></th>
+            <th scope="col"><span class="nowrap">Designation</span></th>
+            <th scope="col"><span class="nowrap">Boards/University/Society/Others</span></th>
+            <th scope="col"><span class="nowrap">Date of Joining</span></th>
+            <th scope="col"><span class="nowrap">Events Organized</span></th>
+            <th scope="col" *ngIf="key==0"><span class="nowrap">Placements Offered</span></th> 
+            <th scope="col" *ngIf="key==0"><span class="nowrap">Placement offer accepted</span></th>
+            <th scope="col" *ngIf="key==1"><span class="nowrap">Higher Studies</span></th>
+            <th scope="col" *ngIf="key==2"><span class="nowrap">Entrepreneurship</span></th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of VAR , let k = index">
+            <td style="padding: 10px;">{{k+1}}</td> 
+            <td style="padding: 10px;">{{data.name}}</td>
+            <td style="padding: 10px;">{{data.id}}</td>
+            <td style="padding: 10px;">
+               <p> 
+                   <br>
+                <span class="nowrap">{{data.membersip_details[0]}}</span><br>
+                <span class="row horzline" *ngIf="data.board.length>1"></span>
+                <span class="nowrap" *ngIf="data.membersip_details.length>1">{{data.membersip_details[1]}}</span><br>
+                </p>
+            </td>
+            <td style="padding: 10px;">
+                <p> 
+                    <br>
+                <span class="nowrap">{{data.desigantion[0]}}</span><br>
+                <span class="row horzline" *ngIf="data.board.length>1"></span>
+                <span class="nowrap" *ngIf="data.desigantion.length>1">{{data.desigantion[1]}}</span><br>
+                </p>
+            </td>
+            <td style="padding: 10px;">
+                <p> 
+                    <br>
+                <span class="nowrap">{{data.board[0]}}</span><br>
+                <span class="row horzline" *ngIf="data.board.length>1"></span>
+                <span class="nowrap" *ngIf="data.board.length>1">{{data.board[1]}}</span><br>
+                </p>
+            </td>
+            <td style="padding: 10px;">
+                <p> 
+                    <br>
+                <span class="nowrap">{{data.joined_date[0]}}</span><br>
+                <span class="row horzline" *ngIf="data.board.length>1"></span>
+                <span class="nowrap" *ngIf="data.joined_date.length>1">{{data.joined_date[1]}}</span><br>
+            </p>
+            </td>
+            <td style="padding: 10px;">{{data.num_of_events_organised}}</td>
+            <td style="padding: 10px;" *ngIf="key==0">{{data.placement_offered}}</td>
+            <td style="padding: 10px;" *ngIf="key==0 && data.offer_accepted == 'None'">{{data.offer_accepted}}</td>
+            <td style="padding: 10px;" *ngIf="key==0 && data.offer_accepted != 'None'">
+            <div *ngFor="let company of data.offer_accepted | keyvalue">
+                <p>{{company.key}} &nbsp; : &nbsp; {{company.value}}</p>
+            </div></td>
+
+            <td style="padding: 10px;" *ngIf="key==1">{{data.higher_studeis}}</td>
+            <td style="padding: 10px;" *ngIf="key==2">{{data.isEntrepreneurs}}</td>
+            </tr>
+                
+        </tbody>
+      </table>
+    </mat-card>
+    <mat-card *ngIf='visible && show_bar_graph &&  is_data_available && key==3 && option=="organizer"'>
+        <table style="font-size: 14px;;" class="table responsive basicborder" id="table1">
+            <thead class="back">
+                <tr class="text-center">
+                <th scope="col"><span class="nowrap">SI.#</span></th>
+                <th scope="col"><span class="nowrap">Name</span></th>
+                <th scope="col"><span class="nowrap">ID #</span></th>
+                <th scope="col"><span class="nowrap">Placements Offered</span></th> 
+                <th scope="col"><span class="nowrap">Placement offer accepted</span></th>
+                <th scope="col"><span class="nowrap">Higher Studies</span></th>
+                <th scope="col"><span class="nowrap">Entrepreneurship</span></th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of VAR , let k = index">
+                <td style="padding: 10px;">{{k+1}}</td> 
+                <td style="padding: 10px;">{{data.name}}</td>
+                <td style="padding: 10px;">{{data.id}}</td>
+                <td style="padding: 10px;">{{data.placement_offered}}</td>
+                <td style="padding: 10px;" *ngIf="data.offer_accepted==check">{{data.offer_accepted}}</td>
+                <td style="padding: 10px;" *ngIf="data.offer_accepted!=check">
+                    <div *ngFor="let company of data.offer_accepted | keyvalue">
+                        <p>{{company.key}} &nbsp; : &nbsp; {{company.value}}</p>
+                    </div>
+                    <!-- <span style="font-size: medium;"class="nowrap">{{data.offer_accepted.companyName}}</span><br>
+                    <span style="font-size: medium;"class="nowrap">{{data.offer_accepted.designation}}</span><br>
+                    <span style="font-size: medium;"class="nowrap">{{data.offer_accepted.salary}}</span><br> -->
+
+                </td>
+
+                <td style="padding: 10px;">{{data.higher_studeis}}</td>
+                <td style="padding: 10px;">{{data.isEntrepreneurs}}</td>
+                </tr>
+                    
+            </tbody>
+          </table>
+        </mat-card>
+        <mat-card *ngIf='visible && show_bar_graph &&  is_data_available && option=="non-organizer"'>
+            <table style="font-size: 14px;;" class="table responsive basicborder" id="table1">
+                <thead class="back">
+                    <tr class="text-center">
+                    <th scope="col"><span class="nowrap">SI.#</span></th>
+                    <th scope="col"><span class="nowrap">Name</span></th>
+                    <th scope="col"><span class="nowrap">ID #</span></th>
+                    <th scope="col"><span class="nowrap">Placements Offered</span></th> 
+                    <th scope="col"><span class="nowrap">Placement offer accepted</span></th>
+                    <th scope="col"><span class="nowrap">Higher Studies</span></th>
+                    <th scope="col"><span class="nowrap">Entrepreneurship</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of VAR , let k = index">
+                    <td style="padding: 10px;">{{k+1}}</td> 
+                    <td style="padding: 10px;">{{data.name}}</td>
+                    <td style="padding: 10px;">{{data.id}}</td>
+                    <td style="padding: 10px;">{{data.placement_offered}}</td>
+                    <td style="padding: 10px;" *ngIf="data.offer_accepted==check">{{data.offer_accepted}}</td>
+                    <td style="padding: 10px;" *ngIf="data.offer_accepted!=check">
+                        <div *ngFor="let company of data.offer_accepted | keyvalue">
+                            <p>{{company.key}} &nbsp; : &nbsp; {{company.value}}</p>
+                        </div>
+                        <!-- <span style="font-size: medium;"class="nowrap">{{data.offer_accepted.companyName}}</span><br>
+                        <span style="font-size: medium;"class="nowrap">{{data.offer_accepted.designation}}</span><br>
+                        <span style="font-size: medium;"class="nowrap">{{data.offer_accepted.salary}}</span><br> -->
+    
+                    </td>
+    
+                    <td style="padding: 10px;">{{data.higher_studeis}}</td>
+                    <td style="padding: 10px;">{{data.isEntrepreneurs}}</td>
+                    </tr>
+                        
+                </tbody>
+              </table>
+            </mat-card>
+    
+
+<!------------------------------Upper Card row begins------------------------------------------>
+<div class="row" *ngIf='!show_bar_graph && cardbool && no_data_available'>
+    <div class="card col-md-2 col-12 mx-3 mb-3">
+        <div class="row card-body col-12 p-0">
+            <div class="col-md-5 col-5 div1 text-center"> <i class="fa fa-users text-white icon"></i></div>
+            <div class="col-md-7 col-7">
+                <div class="row">
+                    <div class="col-md-12"><strong>{{obj.totO}}</strong></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-right mt-3"><strong>
+                            <p class="lead h5 m-0"> {{total_organizer}}</p>
+                        </strong></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card col-md-2 col-12 mx-3 mb-3">
+        <div class="row card-body col-12 p-0">
+            <div class="col-md-5 col-5 div2 text-center"> <i class="fa fa-thumbs-o-up text-white icon"></i></div>
+            <div class="col-md-7 col-7">
+                <div class="row">
+                    <div class="col-md-12"><strong>{{obj.Org}}</strong></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-right mt-3"><strong>
+                            <p class="lead h5 m-0"> {{organizer_and_achievers_per}}%</p>
+                        </strong></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card col-md-2 col-12 mx-3 mb-3">
+        <div class="row card-body col-12 p-0">
+            <div class="col-md-5 col-5 div3 text-center"> <i class="fa fa-thumbs-o-up text-white icon"></i></div>
+            <div class="col-md-7 col-7">
+                <div class="row">
+                    <div class="col-md-12"><strong>{{obj.NAch}}</strong></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-right mt-3"><strong>
+                            <p class="lead1 h5 m-0">  {{organizer_and_Nonachievers_per}}%</p>
+                        </strong></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card col-md-2 col-12 mx-3 mb-3">
+        
+        <div class="row card-body col-12 p-0">
+            <div class="col-md-5 col-5 div4 text-center"> <i class="fa fa-thumbs-o-up text-white icon"></i></div>
+            <div class="col-md-7 col-7">
+                <div class="row">
+                    <div class="col-md-12"><strong>{{obj.NOrg}}</strong></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-right mt-3"><strong>
+                            <p class="lead1 h5 m-0">{{non_organizer_and_achievers_per}}%</p>
+                        </strong></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card col-md-2 col-12 mx-3 mb-3">
+        <div class="row card-body col-12 p-0">
+            <div class="col-md-5 col-5 div5 text-center"> <i class="fa fa-thumbs-o-down text-white icon"></i></div>
+            <div class="col-md-7 col-7">
+                <div class="row">
+                    <div class="col-md-12"><strong>{{obj.NN}}</strong></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-right mt-3"><strong>
+                            <p class="lead2 h5 m-0"> {{non_organizer_and_Nonachievers_per}}%</p>
+                        </strong></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div class="row horzline" *ngIf='!show_bar_graph && cardbool && no_data_available'></div>
+
+<!------------------------------Upper Card row Ends------------------------------------------>
+
+
+<!------------------------------Left Card Column begins------------------------------------------>
+<div class="row" [hidden]="show_bar_graph || !cardbool || !no_data_available">
+    <div class="col-md-3">
+        <div  class="D left-card1">D</div>
+        <div class="row  left-card1">
+            
+            <div id='chartdiv'>
+                
+            </div>
+        </div>
+        <div class="row" *ngIf="cardbool">
+            <mat-card class="left-card2">
+                <div class="cardTxt"><strong>{{obj.A}}</strong></div>
+                <span class="dot">
+                    <div class="text">A</div>
+                </span>
+
+            </mat-card>
+
+            <mat-card class="left-card3">
+                <div class="cardTxt"><strong>{{obj.B}}</strong></div>
+                <span class="dot">
+                    <div class="text">B</div>
+                </span>
+
+            </mat-card>
+
+            <mat-card class="left-card4">
+                <div class="cardTxtC"><strong>{{obj.C}}</strong></div>
+                <span class="dot">
+                    <div class="text">C</div>
+                </span>
+
+            </mat-card>
+
+            <mat-card class="left-card5">
+                <div class="cardTxt"><strong>{{obj.D}}</strong></div>
+                <span class="dot">
+                    <div class="text">D</div>
+                </span>
+
+            </mat-card>
+        </div>
+
+
+    </div>
+
+    
+  
+
+    <!------------------------------Left Card Column ends------------------------------------------>
+
+    <!------------------------------Organizers ans Non Orgranizers Chart--------------------------->
+    <!--<button (click)="drawChart()"> click</button>-->
+    <div class=" col-md-9 bg-white" *ngIf="!show_bar_graph && cardbool && no_data_available">
+        <div class="row">
+            <div class="col-md-6">
+                <google-chart id="col1" (chartSelect)="getGroup($event,'organizer')" google-chart [data]="organizers_data">
+
+                </google-chart>
+                <div class="text-center">{{obj.organizers}}</div>
+
+
+            </div>
+            <!-- <div class="col-md-6">
+                <p class="vertical_line"></p>
+        </div> -->
+            <div class="col-md-6">
+                <google-chart id="col1" (chartSelect)="getGroup($event,'non-organizer')"   google-chart [data]="non_organizers_data">
+                </google-chart>
+                <div class="text-center">{{obj.nonorganizers}}</div>
+
+            </div>
+        </div>
+    </div>
+    <!------------------------------Organizers ans Non Orgranizers Chart ends--------------------------->
+</div>
+
+<!--Bar graph-->
+<div class=" col-md-8 mt-4">
+    <mat-card *ngIf='key!=3 && show_bar_graph && is_data_available && option=="organizer"'>
+         <mat-radio-group >
+            <mat-radio-button  checked style="padding-right:30px;" class="mat-large maintext" value="1"
+                (click)="property_button1='true';displayGraph()">
+                {{obj.membership}}
+            </mat-radio-button>
+            <mat-radio-button  style="padding-left:25px;" class="mat-large maintext" value="2"
+                (click)="property_button1='false';displayGraph()">
+                {{obj.event}}
+            </mat-radio-button>
+        </mat-radio-group>
+        <div class="row horzline"></div>
+        <div *ngIf='display_graph'>
+            <google-chart id="col3" google-chart [data]="bar_graph_data">
+            </google-chart>
+        </div>
+        <div *ngIf='!display_graph'>
+            <google-chart id="col3" google-chart [data]="bar_graph_data">
+            </google-chart>
+        </div>
+    </mat-card>
+</div>
+

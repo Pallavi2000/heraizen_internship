@@ -1,0 +1,227 @@
+
+MongoDB CRUD:
+-----------------------------------------------------------------------------------------------------CREATE---------------------------------------------------------------------------------------------------------------
+1. Add Faculty to ems db
+
+db.faculty.insertOne(
+    {"name" : "Manoj","age" : 38.0,"gender" : "M", 	"subjects" : [ "JAVA", "DBMS"	], "type" : "Full Time","qualification" : "Ph.D","exp" : 12.0}
+ )
+
+2. Add two more faculties to ems db:
+db.faculty.insertMany([
+ 
+            { "name":"Anush", "age":32,"gender":"F","exp":8,subjects:["C","CPP"],"type":"Part Time","qualification":"M.Tech" },
+            { "name":"Suresh", "age":40,"gender":"M","exp":9,subjects:["JAVA","DBMS","NETWORKING"],"type":"Full Time", "qualification":"Ph.D"},
+            { "name":"Rajesh", "age":35,"gender":"M","exp":7,subjects:["DS","C","OS"],"type":"Full Time","qualification":"M.Tech" },
+            { "name":"Mani", "age":38,"gender":"F","exp":10,subjects:["JAVA","DBMS","OS"],"type":"Part Time", "qualification":"Ph.D"},
+            { "name":"Sivani", "age":32,"gender":"F","exp":8,subjects:["C","CPP","MATHS"],"type":"Part Time","qualification":"M.Tech" },
+            { "name":"Nagesh", "age":39,"gender":"M","exp":11,subjects:["JAVA","DBMS","NETWORKING"],"type":"Full Time", "qualification":"Ph.D"},
+            { "name":"Nagesh", "age":35,"gender":"M","exp":9,subjects:["JAVA",".Net","NETWORKING"],"type":"Full Time", "qualification":"Ph.D"},
+            { "name":"Latha", "age":40,"gender":"F","exp":13,subjects:["MATHS"],"type":"Full Time", "qualification":"Ph.D"}
+]);
+-----------------------------------------------------------------------------------------------------READ---------------------------------------------------------------------------------------------------------------
+
+1. Get all the faculty details:
+	db.faculty.find({})
+
+Comparision Operators:  $gt / $gte , $lt / $lte, $exists, $regex, $type, $ne, $in, $nin
+
+1. Get all the Faculty members whose experience is more than 10 years?
+
+                          db.faculty.find( {"exp":{$gt:10}} )
+
+2. Get all the Faculty members whose experience is more than or equal to 10 years?  
+
+	        db.faculty.find( {"exp":{$gte:10}} ) 
+
+3. Get all the Faculty members whose experience is less than 10 years?
+
+                          db.faculty.find( {"exp":{$lt:10}} )
+
+4. Get all the Faculty members whose experience is less than or equal to 10 years?  
+
+	        db.faculty.find( {"exp":{$lte:10}} ) 
+ 
+5. Find all the faculties who are teaching?
+	
+	       db.faculty.find(	{subjects: {$exists : true} } )
+
+6.  Find the all the faculty member whose name starts with letter 'S'?
+	     
+                       db.faculty.find( {name:{$regex: /^S.*/ , $options:"i"}} )
+
+7. Find the all the faculty member whose name starts with letter 'S' and ends with letter 'I' ? 
+	
+	    db.faculty.find( {name:{$regex: /^S.*I$/ , $options:"i"}} )
+
+8. Get all the faculty members who are teaching the subjects wich has the  "king" or "net" init 
+
+	    db.faculty.find(   {subjects:{$in: [/king/i, /net/i ]}}  )
+
+9. Get all the faculty members who are having subjects as an array?
+	db.faculty.find( {subjects:{$type:4}} )
+
+10. Get all the faculty members whose qualfication is not 'Ph.D'
+	db.faculty.find( {qualification:{$ne:"Ph.D"}} )
+
+11. Get all the faculty memeber who are teaching "JAVA" or "MATHS"
+	db.faculty.find( {subjects:{$in:["JAVA","MATHS"]}} )
+
+12. Get all the faculty memeber who are not teaching "JAVA" or "MATHS"
+	db.faculty.find( {subjects:{$nin:["JAVA","MATHS"]}} )
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Match an Array:
+
+To specify equality condition on an array, use the query document { <field>: <value> } where <value> is the exact array to match, including the order of the elements.
+
+db.drop(faculty)
+
+db.faculty.insertMany([
+            { "name":"Manoj", "age":38,"gender":"M","exp":12,subjects:["JAVA","DBMS"],"type":"Full Time", "qualification":"Ph.D",rating:[5,6,7]},
+            { "name":"Anush", "age":32,"gender":"F","exp":8,subjects:["C","CPP"],"type":"Part Time","qualification":"M.Tech" ,rating:[4, 5,7,9]},
+            { "name":"Suresh", "age":40,"gender":"M","exp":9,subjects:["JAVA","DBMS","NETWORKING"],"type":"Full Time", "qualification":"Ph.D",rating:[4, 5,8,7]},
+            { "name":"Rajesh", "age":35,"gender":"M","exp":7,subjects:["DS","C","OS"],"type":"Full Time","qualification":"M.Tech",rating:[5,7,10] },
+            { "name":"Mani", "age":38,"gender":"F","exp":10,subjects:["JAVA","DBMS","OS"],"type":"Part Time", "qualification":"Ph.D",rating:[5,7,9]},
+            { "name":"Sivani", "age":32,"gender":"F","exp":8,subjects:["C","CPP","MATHS"],"type":"Part Time","qualification":"M.Tech" ,rating:[ 5,6,7]},
+            { "name":"Nagesh", "age":39,"gender":"M","exp":11,subjects:["JAVA","DBMS","NETWORKING"],"type":"Full Time", "qualification":"Ph.D",rating:[10,9, 10]},
+            { "name":"Nagesh", "age":35,"gender":"M","exp":9,subjects:["JAVA",".Net","NETWORKING"],"type":"Full Time", "qualification":"Ph.D",rating:[4, 5,7,9]},
+            { "name":"Latha", "age":40,"gender":"F","exp":13,subjects:["MATHS"],"type":"Full Time", "qualification":"Ph.D", rating:[4,7,9]},
+            {"name" : "Manoj","age" : 38.0,"gender" : "M", "subjects" : [ "JAVA", "DBMS"], "type" : "Full Time","qualification" : "Ph.D","exp" : 12.0,rating:[7,9]}
+]);
+
+
+1. Get the faculty who is teaching only “MATHS”
+	db.getCollection('faculty').find({"subjects":["MATHS"]})
+
+2. Get the faculty who are teaching “C” and “CPP”
+          db.getCollection('faculty').find({"subjects":["C", "CPP"]})
+
+3. Get the faculty who are teaching 3 subjects:
+	db.getCollection('faculty').find({"subjects":{$size:3}})
+
+4. Get the faculty whose ratings are  5, 6 7
+            db.getCollection('faculty').find({"rating":[5,6,7]})
+
+5. Get the faculty whose rating are 7, 5 , 6 	
+	db.getCollection('faculty').find({"rating":{$all:[7,5,6]}})
+
+6. Get the faculty whose ratings is are  >7 or <9
+	db.getCollection('faculty').find({"rating":{$elemMatch:{$gt:7,$lt:9}}})
+
+7. Get the faculty whose ratings is are in range > 7 and <9
+	db.getCollection('faculty').find({"rating":{$elemMatch:{$gt:7,$lt:9}}})
+
+8. Get the faculty whose first rating is > 6:
+	db.getCollection('faculty').find({"rating.0":{$gt:6}})
+
+
+
+Projections:
+
+Projections are used to select a subset of the fields to from the each document in a query result set.
+
+1. Get all the names of the faculty only:
+	db.faculty.find({},{_id:0,name:1})
+
+2. Get name and qualification of all the faculty members
+           db.faculty.find({},{_id:0,name:1,qualification:1})
+
+3. Get all the details of faculty except rating and qualification 
+          db.faculty.find({},{qualification:0,rating:0})
+
+4. Get all the details of the faculty but rating should be only first two
+	db.faculty.find({},{rating:{$slice:2}})
+
+5. Get all the details of the faculty but rating should be only last two
+      db.faculty.find({},{rating:{$slice:-2}})
+
+Sort, Skip, Limit
+
+Sort : can be done on any query result by one or more fields in ascending or descending order.
+Skip : To skip  the number of documents
+Limit: To limit the number of documents
+
+1. Get all the faculty members in descending order by their exp
+       db.faculty.find({}).sort({exp: -1})
+
+2. Get all the faculty members in descending  order by exp and ascending     order by age
+      db.faculty.find({}).sort({exp:-1, age:1})
+
+3. Get the all the faculty member except first 5 
+     db.faculty.find({}).skip(5)
+
+4. Get the first 5 faculty members 
+     db.faculty.find({}).limit(5)
+
+Update:
+
+MongoDB's update() and save() methods are used to update document into a collection.
+
+db.COLLECTION_NAME.update(SELECTION_CRITERIA, UPDATED_DATA)
+
+1. Update faculty name “Anush” to “Anusha”
+	db.faculty.update( {'name':'Anush’}, {$set:{'name':'Anusha’}} )
+2. Increment faculty “Anusha” exp by one year
+	db.faculty.update({'name':'Anush'},{$inc:{'name':1}}) 
+3. Increment all the faculty “exp” and “age” by 1
+	db.faculty.updateMany({},{$inc:{'exp':1, 'age':1}})
+
+Append a Value to an Array
+
+1. Add new subject “ML” to  “Latha”
+      db.faculty.update({"name":"Latha"},{$push:{"subjects":"ML"}})
+
+2. Add “JAVA” and “.Net” subjects to “Anusha”
+	db.faculty.update({"name":“Anusha"},
+		{$push:{"subjects":{$each:["JAVA",".Net"]}}})
+
+The remove() Method
+
+1. Remove faculty member “Anusha”
+	db.faculty.remove({"name":"Anusha"})
+
+2. Remove all faculty members
+	db.faculty.remove({})
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Working with embedded docuemnts:
+
+db.faculty.insertMany([
+            { "name":"Manoj", "age":38,"gender":"M","exp":12, address:{"city":"Bangalore","state":"Karnataka"},
+	subjects:["JAVA","DBMS"],"type":"Full Time", "qualification":"Ph.D",rating:[5,6,7]},
+            { "name":"Anusha", "age":32,"gender":"F","exp":8, address:{"city":"Bangalore","state":"Karnataka"},
+	subjects:["C","CPP"],"type":"Part Time","qualification":"M.Tech" ,rating:[4, 5,7,9]},
+            { "name":"Suresh", "age":40,"gender":"M","exp":9, address:{"city":"Bangalore","state":"Karnataka"},
+	subjects:["JAVA","DBMS","NETWORKING"],"type":"Full Time", "qualification":"Ph.D",rating:[4, 5,8,7]},
+            { "name":"Rajesh", "age":35,"gender":"M","exp":7, address:{"city":"Chennai","state":"Tamil Nadu"},
+	subjects:["DS","C","OS"],"type":"Full Time","qualification":"M.Tech",rating:[5,7,10] },
+            { "name":"Mani", "age":38,"gender":"F","exp":10, address:{"city":"Hyderabad","state":"Telangana"},
+	subjects:["JAVA","DBMS","OS"],"type":"Part Time", "qualification":"Ph.D",rating:[5,7,9]},
+            { "name":"Sivani", "age":32,"gender":"F","exp":8, address:{"city":"Hyderabad","state":"Telangana"},
+	subjects:["C","CPP","MATHS"],"type":"Part Time","qualification":"M.Tech" ,rating:[ 5,6,7]},
+            { "name":"Nagesh", "age":39,"gender":"M","exp":11,address:{"city":"Hyderabad","state":"Telangana"},
+	subjects:["JAVA","DBMS","NETWORKING"],"type":"Full Time", "qualification":"Ph.D",rating:[10,9, 10]},
+            { "name":"Nagesh", "age":35,"gender":"M","exp":9,address:{"city":"Hyderabad","state":"Telangana"},
+	subjects:["JAVA",".Net","NETWORKING"],"type":"Full Time", "qualification":"Ph.D",rating:[4, 5,7,9]},
+            { "name":"Latha", "age":40,"gender":"F","exp":13, address:{"city":"Amaravati","state":"Andhra Pradesh"},
+	subjects:["MATHS"],"type":"Full Time", "qualification":"Ph.D", rating:[4,7,9]},
+            {"name" : "Manoj","age" : 38.0,"gender" : "M", address:{"city":"Amaravati","state":"Andhra Pradesh"},
+	"subjects" : [ "JAVA", "DBMS"], "type" : "Full Time","qualification" : "Ph.D","exp" : 12.0,rating:[7,9]}
+]);
+
+Working with embedded documents:
+
+Get the all the faculty member who are from “Bangalore”
+	db.faculty.find({"address.city":"Bangalore"})
+
+Get name, address of all the faculty members
+	db.faculty.find({},{"name":1,"address":1})
+
+Get all the faculty member name and address in sorting order by the name of city show only first 5 documents
+      db.faculty.find({},{"name":1,"address":1}).sort({"address.city":1}).limit(5)
+
+
+	

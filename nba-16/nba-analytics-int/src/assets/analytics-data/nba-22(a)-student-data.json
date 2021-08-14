@@ -1,0 +1,80 @@
+{
+    "average_attainment_scores": [
+        {
+            "academic_year": "2018-19",
+            "dept_id": "CS",
+            "semester": 5,
+            "student_data": [
+                {
+                    "student_name": "Abhijeeth",
+                    "usn": "4PS001",
+                    "total_attaintment": 1.5
+                },
+                {
+                    "student_name": "Tanu",
+                    "usn": "4PS002",
+                    "total_attaintment": 2
+                },
+                {
+                    "student_name": "Anusha",
+                    "usn": "4PS0010",
+                    "total_attaintment": 2.4
+                }
+            ]
+        },
+        {
+            "academic_year": "2018-19",
+            "dept_id": "CS",
+            "semester": 6,
+            "student_data": [
+                {
+                    "student_name": "Abhijeeth",
+                    "usn": "4PS001",
+                    "total_attaintment": 1.5
+                },
+                {
+                    "student_name": "Tanu",
+                    "usn": "4PS002",
+                    "total_attaintment": 2
+                },
+                {
+                    "student_name": "Anusha",
+                    "usn": "4PS0010",
+                    "total_attaintment": 2.4
+                }
+            ]
+        },
+        {
+            "academic_year": "2018-19",
+            "dept_id": "CS",
+            "semester": 7,
+            "student_data": [
+                {
+                    "student_name": "Abhi",
+                    "usn": "4PS029",
+                    "total_attaintment": 2.5
+                },
+                {
+                    "student_name": "Tanu",
+                    "usn": "4PS002",
+                    "total_attaintment": 2
+                },
+                {
+                    "student_name": "Anusha",
+                    "usn": "4PS0010",
+                    "total_attaintment": 2.4
+                },
+                {
+                    "student_name": "Anu",
+                    "usn": "4PS0012",
+                    "total_attaintment": 2.4
+                },
+                {
+                    "student_name": "Tina",
+                    "usn": "4PS0030",
+                    "total_attaintment": 7.4
+                }
+            ]
+        }
+    ]
+}

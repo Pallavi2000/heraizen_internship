@@ -1,0 +1,82 @@
+<div class="container col-md-3 col-12 float-left" id="outerContainer">
+  <!--Container for the entire left pane-->
+  <p id="course-list-text">{{analyticsObj.course_list}}</p>
+  <div id="tempContainer">
+    <!--Container for the everything except the course list text-->
+    <div id="sort-by-container">
+      <!--Container for the sort by radio buttons-->
+      <p id="text-sort-by">{{analyticsObj.sortHead}}</p>
+      <div id="sort-sec-container">
+        <div class="form-check" id="sort-radio0">
+          <input class="form-check-input" type="radio" name="sortButton" id="optionCO" [value]='0'
+            [(ngModel)]='radio_val' (change)='onSortRadioChange(0)'>
+          <label class="form-check-label" for="optionCO">
+            {{analyticsObj.coAtn}}
+          </label>
+        </div>
+        <div class="form-check" id="sort-radio1">
+          <input class="form-check-input" type="radio" name="sortButton" id="optionName" [value]='1'
+            [(ngModel)]='radio_val' (change)='onSortRadioChange(1)'>
+          <label class="form-check-label" for="optionName">
+            {{analyticsObj.coName}}
+          </label>
+        </div>
+        <div class="form-check" id="sort-radio2">
+          <input class="form-check-input" type="radio" name="sortButton" id="optionFacName" [value]='2'
+            [(ngModel)]='radio_val' (change)='onSortRadioChange(2)'>
+          <label class="form-check-label" for="optionFacName">
+            {{analyticsObj.faName}}
+          </label>
+        </div>
+      </div>
+    </div>
+    <div id="secondContainer" class="container">
+      <!--Container for the number of entries and high low sort order-->
+      <div id="NOEContainer" class="col-lg-6">
+        <!--Container for the number of entries select box-->
+        <p id="text-entry-no">{{analyticsObj.noentry}}</p>
+        <div class="form-group" id="drop-block">
+          <mat-select [(ngModel)]="selectedPage" (selectionChange)="changePage()">
+            <mat-option *ngFor="let num of selArr" [value]="num">{{ num }}</mat-option>
+          </mat-select>
+        </div>
+      </div>
+      <div id="hiloContainer" class="container col-lg-6 col-10 ">
+        <!--Container for the high low sort option radio buttons-->
+        <div>
+          <div class="form-check" id="hiloBox0">
+            <input class="form-check-input" type="radio" name="hiloButton" id="hilo-radio0" [value]='0'
+              [(ngModel)]='hilo_val' (change)='onHiloRadioChange(0)'>
+            <label class="form-check-label" for="hilo-radio0">
+              {{analyticsObj.Desc}}
+            </label>
+          </div>
+          <div class="form-check" id="hiloBox1">
+            <input class="form-check-input" type="radio" name="hiloButton" id="hilo-radio1" [value]='1'
+              [(ngModel)]='hilo_val' (change)='onHiloRadioChange(1)'>
+            <label class="form-check-label" for="hilo-radio1">
+              {{analyticsObj.Asc}}
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="cardContainer" class="container">
+      <!--Container for the cards section-->
+      <div id="cardBox" class="container" *ngFor="let obj of currCardObjs;index as i">
+        <mat-card class="card-prop mat-small padding-class" id="{{'card'+i}}">
+          <mat-card-content class="mat-small padding-class" id="{{i}}" (click)="cardClicked(obj,i)"
+            *ngIf="checkAddActive(obj,i)">
+            {{obj.courseName}}-{{obj.courseCode}}
+            <br>
+            Section {{obj.section}} - Semester {{obj.termNumber}}
+            <br>
+            <div *ngIf='login_type==="HOD"||login_type==="Principal"'>
+              {{getFacName(obj.facultyId)}}
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

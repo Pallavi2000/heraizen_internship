@@ -1,0 +1,143 @@
+#outerContainer {
+	justify-content: left;
+	margin-left: -14px;
+	padding-right: 0px;
+	margin-right: 0px;
+	padding-left: 10px;
+}
+
+/*#outerContainer,#sort-by-container,#secondContainer,#NOEContainer,#hiloContainer,#cardContainer
+{
+    border:2px solid #cecece;
+}*/
+
+#drop-block {
+	border: 2px solid #cecece;
+	border-radius: 5px;
+}
+
+#course-list-text {
+	margin-left: 15px;
+}
+
+#sort-by-container {
+	border: 2px solid #cecece;
+	border-radius: 8px;
+	background-color: white;
+	margin-bottom: 20px;
+	margin-left: 15px;
+}
+
+#sort-sec-container {
+	margin-left: 10px;
+}
+
+#text-sort-by,
+#text-entry-no {
+	font-style: italic;
+	font-size: 13px;
+	color: #208465;
+}
+
+#text-sort-by {
+	margin-bottom: 0px;
+}
+
+#NOEContainer {
+	min-width: 115px;
+	display: inline-block;
+	margin-left: -15px;
+	padding: 0px;
+	padding-left: 10px;
+	/*padding-top: 10px;*/
+	max-height: 100px;
+}
+
+@media only screen and (min-width: 768px) {
+	#outerContainer {
+		max-width: 250px;
+	}
+
+	#sort-by-container {
+		max-width: 200px;
+	}
+
+	#tempContainer {
+		border-right: 2px solid #cecece;
+	}
+	div#secondContainer.container {
+		display: flex !important;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	#NOEContainer {
+		display: none;
+	}
+
+	#sort-by-container {
+		max-width: 290px;
+	}
+
+	#cardContainer {
+		display: none;
+	}
+
+	#outerContainer {
+		border: 2px solid #cecece;
+		border-radius: 8px;
+	}
+
+	#tempContainer {
+		border-right: 0px;
+	}
+}
+
+#drop-block {
+	transform: scale(.85);
+	margin-left: 5px;
+	margin-top: -10px;
+	width: 80px;
+}
+
+#hiloContainer {
+	min-width: 118px;
+	display: inline-block;
+	padding: 0px;
+}
+
+#cardContainer {
+	min-height: 500px;
+}
+
+select.form-control {
+	text-indent: -7px;
+}
+
+.card-prop {
+	margin-bottom: 20px;
+	margin-left: -15px;
+	margin-right: -15px;
+	border: 2px solid #cecece;
+}
+
+#cardContent {
+	font-size: 12px;
+}
+
+.card-active {
+	margin-bottom: 20px;
+	margin-left: -15px;
+	margin-right: -15px;
+	border: 3px solid #6098d0;
+	box-shadow: 2px 2px 6px #9c9999;
+	background-color: #edf0f3;
+}
+
+.content-active {
+	color: #6098d0;
+}
+
+.padding-class {
+	padding: 4px;
+}

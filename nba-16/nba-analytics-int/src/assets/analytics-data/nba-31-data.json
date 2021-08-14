@@ -1,0 +1,1292 @@
+{
+    "final_data": [
+        {
+            "academicYear": "2018-19",
+            "deptId": "CS",
+            "Total_organizer": 85,
+            "organizer_and_achievers_per": 48,
+            "organizer_and_Nonachievers_per": 3,
+            "non_organizer_and_achievers_per": 39,
+            "non_organizer_and_Nonachievers_per": 10,
+            "organizer_and_achievers_num": 170,
+            "organizer_and_Nonachievers_num": 50,
+            "non_organizer_and_achievers_num": 200,
+            "non_organizer_and_Nonachievers_num": 70,
+            "organizer_and_event_participantes" : 250,
+            "total_student":400,
+            "total_achiever": 100,
+            "organizer_details": [
+                {
+                    "category": "Placed",
+                    "total_per": 48,
+                    "num_of_studnts": 96,
+                    "total_num_of_students": 200,
+                    "student_details": [
+                        {
+                            "name": "Soujanya",
+                            "id": 320,
+                            "membersip_details": [
+                                "IEEE",
+                                "AAPG"
+                            ],
+                            "desigantion": [
+                                "Graduate Student",
+                                "member"
+                            ],
+                            "joined_date": [
+                                "10 Jun 2017",
+                                "20 March 2018"
+                            ],
+                            "board": [
+                                "IEEE Communications Editorial Board",
+                                "soceity 1"
+                            ],
+                            "num_of_events_organised": 3,
+                            "placement_offered": 4,
+                            "offer_accepted": "None"
+                        },
+                        {
+                            "name": "Navya",
+                            "id": 321,
+                            "membersip_details": [
+                                "IEEE",
+                                "AAPG"
+                            ],
+                            "desigantion": [
+                                "Society member",
+                                "member"
+                            ],
+                            "joined_date": [
+                                "10 Jun 2017",
+                                "20 March 2018"
+                            ],
+                            "board": [
+                                "IEEE Communications Editorial Board",
+                                "soceity 1"
+                            ],
+                            "num_of_events_organised": 5,
+                            "placement_offered": 3,
+                            "offer_accepted": "None"
+                        },
+                        {
+                            "name": "Sneha",
+                            "id": 322,
+                            "membersip_details": [
+                                "IEEE"
+                            ],
+                            "desigantion": [
+                                "Society member"
+                            ],
+                            "joined_date": [
+                                "20 March 2018"
+                            ],
+                            "board": [
+                                "IEEE publications subscription"
+                            ],
+                            "num_of_events_organised": 2,
+                            "placement_offered": 1,
+                            "offer_accepted": {
+                                "companyName": "Infosys",
+                                "designation": "Business Analyst",
+                                "salary": "20 lakhs/Annum"
+                            }
+                        },
+                        {
+                            "name": "Nisha",
+                            "id": 324,
+                            "membersip_details": [
+                                "IEEE"
+                            ],
+                            "desigantion": [
+                                "member"
+                            ],
+                            "joined_date": [
+                                "10 Jun 2017"
+                            ],
+                            "board": [
+                                "IEEE publications subscription"
+                            ],
+                            "num_of_events_organised": 2,
+                            "placement_offered": 1,
+                            "offer_accepted": {
+                                "companyName": "Google",
+                                "designation": "Business Analyst",
+                                "salary": "30 lakhs/Annum"
+                            }
+                        }
+                    ],
+                    "society_details": [
+                        {
+                            "name": "IEEE ",
+                            "num_of_students": 50,
+                            "per_of_society_student": 40,
+                            "per_of_placed_student": 20
+                        },
+                        {
+                            "name": "IEEE Communications Society",
+                            "num_of_students": 30,
+                            "per_of_society_student": 20,
+                            "per_of_placed_student": 10
+                        },
+                        {
+                            "name": "IEEE Spectrum magazine",
+                            "num_of_students": 30,
+                            "per_of_society_student": 20,
+                            "per_of_placed_student": 10
+                        }
+                    ],
+                    "event_details": [
+                        {
+                            "name": "Event 1",
+                            "num_of_students": 50,
+                            "per_of_event_student": 40,
+                            "per_of_placed_student": 20
+                        },
+                        {
+                            "name": "Event 2",
+                            "num_of_students": 30,
+                            "per_of_event_student": 20,
+                            "per_of_placed_student": 10
+                        },
+                        {
+                            "name": "Event 3",
+                            "num_of_students": 30,
+                            "per_of_event_student": 20,
+                            "per_of_placed_student": 10
+                        }
+                    ]
+                },
+                {
+                    "category": "Higher Studies",
+                    "total_per": 30,
+                    "num_of_studnts": 60,
+                    "total_num_of_students": 200,
+                    "student_details": [
+                        {
+                            "name": "Venkatesh",
+                            "id": 330,
+                            "membersip_details": [
+                                "IEEE",
+                                "AAPG"
+                            ],
+                            "desigantion": [
+                                "Graduate Student",
+                                "member"
+                            ],
+                            "joined_date": [
+                                "10 Jun 2017",
+                                "20 March 2018"
+                            ],
+                            "board": [
+                                "IEEE Communications Editorial Board",
+                                "soceity 1"
+                            ],
+                            "num_of_events_organised": 3,
+                            "higher_studeis": "MBA"
+                        },
+                        {
+                            "name": "Karthik",
+                            "id": 331,
+                            "membersip_details": [
+                                "IEEE",
+                                "AAPG"
+                            ],
+                            "desigantion": [
+                                "Society member",
+                                "member"
+                            ],
+                            "joined_date": [
+                                "10 Jun 2017",
+                                "20 March 2018"
+                            ],
+                            "board": [
+                                "IEEE Communications Editorial Board",
+                                "soceity 1"
+                            ],
+                            "num_of_events_organised": 5,
+                            "higher_studeis": "MS"
+                        },
+                        {
+                            "name": "Sneha",
+                            "id": 322,
+                            "membersip_details": [
+                                "IEEE"
+                            ],
+                            "desigantion": [
+                                "Society member"
+                            ],
+                            "joined_date": [
+                                "20 March 2018"
+                            ],
+                            "board": [
+                                "IEEE publications subscription"
+                            ],
+                            "num_of_events_organised": 2,
+                            "higher_studeis": "MBA"
+                        },
+                        {
+                            "name": "Nisha",
+                            "id": 324,
+                            "membersip_details": [
+                                "IEEE"
+                            ],
+                            "desigantion": [
+                                "member"
+                            ],
+                            "joined_date": [
+                                "10 Jun 2017"
+                            ],
+                            "board": [
+                                "IEEE publications subscription"
+                            ],
+                            "num_of_events_organised": 2,
+                            "higher_studeis": "None"
+                        }
+                    ],
+                    "society_details": [
+                        {
+                            "name": "IEEE AerospaceSociety",
+                            "num_of_students": 50,
+                            "per_of_society_student": 40,
+                            "per_of_placed_student": 20
+                        },
+                        {
+                            "name": "IEEE Communications Society",
+                            "num_of_students": 30,
+                            "per_of_society_student": 20,
+                            "per_of_placed_student": 10
+                        },
+                        {
+                            "name": "IEEE Spectrum magazine",
+                            "num_of_students": 30,
+                            "per_of_society_student": 20,
+                            "per_of_placed_student": 10
+                        }
+                    ],
+                    "event_details": [
+                        {
+                            "name": "Event 1",
+                            "num_of_students": 50,
+                            "per_of_event_student": 40,
+                            "per_of_placed_student": 20
+                        },
+                        {
+                            "name": "Event 2",
+                            "num_of_students": 30,
+                            "per_of_event_student": 20,
+                            "per_of_placed_student": 10
+                        },
+                        {
+                            "name": "Event 3",
+                            "num_of_students": 30,
+                            "per_of_event_student": 20,
+                            "per_of_placed_student": 10
+                        }
+                    ]
+                },
+                {
+                    "category": "Entrepreneurs",
+                    "total_per": 20,
+                    "num_of_studnts": 40,
+                    "total_num_of_students": 200,
+                    "student_details": [
+                        {
+                            "name": "Venkatesh",
+                            "id": 330,
+                            "membersip_details": [
+                                "IEEE",
+                                "AAPG"
+                            ],
+                            "desigantion": [
+                                "Graduate Student",
+                                "member"
+                            ],
+                            "joined_date": [
+                                "10 Jun 2017",
+                                "20 March 2018"
+                            ],
+                            "board": [
+                                "IEEE Communications Editorial Board",
+                                "soceity 1"
+                            ],
+                            "num_of_events_organised": 3,
+                            "isEntrepreneurs": "Yes"
+                        },
+                        {
+                            "name": "Karthik",
+                            "id": 331,
+                            "membersip_details": [
+                                "IEEE",
+                                "AAPG"
+                            ],
+                            "desigantion": [
+                                "Society member",
+                                "member"
+                            ],
+                            "joined_date": [
+                                "10 Jun 2017",
+                                "20 March 2018"
+                            ],
+                            "board": [
+                                "IEEE Communications Editorial Board",
+                                "soceity 1"
+                            ],
+                            "num_of_events_organised": 5,
+                            "isEntrepreneurs": "Yes"
+                        },
+                        {
+                            "name": "Sneha",
+                            "id": 322,
+                            "membersip_details": [
+                                "IEEE"
+                            ],
+                            "desigantion": [
+                                "Society member"
+                            ],
+                            "joined_date": [
+                                "20 March 2018"
+                            ],
+                            "board": [
+                                "IEEE publications subscription"
+                            ],
+                            "num_of_events_organised": 2,
+                            "isEntrepreneurs": "No"
+                        },
+                        {
+                            "name": "Nisha",
+                            "id": 324,
+                            "membersip_details": [
+                                "IEEE"
+                            ],
+                            "desigantion": [
+                                "member"
+                            ],
+                            "joined_date": [
+                                "10 Jun 2017"
+                            ],
+                            "board": [
+                                "IEEE publications subscription"
+                            ],
+                            "num_of_events_organised": 2,
+                            "isEntrepreneurs": "No"
+                        }
+                    ],
+                    "society_details": [
+                        {
+                            "name": "IEEE AerospaceSociety",
+                            "num_of_students": 50,
+                            "per_of_society_student": 40,
+                            "per_of_placed_student": 20
+                        },
+                        {
+                            "name": "IEEE Communications Society",
+                            "num_of_students": 30,
+                            "per_of_society_student": 20,
+                            "per_of_placed_student": 10
+                        },
+                        {
+                            "name": "IEEE Spectrum magazine",
+                            "num_of_students": 30,
+                            "per_of_society_student": 20,
+                            "per_of_placed_student": 10
+                        }
+                    ],
+                    "event_details": [
+                        {
+                            "name": "Event 1",
+                            "num_of_students": 50,
+                            "per_of_event_student": 40,
+                            "per_of_placed_student": 20
+                        },
+                        {
+                            "name": "Event 2",
+                            "num_of_students": 30,
+                            "per_of_event_student": 20,
+                            "per_of_placed_student": 10
+                        },
+                        {
+                            "name": "Event 3",
+                            "num_of_students": 30,
+                            "per_of_event_student": 20,
+                            "per_of_placed_student": 10
+                        }
+                    ]
+                },
+                {
+                    "category": "None",
+                    "total_per": 10,
+                    "num_of_studnts": 20,
+                    "total_num_of_students": 200,
+                    "student_details": [
+                        {
+                            "name": "Prathiksha",
+                            "id": 330,
+                            "placement_offered": 4,
+                            "offer_accepted": "None",
+                            "higher_studeis": "MBA",
+                            "isEntrepreneurs": "No"
+                        },
+                        {
+                            "name": "Roshni",
+                            "id": 340,
+                            "placement_offered": 2,
+                            "offer_accepted": "None",
+                            "higher_studeis": "MS",
+                            "isEntrepreneurs": "No"
+                        },
+                        {
+                            "name": "Shankar",
+                            "id": 310,
+                            "placement_offered": 2,
+                            "offer_accepted": {
+                                "companyName": "Infosys",
+                                "designation": "Business Analyst",
+                                "salary": "20 lakhs/Annum"
+                            },
+                            "higher_studeis": "None",
+                            "isEntrepreneurs": "No"
+                        }
+                    ]
+                }
+            ],
+            "non_organizer_details": [
+                {
+                    "category": "Placed",
+                    "total_per": 35,
+                    "num_of_studnts": 65,
+                    "total_num_of_students": 200,
+                    "student_details": [
+                        {
+                            "name": "Soujanya",
+                            "id": 320,
+                            "placement_offered": 4,
+                            "offer_accepted": "None",
+			    "higher_studeis": "MBA",
+                            "isEntrepreneurs": "No"
+                        },
+                        {
+                            "name": "Navya",
+                            "id": 321,
+                            "placement_offered": 3,
+                            "offer_accepted": "None",
+			    "higher_studeis": "None",
+                            "isEntrepreneurs": "Yes"
+                        },
+                        {
+                            "name": "Sneha",
+                            "id": 322,
+                            "placement_offered": 1,
+                            "offer_accepted": {
+                                "companyName": "Infosys",
+                                "designation": "Business Analyst",
+                                "salary": "20 lakhs/Annum"
+                            },
+                            "higher_studeis": "None",
+                            "isEntrepreneurs": "No"
+                        },
+                        {
+                            "name": "Nisha",
+                            "id": 324,
+                            "num_of_events_organised": 2,
+                            "placement_offered": 1,
+                            "offer_accepted": {
+                                "companyName": "Google",
+                                "designation": "Business Analyst",
+                                "salary": "30 lakhs/Annum"
+                            },
+			    "higher_studeis": "None",
+                            "isEntrepreneurs": "No"
+                        }
+                    ]
+                },
+                {
+                    "category": "Higher Studies",
+                    "total_per": 30,
+                    "num_of_studnts": 50,
+                    "total_num_of_students": 200,
+"student_details": [
+                        {
+                            "name": "Soujanya",
+                            "id": 320,
+                            "placement_offered": 4,
+                            "offer_accepted": "None",
+			    "higher_studeis": "MBA",
+                            "isEntrepreneurs": "No"
+                        },
+                        {
+                            "name": "Navya",
+                            "id": 321,
+                            "placement_offered": 3,
+                            "offer_accepted": "None",
+			    "higher_studeis": "None",
+                            "isEntrepreneurs": "Yes"
+                        },
+                        {
+                            "name": "Sneha",
+                            "id": 322,
+                            "placement_offered": 1,
+                            "offer_accepted": {
+                                "companyName": "Infosys",
+                                "designation": "Business Analyst",
+                                "salary": "20 lakhs/Annum"
+                            },
+                            "higher_studeis": "None",
+                            "isEntrepreneurs": "No"
+                        },
+                        {
+                            "name": "Nisha",
+                            "id": 324,
+                            "num_of_events_organised": 2,
+                            "placement_offered": 1,
+                            "offer_accepted": {
+                                "companyName": "Google",
+                                "designation": "Business Analyst",
+                                "salary": "30 lakhs/Annum"
+                            },
+			    "higher_studeis": "None",
+                            "isEntrepreneurs": "No"
+                        }
+                    ]
+                },
+                {
+                    "category": "Entrepreneurs",
+                    "total_per": 15,
+                    "num_of_studnts": 30,
+                    "total_num_of_students": 200,
+                    "student_details": [
+                        {
+                            "name": "Soujanya",
+                            "id": 320,
+                            "placement_offered": 4,
+                            "offer_accepted": "None",
+			    "higher_studeis": "MBA",
+                            "isEntrepreneurs": "No"
+                        },
+                        {
+                            "name": "Navya",
+                            "id": 321,
+                            "placement_offered": 3,
+                            "offer_accepted": "None",
+			    "higher_studeis": "None",
+                            "isEntrepreneurs": "Yes"
+                        },
+                        {
+                            "name": "Sneha",
+                            "id": 322,
+                            "placement_offered": 1,
+                            "offer_accepted": {
+                                "companyName": "Infosys",
+                                "designation": "Business Analyst",
+                                "salary": "20 lakhs/Annum"
+                            },
+                            "higher_studeis": "None",
+                            "isEntrepreneurs": "No"
+                        },
+                        {
+                            "name": "Nisha",
+                            "id": 324,
+                            "num_of_events_organised": 2,
+                            "placement_offered": 1,
+                            "offer_accepted": {
+                                "companyName": "Google",
+                                "designation": "Business Analyst",
+                                "salary": "30 lakhs/Annum"
+                            },
+			    "higher_studeis": "None",
+                            "isEntrepreneurs": "No"
+                        }
+                    ]
+                },
+                {
+                    "category": "None",
+                    "total_per": 10,
+                    "num_of_studnts": 10,
+                    "total_num_of_students": 200,
+                    "student_details": [
+                        {
+                            "name": "Prathiksha",
+                            "id": 330,
+                            "placement_offered": 4,
+                            "offer_accepted": "None",
+                            "higher_studeis": "MBA",
+                            "isEntrepreneurs": "No"
+                        },
+                        {
+                            "name": "Roshni",
+                            "id": 340,
+                            "placement_offered": 2,
+                            "offer_accepted": "None",
+                            "higher_studeis": "MS",
+                            "isEntrepreneurs": "No"
+                        },
+                        {
+                            "name": "Shankar",
+                            "id": 310,
+                            "placement_offered": 2,
+                            "offer_accepted": {
+                                "companyName": "Infosys",
+                                "designation": "Business Analyst",
+                                "salary": "20 lakhs/Annum"
+                            },
+                            "higher_studeis": "None",
+                            "isEntrepreneurs": "No"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "academicYear": "2018-19",
+            "deptId": "EC",
+            "Total_organizer": 75,
+            "organizer_and_achievers_per": 40,
+            "organizer_and_Nonachievers_per": 3,
+            "non_organizer_and_achievers_per": 30,
+            "non_organizer_and_Nonachievers_per": 12,
+            "organizer_and_achievers_num": 200,
+            "organizer_and_Nonachievers_num": 50,
+            "non_organizer_and_achievers_num": 80,
+            "non_organizer_and_Nonachievers_num": 70,
+            "organizer_details": [
+                {
+                    "category": "Placed",
+                    "total_per": 48,
+                    "num_of_studnts": 96,
+                    "total_num_of_students": 200,
+                    "student_details": [
+                        {
+                            "name": "Soujanya",
+                            "id": 320,
+                            "membersip_details": [
+                                "IEEE",
+                                "AAPG"
+                            ],
+                            "desigantion": [
+                                "Graduate Student",
+                                "member"
+                            ],
+                            "joined_date": [
+                                "10 Jun 2017",
+                                "20 March 2018"
+                            ],
+                            "board": [
+                                "IEEE Communications Editorial Board",
+                                "soceity 1"
+                            ],
+                            "num_of_events_organised": 3,
+                            "placement_offered": 4,
+                            "offer_accepted": "None"
+                        },
+                        {
+                            "name": "Navya",
+                            "id": 321,
+                            "membersip_details": [
+                                "IEEE",
+                                "AAPG"
+                            ],
+                            "desigantion": [
+                                "Society member",
+                                "member"
+                            ],
+                            "joined_date": [
+                                "10 Jun 2017",
+                                "20 March 2018"
+                            ],
+                            "board": [
+                                "IEEE Communications Editorial Board",
+                                "soceity 1"
+                            ],
+                            "num_of_events_organised": 5,
+                            "placement_offered": 3,
+                            "offer_accepted": "None"
+                        },
+                        {
+                            "name": "Sneha",
+                            "id": 322,
+                            "membersip_details": [
+                                "IEEE"
+                            ],
+                            "desigantion": [
+                                "Society member"
+                            ],
+                            "joined_date": [
+                                "20 March 2018"
+                            ],
+                            "board": [
+                                "IEEE publications subscription"
+                            ],
+                            "num_of_events_organised": 2,
+                            "placement_offered": 1,
+                            "offer_accepted": {
+                                "companyName": "Infosys",
+                                "designation": "Business Analyst",
+                                "salary": "20 lakhs/Annum"
+                            }
+                        },
+                        {
+                            "name": "Nisha",
+                            "id": 324,
+                            "membersip_details": [
+                                "IEEE"
+                            ],
+                            "desigantion": [
+                                "member"
+                            ],
+                            "joined_date": [
+                                "10 Jun 2017"
+                            ],
+                            "board": [
+                                "IEEE publications subscription"
+                            ],
+                            "num_of_events_organised": 2,
+                            "placement_offered": 1,
+                            "offer_accepted": {
+                                "companyName": "Google",
+                                "designation": "Business Analyst",
+                                "salary": "30 lakhs/Annum"
+                            }
+                        }
+                    ],
+                    "society_details": [
+                        {
+                            "name": "IEEE AerospaceSociety",
+                            "num_of_students": 50,
+                            "per_of_society_student": 40,
+                            "per_of_placed_student": 20
+                        },
+                        {
+                            "name": "IEEE Communications Society",
+                            "num_of_students": 30,
+                            "per_of_society_student": 20,
+                            "per_of_placed_student": 10
+                        },
+                        {
+                            "name": "IEEE Spectrum magazine",
+                            "num_of_students": 30,
+                            "per_of_society_student": 20,
+                            "per_of_placed_student": 10
+                        }
+                    ],
+                    "event_details": [
+                        {
+                            "name": "Event 1",
+                            "num_of_students": 50,
+                            "per_of_event_student": 40,
+                            "per_of_placed_student": 20
+                        },
+                        {
+                            "name": "Event 2",
+                            "num_of_students": 30,
+                            "per_of_event_student": 20,
+                            "per_of_placed_student": 10
+                        },
+                        {
+                            "name": "Event 3",
+                            "num_of_students": 30,
+                            "per_of_event_student": 20,
+                            "per_of_placed_student": 10
+                        }
+                    ]
+                },
+                {
+                    "category": "Higher Studies",
+                    "total_per": 30,
+                    "num_of_studnts": 60,
+                    "total_num_of_students": 200,
+                    "student_details": [
+                        {
+                            "name": "Venkatesh",
+                            "id": 330,
+                            "membersip_details": [
+                                "IEEE",
+                                "AAPG"
+                            ],
+                            "desigantion": [
+                                "Graduate Student",
+                                "member"
+                            ],
+                            "joined_date": [
+                                "10 Jun 2017",
+                                "20 March 2018"
+                            ],
+                            "board": [
+                                "IEEE Communications Editorial Board",
+                                "soceity 1"
+                            ],
+                            "num_of_events_organised": 3,
+                            "higher_studeis": "MBA"
+                        },
+                        {
+                            "name": "Karthik",
+                            "id": 331,
+                            "membersip_details": [
+                                "IEEE",
+                                "AAPG"
+                            ],
+                            "desigantion": [
+                                "Society member",
+                                "member"
+                            ],
+                            "joined_date": [
+                                "10 Jun 2017",
+                                "20 March 2018"
+                            ],
+                            "board": [
+                                "IEEE Communications Editorial Board",
+                                "soceity 1"
+                            ],
+                            "num_of_events_organised": 5,
+                            "higher_studeis": "MS"
+                        },
+                        {
+                            "name": "Sneha",
+                            "id": 322,
+                            "membersip_details": [
+                                "IEEE"
+                            ],
+                            "desigantion": [
+                                "Society member"
+                            ],
+                            "joined_date": [
+                                "20 March 2018"
+                            ],
+                            "board": [
+                                "IEEE publications subscription"
+                            ],
+                            "num_of_events_organised": 2,
+                            "higher_studeis": "MBA"
+                        },
+                        {
+                            "name": "Nisha",
+                            "id": 324,
+                            "membersip_details": [
+                                "IEEE"
+                            ],
+                            "desigantion": [
+                                "member"
+                            ],
+                            "joined_date": [
+                                "10 Jun 2017"
+                            ],
+                            "board": [
+                                "IEEE publications subscription"
+                            ],
+                            "num_of_events_organised": 2,
+                            "higher_studeis": "None"
+                        }
+                    ],
+                    "society_details": [
+                        {
+                            "name": "IEEE AerospaceSociety",
+                            "num_of_students": 50,
+                            "per_of_society_student": 40,
+                            "per_of_placed_student": 20
+                        },
+                        {
+                            "name": "IEEE Communications Society",
+                            "num_of_students": 30,
+                            "per_of_society_student": 20,
+                            "per_of_placed_student": 10
+                        },
+                        {
+                            "name": "IEEE Spectrum magazine",
+                            "num_of_students": 30,
+                            "per_of_society_student": 20,
+                            "per_of_placed_student": 10
+                        }
+                    ],
+                    "event_details": [
+                        {
+                            "name": "Event 1",
+                            "num_of_students": 50,
+                            "per_of_event_student": 40,
+                            "per_of_placed_student": 20
+                        },
+                        {
+                            "name": "Event 2",
+                            "num_of_students": 30,
+                            "per_of_event_student": 20,
+                            "per_of_placed_student": 10
+                        },
+                        {
+                            "name": "Event 3",
+                            "num_of_students": 30,
+                            "per_of_event_student": 20,
+                            "per_of_placed_student": 10
+                        }
+                    ]
+                },
+                {
+                    "category": "Entrepreneurs",
+                    "total_per": 20,
+                    "num_of_studnts": 40,
+                    "total_num_of_students": 200,
+                    "student_details": [
+                        {
+                            "name": "Venkatesh",
+                            "id": 330,
+                            "membersip_details": [
+                                "IEEE",
+                                "AAPG"
+                            ],
+                            "desigantion": [
+                                "Graduate Student",
+                                "member"
+                            ],
+                            "joined_date": [
+                                "10 Jun 2017",
+                                "20 March 2018"
+                            ],
+                            "board": [
+                                "IEEE Communications Editorial Board",
+                                "soceity 1"
+                            ],
+                            "num_of_events_organised": 3,
+                            "isEntrepreneurs": "Yes"
+                        },
+                        {
+                            "name": "Karthik",
+                            "id": 331,
+                            "membersip_details": [
+                                "IEEE",
+                                "AAPG"
+                            ],
+                            "desigantion": [
+                                "Society member",
+                                "member"
+                            ],
+                            "joined_date": [
+                                "10 Jun 2017",
+                                "20 March 2018"
+                            ],
+                            "board": [
+                                "IEEE Communications Editorial Board",
+                                "soceity 1"
+                            ],
+                            "num_of_events_organised": 5,
+                            "isEntrepreneurs": "Yes"
+                        },
+                        {
+                            "name": "Sneha",
+                            "id": 322,
+                            "membersip_details": [
+                                "IEEE"
+                            ],
+                            "desigantion": [
+                                "Society member"
+                            ],
+                            "joined_date": [
+                                "20 March 2018"
+                            ],
+                            "board": [
+                                "IEEE publications subscription"
+                            ],
+                            "num_of_events_organised": 2,
+                            "isEntrepreneurs": "No"
+                        },
+                        {
+                            "name": "Nisha",
+                            "id": 324,
+                            "membersip_details": [
+                                "IEEE"
+                            ],
+                            "desigantion": [
+                                "member"
+                            ],
+                            "joined_date": [
+                                "10 Jun 2017"
+                            ],
+                            "board": [
+                                "IEEE publications subscription"
+                            ],
+                            "num_of_events_organised": 2,
+                            "isEntrepreneurs": "No"
+                        }
+                    ],
+                    "society_details": [
+                        {
+                            "name": "IEEE AerospaceSociety",
+                            "num_of_students": 50,
+                            "per_of_society_student": 40,
+                            "per_of_placed_student": 20
+                        },
+                        {
+                            "name": "IEEE Communications Society",
+                            "num_of_students": 30,
+                            "per_of_society_student": 20,
+                            "per_of_placed_student": 10
+                        },
+                        {
+                            "name": "IEEE Spectrum magazine",
+                            "num_of_students": 30,
+                            "per_of_society_student": 20,
+                            "per_of_placed_student": 10
+                        }
+                    ],
+                    "event_details": [
+                        {
+                            "name": "Event 1",
+                            "num_of_students": 50,
+                            "per_of_event_student": 40,
+                            "per_of_placed_student": 20
+                        },
+                        {
+                            "name": "Event 2",
+                            "num_of_students": 30,
+                            "per_of_event_student": 20,
+                            "per_of_placed_student": 10
+                        },
+                        {
+                            "name": "Event 3",
+                            "num_of_students": 30,
+                            "per_of_event_student": 20,
+                            "per_of_placed_student": 10
+                        }
+                    ]
+                },
+                {
+                    "category": "None",
+                    "total_per": 10,
+                    "num_of_studnts": 20,
+                    "total_num_of_students": 200,
+                    "student_details": [
+                        {
+                            "name": "Prathiksha",
+                            "id": 330,
+                            "placement_offered": 4,
+                            "offer_accepted": "None",
+                            "higher_studeis": "MBA",
+                            "isEntrepreneurs": "No"
+                        },
+                        {
+                            "name": "Roshni",
+                            "id": 340,
+                            "placement_offered": 2,
+                            "offer_accepted": "None",
+                            "higher_studeis": "MS",
+                            "isEntrepreneurs": "No"
+                        },
+                        {
+                            "name": "Shankar",
+                            "id": 310,
+                            "placement_offered": 2,
+                            "offer_accepted": {
+                                "companyName": "Infosys",
+                                "designation": "Business Analyst",
+                                "salary": "20 lakhs/Annum"
+                            },
+                            "higher_studeis": "None",
+                            "isEntrepreneurs": "No"
+                        }
+                    ]
+                }
+            ],
+            "non_organizer_details": [
+                {
+                    "category": "Placed",
+                    "total_per": 35,
+                    "num_of_studnts": 66,
+                    "total_num_of_students": 200,
+                    "student_details": [
+                        {
+                            "name": "Soujanya",
+                            "id": 320,
+                            "placement_offered": 4,
+                            "offer_accepted": "None",
+			    "higher_studeis": "MBA",
+                            "isEntrepreneurs": "No"
+                        },
+                        {
+                            "name": "Navya",
+                            "id": 321,
+                            "placement_offered": 3,
+                            "offer_accepted": "None",
+			    "higher_studeis": "None",
+                            "isEntrepreneurs": "Yes"
+                        },
+                        {
+                            "name": "Sneha",
+                            "id": 322,
+                            "placement_offered": 1,
+                            "offer_accepted": {
+                                "companyName": "Infosys",
+                                "designation": "Business Analyst",
+                                "salary": "20 lakhs/Annum"
+                            },
+                            "higher_studeis": "None",
+                            "isEntrepreneurs": "No"
+                        },
+                        {
+                            "name": "Nisha",
+                            "id": 324,
+                            "num_of_events_organised": 2,
+                            "placement_offered": 1,
+                            "offer_accepted": {
+                                "companyName": "Google",
+                                "designation": "Business Analyst",
+                                "salary": "30 lakhs/Annum"
+                            },
+			    "higher_studeis": "None",
+                            "isEntrepreneurs": "No"
+                        }
+                    ]
+                },
+                {
+                    "category": "Higher Studies",
+                    "total_per": 30,
+                    "num_of_studnts": 40,
+                    "total_num_of_students": 200,
+"student_details": [
+                        {
+                            "name": "Soujanya",
+                            "id": 320,
+                            "placement_offered": 4,
+                            "offer_accepted": "None",
+			    "higher_studeis": "MBA",
+                            "isEntrepreneurs": "No"
+                        },
+                        {
+                            "name": "Navya",
+                            "id": 321,
+                            "placement_offered": 3,
+                            "offer_accepted": "None",
+			    "higher_studeis": "None",
+                            "isEntrepreneurs": "Yes"
+                        },
+                        {
+                            "name": "Sneha",
+                            "id": 322,
+                            "placement_offered": 1,
+                            "offer_accepted": {
+                                "companyName": "Infosys",
+                                "designation": "Business Analyst",
+                                "salary": "20 lakhs/Annum"
+                            },
+                            "higher_studeis": "None",
+                            "isEntrepreneurs": "No"
+                        },
+                        {
+                            "name": "Nisha",
+                            "id": 324,
+                            "num_of_events_organised": 2,
+                            "placement_offered": 1,
+                            "offer_accepted": {
+                                "companyName": "Google",
+                                "designation": "Business Analyst",
+                                "salary": "30 lakhs/Annum"
+                            },
+			    "higher_studeis": "None",
+                            "isEntrepreneurs": "No"
+                        }
+                    ]
+                },
+                {
+                    "category": "Entrepreneurs",
+                    "total_per": 15,
+                    "num_of_studnts": 30,
+                    "total_num_of_students": 200,
+                    "student_details": [
+                        {
+                            "name": "Soujanya",
+                            "id": 320,
+                            "placement_offered": 4,
+                            "offer_accepted": "None",
+			    "higher_studeis": "MBA",
+                            "isEntrepreneurs": "No"
+                        },
+                        {
+                            "name": "Navya",
+                            "id": 321,
+                            "placement_offered": 3,
+                            "offer_accepted": "None",
+			    "higher_studeis": "None",
+                            "isEntrepreneurs": "Yes"
+                        },
+                        {
+                            "name": "Sneha",
+                            "id": 322,
+                            "placement_offered": 1,
+                            "offer_accepted": {
+                                "companyName": "Infosys",
+                                "designation": "Business Analyst",
+                                "salary": "20 lakhs/Annum"
+                            },
+                            "higher_studeis": "None",
+                            "isEntrepreneurs": "No"
+                        },
+                        {
+                            "name": "Nisha",
+                            "id": 324,
+                            "num_of_events_organised": 2,
+                            "placement_offered": 1,
+                            "offer_accepted": {
+                                "companyName": "Google",
+                                "designation": "Business Analyst",
+                                "salary": "30 lakhs/Annum"
+                            },
+			    "higher_studeis": "None",
+                            "isEntrepreneurs": "No"
+                        }
+                    ]
+                },
+                {
+                    "category": "None",
+                    "total_per": 10,
+                    "num_of_studnts": 15,
+                    "total_num_of_students": 200,
+                    "student_details": [
+                        {
+                            "name": "Prathiksha",
+                            "id": 330,
+                            "placement_offered": 4,
+                            "offer_accepted": "None",
+                            "higher_studeis": "MBA",
+                            "isEntrepreneurs": "No"
+                        },
+                        {
+                            "name": "Roshni",
+                            "id": 340,
+                            "placement_offered": 2,
+                            "offer_accepted": "None",
+                            "higher_studeis": "MS",
+                            "isEntrepreneurs": "No"
+                        },
+                        {
+                            "name": "Shankar",
+                            "id": 310,
+                            "placement_offered": 2,
+                            "offer_accepted": {
+                                "companyName": "Infosys",
+                                "designation": "Business Analyst",
+                                "salary": "20 lakhs/Annum"
+                            },
+                            "higher_studeis": "None",
+                            "isEntrepreneurs": "No"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "academicYear_details": [
+        "2017-18",
+        "2018-19",
+        "2019-20"
+    ],
+    "term_details": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+    ],
+    "departments_details": [
+        "CS",
+        "ISE",
+        "EC",
+        "EE"
+    ]
+}

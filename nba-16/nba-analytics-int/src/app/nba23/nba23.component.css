@@ -1,0 +1,271 @@
+#dd { 
+  color: rgb(4, 146, 115);
+}
+
+
+
+.divider {
+  border: 1px solid gray;
+}
+
+
+  
+h6 {
+  text-align: left;
+  padding-top: 30px;
+  text-decoration-color:black;  
+}
+
+hr{
+  height: auto;   
+}
+
+#table1 th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: lightgray;
+  color:#00303f ;
+}
+
+/*code for left side second table*/
+#table2 th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: lightgray;
+  color:#00303f ;
+}
+#table2 tr {
+ height: 1px;
+}
+#table1 tr{
+  height: 1px;
+}
+
+
+
+/*this code is for the border box*/
+#box {
+    
+    float: left;
+    width: 100%;
+    border: 1px solid;
+    border-color: dimgrey;
+    padding: 8px;
+}
+/*card1 is the card for total bottom part*/    
+#card1{
+  float: left;
+  width: 100%;
+}
+#card{
+  display: inline;
+}
+/*this is for the dropdown in the header*/
+#dropdown{
+  float: right;
+  width: 50%;
+}
+#cardheader{
+  background-color: #3c763d;
+  color: #00303f;
+}
+/*each of the smallcard represents the cards in the right side of the bottom part of the page*/
+#smallcard1{
+  float: left;
+  position: relative;
+}
+#smallcard2{
+  float: right;
+  position: relative;
+  
+}
+#smallcard3{
+  float: left;
+ position: relative;
+  
+  
+}
+#smallcard4{
+  float:right;
+  position: relative;
+}
+  #sortBox{
+      padding-top: 0px;
+      padding-bottom: 0px;
+      -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+      
+  }
+
+  .basicborder{
+
+    border: 2px solid #979797;
+    border-radius: 5px;
+
+  }
+  
+  .rwd{
+    opacity: 0.5;
+  }
+
+  .greentext{
+      color: #1a7e5d;
+      font-weight: 500;
+  }
+
+  .maintext{
+      color: #00303f;
+      line-height: normal;
+      text-align: left;
+  }
+
+  .selector{
+      padding-right: 0px;
+  }
+
+  .fullwidth{
+      width: 100%;
+  }
+
+  .noborder{
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  
+  border: none !important;
+
+  }
+
+  .mat-caption{
+    text-align: left;
+    font-size: xx-small;
+  }
+
+  .mat-card-header{
+    text-align: center;
+
+  }  
+
+  .button{
+    background-color: white;
+  }
+
+  .button .active{
+    border: 1px solid #6098d0;
+    color: #6098d0;
+  } 
+
+  .checked-button {
+    border: 1px solid #4e8dcb;    
+    color: #4e8dcb;
+    box-shadow: 3px 3px 3px #888888;
+  
+  }
+  
+
+  .mat-divider{
+    color: #979797;
+    height: 5px;
+    margin-left: 20px;
+    margin-right: 40px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .mat-body-2{
+    color: #00303f;
+  }
+
+  .back{
+    background-color: #d8d8d8;
+  }
+
+  .back2{
+    background-color: #7a9d96;
+  }
+
+  .white{
+    color: white;
+  }
+  .right{
+    float: right;
+    margin: 5px;
+    border: none;
+    background: transparent;
+  }
+  .responsive{
+    width: 100%;
+  }
+
+  .shadow{
+    border: 1px;
+    padding: 3px;
+    border-radius: none;
+    /* box-shadow: 5px 10px red; */
+  
+    box-shadow: 0px 1px 1px 1px #888888;
+  }
+
+  .maroon{
+    color: #76323f;
+  }
+  
+  .verticalLine {
+    border-left: solid #979797 ;
+  }
+
+  .cardborder {
+    border: solid 3px #2d8ea7;
+    border-bottom: 0px;
+    border-right: 0px;
+  }
+#disusertype{
+  color: white;
+  background-color: #3d9970;
+  padding: 2px;  
+  text-align: right;
+  border-radius: 2px;
+}
+
+.tr{
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.td{
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+
+  
+.gray{
+    
+    background-color: #979797;
+    color: black;
+}
+.scroll {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+#cardarea{
+  margin-top: 40px;
+ 
+}
+.border{
+  border-style: solid;
+}
+
+.f14{
+  font-size: 14;
+  text-align: left;
+}
+
+.leftmargin{
+  margin-left: 210px;
+}
+

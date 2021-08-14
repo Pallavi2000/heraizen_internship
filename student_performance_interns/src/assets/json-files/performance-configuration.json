@@ -1,0 +1,53 @@
+{
+    "acadmicYear": [
+        "2017-18",
+        "2018-19",
+        "2019-20"
+    ],
+    "terms": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+    ],
+    "section": [
+        "A",
+        "B",
+        "C",
+        "D"
+    ],
+    "department_details": [
+        {
+            "deptId": "CSE",
+            "section": "A",
+            "term": "1",
+            "applicableTo": 21,
+            "total": 120
+        },
+        {
+            "deptId": "ISE",
+            "section": "A",
+            "term": "1",
+            "applicableTo": 21,
+            "total": 120
+        },
+        {
+            "deptId": "ECE",
+            "section": "A",
+            "term": "1",
+            "applicableTo": 21,
+            "total": 120
+        },
+        {
+            "deptId": "EEE",
+            "section": "A",
+            "term": "1",
+            "applicableTo": 21,
+            "total": 120
+        }
+    ]
+}

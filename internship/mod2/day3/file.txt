@@ -1,0 +1,10 @@
+1,Megha,M.Tech,45000,ECE
+2,Lara,M.Tech,56000,ISE
+3,Mala,B.Tech,45000,CSE
+4,Suma,PhD,66000,ISE
+5,Rani,M.Tech,56000,ISE
+6,Rohan,B.Tech,45000,CSE
+7,Manoj,PhD,85000,CSE
+8,Rajani,M.Tech,55000,CSE
+9,Pooja,B.Tech,45000,ECE
+10,Shama,PhD,65000,ECE

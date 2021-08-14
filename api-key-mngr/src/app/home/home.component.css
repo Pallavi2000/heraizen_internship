@@ -1,0 +1,45 @@
+table{
+    margin-top:30px;
+    width:100%;
+}
+
+table th{
+    background-color: blueviolet !important;
+    font-size:20px;
+    color:gainsboro;
+}
+
+.mat-elevation-z8{
+    margin-left:50px;
+    margin-top:50px;
+    margin-right: 30px;
+}
+
+.container1,.container2{
+    margin-left:50px;
+    margin-top: 20px;
+    background-color: white;
+}
+
+.container1 p{
+    font-size:15px !important;
+    width:75%;
+}
+
+.container1 button{
+    float:right;
+}
+
+.container2 button{
+    margin-left: 40px;
+}
+
+.example-form{
+    margin-left: 80px !important;
+}
+
+.btn{
+    text-decoration: underline red !important;
+    color:red !important;
+}
+

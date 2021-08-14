@@ -1,0 +1,98 @@
+button.disp {
+	padding: 0px;
+	border: 0px !important;
+	width: 15px;
+	height: 5px;
+	margin-top: -5px;
+	all: unset;
+	cursor: pointer;
+	margin-left: 45px;
+}
+
+button.disp:focus {
+	outline: none;
+	border: 0px !important;
+}
+
+.mat-dialog-container {
+	margin-right: -360px !important;
+	margin-left: 153px;
+}
+
+.buttonClose {
+	all: unset;
+	border: 0px !important;
+	position: relative !important;
+	left: 90% !important;
+	display: inline-block !important;
+}
+
+.ok-button {
+	position: relative !important;
+	left: 85% !important;
+	display: inline-block !important;
+}
+
+mat-header-cell {
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+mat-table {
+	max-width: 700px;
+	max-height: 100%;
+	box-sizing: border-box;
+	margin: auto;
+	border: 1px solid black;
+	overflow-y: auto;
+}
+
+mat-cell,
+mat-header-cell {
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+	padding: 10px;
+	margin: 0px !important;
+}
+
+@media only screen and (max-width: 736px) and (orientation: portrait) {
+	mat-header-row,
+	mat-row {
+		width: 100%;
+		display: flex !important;
+	}
+
+	.ok-button {
+		position: relative !important;
+		left: 71% !important;
+	}
+
+	.buttonClose {
+		position: relative !important;
+		left: 36% !important;
+	}
+
+	.col-sm-1,
+	.col-sm-11 {
+		width: inherit !important;
+		padding-right: 0px !important;
+	}
+}
+@media screen and (max-width: 960px) {
+	.mat-table .mat-row {
+		border-bottom: 0px;
+	}
+}
+@media screen and (max-width: 960px) {
+	mat-table,
+	mat-cell {
+		display: grid;
+		font-size: 13px;
+		text-align: center !important;
+		font-weight: normal;
+		height: 500px;
+		padding: 1px !important;
+	}
+	mat-cell {
+		width: 30px;
+	}
+}

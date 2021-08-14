@@ -1,0 +1,578 @@
+<!-- -----------------breadcrum starts--------------------------- -->
+<div class="row">
+  <div class="col-md-11 col-8 ">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a>
+          <i class="fa fa-bar-chart"></i>
+          {{obj.analytics}}
+        </a>
+      </li>
+      <li class="active breadcrumb-item">
+        <a>
+          {{obj.nba22}}
+        </a>
+
+      </li>
+    </ol>
+  </div>
+  <div class="col-md-1 mt-1 col-4" *ngIf="backbtn">
+    <div id="rightalg">
+      <span (click)="backfunction()">
+        <i class="fa fa-chevron-left"> </i>
+        {{obj.backbtn}}
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- -------------------------breadcrumb ends here---------------------- -->
+
+
+<!-- ------------------------------Selection fileds starts-------------------- -->
+<form [formGroup]="searchCategoryList" class="row">
+  <mat-form-field class="col-md-2 col-6">
+    <mat-label class="text-success">{{obj.academic_year}}</mat-label>
+    <mat-select formControlName="academicYear" class="inputMaterial" required (selectionChange)="checkdiff()"
+      [disabled]="backbtn">
+      <mat-option *ngFor="let acadyear of academicYear" [value]="acadyear">
+        {{acadyear}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="col-md-2 col-6" *ngIf="principal">
+    <mat-label class="text-success">{{obj.department}}</mat-label>
+    <mat-select formControlName="dept" class="inputMaterial" required (selectionChange)="checkdiff()"
+      [disabled]="backbtn">
+      <mat-option *ngFor="let dept of departments" [value]="dept">
+        {{dept}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="col-md-2 col-6">
+    <mat-label class="text-success"> {{obj.term}}</mat-label>
+    <mat-select multiple formControlName="term" (selectionChange)="checkdiff()" class="inputMaterial" required
+      [disabled]="backbtn">
+      <mat-option *ngFor="let term of termdetails" [value]="term">
+        Semester {{term}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <div class="form-group text-center col-md-2  d-none d-md-block search-border">
+    <button type="button" class="displayOnShrinkButton other-button"
+      (click)="smallScreen=false;chart2bool=false;searchfun();sortFun();average_co()"
+      [disabled]="searchCategoryList.invalid || backbtn || change"><i class="fas fa-search"></i>&nbsp;
+      {{obj.search}}</button>      
+  </div>
+  <div class="form-group text-center col-md-3 d-sm-block  d-md-none search-border">
+    <button type="button" class="btn-search" (click)="smallScreen=true;searchfun();average_co_course_wise()"
+      [disabled]="searchCategoryList.invalid "><i class="fas fa-search"></i>&nbsp; {{obj.search}}</button>
+  </div>
+
+</form>
+<!-- -----------------------------selection fileds ends------------------------- -->
+
+<!-- ---------------------mandatory tag starts--------------------------- -->
+<div class="row">
+  <div class="col-md-12 col-6">
+    <span class="mandatry-field">
+      <em>*</em>&nbsp;<small>{{obj.fields}}</small>
+    </span>
+  </div>
+  <hr class="col-md-12 m-2" color="gray">
+</div>
+<!-- ---------------------mandatory tag ends--------------------------- -->
+
+
+<!-- -------------- 1st chart------------- -->
+<div class="row col-md-12 text-center text-bold" *ngIf="emptydata">
+  {{obj.emptyMessage}}
+</div>
+<div class="p-10 ml-30 mb-20 col-md-12">
+  <div class=" container-chart-1" *ngIf="firstchartflag">
+    <div class="col-md-12 text-bold">
+      {{obj.chart_1_head}}
+    </div>
+
+    <div class=" col-md-12 d-none d-md-block" google-chart [data]="chart.dataTable" [chartType]="chart.chartType"
+      [options]="chart.options" (select)="courseSelect($event)">
+    </div>
+
+    <div class="col-md-12 ">
+      
+      <div *ngFor='let d of rwdDatatable;index as i' class="d-sm-block  d-md-none">
+        <div class="col-sm-12"  (select)="courseSelect($event)" google-chart
+            [data]="rwd_data.dataTable[i]" [chartType]="rwd_data.chartType"
+            [options]="rwd_data.options"></div>
+        
+      </div>
+    </div>
+    
+  </div>
+</div>
+<!-- -------------- 1st chart ends------------- -->
+
+
+<!-- ---------Second chart ------------------ -->
+
+<div class="row" *ngIf='backbtn'>
+  <div class="col-md-2">
+    <!-- UI for Left pane starts-->
+    <div class="d-none d-sm-block pl-3 ">
+      <p class="coList"> {{obj.colist}} </p>
+      <div class="border rounded bg-white">
+        <i class="darkGreen ml-3 mb-1 mt-2"> {{obj.sortHead}}</i>
+        <form class="body-small">
+          <mat-radio-group>
+            <mat-radio-button value="avgCo" [checked]='true' class="sortOption  ml-2"
+              (click)="sortOption='avgCo';sortFun()">{{obj.coAtn}}
+            </mat-radio-button><br>
+            <mat-radio-button value="coName" class="sortOption ml-2" (click)="sortOption='coName';sortFun()">
+              {{obj.coName}}</mat-radio-button>
+            <mat-radio-button value="faName" class="sortOption ml-2" *ngIf="hod"
+              (click)="sortOption='faName';sortFun()">
+              {{obj.faName}}</mat-radio-button>
+          </mat-radio-group>
+        </form>
+      </div>
+
+      <div class="row" id="selector">
+        <div class="col-md-5 body-small ml-0 br-solid mt-2">
+          <i class="darkGreen">{{obj.noentry}}</i>
+          <mat-select class="btnBorder mt-2" [(value)]="selected">
+            <mat-option value="1-10">{{obj.one10}}</mat-option>
+            <mat-option value="11-20">{{obj.ten20}}</mat-option>
+            <mat-option value="21-30">{{obj.twenty30}}</mat-option>
+          </mat-select>
+
+        </div>
+
+        <div class="col-md-5">
+          <br>
+          <form class="body-xsmall ">
+            <mat-radio-group>
+              <mat-radio-button value="Desc" [checked]='true' class="sortOr  ml-0" (click)="sortOrder='desc';sortFun()">
+                {{obj.Desc}}
+              </mat-radio-button><br>
+              <mat-radio-button value="Asc" class="sortOr ml-0" (click)="sortOrder='asc';sortFun()">{{obj.Asc}}
+              </mat-radio-button>
+            </mat-radio-group>
+          </form>
+        </div>
+      </div>
+
+      <div class="buttonarea ml-0 mt-4"  *ngIf="!hod">
+        <div  *ngFor="let data of selectedfacultydata;let i=index;" class="pl-1 pr-2 col-md-12 width100 textLeft" vertical>
+          <button (click)="selectCourse(i);display_1 = !display_1" class=" body-xsmall bg-white rounded blackBorder my-3 p-2 textLeft width100 active"
+           >
+           
+              {{data.courseName}} ({{data.courseCode}})
+              Semester {{data.termNumber}} - Section {{data.section}}
+              {{data.facultyName}} 
+          </button>
+        </div>
+      </div>
+      <div class="buttonarea ml-0 mt-4"  *ngIf="hod">
+        <div  *ngFor="let data of selectedfacultydata;let i=index;" class="pl-1 pr-2 col-md-12 width100 textLeft" vertical>
+          <button (click)="selectCourse(i);display_1 = !display_1" class=" body-xsmall bg-white rounded blackBorder my-3 p-2 textLeft width100 active"
+           >
+           
+              {{data.courseName}} ({{data.courseCode}})
+              Semester {{data.termNumber}} - Section {{data.section}}
+               {{data.facultyName}} 
+           
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- UI for Left pane ends-->
+
+
+  <!-- Mobile Course list starts-->
+
+  <div class="d-block d-md-none col-sm-12">
+    <div class="blackBorder rounded">
+      <p class="coList m-3"> {{obj.colist}} </p>
+      <mat-card class="col-11 m-auto ">
+        <i class="darkGreen float-left">{{obj.sortHead}}</i><br>
+        <mat-radio-group class="body small ">
+          <mat-radio-button value="avgCo" [checked]='true' class="sortOption  m-1"
+            (click)="sortOption='avgCo';sortFun()">{{obj.coAtn}}</mat-radio-button>
+          <mat-radio-button value="coName" class="sortOption m-1" (click)="sortOption='coName';sortFun()">
+            {{obj.coName}}</mat-radio-button>
+
+        </mat-radio-group>
+      </mat-card>
+      <br>
+      <div class="col-11 m-auto">
+      <form class="body-small ">
+        <mat-radio-group class="mt-5">
+          <mat-radio-button value="Desc" [checked]='true' class="sortOr m-1" (click)="sortOrder='desc';sortFun()">
+            {{obj.Desc}}
+          </mat-radio-button>
+          <mat-radio-button value="Asc" class="sortOr m-1" (click)="sortOrder='asc';sortFun()">{{obj.Asc}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </form>
+      </div>
+    </div>
+    <br>
+   <!-- Mobile Course list ends-->
+   <!-- Mobile Charts start-->
+    <div>
+      <h6 class="text-center font-weight-bold">{{obj.chart_2_head_rwd}} </h6>
+        <div class="buttonarea">
+         <div class="col-12 body-small  p-4" *ngFor="let data of selectedfacultydata;let i as index" >
+            <i class="RWDcoursehead mb-0 fas fa-book" >
+              {{ data.courseName }}-{{ data.courseCode }} ( Term-{{data.termNumber}} Section-{{ data.section }})
+            </i>
+            <mat-accordion [multi]="true" >
+              <mat-expansion-panel *ngFor="let d of rwdCourseData; index as j; let title
+              of currentBloom;" >
+                <mat-expansion-panel-header>
+                  <mat-panel-title >
+                    {{ title}}
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-card>
+                  <div
+                  google-chart
+                  [data]="rwdchart2.dataTable[j]"
+                  [chartType]="rwdchart2.chartType"
+                  [options]="rwdchart2.options"
+                  (select)="onClick($event)"
+                ></div>                </mat-card>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+        </div>
+
+    </div>
+            
+  </div>
+  
+
+  <!-- ------------------right panel------------------------------- -->
+  <div class="vl col-md-10 d-none d-sm-block">
+    <div class="row ">
+      <div class=" container">
+        <div class="col-md-12  text-bold">
+          {{obj.chart_2_head_web}}
+        </div>
+        
+       
+         <div class=" container-chart-2" *ngIf="!display_1">
+          <div class=" col-sm-12 col-md-12" google-chart [data]="chart1.dataTable" [chartType]="chart1.chartType"
+            [options]="chart1.options" (select)="onClick($event)">
+          </div>
+        </div>
+        <div class=" container-chart-2" *ngIf="display_1">
+          <div class=" col-sm-12 col-md-12" google-chart [data]="chart1.dataTable" [chartType]="chart1.chartType"
+            [options]="chart1.options" (select)="onClick($event)">
+          </div>
+        </div>
+    
+      </div>
+    </div>
+
+    <!-------------------Table Starts------------------>
+    <div class="row d-none d-sm-block">
+      <div class="col-md-12 row" *ngFor="let codetails of tabledata">
+
+        <div class="col-md-12 d-none d-md-block">
+          <hr color="black">
+          <div class="text-center">
+            {{obj.CO}}{{codetails.coNumber}} Attainment details
+          </div>
+
+          <div class="border rounded bg-white">
+            <h5 class="text-center p-2"><b>{{obj.totalAtt}}</b></h5>
+            <h5 class="text-center">
+              <hr color="black" class="m-2">{{obj.CO}}{{codetails.coNumber}}: "{{codetails.bloomsLevel}}"
+              <hr color="black" class="m-2">
+            </h5>
+            <div class="row m-2">
+
+
+              <div class="col-md-6">
+
+                <table *ngFor="let codetails of tabledata" class="table">
+                  <thead>
+                    <tr>
+                      <th colspan="5">
+                        <h6>&nbsp; {{obj.direct}}</h6>
+                      </th>
+                    </tr>
+                  </thead>
+                  <thead>
+                    <tr class="table-active">
+                      <th scope="col">{{obj.name}}</th>
+                      <th *ngFor="let method of codetails.direct_methodName">{{method}}</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="border">
+                      <th scope="row">{{obj.desc}}</th>
+                      <td *ngFor="let methoddescription of codetails.direct_methodDescription">{{methoddescription}}
+                      </td>
+                      <td>NIL</td>
+
+                    </tr>
+                    <tr class="border">
+                      <th scope="row">{{obj.att}}</th>
+                      <td *ngFor="let attainment of codetails.direct_attainment">{{attainment}}</td>
+
+                    </tr>
+                    <tr class="border">
+                      <th scope="row">{{obj.attP}}</th>
+                      <td *ngFor="let attainment_percentage of codetails.direct_attainmentPercentage">
+                        {{attainment_percentage}}</td>
+
+                    </tr>
+                    <tr class="border">
+                      <th scope="row">{{obj.tot}}</th>
+                      <td>1.0</td>
+                      <td>2.0</td>
+                      <td>3.0</td>
+                    </tr>
+                    <tr class="border">
+                      <th scope="row">{{obj.totM}}</th>
+                      <td>1.0</td>
+                      <td>2.0</td>
+                      <td>3.0</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-6">
+                <table *ngFor="let codetails of tabledata" class="table">
+                  <thead>
+                    <tr>
+                      <th colspan="5">
+                        <h6>&nbsp; {{obj.indirect}}</h6>
+                      </th>
+                    </tr>
+                  </thead>
+
+                  <thead>
+                    <tr class="table-active">
+                      <th scope="col">{{obj.name}}</th>
+                      <th *ngFor="let method of codetails.indirect_methodName">{{method}}</th>
+                    </tr>
+
+                  </thead>
+
+                  <tr class="border">
+                    <th scope="row">{{obj.desc}}</th>
+                    <td *ngFor="let methoddescription of codetails.indirect_methodDescription">{{methoddescription}}
+                    </td>
+                  </tr>
+
+                  <tr class="border">
+                    <th scope="row">{{obj.att}}</th>
+                    <td *ngFor="let attainment of codetails.indirect_attainment">{{attainment}}</td>
+
+                  </tr>
+                  <tr class="border">
+                    <th scope="row">{{obj.attP}}</th>
+                    <td *ngFor="let attainment_percentage of codetails.indirect_attainmentPercentage">
+                      {{attainment_percentage}}</td>
+
+                  </tr>
+                  <tr class="border">
+                    <th scope="row">{{obj.tot}}</th>
+                    <td>1.0</td>
+
+                  </tr>
+                  <tr class="border">
+                    <th scope="row">{{obj.totM}}</th>
+                    <td>1.0</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ------------------right panel end------------------------------- -->
+
+
+
+  <!-- ----------------------mobile view second chart--------------------- 
+
+  <div class=" row d-block m-2 d-sm-none " *ngIf="!display_1">
+    <div class="col-sm-12  text-bold">{{obj.chart_2_head_web}}</div>
+    <div class=" col-sm-12 col-md-12" google-chart [data]="chart1.dataTable" [chartType]="chart1.chartType"
+      [options]="chart1.options" (select)="onClick($event)">
+    </div>
+  </div>
+  ----------------------mobile view second chart ends--------------------- -->
+
+
+  <!-- ----------------------------mobile view table------------------------- -->
+  <div class="d-block m-2 d-sm-none border rounded">
+    <div *ngFor="let codetails of tabledata">
+      <h5 class="text-center p-2"><b>{{obj.totalAtt}}</b></h5>
+      <h5 class="text-left">
+        <hr color="black" class="m-2">{{obj.CO}}{{codetails.coNumber}}: "{{codetails.bloomsLevel}}"
+        <hr color="black" class="m-2">
+      </h5>
+    </div>
+    <table *ngFor="let codetails of tabledata; let j=index; " class="table  table-bordered">
+      <thead>
+        <tr>
+          <th colspan="5">
+            <h6>{{obj.direct}}</h6>
+
+          </th>
+        </tr>
+      </thead>
+      <thead>
+        <tr>
+          <th></th>
+          <th>{{obj.SL}}</th>
+          <th>{{obj.name}}</th>
+        </tr>
+      </thead>
+      <tbody id="accordion" class="scrollit table-data custom-card-group accordian-panel box-borders"
+        *ngFor="let list of Keylist; let i=index;">
+        <tr>
+          <td><a class="accordion-toggle collapsed p-2" id="accordion" data-toggle="collapse"
+              [attr.data-target]="'#details'+i+j">
+            </a></td>
+          <td>{{i+1}}</td>
+          <td><b>{{list}}</b></td>
+        </tr>
+        <tr>
+          <td colspan="3">
+
+            <div id="details{{i}}{{j}}" data-parent="#accordion" class="collapse">
+              <div class="row" *ngIf="i==0">
+
+                <div *ngFor="let method of codetails.direct_methodDescription; let k=index;">
+                  &nbsp; &nbsp; <b>{{obj.method}} &nbsp;{{k+1}}: </b>&nbsp; {{method}}
+
+                </div>
+
+
+              </div>
+              <div class="row" *ngIf="i==1">
+
+                <div *ngFor="let method of codetails.direct_attainment; let k=index;">
+
+                  &nbsp; &nbsp; <b>{{obj.method}} &nbsp;{{k+1}}: </b>&nbsp; {{method}} &nbsp;
+
+                </div>
+
+              </div>
+              <div class="row" *ngIf="i==2">
+
+                <div *ngFor="let method of codetails.direct_attainmentPercentage; let k=index;">
+
+                  &nbsp; &nbsp; <b>{{obj.method}} &nbsp;{{k+1}}: </b>&nbsp; {{method}} &nbsp;
+
+                </div>
+              </div>
+              <div class="row" *ngIf="i==3">
+                &nbsp; &nbsp; <b>{{obj.method}} &nbsp;1: </b>&nbsp; 1.0 &nbsp;
+                &nbsp; &nbsp; <b>{{obj.method}} &nbsp;1: </b>&nbsp; 2.0 &nbsp;
+                &nbsp; &nbsp; <b>{{obj.method}} &nbsp;1: </b>&nbsp; 3.0 &nbsp;
+              </div>
+              <div class="row" *ngIf="i==4">
+                &nbsp; &nbsp; <b>{{obj.method}} &nbsp;1: </b>&nbsp; 1.0 &nbsp;
+                &nbsp; &nbsp; <b>{{obj.method}} &nbsp;1: </b>&nbsp; 2.0 &nbsp;
+                &nbsp; &nbsp; <b>{{obj.method}} &nbsp;1: </b>&nbsp; 3.0 &nbsp;
+
+              </div>
+            </div>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+
+    <table *ngFor="let codetails of tabledata; let j=index;" class="table table-bordered" style="text-align:center;">
+      <thead>
+        <tr>
+          <th colspan="5">
+            <h6>{{obj.indirect}}</h6>
+          </th>
+        </tr>
+      </thead>
+      <thead>
+        <tr>
+          <th></th>
+          <th>{{obj.SL}}</th>
+          <th>{{obj.name}}</th>
+        </tr>
+      </thead>
+      <tbody id="accordion" class="scrollit table-data custom-card-group accordian-panel box-borders"
+        *ngFor="let list of Keylist; let i=index;">
+        <tr>
+          <td><a class="accordion-toggle collapsed p-2" id="accordion" data-toggle="collapse"
+              [attr.data-target]="'#details1'+i+j">
+            </a></td>
+          <td>{{i+1}}</td>
+          <td><b>{{list}}</b></td>
+        </tr>
+        <tr>
+          <td colspan="3">
+
+            <div id="details1{{i}}{{j}}" data-parent="#accordion" class="collapse">
+              <div class="row">
+                <div class="row" *ngIf="i==0">
+
+                  <div *ngFor="let method of codetails.indirect_methodDescription; let k=index;">
+                    &nbsp; &nbsp; &nbsp; <b>{{obj.method}} &nbsp;{{k+1}}:</b> &nbsp; {{method}}
+
+                  </div>
+                </div>
+                <div class="row" *ngIf="i==1">
+
+                  <div *ngFor="let method of codetails.indirect_attainment; let k=index;">
+
+                    &nbsp; &nbsp; &nbsp; <b>{{obj.method}} &nbsp;{{k+1}}:</b> &nbsp; {{method}} &nbsp;
+
+                  </div>
+                </div>
+                <div class="row" *ngIf="i==2">
+
+                  <div *ngFor="let method of codetails.indirect_attainmentPercentage; let k=index;">
+
+                    &nbsp; &nbsp; &nbsp; <b>{{obj.method}} &nbsp;{{k+1}}: </b>&nbsp; {{method}} &nbsp;
+
+                  </div>
+                </div>
+                <div class="row" *ngIf="i==3">
+
+                  &nbsp; &nbsp; &nbsp; <b>{{obj.method}} &nbsp;1: </b>&nbsp; 1.0 &nbsp;
+                  &nbsp; &nbsp; &nbsp; <b>{{obj.method}} &nbsp;1: </b>&nbsp; 2.0 &nbsp;
+                  &nbsp; &nbsp; &nbsp; <b>{{obj.method}} &nbsp;1: </b>&nbsp; 3.0 &nbsp;
+
+                </div>
+                <div class="row" *ngIf="i==4">
+                  &nbsp; &nbsp; &nbsp; <b>{{obj.method}} &nbsp;1: </b>&nbsp; 1.0 &nbsp;
+                  &nbsp; &nbsp; &nbsp; <b>{{obj.method}} &nbsp;1: </b>&nbsp; 2.0 &nbsp;
+                  &nbsp; &nbsp; &nbsp; <b>{{obj.method}} &nbsp;1: </b>&nbsp; 3.0 &nbsp;
+
+                </div>
+              </div>
+            </div>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- ---------------------------mobile view table------------------------- -->
+
+</div>

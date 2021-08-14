@@ -1,0 +1,175 @@
+{
+    "academicYear": [
+        "2017-18",
+        "2018-19",
+        "2019-20"
+    ],
+    "departments": [
+        "CS",
+        "EE",
+        "IS",
+        "EC"
+    ],
+    "terms": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+    ],
+    "section": [
+        "A",
+        "B",
+        "C",
+        "D"
+    ],
+    "student_details": [
+        {
+            "USN": "1GS15CS023",
+            "name": "Ramesh K",
+            "year": "2019-20",
+            "course_result": {
+                "Lab": {
+                    "percenatge": 70.3,
+                    "system_generated_score": 7,
+                    "mentor_score": 8,
+                    "self_score": 8,
+                    "internal": {
+                        "type": "Internal",
+                        "system_generated_score": 7,
+                        "mentor_score": 8,
+                        "self_score": 8,
+                        "comment": ""
+                    },
+                    "external": {
+                        "type": "External",
+                        "system_generated_score": 7,
+                        "mentor_score": 8,
+                        "self_score": 8,
+                        "comment": ""
+                    }
+                },
+                "Theory": {
+                    "percenatge": 65.7,
+                    "system_generated_score": 6.5,
+                    "mentor_score": 7,
+                    "self_score": 8,
+                    "internal": {
+                        "type": "Ixternal",
+                        "system_generated_score": 7,
+                        "mentor_score": 8,
+                        "self_score": 8,
+                        "comment": ""
+                    },
+                    "external": {
+                        "type": "External",
+                        "system_generated_score": 7,
+                        "mentor_score": 8,
+                        "self_score": 8,
+                        "comment": ""
+                    }
+                }
+            },
+            "attendance": {
+                "Lab": {
+                    "percenatge": 80.5,
+                    "system_generated_score": 8,
+                    "mentor_score": 8,
+                    "self_score": 8
+                },
+                "Theory": {
+                    "percenatge": 81.5,
+                    "system_generated_score": 8.1,
+                    "mentor_score": 8,
+                    "self_score": 8
+                }
+            },
+            "committee": {
+                "Mentor Meeting": {
+                    "count": 2,
+                    "system_generated_score": 5,
+                    "mentor_score": 4,
+                    "self_score": 10,
+                    "meeting_details": [
+                        {
+                            "committee_name": "Department Level Committee-1",
+                            "status": "On Going",
+                            "from_date": "3 Oct 2018",
+                            "to_date": "",
+                            "reason": "Editorial Board for Geetha Vaibhava2019 ,NAAC Criteria 2 Coordinator"
+                        },
+                        {
+                            "committee_name": "Department Level Committee-2",
+                            "status": "On Going",
+                            "from_date": "3 Oct 2018",
+                            "to_date": "",
+                            "reason": "Editorial Board for Geetha Vaibhava2019 ,NAAC Criteria 2 Coordinator"
+                        },
+                        {
+                            "committee_name": "Department Level Committee-3",
+                            "status": "On Going",
+                            "from_date": "7 Oct 2018",
+                            "to_date": "",
+                            "reason": ""
+                        }
+                    ]
+                }
+            },
+            "internship": {
+                "Internship": {
+                    "count": 2,
+                    "system_generated_score": 5,
+                    "mentor_score": 4,
+                    "self_score": 10
+                }
+            },
+            "project": {
+                "Mini Project": {
+                    "count": 1,
+                    "system_generated_score": 0,
+                    "mentor_score": 0,
+                    "self_score": 0
+                },
+                "Major Project": {
+                    "count": 2,
+                    "system_generated_score": 10,
+                    "mentor_score": 8,
+                    "self_score": 10
+                }
+            },
+            "publication": {
+                "Paper": {
+                    "count": 15,
+                    "system_generated_score": 5,
+                    "mentor_score": 5,
+                    "self_score": 5
+                },
+                "Article": {
+                    "count": 15,
+                    "system_generated_score": 5,
+                    "mentor_score": 5,
+                    "self_score": 5
+                }
+            },
+            "patent": {
+                "Patent": {
+                    "count": 0,
+                    "system_generated_score": 0,
+                    "mentor_score": 0,
+                    "self_score": 0
+                }
+            },
+            "certification": {
+                "certificates": {
+                    "count": 5,
+                    "system_generated_score": 10,
+                    "mentor_score": 9,
+                    "self_score": 10
+                }
+            }
+        }
+    ]
+}

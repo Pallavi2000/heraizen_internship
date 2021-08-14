@@ -1,0 +1,416 @@
+@import '../../pms-styles.css';
+
+/*1st Screen CSS*/
+.row{
+    margin-top:10px;
+}
+
+mat-label{
+    columns: #79b99e;
+}
+
+button{
+    background-color: #52757f;
+    margin-right: 10px;
+    color:white;
+}
+.buttons{
+    justify-content: end;
+}
+.card{
+    width: 99%;
+    height: 99%;
+}
+.card-title{
+    color: white;
+    width : 50%;
+    border-bottom-right-radius: 25px;
+}
+.Course-Result{
+    background-color: #76323f;
+}
+.Attendance{
+    background-color: #3d9970;
+}
+.Committee{
+    background-color: #6a5979;
+}
+.Project{
+    background-color: #7a9d96;
+}
+.Publication{
+    background-color: #2d8ea7;
+}
+.Internship{
+    background-color: #00303f;
+}
+.Patent{
+background-color: #4a8bca;
+}
+.Certification{
+    background-color:#e59332 ;
+}
+span{
+    margin-right: 10px;
+}
+.table{
+    border-block: 1px solid #dee2e6;
+    border-top:none;
+}
+
+/*2nd Screen CSS*/
+
+
+
+.semi-card{
+    height:35px;
+    width:20%;
+    border-top-left-radius: 30px ;
+    border-top-right-radius:30px;
+    text-align: center;
+    margin-right:0px;
+    border-color: #0f628b;
+    outline:none;
+}
+
+.row{
+    margin-top:30px;
+    margin-left: 2px;
+    margin-right: 30%;
+    width:100%
+}
+.block .row{
+    margin-top: 0px;
+}
+
+.block{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    justify-content: end
+}
+
+.block .row h6{
+    margin-bottom: 20px !important;
+    margin-left: 15px !important;
+   
+}
+
+ul{
+    display:flex;
+    list-style: none;
+   
+}
+
+.block ul{
+    margin-left: 40%; 
+    justify-content: end;
+}
+
+ ul li{
+    margin-left: 20px;
+}
+
+.calculation{
+    margin-left:35px;
+}
+
+input{
+    width:min-content;
+    height:20px;
+    border-radius: 3px;
+    font-size: 12px;
+    background-color: rgba(255, 254, 254, 0.212);
+}
+
+span h6{
+    margin-left:20px;
+}
+
+.row p{
+    margin-left:15px;
+    margin-right:65px;
+    color:#0a464e;
+}
+
+.white{
+    background-color: rgb(253, 253, 253);
+    border: 1px solid rgb(116, 114, 114);
+    color:black;
+    outline: none;
+}
+
+i,h6 strong{
+    color:#76323f !important;
+    font-weight: 1500;
+}
+
+h6 strong{
+    text-decoration: underline #76323f ;
+}
+
+
+span i{
+    color:white !important;
+}
+
+.design .col h6{
+    margin-top: 5px;
+    background-color: rgb(218, 214, 214);
+    color:black;
+}
+
+.design{
+    width:100%;
+    background-color: rgb(218, 214, 214);
+    height:30px;
+    margin-bottom: 20px;
+}
+
+.btn_style{
+    margin-left:97%;
+    border-collapse: collapse;
+    border-color: transparent;
+    color:black;
+    font-weight:1000;
+    background-color: rgb(218, 214, 214);
+    outline: none;
+}
+
+.card-design{
+    margin-top: -19px;
+    border: 1px solid rgb(207, 205, 205);
+    margin-left: 2px;
+}
+
+mat-card{
+    border: 1px solid rgb(116, 114, 114);
+    
+}
+
+.submit_button{
+    margin-left: 90%;
+    color:white;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width:629px){
+    
+    .block ul{
+        margin-left: -40px; 
+    }
+    .col-xs-3,.row .col-xs-6{
+        margin-bottom: 20px;
+        margin-left: 13px;
+    }
+
+    .col-xs-9{
+        margin-bottom: 30px;
+        margin-left: 13px;
+    }
+    
+    mat-card{
+    border: 1px solid rgb(116, 114, 114);
+    margin-left:2px;
+    margin-right: 5px;
+    margin-bottom: 20px;
+    }
+    .detail{
+        margin-left: -20px;
+    }
+    body{
+        font-size: x-small;
+    }
+    .block{
+        margin-left:-25px;
+    }
+    .example-card .block{
+        margin-left: 0px !important;
+    }
+
+}
+
+.rwd-header{
+    width:97%;
+    height:40px;
+    color:white;
+    background-color: #79b99e;
+    border-radius: 5px;
+    margin-left: 2px !important;
+    margin-right: 5px;
+}
+
+.rwd-header i{
+    color: white !important;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-left:10px;
+}
+
+.rwd-header h6{
+    margin-top:10px;
+}
+
+.button_collapse{
+    color:#76323f;
+    outline:none;
+    background-color: white;
+    border-color: transparent;
+    margin-left: 25px;
+    display: flex;
+    width: 90%;
+    text-align: center;
+}
+
+.button_collapse::before,
+.button_collapse::after {
+    content: '';
+    border-top: 2px solid;
+    margin: 0 20px 0 0;
+    margin-top: 10px;
+    flex: 1 0 20px;
+}
+
+.button_collapse::after {
+    margin: 0 0 0 20px;
+    margin-top: 10px;
+}
+
+
+.aptitude input{
+    width: auto;
+    height:auto;
+}
+.rating-button{
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    background-color: rgba(255, 254, 254, 0.212); 
+}
+.back-button{
+    justify-content: end;
+}
+.rating .table{
+    border:none;
+}
+.rating-table td{
+    width: 200px;
+} 
+ .rating-table thead{
+    display: table-caption;
+    margin-left : 10px;
+}
+.rating-table{
+    border : none;
+}
+.aptitude{
+    margin-top:5px;
+}
+.aptitude_rating{
+    border:none;
+}
+.aptitude_rating td{
+    width:10px;
+}
+
+.comitteePage{
+    margin-top:20px;
+}
+
+@media only screen and (min-width: 550px) and (max-width : 799px)
+{
+    .row{
+        margin-top : 0px;
+        width:100%
+    }
+    .student-details{
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+    .top_button{
+        margin-bottom: 10px;
+        display: contents;
+    }
+    .table{
+        font-size: small;
+    }
+    .mat-card{
+        width:100%;
+    }
+} 
+
+@media only screen and (max-width: 549px) {
+    div, span{
+        font-size:small
+    }
+    .row{
+         margin-top : 0px;
+         width:100%
+     }
+    h6{
+        font-size: small;
+    }
+    .student-details, .block{
+        font-size: x-small;
+    }
+     .top_button{
+         font-size: x-small;
+         justify-content: end;
+         display: contents;
+     } 
+    .table{
+        font-size: small;
+    }
+    .comitteePage table
+    {
+        font-size: x-small;
+    }
+    .block .ul{
+        justify-content: end;
+    }
+    .mat-select{
+        font-size: small;
+    }
+    .icons{
+        margin-top:10px;
+    }
+    .text-right{
+        margin-bottom: 10px;
+        font-size: small;
+    }
+    .mat-card{
+        width:100%;
+    }
+    .mat-card .row{
+        justify-content: space-between;
+    }
+    .block{
+        width:100%;
+    }
+    .rating_language_rwd{
+        width:5px;
+        height:5px;
+    }
+    .Language_rating_row_rwd .row{
+        justify-content: normal;
+    }
+    .skills_rwd .row{
+        margin-bottom : 10px;
+    }
+    .mat-card-title{
+        background-color: #859c9b;
+    }
+    .calculation{
+        margin-left:0px;
+        font-size:x-small;
+    }
+    nav{
+        background-color: #76323f;
+        color: white;
+    }
+ }
+
+ .fa-circle::before
+ {
+     color: #66aab3;
+ }

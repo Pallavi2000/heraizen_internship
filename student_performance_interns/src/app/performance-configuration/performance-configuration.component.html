@@ -1,0 +1,414 @@
+<div><i class="fa fa-bar-chart" aria-hidden="true">Performance Configuration</i></div>
+<br>
+<div class="row" *ngIf="displaySelect">
+    <div class="col-sm-2">
+        <mat-form-field appearance="outline">
+            <mat-label>Academic Year</mat-label>
+            <mat-select [(ngModel)]="year">
+                <mat-option *ngFor="let year of academicYear" [value]="year">
+                    {{year}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    </div>
+    <div class="col-sm-2">
+        <mat-form-field appearance="outline">
+            <mat-label>Semester</mat-label>
+            <mat-select multiple [(ngModel)]="terms">
+                <mat-option *ngFor="let terms of semesters" [value]="terms">
+                    {{terms}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="col-sm-2">
+        <mat-form-field appearance="outline">
+            <mat-label>Section</mat-label>
+            <mat-select multiple [(ngModel)]="sec">
+                <mat-option *ngFor="let sec of sections" [value]="sec" (click)="Infosubmit()">
+                    {{sec}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <br>
+    <div class="container" *ngIf="dept_details">
+        <div class="col-sm-3" *ngFor="let dept of dept_details">
+            <br>
+            <div class="container" (click)="ClassInfo(dept.deptId,dept.term,dept.section)">
+                <p><b>Department - {{dept.deptId}}</b></p>
+                <p><b>Semester - {{dept.term}}</b></p>
+                <p><b>Section - {{dept.section}}</b></p>
+                <p><b>Applicable to - {{dept.applicableTo}} View</b></p>
+                <p id="large">{{dept.total}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="displayTabs">
+    <h6 id="icon" (click)="back()"><i class="fa fa-chevron-left" aria-hidden="true"></i>Back</h6>
+    <h6><b>Academic Year:</b>{{year}}
+        <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Department:</b>{{dept}}
+        <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Semester:</b>{{semester}}
+        <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Section:</b>{{section}}
+    </h6>
+    <br><br>
+    <div class="row">
+        <button class="semi-card" [ngClass]="{'color' : displayAcademic}" (click)="displayacademic()">Academic</button>
+        <button class="semi-card" [ngClass]="{'color' : displayCocurricular}"
+            (click)="displaycocurricular()">Co-Curricular</button>
+        <button class="semi-card" [ngClass]="{'color' : displaySkills}" (click)="displayskills()">Skills</button>
+        <div class="col md-offset-6"></div>
+    </div>
+    <div class="academic" *ngIf="displayAcademic == true">
+        <mat-tab-group class="innerTabs">
+            <mat-tab label="Course-Result">
+                <br>
+                <div class="lab">
+                    <h6 id="inner"><b><u>LAB</u></b></h6>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6><b>Internal</b></h6>
+                        </div>
+                        <div class="col-sm-3">
+                            <h6><b>Points:</b><input type="text">/10</h6>
+                        </div>
+                        <div class="col-sm-3">
+                            <h6><b>Total : 0</b></h6>
+                        </div>
+                        <div class="col-sm-3">
+                            <h6><b>Threshold&nbsp;&nbsp;&nbsp;</b><input type="text"></h6>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6><b>External</b></h6>
+                        </div>
+                        <div class="col-sm-3">
+                            <h6><b>Points:</b><input type="text">/10</h6>
+                        </div>
+                        <div class="col-sm-3">
+                            <h6><b>Total : 0</b></h6>
+                        </div>
+                        <div class="col-sm-3">
+                            <h6><b>Threshold&nbsp;&nbsp;&nbsp;</b><input type="text"></h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="theory">
+                    <h6 id="inner"><b><u>THEORY</u></b></h6>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6><b>Internal</b></h6>
+                        </div>
+                        <div class="col-sm-3">
+                            <h6><b>Points:</b><input type="text">/10</h6>
+                        </div>
+                        <div class="col-sm-3">
+                            <h6><b>Total : 0</b></h6>
+                        </div>
+                        <div class="col-sm-3">
+                            <h6><b>Threshold&nbsp;&nbsp;&nbsp;</b><input type="text"></h6>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6><b>External</b></h6>
+                        </div>
+                        <div class="col-sm-3">
+                            <h6><b>Points:</b><input type="text">/10</h6>
+                        </div>
+                        <div class="col-sm-3">
+                            <h6><b>Total : 0</b></h6>
+                        </div>
+                        <div class="col-sm-3">
+                            <h6><b>Threshold&nbsp;&nbsp;&nbsp;</b><input type="text"></h6>
+                        </div>
+                    </div>
+                </div>
+                <h6 id="total">Total(Academic)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 0</h6>
+            </mat-tab>
+            <mat-tab label="Attendance">
+                <br>
+                <div class="lab">
+                    <h6 id="inner"><b><u>LAB</u></b></h6>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6><b>Internal</b></h6>
+                        </div>
+                        <div class="col-sm-3">
+                            <h6><b>Points:</b><input type="text">/10</h6>
+                        </div>
+                        <div class="col-sm-3">
+                            <h6><b>Total : 0</b></h6>
+                        </div>
+                        <div class="col-sm-3">
+                            <h6><b>Threshold&nbsp;&nbsp;&nbsp;</b><input type="text"></h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="theory">
+                    <h6 id="inner"><b><u>THEORY</u></b></h6>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6><b>Internal</b></h6>
+                        </div>
+                        <div class="col-sm-3">
+                            <h6><b>Points:</b><input type="text">/10</h6>
+                        </div>
+                        <div class="col-sm-3">
+                            <h6><b>Total : 0</b></h6>
+                        </div>
+                        <div class="col-sm-3">
+                            <h6><b>Threshold&nbsp;&nbsp;&nbsp;</b><input type="text"></h6>
+                        </div>
+                    </div>
+                </div>
+                <h6 id="total">Total(Academic)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 0</h6>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+    <div class="skills" *ngIf="displaySkills == true">
+        <mat-tab-group class="innerTabs">
+            <mat-tab label="Language Proficeincy in English ">
+                <div class="lab">
+                    <h6 id="inner"><b><u>LANGUAGE PROFICEINCY LEVELS</u></b></h6>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6><b># of Levels &nbsp;&nbsp;&nbsp;<input type="text">/Academic Year</b></h6>
+                        </div>
+                        <div class="col-sm-8">
+                            <h6>Enter Level 1 Name&nbsp;&nbsp;<input type="text"></h6>
+                            <h6>Enter Level 2 Name&nbsp;&nbsp;<input type="text"></h6>
+                            <h6>Enter Level 3 Name&nbsp;&nbsp;<input type="text"></h6>
+                            <h6>Enter Level 4 Name&nbsp;&nbsp;<input type="text"></h6>
+                            <h6>Enter Level 5 Name&nbsp;&nbsp;<input type="text"></h6>
+                        </div>
+                    </div>
+                </div>
+                <h6 id="total">Total&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 0</h6>
+            </mat-tab>
+            <mat-tab label="Apptitude">
+                <div class="lab">
+                    <h6 id="inner"><b><u>COMPONENTS</u></b></h6>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6><b># of Levels &nbsp;&nbsp;&nbsp;<input type="text">/Academic Year</b></h6>
+                        </div>
+                        <div class="col-sm-5">
+                            <h6>Enter Level 1 Name&nbsp;&nbsp;<input type="text"></h6>
+                            <h6>Enter Level 2 Name&nbsp;&nbsp;<input type="text"></h6>
+                            <h6>Enter Level 3 Name&nbsp;&nbsp;<input type="text"></h6>
+                        </div>
+                    </div>
+                </div>
+
+                <h6 id="total">Total(Academic)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 0</h6>
+            </mat-tab>
+            <mat-tab label="Soft-Skills">
+                <div class="lab">
+                    <h6 id="inner"><b><u>COMPONENTS</u></b></h6>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6><b># of Levels &nbsp;&nbsp;&nbsp;<input type="text">/Academic Year</b></h6>
+                        </div>
+                        <div class="col-sm-5">
+                            <h6>Enter Level 1 Name&nbsp;&nbsp;<input type="text"></h6>
+                            <h6>Enter Level 2 Name&nbsp;&nbsp;<input type="text"></h6>
+                            <h6>Enter Level 3 Name&nbsp;&nbsp;<input type="text"></h6>
+                        </div>
+                    </div>
+                </div>
+                <h6 id="total">Total(Academic)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 0</h6>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+    <div class="academic" *ngIf="displayCocurricular == true">
+        <div class="corporate" (click)="corporate()">
+            <h6><b>Corporate Life and Management</b><button class="btn_click" type="submit">{{indicator_1}}</button></h6>
+        </div>
+        <div class="committe" *ngIf="displayCorporate == true">
+            <mat-tab-group class="innerTabs">
+                <mat-tab label="Committe">
+                    <br>
+                    <div class="lab">
+                        <h6 id="inner"><b><u>COMMITTE</u></b></h6>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6><b>Count:</b><input type="text">/Academic Year</h6>
+                            </div>
+                            <div class="col-sm-3">
+                                <h6><b>Points:</b><input type="text">/Committe</h6>
+                            </div>
+                            <div class="col-sm-3">
+                                <h6><b>Total : 0</b></h6>
+                            </div>
+                            <div class="col-sm-3">
+                                <h6><b>Threshold&nbsp;&nbsp;&nbsp;</b><input type="text"></h6>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+        <div class="corporate" (click)="professional()">
+            <h6><b>Professional Development and Activity</b><button class="btn_click" type="submit">{{indicator_2}}</button></h6>
+        </div>
+        <div class="committe" *ngIf="displayActivity == true">
+            <mat-tab-group class="innerTabs">
+                <mat-tab label="Project">
+                    <div class="lab">
+                        <h6 id="inner"><b><u>MINI PROJECT</u></b></h6>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6><b>Count:</b><input type="text">/Academic Year</h6>
+                            </div>
+                            <div class="col-sm-3">
+                                <h6><b>Points:</b><input type="text">/Paper</h6>
+                            </div>
+                            <div class="col-sm-3">
+                                <h6><b>Total : 0</b></h6>
+                            </div>
+                            <div class="col-sm-3">
+                                <h6><b>Threshold&nbsp;&nbsp;&nbsp;</b><input type="text"></h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="theory">
+                        <h6 id="inner"><b><u>MAJOR PROJECT</u></b></h6>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6><b>Count:</b><input type="text">/Academic Year</h6>
+                            </div>
+                            <div class="col-sm-3">
+                                <h6><b>Points:</b><input type="text">/Paper</h6>
+                            </div>
+                            <div class="col-sm-3">
+                                <h6><b>Total : 0</b></h6>
+                            </div>
+                            <div class="col-sm-3">
+                                <h6><b>Threshold&nbsp;&nbsp;&nbsp;</b><input type="text"></h6>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Internship">
+                    <div class="lab">
+                        <h6 id="inner"><b><u>INTERNSHIP</u></b></h6>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6><b>Count:</b><input type="text">/Academic Year</h6>
+                            </div>
+                            <div class="col-sm-3">
+                                <h6><b>Points:</b><input type="text">/Paper</h6>
+                            </div>
+                            <div class="col-sm-3">
+                                <h6><b>Total : 0</b></h6>
+                            </div>
+                            <div class="col-sm-3">
+                                <h6><b>Threshold&nbsp;&nbsp;&nbsp;</b><input type="text"></h6>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Publication">
+                    <div class="lab">
+                        <h6 id="inner"><b><u>PAPER</u></b></h6>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6><b>Count:</b><input type="text">/Academic Year</h6>
+                            </div>
+                            <div class="col-sm-3">
+                                <h6><b>Points:</b><input type="text">/Paper</h6>
+                            </div>
+                            <div class="col-sm-3">
+                                <h6><b>Total : 0</b></h6>
+                            </div>
+                            <div class="col-sm-3">
+                                <h6><b>Threshold&nbsp;&nbsp;&nbsp;</b><input type="text"></h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="theory">
+                        <h6 id="inner"><b><u>ARTICLE</u></b></h6>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6><b>Count:</b><input type="text">/Academic Year</h6>
+                            </div>
+                            <div class="col-sm-3">
+                                <h6><b>Points:</b><input type="text">/Paper</h6>
+                            </div>
+                            <div class="col-sm-3">
+                                <h6><b>Total : 0</b></h6>
+                            </div>
+                            <div class="col-sm-3">
+                                <h6><b>Threshold&nbsp;&nbsp;&nbsp;</b><input type="text"></h6>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Certification">
+                    <div class="lab">
+                        <h6 id="inner"><b><u>CERTIFICATE</u></b></h6>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6><b>Count:</b><input type="text">/Academic Year</h6>
+                            </div>
+                            <div class="col-sm-3">
+                                <h6><b>Points:</b><input type="text">/Certificate</h6>
+                            </div>
+                            <div class="col-sm-3">
+                                <h6><b>Total : 0</b></h6>
+                            </div>
+                            <div class="col-sm-3">
+                                <h6><b>Threshold&nbsp;&nbsp;&nbsp;</b><input type="text"></h6>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Patents">
+                    <div class="lab">
+                        <h6 id="inner"><b><u>PATENT</u></b></h6>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6><b>Count:</b><input type="text">/Academic Year</h6>
+                            </div>
+                            <div class="col-sm-3">
+                                <h6><b>Points:</b><input type="text">/Patent</h6>
+                            </div>
+                            <div class="col-sm-3">
+                                <h6><b>Total : 0</b></h6>
+                            </div>
+                            <div class="col-sm-3">
+                                <h6><b>Threshold&nbsp;&nbsp;&nbsp;</b><input type="text"></h6>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+        <h6 id="total">Total(Co-Curricular)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 0</h6>
+
+    </div>
+    <hr>
+    <h6 id="total"><b>Grand Total &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 0</b></h6>
+    <h6><b>Due date for Performance Configuration change request :</b>
+        <mat-form-field>
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </h6>
+    <h6><b>Due Date to update self Score:</b>
+        <mat-form-field>
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker1">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+    </h6>
+    <button type="submit" class="btn submit-button">
+        <span><i class="fa fa-check" aria-hidden="true"> </i></span> Submit</button>
+</div>

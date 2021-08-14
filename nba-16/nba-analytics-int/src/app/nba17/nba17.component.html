@@ -1,0 +1,238 @@
+
+<div>
+  <!-- Breadcrumb-->
+  <div class="row">
+    <div class="col-md-11">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <i class="fa fa-bar-chart" aria-hidden="true"></i>
+          <a href="#" >{{
+            labels.analytics
+          }}</a>
+        </li>
+        <li class="active breadcrumb-item" id="breadcrumb-item2">
+          {{ labels.nba17 }}
+        </li>
+      </ol>
+    </div>
+    <div class="col-md-1">
+      <div class="backButton" (click)="backButton()" *ngIf="secondChart">
+        <i class="fas fa-chevron-left"></i>{{ labels.lowerbackbtn }}
+      </div>
+    </div>
+  </div>
+  <!-- Breadcrumb ends -->
+  <form [formGroup]="sel_data" (ngSubmit)="onsubmit()">
+    <!-- Dropdowns Start -->
+    <div class="row">
+      <!-- Acad Year -->
+      <div class="col-md-2">
+        <mat-label class="selLabel"
+          >{{ labels.academic_year }}  <!--<em>*</em>-->
+        </mat-label>
+        <mat-select
+          class="under_line"
+          disableOptionCentering
+          (selectionChange)="clicked = false"
+          [disabled]="secondChart"
+          formControlName="year" 
+        >
+          <mat-option *ngFor="let year of acad_year" [value]="year" (click) = "academicYearSelected()" >
+            {{ year }}
+          </mat-option>
+        </mat-select>
+      </div>
+      <!-- Principal Department -->
+      <div class="col-md-2" *ngIf="principal">
+        <mat-label class="selLabel">
+          {{ labels.department }} <!--<em>*</em>-->
+        </mat-label>
+        <mat-select
+          class="under_line"
+          disableOptionCentering
+          (selectionChange)="clicked = false"
+          [disabled]="secondChart"
+          formControlName="dept"
+        >
+          <mat-option *ngFor="let dept of dept_array" [value]="dept" (click) = 'principalGetAcademicYear()'>
+            {{ dept }}
+          </mat-option>
+        </mat-select>
+      </div>
+      <!-- Term -->
+      <div class="col-md-2">
+        <mat-label class="selLabel"> {{ labels.term }} <!-- <em>*</em> --> </mat-label>
+        <mat-select
+          class="under_line"
+          multiple
+          disableOptionCentering
+          (selectionChange)="clicked = false"
+          [disabled]="secondChart"
+          formControlName="term"
+        >
+          <mat-option *ngFor="let term of term_array" [value]="term">
+            Semester {{ term }}
+          </mat-option>
+        </mat-select>
+      </div>
+      <!-- vertical line -->
+      <div class="vertical_line"></div>
+      <!-- search button -->
+      <div class="col-md-2 ">
+        <button type="submit" class="other-button btn "  [disabled] = "clicked" >
+          <i class="fa fa-search"></i> {{ labels.search }}
+        </button>
+      </div>
+    </div>
+  </form>
+  <!-- <div class="row mandatory"><em>*</em>{{ labels.fields }}</div> -->
+  <div class="row hor_line"></div>
+  <div class="text-center" *ngIf="!clicked && !error1 && !firstChart">
+    {{ labels.default_message }}
+  </div>
+  <div class="text-center" *ngIf="error1">
+    {{ labels.emptyMessage }}
+  </div>
+</div>
+
+<div class="col-md-12"  *ngIf="firstChart && !error1 && fac">
+  <h6 class="text-center" ><strong>{{ labels.chart_1_nba17 }} {{chart1_labelExt}}</strong></h6>
+  <div *ngIf="displayChart" id="graphChart"
+    (select)="onSelect($event)"
+    google-chart
+    [data]="data1.dataTable"
+    [chartType]="data1.chartType"
+    [options]="data1.options"
+  ></div>
+  
+  <div *ngIf="!displayChart" id="graphChart"
+    (select)="onSelect($event)"
+    google-chart
+    [data]="data1.dataTable"
+    [chartType]="data1.chartType"
+    [options]="data1.options"
+  ></div>
+</div>
+<div class="col-md-12"  *ngIf="firstChart && !error1 && (hod || principal)">
+  <cdk-virtual-scroll-viewport  itemSize = "200" class="scroll">
+  <h6 class="text-center" ><strong>{{ labels.chart_1_nba17 }} {{chart1_labelExt}}</strong></h6>
+  <div *ngIf="displayChart" id="graphChart"
+    (select)="onSelect($event)"
+    google-chart
+    [data]="data1.dataTable"
+    [chartType]="data1.chartType"
+    [options]="data1.options"
+  ></div>
+  
+  <div *ngIf="!displayChart" id="graphChart"
+    (select)="onSelect($event)"
+    google-chart
+    [data]="data1.dataTable"
+    [chartType]="data1.chartType"
+    [options]="data1.options"
+  ></div>
+  </cdk-virtual-scroll-viewport>
+</div>
+
+<div class="row">
+  <div class="mx-0 col-md-2 leftPane d-none d-sm-block" *ngIf="secondChart">
+    <div class="mat-body-2">{{ labels.colist }}</div>
+    <mat-card id="sortBox" class="my-3 basicborder">
+      <mat-card-title class="mb-0">
+        <div class="mat-caption text-success mb-0">
+          <i>{{ labels.sortby }}</i>
+        </div>
+      </mat-card-title>
+      <mat-radio-group value="1">
+        <mat-radio-button
+          class="mat-small maintext"
+          name="sorttype"
+          value="1"
+          (click)="this.cname='false';this.average='true';this.fname='false';sortfunc()" [checked]="true">{{ labels.coAtn }}</mat-radio-button
+        ><br />
+        <mat-radio-button class="mat-small maintext" name="sorttype" value="2"
+        (click)="this.cname='true';this.average='false';this.fname='false';sortfunc()">{{ labels.coName }}
+        </mat-radio-button>
+        <mat-radio-button class="mat-small maintext" name="sorttype" value="3"
+        (click)="this.cname='false';this.average='false';this.fname='true';sortfunc()"
+        *ngIf="role != 'FACULTY'">{{ labels.faName }}
+        </mat-radio-button>
+      </mat-radio-group>
+    </mat-card>
+    <div class="row mb-3 pl-2 pr-0 col-md-12">
+      <div class="mat-caption col-md-6 text-success pl-2">
+        <!-- <i>{{ labels.noentry }}</i> -->
+        <!-- <mat-paginator [pageSizeOptions] = "size_paginator" showFirstLastButtons>
+          </mat-paginator> -->
+        <!-- <mat-select class="basicborder text-center" value="option1">
+          <mat-option class="mat-small maintext text-center" value="option1">{{
+            labels.one10
+          }}</mat-option>
+          <mat-option class="mat-small maintext text-center" value="option2">{{
+            labels.ten20
+          }}</mat-option>
+          <mat-option class="mat-small maintext text-center" value="option3">{{
+            labels.twenty30
+          }}</mat-option>
+        </mat-select> -->
+        <!-- <mat-divider vertical></mat-divider> -->
+        <div class=" vertical_line"></div>
+      </div>
+      
+      <div class="col-md-5 pl-0">
+        <mat-radio-group value="2">
+          <mat-radio-button class="mat-small" name="sortorder" value="1" (click)="this.reverse='true';sortfunc()" [checked]="true">{{
+            labels.Desc
+          }}</mat-radio-button
+          ><br />
+          <mat-radio-button class="mat-small" name="sortorder" value="2" (click)="this.reverse='false';sortfunc()"
+           >{{ labels.Asc }}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+    <div>
+      <mat-button-toggle-group class="px-1 fullwidth noborder togglegroup" vertical [value]="course_code">
+        <cdk-virtual-scroll-viewport itemSize = "200" class="scroll">
+
+         <div *ngFor="let sub of faculty;let i = index">
+            <button class="button maintext f14 text-primary checked-button mb-1 active"
+              (click)="displayChart=!displayChart;courseSelected(i,sub)" value="{{sub.courseCode}}" *ngIf="sub.courseCode==this.course_code && sub.section==this.section && sub.facultyGivenId == this.faculty_choose">        
+
+                  <p class="mat-small"> {{sub.courseName}} - {{sub.courseCode}} <br> Semester {{sub.termNumber}} - Section {{sub.section}}
+                    <span *ngIf="this.role!=='FACULTY'"><br>{{sub.facultyName}}</span></p>
+            </button>
+            <button class="button maintext f14 basicborder mb-1 active"
+              (click)="displayChart=!displayChart;courseSelected(i,sub)" value="{{sub.courseCode}}" *ngIf="!(sub.courseCode==this.course_code && sub.section==this.section && sub.facultyGivenId == this.faculty_choose)" > 
+                  <p class="mat-small"> {{sub.courseName}} - {{sub.courseCode}} <br> Semester {{sub.termNumber}} - Section {{sub.section}}
+                  <span *ngIf="this.role!=='FACULTY'"><br>{{sub["facultyName"]}}</span></p>       
+            </button>
+          </div> 
+
+        </cdk-virtual-scroll-viewport>
+      </mat-button-toggle-group>
+    </div>
+    
+  </div>
+  <div class="col-md-offset-1 vertical_line"></div>
+  <div class="col-md-9 fullwidth d-none d-md-block" *ngIf="secondChart">
+    <h6 class="text-center"><strong> {{ labels.chart_2_nba17 }}{{ clicked_course }}</strong></h6>
+    <div *ngIf="displayChart" id="graphChart"
+      google-chart
+      (select)="getDialogData($event)"
+      [data]="data2.dataTable"
+      [chartType]="data2.chartType"
+      [options]="data2.options"
+    >
+    </div>
+    
+      <div *ngIf="!displayChart" id="graphChart" 
+          google-chart
+          (select)="getDialogData($event)"
+          [data]="data2.dataTable"
+          [chartType]="data2.chartType"
+          [options]="data2.options"
+        >
+      </div>
+  </div>
+</div>

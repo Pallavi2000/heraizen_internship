@@ -1,0 +1,415 @@
+/*APOORV'S CSS starts here*/
+
+/*#facStuRadioBox
+{
+    border:2px solid #cecece;
+    border-radius: 5px;
+    width:200px;
+    height: 40px;
+    margin:auto;
+    padding: 0px;
+    box-sizing: unset;
+}*/
+
+#radioCont,
+#radioCont2 {
+	margin-left: 0;
+}
+
+#facStuRadio1 {
+	margin-top: 9px;
+}
+
+#facStuRadio2 {
+	margin-top: 9px;
+}
+
+#facStuRadio1Text {
+	margin-top: 9px;
+	margin-right: 20px;
+	font-size: 14px;
+}
+
+#facStuRadio2Text {
+	margin-top: 9px;
+	font-size: 14px;
+}
+
+#text-sort-by {
+	font-style: italic;
+	font-size: 12px;
+	color: #208465;
+	margin-bottom: 0px;
+}
+
+#hilo1Container {
+	margin-left: 0;
+	padding-left: 0;
+	font-size: 14px;
+	width: 130px;
+}
+
+#graph2Radio {
+	display: inline-block;
+}
+
+#sortByContainer {
+	display: inline-block;
+	font-size: 14px;
+}
+
+#hilo2Container {
+	margin-left: 20px;
+	padding-left: 0;
+	font-size: 14px;
+	display: inline-block;
+}
+
+#COBTButton {
+	border: 2px solid #6098d0;
+	height: 30px;
+	width: 250px;
+	border-radius: 5px;
+	padding: 0px;
+	margin-right: 0px;
+	float: right;
+	margin-top: -5px;
+}
+
+#COBTText {
+	font-size: 14px;
+	color: #6098d0;
+	font-style: italic;
+	margin-left: 35px;
+	margin-top: -29px;
+}
+
+#COBTIcon {
+	color: #6098d0;
+	display: inline-block;
+	margin-top: 2px;
+	margin-left: 5px;
+}
+
+#dirTableContainer,
+#indirTableContainer {
+	width: 45vw;
+	padding: 0px;
+	max-height: 440px;
+}
+
+#stuWiseTableContainer {
+	position: absolute;
+	margin-left: 50vw;
+	width: 500px;
+}
+
+#dirTabText,
+#indirTabText,
+#stuWiseTabText {
+	padding: 0;
+	margin-bottom: 3px;
+	font-size: 13px;
+	text-align: center;
+}
+
+#dirHead,
+#indirHead,
+#stuHead,
+#stuWiseHead {
+	background-color: #d8d8d8;
+	font-size: 13px;
+}
+
+#row {
+	font-size: 13px;
+	height: 10px;
+	padding: 0;
+}
+
+tbody {
+	background-color: white;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+#stuOverflowCont,
+#stuTableBody {
+	width: 100%;
+	overflow-y: scroll;
+	max-height: 700px;
+}
+
+#stuTableContainer {
+	width: 70vw;
+}
+
+#hilo3Container {
+	margin-left: 0;
+	padding-left: 0;
+	font-size: 14px;
+	margin-top: -25px;
+	width: 100px;
+	position: absolute;
+}
+
+#BCRadioBox {
+	border-radius: 5px;
+	width: 560px;
+	height: 40px;
+	margin: auto;
+	padding: 0px;
+	box-sizing: unset;
+	border: 2px solid #cecece;
+	margin-top: 15px;
+}
+
+#BCRadio1 {
+	margin-top: 10px;
+	margin-left: 20px;
+}
+
+#BCRadio2 {
+	margin-top: 10px;
+	margin-left: 20px;
+}
+
+#BCRadio1Text {
+	margin-top: 10px;
+	font-size: 14px;
+}
+
+#BCRadio2Text {
+	margin-top: 10px;
+	font-size: 14px;
+}
+
+.card-width {
+	width: 170px;
+	border: 2px solid #cecece;
+}
+
+.card-padding {
+	margin-left: -10px;
+	margin-top: 10px;
+}
+
+#cardBox {
+	max-width: 220px;
+	margin-left: 0px;
+}
+
+#cardContainer {
+	margin-left: 0px;
+	padding: 0px;
+	padding-bottom: 15px;
+}
+
+/*.card-prop 
+{
+	margin-bottom: 20px;
+	margin-left: -15px;
+	margin-right: -15px;
+}*/
+
+#cardContent {
+	font-size: 12px;
+}
+
+.card-active {
+	/*margin-bottom: 20px;
+	margin-left: -15px;
+	margin-right: -15px;*/
+	border: 2px solid #6098d0;
+	box-shadow: 2px 2px 6px #9c9999;
+	background-color: #edf0f3;
+}
+
+.content-active {
+	color: #6098d0;
+}
+
+#tableRow {
+	margin-left: 0px;
+	width: 100%;
+}
+/*
+#graph2Head
+{
+	width:400px;
+	
+	margin:auto;
+	position: absolute;
+	text-align: center;
+	margin-left:200px;
+	
+	display: inline-block;
+}*/
+
+#hzLine {
+	border: 1px solid rgb(134, 131, 131);
+	height: 30px;
+
+	position: absolute;
+	width: 1px;
+	display: inline-block;
+	margin-top: -3px;
+}
+
+#CODef {
+	margin-top: -20px;
+	font-size: 14px;
+	padding: 0px;
+}
+
+.italics {
+	font-style: italic;
+	display: inline-block;
+}
+
+#defLine1 {
+	height: 22px;
+}
+thead,
+tr,
+th {
+	text-align: center;
+}
+
+#stuHeader {
+	text-align: center;
+	font-size: 14px;
+	margin-top: -20px;
+	margin-bottom: 10px;
+}
+
+/*APOORV'S CSS ends here*/
+
+/*KARTHIK'S CSS starts here*/
+hr {
+	border: 1px solid gray;
+}
+.verticalLine {
+	border-left: solid #979797;
+}
+
+.AcademicYear_Label,
+.Term_Label,
+.department_label {
+	font-size: small;
+}
+
+.border {
+	border: 2px solid #cecece !important;
+	border-radius: 5px !important;
+	width: 34%;
+}
+
+@media (min-width: 768px) {
+	.col-md-2 {
+		max-width: unset;
+	}
+}
+
+.backButton {
+	margin-top: 5px !important;
+	float: right !important;
+}
+.mycol {
+	width: 14.4%;
+	margin-left: 15px;
+	margin-right: 17.5px;
+}
+div.course__list {
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.vertical__divider {
+	width: 2px;
+	background-color: #a9a9a9;
+}
+
+@media (min-width: 768px) {
+	.col-md-9 {
+		flex: 0 0 82%;
+		max-width: 100%;
+	}
+	.col-md-5 {
+		flex: 0 0 41%;
+		max-width: 37.6%;
+	}
+}
+
+.finalTable {
+	border: 1px solid #a9a9a9;
+	padding: 13px;
+	box-sizing: border-box;
+	box-shadow: 2px 2px 6px #9c9999;
+}
+
+.offset-md-2 {
+	margin-left: 25%;
+}
+
+.finalChart {
+	border: 1px solid #a9a9a9;
+	box-sizing: border-box;
+	box-shadow: 2px 2px 6px #9c9999;
+	padding: 0px;
+	margin-left: 30px;
+	margin-right: 17px;
+}
+
+@media (min-width: 768px) {
+	.col-md-7 {
+		flex: 0 0 58.333333%;
+		max-width: 55.333333%;
+		margin-left: 19px;
+	}
+}
+
+.rightAlign {
+	padding-right: 0px !important;
+	padding-left: 0px !important;
+	margin-top: -75px;
+}
+
+.alignProp {
+	flex: 0 0 41% !important;
+	max-width: 41.6% !important;
+}
+
+.horizontal_divider {
+	background-color: 2px #a9a9a9;
+}
+
+@media (min-width: 768px) {
+	.offset-md-5 {
+		margin-left: 39.5%;
+	}
+}
+.AlignTop {
+	margin-top: 25px;
+}
+
+.col-md-4 {
+	padding-bottom: 10px;
+}
+.Htitle {
+	text-align: center;
+	justify-content: center;
+	display: block;
+	margin: auto;
+	font-style: italic;
+	padding-left: 90px;
+}
+.Htitle1 {
+	text-align: center;
+	justify-content: center;
+	display: block;
+	margin: auto;
+}
+/*KARTHIK'S CSS ends here*/

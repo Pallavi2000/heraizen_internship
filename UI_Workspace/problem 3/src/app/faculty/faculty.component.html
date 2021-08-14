@@ -1,0 +1,111 @@
+<div class="row">
+    <!---Add Faculty Form--->
+    <div class="col-sm-4">
+        <h4>Add New Faculty</h4>
+        <form [formGroup]="f_form" id="idF" (ngSubmit)="submitForm()">
+            <div class="form-group">
+
+                <input type="text" id="employeeId" name="employeeId" class="form-control " placeholder="Enter empno"
+                    formControlName="employeeId">
+                <small class="text-danger" *ngIf="employeeId.touched && employeeId.invalid">
+                    Employee number cannot be empty
+                </small>
+            </div>
+            <div class="form-group">
+
+                <!--<label for="empno">Emp Number: </label>-->
+                <input type="text" id="name" name="name" class="form-control " placeholder="Enter Name "
+                    formControlName="name">
+                <small class="text-danger" *ngIf="name.touched && name.invalid">
+                    Employee name cannot be empty
+                </small>
+            </div>
+            <div class="form-group">
+
+                <input type="text" id="qualification" name="qualification" class="form-control "
+                    placeholder="Enter your qualification" formControlName="qualification">
+                <small class="text-danger" *ngIf="qualification.touched && qualification.invalid">
+                    Qualification cannot be empty
+                </small>
+            </div>
+
+            <div class="form-group">
+
+                <input type="text" id="deptId" name="deptId" class="form-control " placeholder="Enter Department"
+                    formControlName="deptId">
+                <small class="text-danger" *ngIf="deptId.touched && deptId.invalid">
+                    Department cannot be empty
+                </small>
+
+            </div>
+            <div class="form-group">    
+                    <select formControlName = "active" class>
+                        <option value = "">Select Status</option>
+                        <option value = "true">Working</option>
+                        <option value = "false">Not Working</option>
+                    </select>
+            </div> 
+            <div>
+                <button class="btn btn-primary" [disabled]="f_form.invalid">Add Faculty</button>
+            </div>
+        </form>
+
+    </div>
+
+    <!--Logic Search And Display-->
+    <div class="col-sm-4">
+
+
+        <div class="form-group">
+            <br>
+            <input type="text" class="form-control" [(ngModel)]="searchStr" (keyup.enter)="getSearchResult()"
+                placeholder="Enter the name to search">
+
+        </div>
+
+        <div *ngIf="searchFaculty.length > 0">
+
+            <table class="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Empno</th>
+                    <th>Qual</th>
+                    <th>Dname</th>
+                </tr>
+
+                <tr *ngFor="let f of searchFaculty">
+                    <td>{{f.name}}</td>
+                    <td>{{f.employeeId}}</td>
+                    <td>{{f.qualification}}</td>
+                    <td>{{f.d}}</td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+    <!--Google Chart Documentation-->
+    <div class="col-sm-4">
+        <google-chart [data]="pieChart" (chartSelect)="getEmpByDept($event)"></google-chart>
+        <div *ngIf="f_dname_list.length > 0">
+
+            <table class="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Empno</th>
+                    <th>Qual</th>
+                    <th>Dname</th>
+                </tr>
+
+                <tr *ngFor="let f of f_dname_list">
+                    <td>{{f.name}}</td>
+                    <td>{{f.employeeId}}</td>
+                    <td>{{f.qualification}}</td>
+                    <td>{{f.deptId}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <google-chart [data]="columnChart"></google-chart>
+    </div>
+</div>

@@ -1,0 +1,850 @@
+{
+  "faculty_data": {
+    "academic_year": [
+      "2017-18",
+      "2018-19",
+      "2019-20"
+    ],
+    "semesters": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "departments": [
+      "CS",
+      "EEE",
+      "ME",
+      "ECE"
+    ],
+    "po_attainment_data": [
+      {
+        "courseCode": "17CS52",
+        "courseName": "COMPUTER NETWORKS",
+        "deptId": "CS",
+        "facultyId": "462",
+        "facultyName": "Dr Ravikiran A .Mundewadi",
+        "academic_year": "2018-19",
+        "section": "A",
+        "termNumber": "5",
+        "po_wise_attainment": [
+          {
+            "po_blooms_level": "ANALYZE",
+            "poNumber": 1,
+            "po_attainment": 10,
+            "Co_details": [
+              {
+                "coNumber": 1,
+                "bloomsLevel": "analyze",
+                "totalAttainment": 5.22,
+                "directAttainment": 2.89,
+                "indirectAttainment": 2.33,
+                "num_of_topics":10,
+                "coTitle": "Explain principles of application layer protocols\n",
+                "students_wise_attainment": {
+                  "name": "Pratheeksha Hegde",
+                  "usn": "4ME18CS001",
+                  "attainment": "2",
+                  "direct_attainment": [
+                    0.0,
+                    0.0,
+                    38.89
+                  ],
+                  "direct_attainmentPercentage": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "direct_methodDescription": [
+                    "Internal Assessment",
+                    ""
+                  ],
+                  "direct_methodName": [
+                    "IA",
+                    "UE",
+                    "Other Assessment"
+                  ],
+                  "direct_total_obtained_score": [
+                    "8",
+                    "7",
+                    "6"
+                  ],
+                  "direct_total_max_score": [
+                    "6",
+                    "7",
+                    "9"
+                  ],
+                  "indirect_attainment": [
+                    0.0
+                  ],
+                  "indirect_attainmentPercentage": [
+                    0.0
+                  ],
+                  "indirect_methodDescription": [
+                    "CES"
+                  ],
+                  "indirect_methodName": [
+                    "Feedback"
+                  ],
+                  "indirect_total_obtained_score": [
+                    0.0
+                  ],
+                  "indirect_total_max_score": [
+                    0.0
+                  ]
+                }
+              },
+              {
+                "coNumber": 2,
+                "bloomsLevel": "Understand",
+                  "totalAttainment": 5.22,
+                "directAttainment": 2.27,
+                "indirectAttainment": 2.17,
+                "num_of_topics":12,
+                "students_wise_attainment": {
+                  "name": "Navya S",
+                  "usn": "4ME18CS002",
+                  "attainment": "2.1",
+                  "direct_attainment": [
+                    67.57,
+                    0.0,
+                    0.0
+                  ],
+                  "direct_attainmentPercentage": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "direct_methodDescription": [
+                    "Internal Assessment",
+                    ""
+                  ],
+                  "direct_methodName": [
+                    "IA",
+                    "UE",
+                    "Other Assessment"
+                  ],
+                  "direct_total_obtained_score": [
+                    "8",
+                    "7",
+                    "6"
+                  ],
+                  "direct_total_max_score": [
+                    "6",
+                    "7",
+                    "9"
+                  ],
+                  "indirect_attainment": [
+                    0.0
+                  ],
+                  "indirect_attainmentPercentage": [
+                    0.0
+                  ],
+                  "indirect_methodDescription": [
+                    "CES"
+                  ],
+                  "indirect_methodName": [
+                    "Feedback"
+                  ],
+                  "indirect_total_obtained_score": [
+                    0.0
+                  ],
+                  "indirect_total_max_score": [
+                    0.0
+                  ]
+                }
+              },
+              {
+                "coNumber": 3,
+                "bloomsLevel": "analyze",
+                 "totalAttainment": 7.22,
+                "directAttainment": 2.95,
+                "indirectAttainment": 2.18,
+                "num_of_topics":15,
+                "students_wise_attainment": {
+                  "name": "Indushree",
+                  "usn": "4ME18CS003",
+                  "attainment": "2.2",
+                  "direct_attainment": [
+                    73.18,
+                    0.0,
+                    0.0
+                  ],
+                  "direct_attainmentPercentage": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "direct_methodDescription": [
+                    "Internal Assessment",
+                    ""
+                  ],
+                  "direct_methodName": [
+                    "IA",
+                    "UE",
+                    "Other Assessment"
+                  ],
+                  "direct_total_obtained_score": [
+                    "8",
+                    "7",
+                    "6"
+                  ],
+                  "direct_total_max_score": [
+                    "6",
+                    "7",
+                    "9"
+                  ],
+                  "indirect_attainment": [
+                    0.0
+                  ],
+                  "indirect_attainmentPercentage": [
+                    0.0
+                  ],
+                  "indirect_methodDescription": [
+                    "CES"
+                  ],
+                  "indirect_methodName": [
+                    "Feedback"
+                  ],
+                  "indirect_total_obtained_score": [
+                    0.0
+                  ],
+                  "indirect_total_max_score": [
+                    0.0
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "po_blooms_level": "UNDERSTAND",
+            "poNumber": 2,
+            "po_attainment": 14,
+            "Co_details": [
+              {
+                "coNumber": 1,
+                "bloomsLevel": "analyze",
+                  "totalAttainment": 9,
+                "directAttainment": 2.89,
+                "indirectAttainment": 2.33,
+                "num_of_topics":12,
+                "coTitle": "Explain principles of application layer protocols\n",
+                "students_wise_attainment": {
+                  "name": "Pratheeksha Hegde",
+                  "usn": "4ME18CS001",
+                  "attainment": "2",
+                  "direct_attainment": [
+                    0.0,
+                    0.0,
+                    38.89
+                  ],
+                  "direct_attainmentPercentage": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "direct_methodDescription": [
+                    "Internal Assessment",
+                    ""
+                  ],
+                  "direct_methodName": [
+                    "IA",
+                    "UE",
+                    "Other Assessment"
+                  ],
+                  "direct_total_obtained_score": [
+                    "8",
+                    "7",
+                    "6"
+                  ],
+                  "direct_total_max_score": [
+                    "6",
+                    "7",
+                    "9"
+                  ],
+                  "indirect_attainment": [
+                    0.0
+                  ],
+                  "indirect_attainmentPercentage": [
+                    0.0
+                  ],
+                  "indirect_methodDescription": [
+                    "CES"
+                  ],
+                  "indirect_methodName": [
+                    "Feedback"
+                  ],
+                  "indirect_total_obtained_score": [
+                    0.0
+                  ],
+                  "indirect_total_max_score": [
+                    0.0
+                  ]
+                }
+              },
+              {
+                "coNumber": 2,
+                "bloomsLevel": "Understand",
+                  "totalAttainment": 5.22,
+                "directAttainment": 2.27,
+                "indirectAttainment": 2.17,
+                "num_of_topics":15,
+                "students_wise_attainment": {
+                  "name": "Navya S",
+                  "usn": "4ME18CS002",
+                  "attainment": "2.1",
+                  "direct_attainment": [
+                    67.57,
+                    0.0,
+                    0.0
+                  ],
+                  "direct_attainmentPercentage": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "direct_methodDescription": [
+                    "Internal Assessment",
+                    ""
+                  ],
+                  "direct_methodName": [
+                    "IA",
+                    "UE",
+                    "Other Assessment"
+                  ],
+                  "direct_total_obtained_score": [
+                    "8",
+                    "7",
+                    "6"
+                  ],
+                  "direct_total_max_score": [
+                    "6",
+                    "7",
+                    "9"
+                  ],
+                  "indirect_attainment": [
+                    0.0
+                  ],
+                  "indirect_attainmentPercentage": [
+                    0.0
+                  ],
+                  "indirect_methodDescription": [
+                    "CES"
+                  ],
+                  "indirect_methodName": [
+                    "Feedback"
+                  ],
+                  "indirect_total_obtained_score": [
+                    0.0
+                  ],
+                  "indirect_total_max_score": [
+                    0.0
+                  ]
+                }
+              },
+              {
+                "coNumber": 3,
+                "bloomsLevel": "analyze",
+                "totalAttainment": 5.22,
+                "directAttainment": 2.95,
+                "indirectAttainment": 2.18,
+                "num_of_topics":16,
+                "students_wise_attainment": {
+                  "name": "Indushree",
+                  "usn": "4ME18CS003",
+                  "attainment": "2.2",
+                  "direct_attainment": [
+                    73.18,
+                    0.0,
+                    0.0
+                  ],
+                  "direct_attainmentPercentage": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "direct_methodDescription": [
+                    "Internal Assessment",
+                    ""
+                  ],
+                  "direct_methodName": [
+                    "IA",
+                    "UE",
+                    "Other Assessment"
+                  ],
+                  "direct_total_obtained_score": [
+                    "8",
+                    "7",
+                    "6"
+                  ],
+                  "direct_total_max_score": [
+                    "6",
+                    "7",
+                    "9"
+                  ],
+                  "indirect_attainment": [
+                    0.0
+                  ],
+                  "indirect_attainmentPercentage": [
+                    0.0
+                  ],
+                  "indirect_methodDescription": [
+                    "CES"
+                  ],
+                  "indirect_methodName": [
+                    "Feedback"
+                  ],
+                  "indirect_total_obtained_score": [
+                    0.0
+                  ],
+                  "indirect_total_max_score": [
+                    0.0
+                  ]
+                }
+              },
+              {
+                "coNumber": 4,
+                "bloomsLevel": "Remember",
+                   "totalAttainment": 5.22,
+                "directAttainment": 2.5,
+                "indirectAttainment": 2.7,
+                "num_of_topics":9,
+                "students_wise_attainment": {
+                  "name": "Soujanya",
+                  "usn": "4ME18CS004",
+                  "attainment": "2.3",
+                  "direct_attainment": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "direct_attainmentPercentage": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "direct_methodDescription": [
+                    "Internal Assessment",
+                    ""
+                  ],
+                  "direct_methodName": [
+                    "IA",
+                    "UE",
+                    "Other Assessment"
+                  ],
+                  "direct_total_obtained_score": [
+                    "8",
+                    "7",
+                    "6"
+                  ],
+                  "direct_total_max_score": [
+                    "6",
+                    "7",
+                    "9"
+                  ],
+                  "indirect_attainment": [
+                    0.0
+                  ],
+                  "indirect_attainmentPercentage": [
+                    0.0
+                  ],
+                  "indirect_methodDescription": [
+                    "CES"
+                  ],
+                  "indirect_methodName": [
+                    "Feedback"
+                  ],
+                  "indirect_total_obtained_score": [
+                    0.0
+                  ],
+                  "indirect_total_max_score": [
+                    0.0
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "po_blooms_level": "REMEMBER",
+            "poNumber": 3,
+            "po_attainment": 12,
+            "Co_details": [
+              {
+                "coNumber": 1,
+                "bloomsLevel": "analyze",
+                  "totalAttainment": 5.22,
+                "directAttainment": 2.89,
+                "indirectAttainment": 2.33,
+                "num_of_topics":6,
+                "coTitle": "Explain principles of application layer protocols\n",
+                "students_wise_attainment": {
+                  "name": "Pratheeksha Hegde",
+                  "usn": "4ME18CS001",
+                  "attainment": "2",
+                  "direct_attainment": [
+                    0.0,
+                    0.0,
+                    38.89
+                  ],
+                  "direct_attainmentPercentage": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "direct_methodDescription": [
+                    "Internal Assessment",
+                    ""
+                  ],
+                  "direct_methodName": [
+                    "IA",
+                    "UE",
+                    "Other Assessment"
+                  ],
+                  "direct_total_obtained_score": [
+                    "8",
+                    "7",
+                    "6"
+                  ],
+                  "direct_total_max_score": [
+                    "6",
+                    "7",
+                    "9"
+                  ],
+                  "indirect_attainment": [
+                    0.0
+                  ],
+                  "indirect_attainmentPercentage": [
+                    0.0
+                  ],
+                  "indirect_methodDescription": [
+                    "CES"
+                  ],
+                  "indirect_methodName": [
+                    "Feedback"
+                  ],
+                  "indirect_total_obtained_score": [
+                    0.0
+                  ],
+                  "indirect_total_max_score": [
+                    0.0
+                  ]
+                }
+              },
+              {
+                "coNumber": 2,
+                "num_of_topics":10,
+                "bloomsLevel": "Understand",
+                  "totalAttainment": 5.22,
+                "directAttainment": 2.27,
+                "indirectAttainment": 2.17,
+                "students_wise_attainment": {
+                  "name": "Navya S",
+                  "usn": "4ME18CS002",
+                  "attainment": "2.1",
+                  "direct_attainment": [
+                    67.57,
+                    0.0,
+                    0.0
+                  ],
+                  "direct_attainmentPercentage": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "direct_methodDescription": [
+                    "Internal Assessment",
+                    ""
+                  ],
+                  "direct_methodName": [
+                    "IA",
+                    "UE",
+                    "Other Assessment"
+                  ],
+                  "direct_total_obtained_score": [
+                    "8",
+                    "7",
+                    "6"
+                  ],
+                  "direct_total_max_score": [
+                    "6",
+                    "7",
+                    "9"
+                  ],
+                  "indirect_attainment": [
+                    0.0
+                  ],
+                  "indirect_attainmentPercentage": [
+                    0.0
+                  ],
+                  "indirect_methodDescription": [
+                    "CES"
+                  ],
+                  "indirect_methodName": [
+                    "Feedback"
+                  ],
+                  "indirect_total_obtained_score": [
+                    0.0
+                  ],
+                  "indirect_total_max_score": [
+                    0.0
+                  ]
+                }
+              },
+              {
+                "coNumber": 3,
+                "num_of_topics":10,
+                "bloomsLevel": "analyze",
+                "totalAttainment": 5.22,
+                "directAttainment": 2.95,
+                "indirectAttainment": 2.18,
+                "students_wise_attainment": {
+                  "name": "Indushree",
+                  "usn": "4ME18CS003",
+                  "attainment": "2.2",
+                  "direct_attainment": [
+                    73.18,
+                    0.0,
+                    0.0
+                  ],
+                  "direct_attainmentPercentage": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "direct_methodDescription": [
+                    "Internal Assessment",
+                    ""
+                  ],
+                  "direct_methodName": [
+                    "IA",
+                    "UE",
+                    "Other Assessment"
+                  ],
+                  "direct_total_obtained_score": [
+                    "8",
+                    "7",
+                    "6"
+                  ],
+                  "direct_total_max_score": [
+                    "6",
+                    "7",
+                    "9"
+                  ],
+                  "indirect_attainment": [
+                    0.0
+                  ],
+                  "indirect_attainmentPercentage": [
+                    0.0
+                  ],
+                  "indirect_methodDescription": [
+                    "CES"
+                  ],
+                  "indirect_methodName": [
+                    "Feedback"
+                  ],
+                  "indirect_total_obtained_score": [
+                    0.0
+                  ],
+                  "indirect_total_max_score": [
+                    0.0
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "courseCode": "17BT35",
+        "courseName": "CELL BIOLOGY AND GENETICS",
+        "deptId": "CS",
+        "facultyId": "462",
+        "facultyName": "Dr Ravikiran A .Mundewadi",
+        "academic_year": "2018-19",
+        "section": "A",
+        "termNumber": "5",
+        "po_wise_attainment": [
+          {
+            "po_blooms_level": "ANALYZE",
+            "poNumber": 1,
+            "po_attainment": 20,
+            "co_details": [
+              {
+                "coNumber": 1,
+                "num_of_topics": 10,
+                "total_attainment_value": 0.5,
+                "co_blooms_level": "UNDERSTAND"
+              },
+              {
+                "coNumber": 2,
+                "num_of_topics": 10,
+                "total_attainment_value": 0.3,
+                "co_blooms_level": "APPLY"
+              },
+              {
+                "coNumber": 3,
+                "num_of_topics": 10,
+                "total_attainment_value": 0.2,
+                "co_blooms_level": "REMEMBER"
+              }
+            ]
+          },
+          {
+            "po_blooms_level": "UNDERSTAND",
+            "poNumber": 2,
+            "po_attainment": 14,
+            "co_details": [
+              {
+                "coNumber": 1,
+                "num_of_topics": 10,
+                "total_attainment_value": 0.2,
+                "co_blooms_level": "CREATE"
+              },
+              {
+                "coNumber": 2,
+                "num_of_topics": 10,
+                "total_attainment_value": 0.5,
+                "co_blooms_level": "REMEMBER"
+              },
+              {
+                "coNumber": 4,
+                "num_of_topics": 10,
+                "total_attainment_value": 0.5,
+                "co_blooms_level": "EVALUATE"
+              }
+            ]
+          },
+          {
+            "po_blooms_level": "REMEMBER",
+            "poNumber": 3,
+            "po_attainment": 23,
+            "co_details": [
+              {
+                "coNumber": 1,
+                "num_of_topics": 10,
+                "total_attainment_value": 0.1,
+                "co_blooms_level": "UNDERSTAND"
+              },
+              {
+                "coNumber": 2,
+                "num_of_topics": 10,
+                "total_attainment_value": 0.5,
+                "co_blooms_level": "CREATE"
+              },
+              {
+                "coNumber": 3,
+                "num_of_topics": 10,
+                "total_attainment_value": 0.3,
+                "co_blooms_level": "ANALYZE"
+              },
+              {
+                "coNumber": 4,
+                "num_of_topics": 10,
+
+                "total_attainment_value": 0.2,
+                "co_blooms_level": "ANALYZE"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "courseCode": "15BT52",
+        "courseName": "IMMUNOTECHNOLOGY",
+        "deptId": "CS",
+        "facultyId": "462",
+        "facultyName": "Dr Ravikiran A .Mundewadi",
+        "academic_year": "2019-20",
+        "section": "B",
+        "termNumber": "6",
+        "po_wise_attainment": [
+          {
+            "po_blooms_level": "ANALYZE",
+            "poNumber": 1,
+            "po_attainment": 29,
+            "co_details": [
+              {
+                "coNumber": 1,
+                "num_of_topics": 10,
+                "total_attainment_value": 0.5,
+                "co_blooms_level": "UNDERSTAND"
+              },
+              {
+                "coNumber": 2,
+                "num_of_topics": 10,
+                "total_attainment_value": 0.3,
+                "co_blooms_level": "APPLY"
+              },
+              {
+                "coNumber": 3,
+                "num_of_topics": 10,
+                "total_attainment_value": 0.2,
+                "co_blooms_level": "REMEMBER"
+              }
+            ]
+          },
+          {
+            "po_blooms_level": "UNDERSTAND",
+            "poNumber": 2,
+            "po_attainment": 14,
+            "co_details": [
+              {
+                "coNumber": 1,
+                "num_of_topics": 10,
+                "total_attainment_value": 0.2,
+                "co_blooms_level": "CREATE"
+              },
+              {
+                "coNumber": 2,
+                "num_of_topics": 10,
+                "total_attainment_value": 0.5,
+                "co_blooms_level": "REMEMBER"
+              },
+              {
+                "coNumber": 4,
+                "num_of_topics": 10,
+                "total_attainment_value": 0.5,
+                "co_blooms_level": "EVALUATE"
+              }
+            ]
+          },
+          {
+            "po_blooms_level": "REMEMBER",
+            "poNumber": 3,
+            "po_attainment": 11,
+            "co_details": [
+              {
+                "coNumber": 1,
+                "num_of_topics": 10,
+                "total_attainment_value": 0.1,
+                "co_blooms_level": "UNDERSTAND"
+              },
+              {
+                "coNumber": 2,
+                "num_of_topics": 10,
+                "total_attainment_value": 0.5,
+                "co_blooms_level": "CREATE"
+              },
+              {
+                "coNumber": 3,
+                "num_of_topics": 10,
+                "total_attainment_value": 0.3,
+                "co_blooms_level": "ANALYZE"
+              },
+              {
+                "coNumber": 4,
+                "num_of_topics": 10,
+                "total_attainment_value": 0.2,
+                "co_blooms_level": "APPLY"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

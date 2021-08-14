@@ -1,0 +1,59 @@
+.toggle {
+    padding-left: 460px;
+}    
+.chartWrapper {
+    position: relative;
+   }
+   
+.chartWrapper > .chart {
+     position: absolute;
+     left: 0;
+     top: 0;
+     pointer-events: none;
+}
+.mat-divider.mat-divider-vertical 
+{
+     border-top: 0;
+     border-right-width: 1px;
+     font-weight: bolder;
+     border-color: black;
+ }
+.chartAreaWrapper {
+     width: 120%;
+     overflow-x: scroll;
+}
+
+.scroll
+{
+     width: 10000;
+     overflow-x: scroll;
+     overflow-y: hidden;
+
+}
+.card_faculty {
+     border-radius: 3px;
+     /* border-style: solid; */
+     background-color: white;
+     font-size: small;
+     width: 120px;
+     height: auto;
+}
+
+.body-small {
+     font-size: small;
+}
+
+.body-xsmall {
+     font-size: x-small;
+}
+
+.vl {
+     border-left: 1.5px solid grey;
+     height: auto;
+   }
+
+.hl {
+     border-top: 1.5px solid grey;
+     
+   }
+

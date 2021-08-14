@@ -1,0 +1,43 @@
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 320px) and (max-device-width: 780px) and (-webkit-min-device-pixel-ratio: 2) {
+	.displayOnShrink {
+		width: 50%;
+		overflow-x: hidden;
+	}
+	.displayOnShrinkButton {
+		margin-top: 25px;
+		margin-bottom: 50px;
+		float: right !important;
+	}
+	.displayOnShrinkLine {
+		display: none;
+	}
+
+	.verticalLine {
+		border-left: 0px !important;
+	}
+	.displayOnShrinkText {
+		font-size: 10px !important;
+	}
+}
+
+hr {
+	border: 1px solid gray;
+}
+.verticalLine {
+	border-left: solid #979797;
+}
+
+.AcademicYear_Label {
+	font-size: small;
+	color: green;
+}
+
+.Term_Label {
+	font-size: small;
+	color: green;
+}
+
+.hideText {
+	display: none;
+}

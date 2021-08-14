@@ -1,0 +1,745 @@
+#outerBox {
+	background-color: white;
+	border-left: 2px solid #cecece;
+	border-right: 2px solid #cecece;
+	border-bottom: 2px solid #cecece;
+	padding: 10px;
+	position: relative;
+	right: 6% !important;
+	bottom: 1%;
+}
+
+#innerBox {
+	border: 2px solid #bbb2b2;
+	border-radius: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+}
+
+#coSelHead,
+#coDetails,
+#coDetailsRWD {
+	text-align: center;
+	color: black;
+	font-size: 14px;
+	padding-top: 10px;
+	margin-top: -5px;
+}
+
+#coDef {
+	text-align: left;
+	color: black;
+	font-size: 14px;
+	margin-top: -10px;
+	margin-left: 3px;
+}
+
+#hzLine1 {
+	width: 960px;
+	height: 2px;
+	margin-top: -1px;
+	border-width: 0;
+	color: rgb(189, 184, 184);
+	background-color: rgb(151, 144, 144);
+}
+
+#hzLine3 {
+	width: 945px;
+	height: 1px;
+	margin-top: -1px;
+	border-width: 0;
+	color: rgb(189, 184, 184);
+	background-color: rgb(151, 144, 144);
+}
+
+#hzLine2 {
+	width: 945px;
+	height: 1px;
+	margin-top: -1px;
+	border-width: 0;
+	color: rgb(189, 184, 184);
+	background-color: rgb(151, 144, 144);
+}
+
+#coTable {
+	margin-top: -10px;
+	width: 46%;
+	height: 100%;
+	display: inline-block;
+}
+
+#coDirect,
+#coIndirect {
+	width: 100%;
+	height: 50%;
+	border: 2px solid #cecaca;
+	display: block-inline;
+}
+
+#coDirectRWD {
+	display: none;
+}
+
+#coIndirect {
+	margin-top: 5px;
+}
+
+#coIndirectRWD {
+	display: none;
+}
+
+#dirHead,
+#indirHead,
+#dirHeadRWD,
+#indirHeadRWD {
+	text-align: center;
+	color: black;
+	font-size: 14px;
+}
+
+#indirHead,
+#indirHeadRWD {
+	margin-top: 10px;
+}
+
+#dirHeadRWD,
+#indirHeadRWD {
+	background-color: #d8d8d8;
+	margin-bottom: 0px;
+}
+
+#firstTable {
+	width: 100%;
+}
+
+#secondTable {
+	width: 100%;
+	margin-top: 1px;
+}
+
+.table-row {
+	height: 28px !important;
+}
+
+#table1header {
+	background-color: #d8d8d8;
+}
+
+#headerRWD {
+	background-color: #d8d8d8;
+	width: 100%;
+	border: 2px solid #d8d8d8;
+}
+
+#extrainfo {
+	border: 2px solid #cecaca;
+	width: 505px;
+	height: 377px;
+	vertical-align: top;
+	margin-top: 15px;
+	margin-left: 5px;
+	padding: 10px;
+	padding-top: 2px;
+}
+
+#radioBox {
+	font-size: 12px;
+	height: 30px;
+}
+
+#selectOne {
+	display: inline-block;
+	position: absolute;
+	margin-top: 3px;
+}
+
+#inlineRadio1,
+#inlineRadio2,
+#inlineRadio3 {
+	position: absolute;
+}
+
+#inlineRadio2 {
+	margin-left: -10px;
+}
+
+#inlineRadio3 {
+	margin-left: -10px;
+	margin-top: -5px;
+}
+
+#inlineRadio1Text {
+	margin-left: 15px;
+}
+
+#inlineRadio2Text {
+	margin-left: 5px;
+}
+
+#inlineRadio3Text {
+	position: absolute;
+	margin-left: 5px;
+	margin-top:-10ypx;
+}
+
+#radioCont {
+	position: absolute;
+	margin-top: 4px;
+	margin-left: 145px;
+}
+
+#coCurrBox,
+#feedBox,
+#counsBox {
+	border: 2px solid #cecaca;
+	min-height: 330px;
+	min-width: 300px;
+}
+
+#coCurrBox {
+	display: inline-block;
+	width: 480px;
+}
+
+#feedBox {
+	display: none;
+	right: 4%;
+	width: 100%;
+	height: 300px;
+	top: 33.5%;
+}
+
+#feedTableContainer {
+	padding: 10px;
+}
+
+#counsTableContainer {
+	padding: 10px;
+	padding-top: 5px;
+	margin-top: 5px;
+}
+
+#counsBox {
+	display: none;
+	right: 4%;
+	width: 100%;
+	top: 33.5%;
+}
+
+#currTop {
+	min-height: 35px;
+	max-height: 35px;
+	min-width: 300px;
+	background-color: #7a9d96;
+	padding: 0px;
+}
+
+#feedTop {
+	min-height: 35px;
+	max-height: 35px;
+	min-width: 300px;
+	background-color: #7a9d96;
+	padding: 0px;
+}
+
+#counsTop {
+	min-height: 35px;
+	max-height: 35px;
+	min-width: 300px;
+	background-color: #7a9d96;
+	padding: 0px;
+}
+
+#currText {
+	color: white;
+	margin-left: 12px;
+	margin-top: 0px;
+	display: inline-block;
+	position: absolute;
+	font-size: 16px;
+}
+
+#feedText {
+	color: white;
+	margin-left: 12px;
+	margin-top: 0px;
+	display: inline-block;
+}
+#counsText {
+	color: white;
+	margin-left: 12px;
+	margin-top: 0px;
+}
+
+#spacing1,
+#spacing2 {
+	min-height: 5px;
+}
+
+#currSelect {
+	display: inline-block;
+	transform: scale(.95);
+	width: 165px;
+	color: white;
+	position: absolute;
+	margin-top: -15px;
+	margin-left: 270px;
+}
+
+.mat-select-arrow {
+	border-top: 5px solid rgb(255, 255, 255);
+}
+
+#arrow {
+	transform: scale(.75);
+	position: absolute;
+	margin-top: -4px;
+	margin-left: 435px;
+}
+
+#arrow2 {
+	transform: scale(.75);
+	position: absolute;
+	margin-top: -44px;
+	margin-left: 435px;
+}
+
+#arrow3 {
+	transform: scale(.75);
+	position: absolute;
+	margin-top: -44px;
+	margin-left: 435px;
+}
+
+#feedSelect {
+	display: inline-block;
+	transform: scale(.95);
+	width: 110px;
+	color: white;
+	margin-top: -20px;
+	margin-left: 10px;
+}
+
+#vertLine1 {
+	border: 1px solid hsl(0, 0%, 100%);
+	margin-top: -46px;
+	margin-left: 260px;
+	width: 1px;
+	height: 22px;
+}
+
+#feedCumScoreText {
+	color: white;
+	margin-top: -25px;
+	margin-left: 270px;
+}
+
+#feedContainer {
+	border: 2px solid #000000;
+	min-height: 300px;
+	width: 440px;
+	margin-top: 5px;
+	margin-left: 8px;
+}
+
+#counsContainer {
+	border: 2px solid #000000;
+	min-height: 300px;
+	width: 440px;
+	margin-top: 5px;
+	margin-left: 8px;
+}
+
+#feedTable {
+	border-radius: 4px;
+}
+
+#cardContainer2 {
+	padding: 0px;
+}
+
+#tableCard {
+	border-top: 4px solid #2a8fa8;
+	border-left: 4px solid #2a8fa8;
+	width: 220px;
+	height: 130px;
+	float: left;
+	margin-top: 10px;
+	margin-left: 11px;
+	padding-top: 5px;
+}
+
+#cardStuff {
+	padding-top: 1px;
+}
+
+#icon1 {
+	color: #2a8fa8;
+	z-index: 10;
+	margin-left: 1px;
+	margin-top: 0px;
+}
+
+.dot {
+	height: 30px;
+	width: 30px;
+	background-color: rgb(255, 255, 255);
+	border-radius: 50%;
+	border: 2px solid #2a8fa8;
+	z-index: -10;
+	margin-left: -10px;
+	padding: 0px;
+	margin-top: 15px;
+	display: inline-block;
+}
+
+#cardText {
+	font-size: 11px;
+	margin-left: 23px;
+	margin-top: 10px;
+	width: 165px;
+	padding: 0px;
+}
+
+#cardLabel {
+	font-size: 11px;
+	font-weight: bold;
+	display: inline-block;
+	padding: 0px;
+	margin-top: 0px;
+}
+
+#greenBox {
+	color: white;
+	font-size: 9px;
+	font-weight: bold;
+	width: 48px;
+	margin-top: -30px;
+	border-radius: 2px;
+	margin-left: 135px;
+	background-color: #4cac7d;
+}
+
+#feedHead {
+	background-color: #d8d8d8;
+	color: black;
+	font-size: 13px;
+	padding: 0px;
+}
+
+#counsHead {
+	background-color: #d8d8d8;
+	color: black;
+	font-size: 13px;
+	padding: 0px;
+}
+
+#feedCol1 {
+	width: 33%;
+}
+
+#feedCol2 {
+	width: 33%;
+}
+
+#feedCol3 {
+	width: 33%;
+}
+
+th {
+	text-align: center;
+}
+
+td {
+	font-size: 13px;
+	height: 5px;
+	padding: 0px;
+	border-bottom: 1px solid #d8d8d8;
+	text-align: center;
+}
+
+tr {
+	height: 5px;
+	padding: 0px;
+	text-align: center;
+}
+
+.eyeIcon {
+	transform: scale(.7);
+	padding: -5px;
+}
+
+#counsSelect {
+	position: absolute;
+	transform: scale(.95);
+	width: 118px;
+	color: white;
+	margin-top: -57px;
+	margin-left: 320px;
+}
+
+#definition {
+	padding: 0px;
+	font-style: italic;
+}
+
+.bold {
+	font-weight: bold !important;
+}
+
+mat-header-cell .mat-column-mName,
+.mat-column-m1,
+.mat-column-m2,
+.mat-column-m3 {
+	width: auto;
+	text-align: center !important;
+}
+
+.mat-column-mName,
+.mat-column-m1,
+.mat-column-m2,
+.mat-column-m3 {
+	font-size: 13px;
+}
+
+.accordionData {
+	margin-left: 100px;
+	font-size: 15px;
+	padding: 0px;
+	text-align: left;
+}
+
+@media only screen and (min-width: 768px) {
+	#extrainfo {
+		display: inline-block;
+	}
+
+	#outerBox {
+		width: 1000px;
+	}
+
+	#coDetails,
+	#dirHead,
+	#indirHead {
+		display: block;
+	}
+
+	#coDetailsRWD,
+	#dirHeadRWD,
+	#indirHeadRWD {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	#extrainfo {
+		display: block;
+		width: 90vw;
+		height: 430px;
+		padding-bottom: 10px;
+		margin-left: 3%;
+	}
+
+	#outerBox {
+		width: 100vw;
+		margin-left: 27px;
+	}
+
+	#innerBox {
+		width: 96vw;
+		padding: 0px;
+		padding-bottom: 10px;
+		margin-left: -0.8%;
+	}
+
+	#hzLine1 {
+		display: none;
+	}
+
+	#hzLine2,
+	#hzLine3 {
+		width: 100%;
+	}
+
+	#coTable {
+		width: 95%;
+		margin-left: 2.5%;
+	}
+
+	#coDetails,
+	#dirHead,
+	#indirHead {
+		display: none;
+	}
+
+	#coDetailsRWD,
+	#dirHeadRWD,
+	#indirHeadRWD {
+		display: block;
+	}
+
+	#coDirect {
+		display: none;
+	}
+
+	#coIndirect {
+		display: none;
+	}
+
+	#coDirectRWD {
+		display: inline-block;
+		width: 100%;
+	}
+
+	#coIndirectRWD {
+		display: inline-block;
+		width: 100%;
+	}
+
+	#secondTable {
+		margin-top: -7px;
+	}
+
+	#inlineRadio2,
+	#inlineRadio3,
+	#inlineRadio2Text,
+	#inlineRadio3Text {
+		position: absolute;
+		margin-left: -200px;
+		margin-top: 30px;
+	}
+
+	#inlineRadio2 {
+		margin-left: -290px;
+	}
+
+	#inlineRadio2Text {
+		margin-left: -273px;
+	}
+
+	#inlineRadio3 {
+		margin-left: -180px;
+	}
+
+	#inlineRadio3Text {
+		margin-left: -165px;
+	}
+
+	#radioBox {
+		width: 85vw;
+	}
+
+	#threeCont {
+		margin-top: 30px;
+		height: 400px;
+	}
+
+	#overflowCont1 {
+		overflow-y: scroll;
+		height: 280px;
+		margin-left: 0px;
+	}
+
+	#overflowCont2 {
+		overflow-y: scroll;
+		height: 280px;
+		margin-left: 0px;
+	}
+
+	#overflowCont3 {
+		overflow-y: scroll;
+		height: 280px;
+		margin-left: 0px;
+	}
+
+	#coCurrBox {
+		width: 84.5vw;
+		height: 355px;
+		margin-left: .15vw;
+	}
+
+	#tableCard {
+		width: 270px;
+		height: 125px;
+		margin-left: -5px;
+	}
+
+	#cardContainer2 {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	#currTop {
+		min-height: 70px;
+		max-height: 70px;
+		width: 84.25vw;
+	}
+
+	#feedTop {
+		min-height: 70px;
+		max-height: 70px;
+		width: 100%;
+	}
+
+	#arrow {
+		margin-top: 30px;
+		margin-left: 74.9vw;
+	}
+
+	#currSelect {
+		margin-top: 20px;
+		margin-left: 10px;
+	}
+
+	#greenBox {
+		margin-left: 185px;
+	}
+
+	#feedSelect {
+		position: absolute;
+		margin-top: 19px;
+		margin-left: -34vw;
+	}
+
+	#vertLine1 {
+		display: none;
+	}
+
+	#feedCumScoreText {
+		margin-top: -49px;
+		margin-left: 62vw;
+	}
+
+	#arrow2 {
+		margin-top: -20px;
+		margin-left: 75vw;
+	}
+
+	#feedBox {
+		width: 101%;
+		height: 88%;
+	}
+
+	#counsBox {
+		width: 101%;
+		height: 88%;
+	}
+
+	#counsTop {
+		min-height: 70px;
+		max-height: 70px;
+		width: 100%;
+	}
+
+	#counsSelect {
+		margin-top: -18px;
+		margin-left: 0vw;
+	}
+
+	#arrow3 {
+		margin-top: -10px;
+		margin-left: 75vw;
+	}
+}
